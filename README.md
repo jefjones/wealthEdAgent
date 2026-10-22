@@ -12,7 +12,7 @@ npm install
 npm run dev
 ```
 
-The dev server listens on port **3000**.
+The dev server listens on port **3005** (`strictPort`).
 
 ```bash
 npm test
@@ -21,18 +21,25 @@ npm run build
 
 ## API host
 
-`VITE_API_BASE_URL` wins when it is set.
+Every API call uses `VITE_API_BASE_URL`.
 
-- On `localhost` or `127.0.0.1`, with no override, calls go to `https://localhost:44348/` (IIS Express).
-- Otherwise they go to `https://ecdmy.com/`.
+- `client/.env.development` is `https://localhost:44348/` (IIS Express).
+- `client/.env.production` is `https://ecdmy.com/`.
 
-`VITE_USE_MOCK=true` keeps accounts, progress, and tests in this browser and does not call the network. The development env file uses mock mode so the UI can be tried without the API. A production build should set `VITE_USE_MOCK=false` and `VITE_API_BASE_URL=https://ecdmy.com/`.
+`VITE_USE_MOCK=true` in the development file keeps accounts, progress, and tests in this browser and does not call the network. Set it to `false` to call the API.
 
-Env files are gitignored. Create `client/.env.development` or `client/.env.production` locally:
+The dev certificate for `https://localhost:44348/` has to be trusted in the browser. If requests fail, open that address once and accept the certificate, then try again.
+
+Env files are gitignored. Local copies:
 
 ```
+# client/.env.development
 VITE_USE_MOCK=true
 VITE_API_BASE_URL=https://localhost:44348/
+
+# client/.env.production
+VITE_USE_MOCK=false
+VITE_API_BASE_URL=https://ecdmy.com/
 ```
 
 ## What the app does

@@ -123,17 +123,11 @@ export function mockApiEnabled() {
   return String(import.meta.env.VITE_USE_MOCK || '').toLowerCase() === 'true'
 }
 
-/**
- * wealthEd uses an env host, then a localhost tunnel, then https://ecdmy.com/.
- * This app's local net8 is IIS Express at https://localhost:44348/.
- * Set VITE_API_BASE_URL to override. Production builds should set https://ecdmy.com/.
- */
+/** API host is only VITE_API_BASE_URL. Dev: https://localhost:44348/ Production: https://ecdmy.com/ */
 export function resolveApiHost() {
   const configured = String(import.meta.env.VITE_API_BASE_URL || '').trim()
-  if (configured) return configured.endsWith('/') ? configured : `${configured}/`
-  const host = typeof window !== 'undefined' ? window.location.hostname : ''
-  if (host === 'localhost' || host === '127.0.0.1') return 'https://localhost:44348/'
-  return 'https://ecdmy.com/'
+  if (!configured) throw new Error('Set VITE_API_BASE_URL.')
+  return configured.endsWith('/') ? configured : `${configured}/`
 }
 
 export function tokenExpMs(token: string) {

@@ -1,6 +1,6 @@
 # API contract the study frontend expects
 
-Base URL: `VITE_API_BASE_URL` if set. On localhost with no override, `https://localhost:44348/`. Otherwise `https://ecdmy.com/`. Paths below are joined onto that host. The host should end with `/`.
+Base URL: `VITE_API_BASE_URL` only. Development (`client/.env.development`) is `https://localhost:44348/`. Production (`client/.env.production`) is `https://ecdmy.com/`. Paths below are joined onto that host. The host should end with `/`.
 
 Requests send `Content-Type: application/json`. After sign-in, requests send `Authorization: Bearer <token>`.
 

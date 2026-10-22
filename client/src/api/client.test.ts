@@ -63,13 +63,15 @@ describe('formatPercent', () => {
 })
 
 describe('resolveApiHost', () => {
-  it('uses the local IIS Express host on localhost when no env override is set', () => {
-    vi.stubEnv('VITE_API_BASE_URL', '')
+  it('uses VITE_API_BASE_URL and ignores the page host', () => {
+    vi.stubEnv('VITE_API_BASE_URL', 'https://localhost:44348')
     Object.defineProperty(globalThis, 'window', {
-      value: { location: { hostname: 'localhost' } },
+      value: { location: { hostname: 'example.test' } },
       configurable: true,
     })
     expect(resolveApiHost()).toBe('https://localhost:44348/')
+    vi.stubEnv('VITE_API_BASE_URL', 'https://ecdmy.com/')
+    expect(resolveApiHost()).toBe('https://ecdmy.com/')
     vi.unstubAllEnvs()
   })
 })
@@ -121,6 +123,7 @@ describe('mock auth and study flow', () => {
 describe('signed-out study 401', () => {
   it('treats an empty body as unauthorized and does not parse it', async () => {
     setMockOverride(false)
+    vi.stubEnv('VITE_API_BASE_URL', 'https://localhost:44348/')
     const expired = vi.fn()
     setSessionExpiredHandler(expired)
     const header = btoa(JSON.stringify({ alg: 'HS256', typ: 'JWT' }))
@@ -149,6 +152,10 @@ describe('signed-out study 401', () => {
     await expect(getProgress()).rejects.toBeInstanceOf(ApiError)
     expect(expired).toHaveBeenCalled()
     expect(fetchMock).toHaveBeenCalled()
+    expect(String(fetchMock.mock.calls[0]?.[0])).toBe(
+      'https://localhost:44348/api/wealthEdAgent/study/progress',
+    )
     vi.unstubAllGlobals()
+    vi.unstubAllEnvs()
   })
 })
