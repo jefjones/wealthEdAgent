@@ -1,0 +1,7 @@
+Peril
+Perils are the causes of loss insured against in an insurance policy.
+* Life insurance insures against the financial loss caused by the premature death of the insured;
+* Health insurance insures against the medical expenses and/or loss of income caused by the insured’s sickness or accidental
+injury;
+* Property insurance insures against the loss of physical property or the loss of its income-producing abilities;
+* Casualty insurance insures against the loss and/or damage of property and resulting liabilities.

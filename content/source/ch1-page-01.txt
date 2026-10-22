@@ -1,0 +1,37 @@
+Before you learn the different types of policies that you will encounter as an insurance producer, you will need to understand some
+basic terminology and concepts. First you need to understand what insurance is and who or what may become insured. This chapter
+will discuss some basic underwriting concepts, address different classifications of insurers, and will end with an explanation of
+contracts. In general, this chapter will help build a foundation of concepts that will make it easier for you to learn the rest of the material
+in this course, so it is important for you to master these ideas before moving on to the next chapter.
+
+® TERMSTO KNOW
+
+Agent/Producer — a legal representative of an insurance company; the classification of producer usually includes agents and
+
+brokers; agents are the agents of the insurer
+
+Applicant or proposed insured — a person applying for insurance
+
+Beneficiary — a person who receives the benefits of an insurance policy
+
+Broker — an insurance producer not appointed by an insurer and is deemed to represent the client
+
+Indemnity — main principle of insurance, meaning that the insured cannot recover more than their loss; the purpose of insurance is
+
+to restore the insured to the same position as before the loss
+
+Insurance policy — a contract between a policyowner (and/or insured) and an insurance company which agrees to pay the
+
+insured or the beneficiary for loss caused by specific events
+
+Insured — the person covered by the insurance policy. This person may or may not be the policyowner
+
+Insurer (principal) — the company who issues an insurance policy
+
+Law of large numbers — the larger the number of people with a similar exposure to loss, the more predictable actual losses will be
+
+Policyowner — the person entitled to exercise the rights and privileges in the policy
+
+Premium — the money paid to the insurance company for the insurance policy
+
+Reciprocity/Reciprocal — a mutual interchange of rights and privileges

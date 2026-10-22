@@ -118,20 +118,22 @@ export function setMockOverride(value: boolean | null) {
   mockOverride = value
 }
 
-export function useMockApi() {
+export function mockApiEnabled() {
   if (mockOverride !== null) return mockOverride
   return String(import.meta.env.VITE_USE_MOCK || '').toLowerCase() === 'true'
 }
 
 /**
- * wealthEd picks https://ecdmy.ngrok.app/ on localhost and https://ecdmy.com/ otherwise.
- * This app's dev server is http://localhost:3000, which ecdmy.com allows, so the default
- * host is https://ecdmy.com/ on every origin unless VITE_API_BASE_URL is set.
+ * wealthEd uses an env host, then a localhost tunnel, then https://ecdmy.com/.
+ * This app's local net8 is IIS Express at https://localhost:44348/.
+ * Set VITE_API_BASE_URL to override. Production builds should set https://ecdmy.com/.
  */
 export function resolveApiHost() {
   const configured = String(import.meta.env.VITE_API_BASE_URL || '').trim()
-  const host = configured || 'https://ecdmy.com/'
-  return host.endsWith('/') ? host : `${host}/`
+  if (configured) return configured.endsWith('/') ? configured : `${configured}/`
+  const host = typeof window !== 'undefined' ? window.location.hostname : ''
+  if (host === 'localhost' || host === '127.0.0.1') return 'https://localhost:44348/'
+  return 'https://ecdmy.com/'
 }
 
 export function tokenExpMs(token: string) {
@@ -284,6 +286,18 @@ function formatProblemErrors(errors: unknown) {
   return parts.join('; ')
 }
 
+/** Parse a response body. Empty or non-JSON text is left alone. */
+export function parseResponseBody(text: string): unknown {
+  const trimmed = text.trim()
+  if (!trimmed) return null
+  if (trimmed[0] !== '{' && trimmed[0] !== '[') return { message: trimmed }
+  try {
+    return JSON.parse(trimmed) as unknown
+  } catch {
+    return { message: trimmed }
+  }
+}
+
 function messageFrom(body: unknown, status: number) {
   const record = (body ?? {}) as { message?: string; errors?: unknown; title?: string; detail?: string }
   return (
@@ -317,15 +331,11 @@ async function realApi<T>(path: string, options: RequestInit = {}): Promise<T> {
   }
 
   const text = await response.text()
-  let body: unknown = null
-  try {
-    body = text ? JSON.parse(text) : null
-  } catch {
-    body = { message: text }
-  }
+  // A signed-out 401 on study routes has an empty body. Never JSON.parse that.
+  const body = parseResponseBody(text)
   if (!response.ok) {
     const message = messageFrom(body, response.status)
-    if (response.status === 401 && usedSession && !/(^|\/)auth\//.test(clean)) expireFromCall()
+    if (response.status === 401 && !/(^|\/)auth\//.test(clean)) expireFromCall()
     const unavailable = response.status === 404 && isStudyUnavailableMessage(message) && clean.includes('api/wealthEdAgent/study/')
     fail(response.status, message, { body, studyUnavailable: unavailable })
   }
@@ -345,7 +355,7 @@ function emptyDb(): StudyDb {
 }
 
 function studyStorageKey() {
-  return useMockApi() ? MOCK_STUDY : LOCAL_STUDY
+  return mockApiEnabled() ? MOCK_STUDY : LOCAL_STUDY
 }
 
 function allStudy(): Record<string, StudyDb> {
@@ -566,7 +576,7 @@ function localGet(attemptId: string) {
 }
 
 async function studyCall<T>(path: string, options: RequestInit | undefined, local: () => T): Promise<T> {
-  if (useMockApi() || localStudy) return local()
+  if (mockApiEnabled() || localStudy) return local()
   try {
     return await realApi<T>(path, options)
   } catch (error) {
@@ -580,7 +590,7 @@ async function studyCall<T>(path: string, options: RequestInit | undefined, loca
 }
 
 export async function login(username: string, password: string) {
-  if (useMockApi()) return mockLogin(username, password)
+  if (mockApiEnabled()) return mockLogin(username, password)
   const body = await realApi<unknown>('api/wealthEdAgent/auth/login', {
     method: 'POST',
     body: JSON.stringify({ username, password }),
@@ -598,7 +608,7 @@ export async function register(input: RegisterInput) {
     lname: clean.lname,
     emailAddress: clean.email,
   }
-  if (useMockApi()) return mockRegister(payload)
+  if (mockApiEnabled()) return mockRegister(payload)
   const body = await realApi<unknown>('api/wealthEdAgent/auth/register', {
     method: 'POST',
     body: JSON.stringify(payload),
@@ -607,7 +617,7 @@ export async function register(input: RegisterInput) {
 }
 
 export async function refreshSession() {
-  if (useMockApi()) {
+  if (mockApiEnabled()) {
     const person = requirePerson()
     return { token: issueToken(person), person }
   }
@@ -619,7 +629,7 @@ export async function refreshSession() {
 }
 
 export async function forgotPassword(username: string) {
-  if (useMockApi()) return { message: 'If that username is eligible, a reset email was sent.' }
+  if (mockApiEnabled()) return { message: 'If that username is eligible, a reset email was sent.' }
   return realApi<unknown>('ebi/WealthEd/auth/password/forgot', {
     method: 'POST',
     body: JSON.stringify({ username }),
@@ -629,7 +639,7 @@ export async function forgotPassword(username: string) {
 export async function resetPassword(input: { token: string; newPassword: string; confirmPassword: string }) {
   if (input.newPassword.length < 8) fail(400, 'Password must be at least 8 characters.')
   if (input.newPassword !== input.confirmPassword) fail(400, 'Password and confirm password must match.')
-  if (useMockApi()) fail(400, 'Reset link is invalid or expired.')
+  if (mockApiEnabled()) fail(400, 'Reset link is invalid or expired.')
   return realApi<unknown>('ebi/WealthEd/auth/password/reset', {
     method: 'POST',
     body: JSON.stringify({

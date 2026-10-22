@@ -1,0 +1,29 @@
+The term owner refers to the owner of the life insurance policy who seeks to enter into a life settlement contract. The term does not
+include an insurance provider, a qualified institutional buyer, a financing entity, a special purpose entity, or a related provider trust.
+Insured is the person covered under the policy that is considered for sale in a life settlement contract.
+Life Expectancy is an important concept in life settlement contracts. It refers to a calculation based on the average number of months
+the insured is projected to live due to medical history and mortality factors (an arithmetic mean).
+Life Settlement Contract establishes the terms under which the life settlement provider will pay compensation to the policyowner, in
+return for the assignment, transfer, sale, or release of any portion of any of the following:
+
+* The death benefit;
+
+* Policy ownership;
+
+* Any beneficial interest; or
+
+* Interest in a trust or any other entity that owns the policy.
+Life Settlement Broker is a person who, for compensation, solicits, negotiates, or offers to negotiate a life settlement contract. Life
+settlement brokers represent only the policyowners, and have a fiduciary duty to the owners to act according to their instructions and in
+their best interest.
+Life Settlement Provider is a person (other than the owner) who enters into a life settlement contract with the owner.
+2. Stranger-Originated Life Insurance (STOLI)
+Stranger-originated life insurance (STOLI) is a life insurance arrangement in which a person with no relationship to the insured (a
+"stranger’) purchases a life policy on the insured's life with the intent of selling the policy to an investor and profiting financially when the
+insured dies. In other words, STOLIs are financed and purchased solely with the intent of selling them for life settlements.
+STOLIs violate the principle of insurable interest, which is in place to ensure that a person purchasing a life insurance policy is actually
+interested in the longevity rather than the death of the insured. Because of this, insurers take an aggressive legal stance against policies
+they suspect are involved in STOLI transactions.
+Note that lawful life settlement contracts do not constitute STOLIs. Life settlement transactions result from existing life insurance policies;
+STOLIs are initiated for the purpose of obtaining a policy that would benefit a person who has no insurable interest in the life of the
+insured at the time of policy origination.

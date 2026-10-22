@@ -1,0 +1,22 @@
+Universal life offers one of two death benefit options to the policyowner. Option A is the level death benefit option, and Option B is the
+increasing death benefit option.
+Option A
+$200,000:
+&
+i
+$150,000 e
+Death Benefit s
+$100,000:
+‘$50,001
+Cash Value
+°
+sf 5 0 8 © 6
+Under Option A (Level Death Benefit option), the death benefit remains level while the cash value gradually increases, thereby lowering
+the pure insurance with the insurer in the later years. Notice that the pure insurance is actually decreasing as time passes, lowering the
+expenses, and allowing for greater cash value in the older years. The reason that the illustration shows an increase in the death benefit
+at a later point in time is so that the policy will comply with the "statutory definition of life insurance” that was established by the IRS and
+applies to all life insurance contracts issued after December 31, 1984. According to this definition, there must be a specified "corridor" or
+gap maintained between the cash value and the death benefit in a life insurance policy. The percentages that apply to the corridor are
+established in a table published by the IRS and vary as to the age of the insured and the amount of coverage. If this corridor is not
+maintained, the policy is no longer defined as life insurance for tax purposes and consequently loses most of the tax advantages that
+have been associated with life insurance.

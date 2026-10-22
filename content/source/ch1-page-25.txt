@@ -1,0 +1,5 @@
+Property and Casualty Example:
+
+Brenda has a homeowners insurance policy for $200,000. After her home was destroyed, her expense to rebuild the home added up to
+$150,000. The insurance policy will reimburse Brenda only for $150,000 (the amount of the loss), and not for $200,000 (the total amount
+of insurance).

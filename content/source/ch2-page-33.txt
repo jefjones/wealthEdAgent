@@ -1,0 +1,22 @@
+Interest
+Because premiums are paid before claims are incurred, insurance companies invest a large portion of the premiums in an effort to earn
+interest on these funds (invested in bonds, stocks, or mortgages). The interest earnings help insurers reduce the premium rates for
+policyowners.
+Expense
+The expense factor, also known as the loading charge, also affects premium rates. Insurers have various operating expenses, so each
+premium must carry a proportionate share of these operating costs. The insurer's largest expense is the commissions paid to its agents.
+Other ongoing expenses include payroll, rent, and taxes.
+Premium Concepts
+Net Single Premium
+The net single premium includes the mortality and interest components necessary to keep the policy in force until maturity.
+Mortality - interest = Net Premium
+
+Gross Annual Premium
+Gross annual premium is the one-year cost for mortality, plus the cost of operating the company (or expense loading). Loading
+includes commissions, taxes, advertising, and while not an expense, includes the amount added to a pure or basic rate to provide for a
+profit margin to the insurer.
+Net Premium + Expense (loading) = Gross Premium
+Example:
+Assume that
+
+$500 Mortality cost $400 Net premium

@@ -1,0 +1,25 @@
+Changes on the Application and Amendments
+
+When an answer to a question on the application needs to be corrected, agents have the option, depending on which insurer they
+represent, of correcting the information and having the applicant initial the change, or completing a new application. An agent should
+never erase or white out any information on an application for insurance.
+
+Premiums with the Application
+
+Most agents attempt to collect the initial premium and submit it along with the application to the insurer. In addition, collecting the
+initial premium at the time of the application increases the chance that the applicant will accept the policy once it is issued. Whenever
+the agent collects premiums, the agent must issue a premium receipt. The type of receipt issued will determine when coverage will be
+effective.
+
+The most common type of receipt is a conditional receipt, which is used only when the applicant submits a prepaid application. The
+conditional receipt says that coverage will be effective either on the date of the application or the date of the medical exam, whichever
+occurs last, as long as the applicant is found to be insurable as a standard risk, and policy is issued exactly as applied for. This rule will
+not apply if a policy is declined, rated, or issued with riders excluding specific coverages.
+
+Example:
+
+If an agent collects the initial premium from an applicant and gives the applicant a conditional receipt, and the applicant dies the next
+day, the underwriting process will proceed as though the applicant were still alive. If the insurer ends up approving the coverage, then
+the applicant's beneficiary will receive the death benefit of the policy. If, on the other hand, the insurer determines that the applicant
+was not an acceptable risk and declines the coverage, the premium will be refunded to the beneficiary, and the insurer is not required
+to pay the death benefit.

@@ -1,0 +1,21 @@
+Contract of Adhesion
+
+A contract of adhesion is prepared by one of the parties (insurer) and accepted or rejected by the other party (insured). Insurance
+policies are not drawn up through negotiations, and an insured has little to say about its provisions. In other words, insurance contracts
+are offered on a take-it-or-leave-it basis by an insurer. Any ambiguities in the contract will be settled in favor of the insured.
+Aleatory Contract
+
+Insurance contracts are aleatory, which means there is an exchange of unequal amounts or values. The premium paid by the insured is
+small in relation to the amount that will be paid by the insurer in the event of loss.
+
+Life and Health Example:
+
+John purchases a life insurance policy for $100,000. His monthly premium is $100. If John only had the policy for 2 months, which means
+he only paid $200 in premiums, and he unexpectedly died, his beneficiary will receive $100,000. A $200 contribution on the part of the
+insured in exchange for $100,000 benefit from the insurer illustrates an aleatory contract.
+
+Property and Casualty Example:
+
+John purchases a homeowners insurance policy for $100,000. His monthly premium is $100. If John only had the policy for 2 months,
+which means he only paid $200 in premiums, and the home was unexpectedly destroyed by a covered peril, John will receive $100,000.
+$200 contribution on the part of the insured in exchange for $100,000 benefit from the insurer illustrates an aleatory contract.

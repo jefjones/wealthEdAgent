@@ -1,0 +1,25 @@
+Life Insurance Policy Cost Comparison Methods
+
+To help consumers make educated decisions on purchasing life insurance, the industry developed specific methods and indexes that
+measure and compare the actual policy costs. These comparisons are usually included in policy illustrations. Traditional methods of
+comparing costs are interest-adjusted net cost method and comparative interest rate method.
+
+Interest- Adjusted Net Cost Method
+
+Interest- Adjusted Net Cost method considers the time value of money (or investment return on the insurance premium had it been
+invested elsewhere) by applying an interest adjustment to yearly premiums and dividends. This means that each year premiums and
+dividends are figured, interest is taken into consideration. Two versions of the interest-adjusted method are the surrender cost index
+and the net payment cost index.
+
+Comparative Interest Rate Method
+
+The comparative interest rate (CIR) is the rate of return that must be earned on a hypothetical “side fund” in a buy-term-invest-the-
+difference plan, so that the value of the side fund will equal the illustrated cash surrender value of the higher-premium policy at a
+designated point in time. The higher the CIR, the less expensive the higher-premium policy (e.g., whole life) relative to the alternative
+plan (eg, term plus side fund).
+
+Use and Disclosure of Insurance Information
+
+When insurers plan to seek and use information from investigators, they must first provide the applicant or insured with a written
+Disclosure Authorization Notice. The notice must state the insurer's practice regarding collection and use of personal information. The
+disclosure authorization form must be written in plain language, and must be approved by the head of the Department of Insurance.

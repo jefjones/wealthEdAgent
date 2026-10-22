@@ -1,0 +1,886 @@
+----- page 1 -----
+Now that you have examined some basic terms that apply to the insurance industry as a whole, youll focus on the concepts pertinent
+to life insurance. This chapter will explain why individuals and businesses would want to buy life insurance. You will also take a look at
+the process of underwriting and policy issue, and the role of the producer in this process.
+
+® TERMSTO KNOW
+
+Adverse selection — tendency of individuals with higher probability of loss to purchase insurance more often than those who
+
+present a lower risk
+
+Death benefit — the amount paid upon the death of the insured in a life insurance policy
+
+Cash value — equity amount accumulated in permanent life insurance
+
+Estate — a person's net worth
+
+Illustrations — presentation or depiction of nonguaranteed elements of a life insurance policy
+
+Life insurance — coverage on human lives
+
+Liquidation — selling assets in order to raise capital
+
+Lump-sum — payment of the entire benefit in one sum
+
+Minor — a person under legal age
+
+Solvency — ability to meet financial obligations (e.g., an insurance company maintains enough assets to pay claims)
+
+----- page 2 -----
+Insurable Interest
+To purchase insurance, the policyowner must face the possibility of losing money or something of value in the event of loss. This is
+called insurable interest. In life insurance, insurable interest must exist between the policyowner and the insured at the time of
+application; however, once a life insurance policy has been issued, the insurer must pay the policy benefit, whether or not an insurable
+interest exists.
+A valid insurable interest may exist between the policyowner and the insured when the policy is insuring any of the following:
+
+1. Policyowner's own life;
+
+2. The life of a family member (a spouse or a close blood relative); or
+
+3. The life of a business partner, key employee, or someone who has a financial obligation to the policyowner (for example, a debtor
+
+has a financial obligation to a creditor, so the creditor has a valid insurance interest in the life of the debtor).
+Insurable interest is not required of beneficiaries. Since the beneficiary's well-being is dependent upon the insured, and the beneficiary's
+life is not the one being insured, the beneficiary does not have to show an insurable interest for a policy to be purchased.
+0} KNOW THIS
+insurable interest must exist at the time of application. The policyowner must have insurable interest in the life of the insured.
+
+----- page 3 -----
+Personal Uses of Life Insurance
+
+1. Survivor Protection
+
+The death of the primary wage-earner will usually stop the flow of income to a family. The death of a nonearning spouse who cares for
+minor children can also cause great financial hardship for the survivors. Life insurance can provide the funds necessary for the survivors
+of the insured to be able to maintain their lifestyle in the event of the insured's death. This is known as survivor protection. Planning for
+survivor protection requires careful examination of current assets and liabilities as well as determining what survivors’ needs may be.
+
+2. Estate Creation
+
+A person may create an estate through earnings, savings, and investments, but all of these methods require disciplined action and a
+significant period of time. The purchase of life insurance creates an immediate estate. Estate creation is especially important for young
+families that are getting started and have not yet had time to accumulate assets. When an insured purchases a life insurance policy,
+they will have an estate of at least that amount the moment the first premium is paid. There is no other legal method by which an
+immediate estate can be created at such a small cost.
+
+3. Cash Accumulation
+
+Life insurance may be used to accumulate specific amounts of monies for specific needs with guarantees that the money will be
+available when needed. For example, some life policies (those that provide permanent protection, such as whole life) accumulate cash
+value that is available to the policyowner during the policy term.
+
+4. Liquidity
+
+As a result of the cash accumulation feature, some life insurance policies provide liquidity to the policyowner. That means the policy's
+cash values can be borrowed against at any time and used for immediate needs.
+
+----- page 4 -----
+5. Estate Conservation
+life insurance proceeds may be used to pay inheritance taxes and federal estate taxes so that it is not necessary for the beneficiaries to
+sell off the assets.
+
+----- page 5 -----
+Determining Amount of Personal Life Insurance
+
+Individuals seeking to buy life insurance may need assistance trying to establish how much coverage is appropriate, based on their
+ability to pay the premium, serve their needs, and protect their survivors. Insurance companies have developed 2 basic approaches to
+help producers and buyers to determine the needed amount of protection: human life value approach and needs approach.
+
+1. Human Life Value Approach
+
+The human life value approach (HLVA) gives the insured an estimate of what would be lost to the family in the event of the premature
+death of the insured. It calculates an individual's life value by looking at the insured’s wages, inflation, the number of years until
+retirement, and the time value of money.
+
+Example:
+
+Let's assume that a 40-year-old insured earns $50,000 a year and is expected to earn the same amount until he retires at age 65. Out
+of his annual income, $40,000 is spent on family needs, and the remaining $10,000 goes to the insured’s personal expenses. This means
+that the human life value of this insured to his family is $1,000,000 ($40,000 a year spent on family needs x 25 years to retirement).
+Based on this assumption, and taking interest and inflation into consideration, the insurance company will determine the right amount
+of insurance to produce the same annual amount of income for the family if the insured were to die.
+
+2. Needs Approach
+
+The needs approach is based on the predicted needs of a family after the premature death of the insured. Some of the factors
+considered by the needs approach are income, the amount of debt (including mortgage), investments, and other ongoing expenses.
+
+----- page 6 -----
+Determining Lump-sum Needs
+Insurance proceeds paid in a lump-sum may be needed for any of the following expenses:
+* Costs Associated with Death (postmortem) — taking into account the final medical expenses of the insured, funeral expenses,
+and day-to-day expenses family maintenance;
+* Debt Cancellation (as an alternative to Estate Liquidation) — paying off debts of the insured such as home mortgage, or auto
+loans. (Most lenders require a collateral assignment of life insurance as a condition for a loan.);
+* Emergency Reserve Funds — paying for unexpected expenses following the death of the insured, such as travel expenses and
+lodging for family members;
+* Education Funds — paying for children’s education expenses so they can remain in school, or for a surviving spouse who may need
+additional education or training in order to re-enter the job market;
+* Retirement Fund — as a source of retirement income;
+* Bequests — leaving funds to the insured’s church, school, or a charity.
+Planning for Income Needs
+Besides taking care of immediate expenses after the death of the insured, the family may need to plan for an income source long term,
+so the needs approach to life insurance will factor in the following concerns:
+* Replacing Insured’s Salary or Lost Services — the surviving spouse who was the caregiver of the children may have to train to
+enter the job market. If the spouse works outside the home, a new expense for day care must be considered.
+* Social Security Income “Blackout” Period — Social Security blackout period is the time during which the surviving spouse and/or
+children do not receive any social security survivor benefits. Blackout period begins when the youngest child reaches the age of 16,
+and ends when the surviving spouse qualifies for retirement benefits, as early as age 60. (Unmarried children under the age of 18
+or up to 19 if they are attending secondary school full time can also receive benefits. Technically, the social security check will be
+made payable to the surviving spouse until the youngest child is 16, and directly to the child between the ages of 16 and 18.)
+* Liquidation vs. Retention of Capital — Under the retention of capital approach, enough insurance is purchased so that when
+added to other liquid assets, there is enough to pay income benefits without jeopardizing the insured's principal asset (such as a
+home).
+
+----- page 7 -----
+Life Settlements
+The term life settlement refers to any financial transaction in which the owner of a life insurance policy sells a life insurance policy toa
+third party for some form of compensation, usually cash. A life settlement would require an absolute assignment of alll rights to the
+policy from the original policyowner to the new policyowner.
+Policyowners may choose to sell their policies because they feel they no longer need their coverage, or the premium costs have grown
+too high to justify continuation of the policy. In many cases, however, life settlement transactions are offered to senior citizens who may
+have a life-threatening illness and a short life expectancy. In these situations, the owner may elect to sell the policy to a life settlement
+provider for an amount greater than what they would receive if they surrendered the policy for cash value.
+Example:
+A person, age 70, owns a $1,000,000 life insurance policy. He recently sold his business for $5,000,000 and decided he no longer needed
+the insurance coverage. The cash value is $390,000, which the insurance company would give the policyowner if he cashed in the
+policy. A life settlement provider may offer him, after reviewing his medical records, $575,000 for the policy. Once ownership is
+transferred and the policyowner has received the funds, the life settlement company will assume premium payments until the insured
+dies, at which time the life settlement company will receive the proceeds of the policy - $1,000,000.
+
+0} KNOW THIS
+
+In a life settlement, the owner sells an existing life policy to a third party.
+
+1. Definitions
+Because Life Settlements are not involved in the establishment of new life insurance coverage, the Life Settlement Act defines terms that
+are not in conflict with the sale of the original life insurance coverage, but which accurately identify the distinctions in the Life Settlement
+business. Some of the more important definitions are as follows:
+The term business of life settlement refers to any activity relating to the solicitation and sale of a life settlement contract to a third party
+who has no insurable interest in the insured.
+
+----- page 8 -----
+The term owner refers to the owner of the life insurance policy who seeks to enter into a life settlement contract. The term does not
+include an insurance provider, a qualified institutional buyer, a financing entity, a special purpose entity, or a related provider trust.
+Insured is the person covered under the policy that is considered for sale in a life settlement contract.
+Life Expectancy is an important concept in life settlement contracts. It refers to a calculation based on the average number of months
+the insured is projected to live due to medical history and mortality factors (an arithmetic mean).
+Life Settlement Contract establishes the terms under which the life settlement provider will pay compensation to the policyowner, in
+return for the assignment, transfer, sale, or release of any portion of any of the following:
+
+* The death benefit;
+
+* Policy ownership;
+
+* Any beneficial interest; or
+
+* Interest in a trust or any other entity that owns the policy.
+Life Settlement Broker is a person who, for compensation, solicits, negotiates, or offers to negotiate a life settlement contract. Life
+settlement brokers represent only the policyowners, and have a fiduciary duty to the owners to act according to their instructions and in
+their best interest.
+Life Settlement Provider is a person (other than the owner) who enters into a life settlement contract with the owner.
+2. Stranger-Originated Life Insurance (STOLI)
+Stranger-originated life insurance (STOLI) is a life insurance arrangement in which a person with no relationship to the insured (a
+"stranger’) purchases a life policy on the insured's life with the intent of selling the policy to an investor and profiting financially when the
+insured dies. In other words, STOLIs are financed and purchased solely with the intent of selling them for life settlements.
+STOLIs violate the principle of insurable interest, which is in place to ensure that a person purchasing a life insurance policy is actually
+interested in the longevity rather than the death of the insured. Because of this, insurers take an aggressive legal stance against policies
+they suspect are involved in STOLI transactions.
+Note that lawful life settlement contracts do not constitute STOLIs. Life settlement transactions result from existing life insurance policies;
+STOLIs are initiated for the purpose of obtaining a policy that would benefit a person who has no insurable interest in the life of the
+insured at the time of policy origination.
+
+----- page 9 -----
+Business Uses of Life Insurance
+Businesses use life insurance for the same reason individuals use life insurance: it creates an immediate payment upon the death of the
+insured.
+The most common use of life insurance by businesses is as an employee benefit, which serves as a protection for employees and their
+beneficiaries. There are also other forms of life insurance that can serve business owners and their survivors, and even protect the
+business itself. These include funding business continuation agreements, compensating executives, and protecting the business
+against financial loss resulting from the death or disability of key employees.
+1. Key Person
+Abusiness can suffer a financial loss because of the premature death of a key employee - someone who has specialized knowledge,
+skills or business contacts. A business can lessen the risk of such loss by the use of key person insurance. Key person insurance may be
+issued as term or permanent life, with whole life and universal life policies being used most often.
+With this coverage, the key employee is the insured, and the business is all of the following:
+
+© Applicant;
+
+* Policyowner;
+
+* Premium payer; and
+
+* Beneficiary.
+In the event of death of a key employee, the business would use the money for the additional costs of running the business and
+replacing the employee. The business cannot take a tax deduction for the expense of the premium. However, if the key employee dies,
+the benefits paid to the business are usually received tax free. No special agreements or contracts are needed except that the
+employee(s) would need to give permission for this coverage.
+Key person insurance may be term or permanent. An employer may have more than one key person policy.
+
+----- page 10 -----
+2. Buy-sell Funding
+A buy-sell agreement is a legal contract that determines what will be done with a business in the event that an owner dies or becomes
+disabled. This is also referred to as a business continuation agreement.
+There are several types of buy-sell agreements that can be used for partnerships and corporations:
+
+* Cross Purchase - used in partnerships when each partner buys a policy on the other;
+
+« Entity Purchase - used when the partnership buys the policies on the partners;
+
+« Stock Purchase - used by privately owned corporations when each stockholder buys a policy on each of the others; and
+
+* Stock Redemption - used when the corporation buys one policy on each shareholder.
+Example:
+Here is an example of a cross-purchase buy-sell agreement: Partnership AB has two partners, Partner A and Partner B. The value of the
+business is $1,000,000. The partners each have an equal interest ($500,000 each). Partner A buys a life policy on Partner B for $500,000,
+and Partner B buys a life policy on Partner A for $500,000. If Partner A dies, Partner B gets 100% ownership of the business and A's heirs
+receive $500,000.
+
+----- page 11 -----
+3. Executive Bonus
+Executive bonus is an arrangement where the employer offers to give the employee a wage increase in the amount of the premium on
+new life insurance policy on the employee. The employee owns the policy and, therefore, has full rights to the policy. Since the
+employer treated the premium payment as a bonus, that amount is tax deductible to the employer and income taxable to the
+employee. It is assumed that if the employee were not willing to accept these conditions, the employer would not provide the benefit.
+Executive bonus plans are not subject to plan limits established by the IRS for qualified plans, so it is considered a nonqualified benefit
+plan.
+4. Deferred Compensation Funding
+Deferred compensation funding refers to any employer retirement, savings, or other deferred compensation plan that is not a qualified
+retirement plan. Funding involves a contractual commitment between the employer and employee to pay compensation in future
+years. Usually, funding is made with cash deposits to a life insurance and/or annuity contract.
+Deferred compensation funding falls into two major classes:
+
+1. In-addition funding plans — designed to pay an amount in addition to the employee's qualified retirement plan; and
+
+2. Elective plans — permit the employee to defer part of their salary or bonus as a tax-deferred savings.
+These plans are typically made with selected employees to provide additional retirement benefits.
+5. Split Dollar Plans
+A split-dollar plan is an arrangement where the employer and employee agree to purchase and fund life insurance on an employee. In
+the most common form, the employer pays the part of the premiums that equals the annual increase in the cash value of the policy,
+while the employee pays the balance. Should the employee die, the employer recovers the total of its payments from the policy
+proceeds, with the balance being paid to the employee's beneficiary.
+
+----- page 12 -----
+6. Change of Insured Provision
+
+The change of insured provisions is found in some life insurance policies that are owned by businesses and to insure the life of a key
+employee. In the event the key employee quits or is terminated, the owner (business) may transfer the coverage to the replacement
+employee, subject to evidence of insurability.
+
+----- page 13 -----
+Classes of Life Insurance Policies
+There are many types of life insurance products available for consumers. Although all life insurance products offer death protection,
+each type also includes its own unique features and benefits and is designed to serve different insureds’ needs.
+You will study different types of policies in greater detail later in this course. For the purposes of this chapter, however, you need to
+understand some basic definitions and characteristics of different classes of life insurance policies.
+1. Permanent vs. Term
+Regarding the length of coverage, all life insurance policies fall into 2 categories: temporary and permanent protection.
+Term life insurance is temporary life insurance provided for a specific period of time. It is also known as pure life insurance.
+Permanent life insurance is a general term used to refer to various forms of whole life insurance policies that remain in effect to age 100,
+as long as the premium is paid. Permanent insurance provides lifetime protection, and includes a savings element (or cash value).
+2. Participating vs. Nonparticipating
+A participating (mutual) life insurance policy refers to any policy that distributes its dividends to policyowners by cash payments,
+reduced premiums, units of paid up insurance, a savings program, or by the purchase of term insurance. A nonparticipating policy
+does not pay dividends to the policyowners.
+
+ro) KNOW THIS
+
+Only participating policies distribute dividends to policyowners.
+
+3. Ordinary vs. Industrial (Home Service)
+Industrial or Home Service insurance is life insurance written on an individual basis that provides insurance to industrial workers or
+people who are unable to afford insurance for bigger amounts. The main reason for purchasing industrial life insurance is to help cover
+the insured's funeral expenses. The following are the distinguishing features of industrial life policies:
+
+----- page 14 -----
+* Written in small amounts (usually with a face amount of $2,000 - $10,000);
+
+* Premiums are payable on a weekly or monthly basis;
+
+* Premiums are collected by a representative of the insurance company at the home of the insured; and
+
+* Policies are written as nonmedical (no medical exam is required; however, medical history information is still collected).
+Ordinary Life insurance is also written on an individual basis; however, it differs from Industrial Life in the following areas:
+
+* Larger face amounts;
+
+* Premiums can be paid annually, semiannually, quarterly, or monthly;
+
+* Premiums are paid by the insured directly to the insurance company; and
+
+* Aphysical examination may be required to prove the applicant's insurability.
+4. Group vs. Individual
+Individual life insurance is written on a single life. The rate and coverage are based upon the underwriting of that individual.
+Group life insurance is written as a master policy covering the lives of more than one individual covered under the single policy.
+Individuals covered do not receive a policy but instead receive certificates of insurance. The rate and coverage are based upon group
+underwriting, with all individuals covered for the same amount and rate.
+5. Fixed vs. Variable
+Fixed life insurance or annuities are contracts that offer guaranteed minimum or fixed benefits that are stated in the contract. Variable
+life insurance or annuities are contracts in which the cash values accumulate based upon a specific portfolio of stocks without
+guarantees of performance. Variable annuities keep pace with inflation, and are determined by the value of securities backing it.
+
+----- page 15 -----
+Process of Issuing a Life Insurance Policy
+
+----- page 16 -----
+1. Solicitation and Sales Presentations
+The process of issuing a life insurance policy begins with solicitation. In simplest terms, solicitation of insurance means an attempt to
+persuade a person to buy an insurance policy, and it can be done orally or in writing. This includes providing information about
+available products, describing the policy benefits, making recommendations about a specific type of policy, and trying to secure a
+contract between the applicant and the insurance company.
+Any sales presentations used by insurers or their agents in communication with the public must be accurate and complete.
+To ensure that customers are given all the information they need to choose the best life insurance for their needs, the state places
+specific requirements on the information insurers must give their customers.
+These rules apply to any solicitation, negotiation or procurement of life insurance within the state and apply to any issuer of life
+insurance contracts including fraternal benefit societies.
+Exempt from solicitation rules are
+* Annuities;
+* Credit life insurance;
+* Group life insurance;
+* Life insurance policies issued in connection with pension and welfare plans subject to the federal Employee Retirement Income
+Security Act of 1974 (ERISA); or
+* Variable life insurance under which the amount and duration of the death benefits and cash values vary according to the
+investment experience of a separate account.
+
+----- page 17 -----
+Advertising
+First and foremost, advertising must be accurate and not misrepresent the facts. Advertising rules apply to any insurance
+advertisement intended for presentation, distribution, dissemination or other advertising use when used or made either directly or
+indirectly by or on behalf of the insurance company.
+Every insurance company must establish and maintain a system of control over the content, form, and method of dissemination of all
+advertising of its policies. The insurer whose policies are advertised is responsible for all its advertisements, regardless of who wrote,
+created, presented, or distributed them.
+‘An advertisement may not contain descriptions of policy limitations, exceptions or reductions that are worded in a positive manner (for
+example, describing a waiting period as a benefit-builder). Limitation or exceptions must accurately describe the negative features.
+The advertisement for a policy that covers only one disease or a list of specified diseases cannot imply coverage beyond the terms of
+the policy. This advertisement must prominently state the limited nature of the policy. The statement must be worded similar to the
+following: “THIS IS A LIMITED POLICY," THIS IS A CANCER-ONLY POLICY,” or "THIS IS AN AUTOMOBILE ACCIDENT-ONLY POLICY.”
+In addition, the use of the following terms is specifically prohibited in advertisements (unless they are true) as they may be misleading
+to a consumer:
+
+* Only, just, merely, minimum or similar to describe the applicability of any exceptions, reductions or exclusions;
+
+* Extra pay, extra cash, extra income or similar to describe a benefit for which payment is conditional upon confinement in a hospital
+
+or similar facility; and
+* All, full, complete, unlimited or similar, in a manner which exaggerates the extent of any policy benefit.
+
+----- page 18 -----
+There are specific disclosure requirements that apply to advertisements for life insurance products distributed in this state:
+* Clearly identify an insurer;
+* Include the words life insurance or annuity in the title or include other language clearly indicating that it is life insurance or an
+annuity;
+* Identify the source of any statistics used in an advertisement;
+* Advertisements that do not guarantee policy issue but use the terms nonmedical, no medical examination required, or similar
+terms must also clearly and prominently state that the policy issuance may depend on answers to health questions; and
+* Advertisements that use testimonials must ensure that the testimonials are genuine, accurately reproduced and represent the
+author's current opinion. If the person is compensated, the testimonial must clearly state that it's a paid endorsement.
+Insurers must maintain files containing all advertising for 3 years after its use.
+Illustrations
+Policies to Be Illustrated
+The term illustration in a life insurance policy refers to a presentation that includes nonguaranteed elements of a policy over a period
+of years. The purpose of the regulation on individual and group life insurance policy illustrations is to provide standards that will protect
+and educate consumers.
+Any life insurance policy that is marketed with illustrations must be identified as such when filed with the Commissioner. A copy of any
+illustration must be provided to the applicant, and submitted to the insurer at the time of policy application.
+Insurers do not have to provide these illustrations to individual members of a group or individuals covered under multiple lives
+coverage unless the policy was marketed specifically to these individuals. In these cases, the illustration may be a composite illustration
+representative of all those covered.
+
+----- page 19 -----
+General Rules
+Life insurance policy illustrations must include the following:
+* Name and address of the insurer;
+* Name and business address of the producer;
+* Name, age, and sex of proposed insured,
+* Underwriting or rating classification upon which the illustration is based;
+* Generic name of policy, the insurer product name (if different), and form number;
+* Initial death benefit; and
+* Dividend option election or application of nonguaranteed elements, if applicable.
+Prohibitions
+When using an illustration, neither the insurer nor producer may:
+* Represent the policy as anything other than a life insurance policy;
+* Describe nonguaranteed elements in a manner that is misleading;
+* Imply that the payment is guaranteed;
+* Depict policy performance more favorably;
+* Provide an incomplete illustration;
+« Imply that premium payments will not be required for each year of the policy in order to maintain death benefits, unless that is the
+fact;
+* Use the term ‘vanish’ or ‘vanishing premium,’ or any similar term that implies the policy becomes paid up; or
+* Except in cases where policies cannot develop nonforfeiture values, use an illustration that is "lapse-supported” - meaning that it
+fails the test of “self-supporting.”
+
+----- page 20 -----
+Exclusions
+These provisions regarding illustrations do not apply to the following types of policies:
+
+* Variable life;
+
+* Individual and group annuity contracts;
+
+* Credit life;
+
+* Individual life policies with death benefits below $10,000; or
+
+* Group term life.
+Record Retention
+A copy of the basic illustration and a revised basic illustration, if any, signed as applicable, along with any certification that either no
+illustration was used or that the policy was applied for other than as illustrated, must be retained by the insurer until 3 years after the
+policy is no longer in force. If no policy is issued, an insurer does not need to retain a copy of the illustration.
+Buyer's Guide
+A buyer's guide provides basic, generic information about life insurance policies that contains, and is limited to, language approved by
+the Department of Insurance. This document explains how a buyer should go about choosing the amount and type of insurance to buy,
+and how a buyer can save money by comparing the costs of similar policies. Insurers must provide a buyer's guide to all prospective
+policy applicants prior to accepting their initial premium. If the policy contains an unconditional refund provision of at least 10 days
+(free-look period), a buyer's guide can be delivered with the policy.
+Policy Summary
+A policy summary is a written statement describing the features and elements of the policy being issued. It must include the name
+and address of the agent, the full name and home office or administrative office address of the insurer, and the generic name of the
+basic policy and each rider. A policy summary will also include premium, cash value, dividend, surrender value and death benefit
+figures for specific policy years. The policy summary must be provided when the policy is delivered.
+
+----- page 21 -----
+Life Insurance Policy Cost Comparison Methods
+
+To help consumers make educated decisions on purchasing life insurance, the industry developed specific methods and indexes that
+measure and compare the actual policy costs. These comparisons are usually included in policy illustrations. Traditional methods of
+comparing costs are interest-adjusted net cost method and comparative interest rate method.
+
+Interest- Adjusted Net Cost Method
+
+Interest- Adjusted Net Cost method considers the time value of money (or investment return on the insurance premium had it been
+invested elsewhere) by applying an interest adjustment to yearly premiums and dividends. This means that each year premiums and
+dividends are figured, interest is taken into consideration. Two versions of the interest-adjusted method are the surrender cost index
+and the net payment cost index.
+
+Comparative Interest Rate Method
+
+The comparative interest rate (CIR) is the rate of return that must be earned on a hypothetical “side fund” in a buy-term-invest-the-
+difference plan, so that the value of the side fund will equal the illustrated cash surrender value of the higher-premium policy at a
+designated point in time. The higher the CIR, the less expensive the higher-premium policy (e.g., whole life) relative to the alternative
+plan (eg, term plus side fund).
+
+Use and Disclosure of Insurance Information
+
+When insurers plan to seek and use information from investigators, they must first provide the applicant or insured with a written
+Disclosure Authorization Notice. The notice must state the insurer's practice regarding collection and use of personal information. The
+disclosure authorization form must be written in plain language, and must be approved by the head of the Department of Insurance.
+
+----- page 22 -----
+Life and Health Insurance Guaranty Association
+Guaranty Associations are formed to protect policyowners, insureds, beneficiaries, and anyone entitled to payment under an insurance
+policy from the incompetence and insolvency of insurers. The association will pay covered claims up to certain limits set by state law.
+The Association is funded by its members through assessment. All authorized insurers, which are required to be the members of the
+Association, contribute to a fund to provide for the payment of claims for insolvent insurers.
+In the state of Utah, insurance companies licensed to sell life insurance or annuities, or health insurance are required by law to be
+members of the Utah Life and Health Insurance Guaranty Association (ULHIGA).
+The maximum that the ULHIGA will pay under any circumstances is the applicable amount of coverage or $500,000 (whichever is lower).
+The following limits also apply:
+
+* $200,000 in net cash surrender values;
+
+* $500,000 in life insurance death benefits;
+
+* $500,000 in health insurance benefits;
+
+* $200,000 in most annuity benefits; and
+
+* $500,000 in annuity benefits to the contract holder of annuities issued to pension plans.
+The insurers must disclose to policyholders that their contractual guarantees may not be covered by the Association. The disclosure
+must be made in writing on an approved summary document from the Utah Insurance Department.
+Itis an unfair trade practice to make any statement that an insurer's policies are guaranteed by the existence of the Insurance
+Guaranty Association.
+
+----- page 23 -----
+Suitability
+An insurance producer may not recommend the purchase, sale, or exchange of an insurance policy or annuity contract without the
+reasonable belief that the transaction is in the best interest of the insured.
+When recommending an annuity transaction, to ensure suitability, producers must make a reasonable effort to obtain relevant
+information from the consumer and evaluate the following factors:
+
+* Age;
+
+* Annual income;
+
+* Financial and tax status;
+
+« Investment objectives;
+
+« Intended use of annuity;
+
+* Financial experience;
+
+* Tax status; and
+
+* Risk tolerance.
+A producer may not solicit the sale of an annuity product unless the producer has adequate knowledge of the product to recommend
+the annuity, and is in compliance with the insurer's standards for product training.
+2. Underwriting
+Underwriting is the risk selection and classification process. It involves a careful analysis of many different factors to determine the
+acceptability of applicants for insurance. In other words, underwriting is the process in which an insurance company determines
+whether or not a particular applicant is insurable, and if so, what premium to charge.
+The primary criteria an underwriter will use in assessing the desirability of a particular candidate for life insurance are the applicant's
+health (current and past), occupation, lifestyle, and hobbies or habits. The underwriter will use many different sources of information in
+determining the insurability of the individual risk.
+
+----- page 24 -----
+Field Underwriting
+The agent is the company’s front line, and is referred to as a field underwriter because the agent is usually the one who has solicited
+the potential insured. As a field underwriter, the agent has many important responsibilities during the underwriting process and beyond,
+including the following:
+
+* Proper solicitation of applicants;
+
+* Helping prevent adverse selection;
+
+* Completing the application;
+
+* Obtaining the required signatures;
+
+* Collecting the initial premium and issuing the receipt, if applicable; and
+
+* Delivering the policy.
+
+ry KNOW THIS
+
+Alife insurance producer is the company’s field underwriter.
+
+Application
+The Application is the starting point and basic source of information used by the company in the risk selection process. Although
+applications are not uniform and may vary from one insurer to another, they all have the same basic components: Part 1 - General
+Information and Part 2 - Medical Information.
+Part1- General Information of the application includes the general questions about the applicant, such as name, age, address, birth
+date, gender, income, marital status, and occupation. It will also inquire about the existing policies and if the proposed insurance will
+replace them. Part | identifies the type of policy applied for and the amount of coverage, and usually contains information concerning
+the beneficiary.
+
+----- page 25 -----
+Part 2 - Medical Information of the application includes information on the prospective insured’s medical background, present health,
+any medical visits in recent years, medical status of living relatives, and causes of death of deceased relatives. If the amount of
+insurance is relatively small, the agent and the proposed insured will complete all of the medical information. That would be considered
+a nonmedical application. For larger amounts, the insurer will usually require some sort of medical examination by a professional.
+
+Itis the agent's responsibility to make certain that the application is filled out completely, correctly, and to the best of the applicant's
+knowledge. The agent must probe beyond the stated questions in the application if he or she has any reason to believe the applicant is
+misrepresenting or concealing information, or does not understand the specific questions asked. Any information that is misleading,
+inaccurate or illegible may delay the issuance of the policy. If the agent feels that there could be some misrepresentation, he/she must
+inform the insurance company. Some insurers require that the applicant complete the application under the agent's watchful eye, while
+other insurers require that the agent complete the application in order to help avoid mistakes and unanswered questions.
+
+Agent's Report
+
+As a field underwriter, the agent (or producer) can be considered the most important source of information available to the company
+underwriters. The agent's (producer's) report provides the agent's personal observations concerning the proposed insured. The insurer
+may inquire whether the agent knows of any adverse information about the applicant, or ask the agent to express an opinion about the
+applicant's character, financial standing, and environment. The agent's report does not become a part of the entire contract, although it
+is a part of the application process.
+
+Signatures Required
+
+Both the agent and the proposed insured (usually the applicant) must sign the application. If the proposed insured and the
+policyowner are not the same person, such as a business purchasing insurance on an employee, then the policyowner must also sign
+the application. An exception to the proposed insured signing the application would be in the case of an adult, such as a parent or
+guardian, applying for insurance on a minor child.
+
+----- page 26 -----
+Changes on the Application and Amendments
+
+When an answer to a question on the application needs to be corrected, agents have the option, depending on which insurer they
+represent, of correcting the information and having the applicant initial the change, or completing a new application. An agent should
+never erase or white out any information on an application for insurance.
+
+Premiums with the Application
+
+Most agents attempt to collect the initial premium and submit it along with the application to the insurer. In addition, collecting the
+initial premium at the time of the application increases the chance that the applicant will accept the policy once it is issued. Whenever
+the agent collects premiums, the agent must issue a premium receipt. The type of receipt issued will determine when coverage will be
+effective.
+
+The most common type of receipt is a conditional receipt, which is used only when the applicant submits a prepaid application. The
+conditional receipt says that coverage will be effective either on the date of the application or the date of the medical exam, whichever
+occurs last, as long as the applicant is found to be insurable as a standard risk, and policy is issued exactly as applied for. This rule will
+not apply if a policy is declined, rated, or issued with riders excluding specific coverages.
+
+Example:
+
+If an agent collects the initial premium from an applicant and gives the applicant a conditional receipt, and the applicant dies the next
+day, the underwriting process will proceed as though the applicant were still alive. If the insurer ends up approving the coverage, then
+the applicant's beneficiary will receive the death benefit of the policy. If, on the other hand, the insurer determines that the applicant
+was not an acceptable risk and declines the coverage, the premium will be refunded to the beneficiary, and the insurer is not required
+to pay the death benefit.
+
+----- page 27 -----
+The unconditional (binding) receipt is used most often with property and casualty insurance. With the binding receipt, coverage begins
+immediately for a specific length of time, until the policy is issued. Binding receipts usually stipulate that coverage is effective from the
+date of the application for only a specified period of time, such as 30 or 60 days, or until the company either issues or declines
+coverage, whichever occurs first.
+
+Notice of Information Practices
+
+Insurers and producers must provide a notice of information practices to applicants and policyholders in connection with insurance
+transactions. The notice is usually required at the time an insurer or producer first collects personal information from a source other
+than the applicant or public records, or at policy delivery if the information is collected from the applicant or from public records. In the
+case of a policy renewal, the notice must be provided at the policy renewal date or annually.
+
+Company Underwriting
+
+In order to properly select and classify insurance risks, the insurer needs to obtain the applicants’ background information and medical
+history. There are several sources of underwriting information that are available to the underwriters.
+
+Sources of Underwriting Information and Regulations
+
+Application
+
+The person applying for insurance must submit an application to the insurer for approval for a policy to be issued. The application is one
+of the main sources of underwriting information for the company.
+
+----- page 28 -----
+Producer Report
+
+The producer's (agent's) report allows the producer to communicate with the underwriter and provide information on the applicant that
+may assist in the underwriting process. It becomes part of the application.
+
+Attending Physician Statement
+
+When smaller amounts of insurance are requested and there is no prior medical history of concern, the home office underwriter may
+make an underwriting decision solely on the basis of the application. If, however, the underwriter sees answers to certain questions that
+could indicate greater risk, and the underwriter wants to obtain specific medical details, the underwriter will request a statement from
+the applicant's physician. This is called an Attending Physician Statement (APS). The insurance company must pay for this information,
+but it is often less expensive than ordering an examination.
+
+The next step would be a paramedical exam (which often includes blood work and a urine sample). A paramedical exam is conducted
+by a registered nurse or a paramedic. Under certain circumstances the underwriter may require a full medical examination by a
+licensed physician for additional information. All these are at the insurer's expense.
+
+A full medical exam occurs routinely for applicants requesting higher amounts of coverage, or if the application raised additional
+questions concerning the health of the prospective insured, or for applicants beyond a certain age. Each company establishes standard
+requirements, based on age and amount of coverage, and reserves the right to request additional information and testing, at their own
+expense.
+
+Investigative Consumer Report (Inspection)
+
+To supplement the information on the application, the underwriter may order an inspection report on the applicant from an
+independent investigating firm or credit agency, which covers financial and moral information. They are general reports of the
+applicant's finances, character, work, hobbies, and habits. Companies that use inspection reports are subject to the rules and
+regulations outlined in the Fair Credit Reporting Act.
+
+----- page 29 -----
+Medical Information Bureau (MIB)
+In addition to an attending physician's report, the underwriter will usually request a Medical Information Bureau (MIB) report.
+The MIB is a membership corporation owned by member insurance companies. Itis a nonprofit trade organization the purpose of
+which it is to collect, maintain, and make available to insurance companies important underwriting information on applicants for life
+and health insurance. It is a systematic method for companies to compare the information they have collected on a potential insured
+with information other insurers may have discovered. The MIB can be used only as an aid in helping insurers know what areas of
+impairment they might need to investigate further. An applicant cannot be refused simply because of some adverse information
+discovered through the MIB.
+ry KNOW THIS
+Insurers cannot refuse coverage solely on the basis of adverse information on an MIB report.
+Medical Examinations and Lab Tests Including HIV
+Medical examinations, when required by the insurance company, are conducted by physicians or paramedics at the insurance
+company’s expense. Usually such exams are not required with regard to health insurance, thus stressing the importance of the agent in
+recording medical information on the application. The medical exam requirement is more common with life insurance underwriting. If
+an insurer requests a medical examination, the insurer is responsible for the costs of the exam.
+Itis common among insurers to require an HIV test when an applicant is applying for a large amount of coverage, or for any
+increased and additional benefits. To ensure proper obtaining and handling of results, and to protect the insureds’ privacy, states have
+enacted the following laws and regulations for insurers requiring an applicant to submit to an HIV test:
+* Prior to testing, the insurer must disclose the use of testing to the applicant, and obtain written consent from the applicant on the
+approved form;
+* The insurer must establish written policies and procedures for the internal dissemination of test results among its producers and
+employees to ensure confidentiality;
+« The test must be administered in a manner that meets the protocol of the U.S. Department of Health and Human Services;
+« The insurer must disclose the test results as authorized by the applicant in writing;
+« If the applicant has not identified a physician to receive test results, the positive test results and the identity of the applicant must
+be sent to the state Department of Health; and
+The reporting of test results must include the name and address of the reporting company.
+
+----- page 30 -----
+Requiring an HIV test is not considered unfair discrimination as long as the following conditions are met:
+* The testing is required for alll individuals in the same class;
+* Proposed insured is not denied coverage on the basis of such testing alone (if no other conditions specified in the Insurance Code
+apply); and
+* The tests and testing procedures have been approved by the United States Food and Drug Administration (FDA) and otherwise
+comply with applicable state and federal laws.
+Insurers are permitted to ask a proposed insured whether he or she has tested positive on an AIDS-related test.
+Selection Criteria & Unfair Discrimination
+Information the companies obtain relating to risk factors helps the underwriters determine the extent of the risks involved. In order to
+avoid adverse selection, the company may discriminate in favor of good risks and against poor risks. However, insurance companies
+cannot unfairly discriminate between individuals of the same class and equal life expectancy in the rates, benefits, or any terms and
+conditions of the contract.
+The following are examples of underwriting practices in life and health insurance that would constitute unfair discrimination between
+individuals of the same class:
+* Discriminating in policy rates and benefits based solely on
+© Age or gender;
+© Physical or mental impairment;
+© Blindness or partial blindness; or
+© Genetic characteristics or genetic testing.
+* Investigating as part of the underwriting process a proposed insured's sexual orientation.
+
+----- page 31 -----
+Classification of Risks
+In classifying a risk, the Home Office underwriting department will look at the applicant's past medical history, present physical
+condition, occupation, habits and morals. if the applicant is acceptable, the underwriter must then determine the risk or rating
+classification to be used in deciding whether or not the applicant should pay a higher or lower premium. A prospective insured may be
+rated as one of the three classifications: standard, substandard, or preferred.
+
+ry KNOW THIS
+
+The higher the risk, the higher the premium.
+
+Preferred
+Preferred risks are those individuals who meet certain requirements and qualify for lower premiums than the standard risk. These
+applicants have a superior physical condition, lifestyle, and habits.
+Standard
+Standard risks are persons who, according to a company’s underwriting standards, are entitled to insurance protection without extra
+rating or special restrictions. Standard risks are representative of the majority of people at their age and with similar lifestyles. They are
+the average risk.
+Substandard
+Substandard (High Exposure) risk applicants are not acceptable at standard rates because of physical condition, personal or family
+history of disease, occupation, or dangerous habits. These policies are also referred to as “rated” because they could be issued with the
+premium rated-up, resulting in a higher premium.
+
+----- page 32 -----
+Declined
+Applicants who are rejected are considered declined risks. Risks that the underwriters assess as not insurable are declined. For
+example, a risk may be declined for one of the following reasons:
+
+* There is no insurable interest;
+
+* The applicant is medically unacceptable;
+
+* The potential for loss is so great it does not meet the definition of insurance; or
+
+* Insurance is prohibited by public policy or is illegal.
+3. Premium Determination
+Once the company determines that an applicant is insurable, they need to establish an appropriate policy premium. The premium will
+be used to cover the costs and expenses to keep the policy in force. Premiums are paid in advance.
+Factors in Premium Determination
+There are three primary factors that are used in premium determination: risk (mortality - rate of death within a specific group), interest
+and expense.
+Mortality
+Mortality is the ratio of the number of deaths in a specific population over a certain amount of time versus the number of living people
+in that population. Mortality tables, used by insurers, indicate the number of individuals within a specified group of individuals (e.g.,
+males, females, smokers, nonsmokers) starting at a certain age, who are expected to be alive at a succeeding age. In other words,
+these tables help the insurers predict the expectation of life and the probability of death for a given group.
+
+----- page 33 -----
+Interest
+Because premiums are paid before claims are incurred, insurance companies invest a large portion of the premiums in an effort to earn
+interest on these funds (invested in bonds, stocks, or mortgages). The interest earnings help insurers reduce the premium rates for
+policyowners.
+Expense
+The expense factor, also known as the loading charge, also affects premium rates. Insurers have various operating expenses, so each
+premium must carry a proportionate share of these operating costs. The insurer's largest expense is the commissions paid to its agents.
+Other ongoing expenses include payroll, rent, and taxes.
+Premium Concepts
+Net Single Premium
+The net single premium includes the mortality and interest components necessary to keep the policy in force until maturity.
+Mortality - interest = Net Premium
+
+Gross Annual Premium
+Gross annual premium is the one-year cost for mortality, plus the cost of operating the company (or expense loading). Loading
+includes commissions, taxes, advertising, and while not an expense, includes the amount added to a pure or basic rate to provide for a
+profit margin to the insurer.
+Net Premium + Expense (loading) = Gross Premium
+Example:
+Assume that
+
+$500 Mortality cost $400 Net premium
+
+----- page 34 -----
+= $100 Interest + $200 Operating cost
+
+$400 Net Premium therefore, $600 Gross Premium
+Premium Payment Mode
+In regard to insurance premiums, mode refers to the frequency the policyowner pays the premium. An insurance policy's rates are
+based on the assumption that the premium will be paid annually at the beginning of the policy year and that the company will have the
+premium to invest for a full year before paying any claims. If the policyowner chooses to pay the premium more frequently than
+annually, there will be an additional charge because the company will have additional expenses in billing the premium. However, the
+premium may be paid annually, semi-annually, quarterly, or monthly.
+
+Higher Frequency = Higher Premium
+Monthly > Quarterly > Semi-Annual > Annual
+
+----- page 35 -----
+4. Policy Issue and Delivery
+
+----- page 36 -----
+Once the underwriting process has been completed and the company issues the policy, the agent will deliver it to the insured. Although
+personal delivery of the insurance policy is the best method of finalizing the insurance transaction, mailing the policy directly to the
+policyowner is acceptable. When the insurer relinquishes control of the policy by mailing it to the policyowner, policy is considered
+legally delivered. However, it is advisable to obtain a signed delivery receipt.
+
+Delivery Receipt
+
+When an agent hand delivers an individual policy or annuity to the policyowner, the agent must obtain a signed delivery receipt. The
+receipt will be in duplicate and state the date the contract was received. The free-look period will take effect on the date the receipt was
+signed.
+
+If a policy is delivered by any other method, the insurer must establish a way to verify the policy delivery. A certificate of mailing is
+considered adequate proof of delivery.
+
+Policy Review
+
+Personal delivery of the policy allows the agent an opportunity to make sure that the insured understands all aspects of the contract.
+Review of the contract with the insured involves pointing out provisions or riders that may be different than anticipated, and explaining
+what effect they have on the contract. In addition, the agent should explain the rating procedure to the client, especially if the policy is
+rated differently than applied for, or has been modified or amended in any other way. The agent should also explain any other choices
+and provisions available to the policyowner that may become active at this time.
+
+----- page 37 -----
+Effective Date of Coverage
+
+If the initial premium is not paid with the application, the agent will be required to collect the premium at the time of policy delivery. In
+this case, the policy does not go into effect until the premium has been collected. The agent may also be required to get a statement of
+good health from the insured. This statement must be signed by the insured, and verifies that the insured has not suffered injury or
+illness since the application date.
+
+If the full premium was submitted with the application and the policy was issued as requested, the policy coverage would generally
+coincide with the date of application if no medical exam were required. If a medical exam is required, the date of the coverage will
+coincide with the date of the exam.
+
+----- page 38 -----
+5.Replacement
+Replacement means any transaction in which new life insurance or a new annuity is purchased and, as a result, the existing life
+insurance or annuity has been or will be any of the following:
+* Lapsed, forfeited, surrendered, or otherwise terminated;
+* Reissued with any reduction in cash value;
+* Converted to reduced paid-up insurance, continued as extended term insurance or otherwise reduced in value by the use of
+nonforfeiture benefits or other policy values;
+* Amended so as to affect either a reduction in benefits or in the term for which coverage would otherwise remain in force or for
+which benefits would be paid; or
+* Used in a financed purchase.
+Replacing insurer is the company that issues the new policy.
+Existing insurer is the company whose policy is being replaced.
+Duties of the replacing producer:
+* Present to the applicant a Notice Regarding Replacement that is signed by both the applicant and the producer. A copy must be
+left with the applicant;
+* Obtain a list of all existing life insurance and/or annuity policies to be replaced including policy numbers and the names of alll
+companies being replaced;
+* Leave the applicant with the original or a copy of written or printed communications used for presentation to the applicant; and
+* Submit to the replacing insurance company a copy of the replacement notice with the application.
+Each producer who initiates the application must submit the following to the insurance company with or as part of each application:
+* Astatement signed by the applicant as to whether replacement of existing life insurance or annuity is involved in the transaction;
+and
+* Asigned statement as to whether the producer knows replacement is or may be involved in the transaction.
+
+----- page 39 -----
+Duties of the replacing insurance company:
+* Require from the producer a list of the applicant's life insurance or annuity contracts to be replaced and a copy of the replacement
+notice provided to the applicant; and
+* Send each existing insurance company a written communication advising of the proposed replacement within a specified period
+of time of the date that the application is received in the replacing insurance company’s home or regional office. A policy
+summary or ledger statement containing policy data on the proposed life insurance or annuity must be included.
+In addition, there are several requirements that apply only to replacements conducted within the state of Utah. For example, replacing
+insurers that use producers must
+* With respect to an electronically completed notice of replacement, send a printed copy to the applicant within 5 business days;
+* Notify the existing insurer within 5 business days of the receipt of an application;
+* Be able to produce copies of any related notification for at least 5 years or until the next examination, whichever is later; and
+* Provide the applicant the right to return the policy within 30 days of delivery.
+If any insurer prohibits the use of sales material, the insurer must — within 10 working days of the issuance of a policy — notify the
+applicant, provide the applicant with contact information, and stress the importance of retaining copies of sales material.
+Furthermore, the existing insurer must:
+* Retain all replacement notifications for at least 5 years or until the next examination, whichever is later; and
+* Within 5 working days of a replacement notification, send a letter to the insured, informing them of their right to receive
+information about the existing policy. This information must be provided within 5 days of a request.

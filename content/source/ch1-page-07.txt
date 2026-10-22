@@ -1,0 +1,30 @@
+Transfer
+
+The most effective way to handle risk is to transfer it so that the loss is borne by another party. Insurance is the most common method
+of transferring risk from an individual or group to an insurance company. Though the purchasing of insurance will not eliminate the risk
+of death or illness, it relieves the insured of the financial losses these risks bring.
+
+There are several ways to transfer risk, such as hold harmless agreements and other contractual agreements, but the safest and most
+common method is to purchase insurance coverage.
+
+4. Elements of Insurable Risks
+
+Not alll risks are insurable. As noted earlier, insurers will insure only pure risks, or those that involve only the chance of loss with no
+chance of gain. Furthermore, even pure risks must have certain characteristics in order to be insurable. insurable risks involve the
+following characteristics:
+
+* Due to chance — A loss that is outside the insured’s control.
+
+* Definite and measurable — A loss that is specific as to the cause, time, place and amount. An insurer must be able to determine
+how much the benefit will be and when it becomes payable.
+
+* Statistically predictable — insurers must be able to estimate the average frequency and severity of future losses and set
+appropriate premium rates. (In life and health insurance, the use of mortality tables and morbidity tables allows the insurer to
+project losses based on statistics.)
+
+* Not catastrophic — Insurers need to be reasonably certain their losses will not exceed specific limits. That is why insurance policies
+usually exclude coverage for loss caused by war or nuclear events: There is no statistical data that allows for the development of
+rates that would be necessary to cover losses from events of this nature.
+
+* Randomly selected and large loss exposure — There must be a sufficiently large pool of the insured that represents a random
+selection of risks in terms of age, gender, occupation, health and economic status, and geographic location.

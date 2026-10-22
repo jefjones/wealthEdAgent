@@ -1,0 +1,17 @@
+2. Buy-sell Funding
+A buy-sell agreement is a legal contract that determines what will be done with a business in the event that an owner dies or becomes
+disabled. This is also referred to as a business continuation agreement.
+There are several types of buy-sell agreements that can be used for partnerships and corporations:
+
+* Cross Purchase - used in partnerships when each partner buys a policy on the other;
+
+« Entity Purchase - used when the partnership buys the policies on the partners;
+
+« Stock Purchase - used by privately owned corporations when each stockholder buys a policy on each of the others; and
+
+* Stock Redemption - used when the corporation buys one policy on each shareholder.
+Example:
+Here is an example of a cross-purchase buy-sell agreement: Partnership AB has two partners, Partner A and Partner B. The value of the
+business is $1,000,000. The partners each have an equal interest ($500,000 each). Partner A buys a life policy on Partner B for $500,000,
+and Partner B buys a life policy on Partner A for $500,000. If Partner A dies, Partner B gets 100% ownership of the business and A's heirs
+receive $500,000.

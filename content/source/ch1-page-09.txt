@@ -1,0 +1,12 @@
+6. Law of Large Numbers
+
+The basis of insurance is sharing risk among a large pool of people with a similar exposure to loss (a homogeneous group). The law of
+large numbers states that the larger the number of people with a similar exposure to loss, the more predictable actual losses will be.
+This law forms the basis for statistical prediction of loss upon which insurance rates are calculated.
+
+Example:
+
+When an insurance company issues a policy on a 35-year-old male, the company really has no way of knowing or accurately
+predicting when he will die. However, the Law of Large Numbers looks at a large group of similar risks - 35-year-old males of similar
+lifestyles and health conditions - and makes some conclusions based on statistics of past losses. This allows the insurance company to
+have a general idea about the predicted time of death for this type of insured and to set the premiums accordingly.

@@ -1,0 +1,22 @@
+Declined
+Applicants who are rejected are considered declined risks. Risks that the underwriters assess as not insurable are declined. For
+example, a risk may be declined for one of the following reasons:
+
+* There is no insurable interest;
+
+* The applicant is medically unacceptable;
+
+* The potential for loss is so great it does not meet the definition of insurance; or
+
+* Insurance is prohibited by public policy or is illegal.
+3. Premium Determination
+Once the company determines that an applicant is insurable, they need to establish an appropriate policy premium. The premium will
+be used to cover the costs and expenses to keep the policy in force. Premiums are paid in advance.
+Factors in Premium Determination
+There are three primary factors that are used in premium determination: risk (mortality - rate of death within a specific group), interest
+and expense.
+Mortality
+Mortality is the ratio of the number of deaths in a specific population over a certain amount of time versus the number of living people
+in that population. Mortality tables, used by insurers, indicate the number of individuals within a specified group of individuals (e.g.,
+males, females, smokers, nonsmokers) starting at a certain age, who are expected to be alive at a succeeding age. In other words,
+these tables help the insurers predict the expectation of life and the probability of death for a given group.

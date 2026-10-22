@@ -1,0 +1,21 @@
+Contracts
+A contract is an agreement between two or more parties enforceable by law. Because of unique aspects of insurance transactions, the
+general law of contracts had to be modified to fit the needs of insurance.
+1. Elements of a Legal Contract
+In order for insurance contracts to be legally binding, they must have 4 essential elements:
+
+1. Agreement — offer and acceptance;
+
+2. Consideration;
+
+3. Competent parties; and
+
+4. Legal purpose.
+Offer and Acceptance
+There must be a definite offer by one party, and the other party must accept this offer in its exact terms. In insurance, the applicant
+usually makes the offer when submitting the application. Acceptance takes place when an insurer's underwriter approves the
+application and issues a policy.
+Consideration
+The binding force in any contract is the consideration. Consideration is something of value that each party gives to the other. The
+consideration on the part of the insured is the payment of premium and the representations made in the application. The consideration
+on the part of the insurer is the promise to pay in the event of loss.

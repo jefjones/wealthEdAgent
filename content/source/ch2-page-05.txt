@@ -1,0 +1,24 @@
+Determining Amount of Personal Life Insurance
+
+Individuals seeking to buy life insurance may need assistance trying to establish how much coverage is appropriate, based on their
+ability to pay the premium, serve their needs, and protect their survivors. Insurance companies have developed 2 basic approaches to
+help producers and buyers to determine the needed amount of protection: human life value approach and needs approach.
+
+1. Human Life Value Approach
+
+The human life value approach (HLVA) gives the insured an estimate of what would be lost to the family in the event of the premature
+death of the insured. It calculates an individual's life value by looking at the insured’s wages, inflation, the number of years until
+retirement, and the time value of money.
+
+Example:
+
+Let's assume that a 40-year-old insured earns $50,000 a year and is expected to earn the same amount until he retires at age 65. Out
+of his annual income, $40,000 is spent on family needs, and the remaining $10,000 goes to the insured’s personal expenses. This means
+that the human life value of this insured to his family is $1,000,000 ($40,000 a year spent on family needs x 25 years to retirement).
+Based on this assumption, and taking interest and inflation into consideration, the insurance company will determine the right amount
+of insurance to produce the same annual amount of income for the family if the insured were to die.
+
+2. Needs Approach
+
+The needs approach is based on the predicted needs of a family after the premature death of the insured. Some of the factors
+considered by the needs approach are income, the amount of debt (including mortgage), investments, and other ongoing expenses.

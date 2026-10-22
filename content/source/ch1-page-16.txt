@@ -1,0 +1,14 @@
+6. Reinsurance: Insurance for Insurers
+
+Reinsurance is a contract under which one insurance company (the reinsurer) indemnifies another insurance company for part or alll of
+its liabilities. The purpose of reinsurance is to protect insurers against catastrophic losses. The originating company that procures
+insurance on itself from another insurer is called the ceding insurer (because it cedes, or gives, the risk to the reinsurer). The other
+insurer is called the assuming insurer, or reinsurer.
+
+When reinsurance is purchased on a specific policy, it is classified as facultative reinsurance. When an insurer has an automatic
+reinsurance agreement between itself and the reinsurer in which the reinsurer is bound to accept all risks ceded to it, it is classified as a
+reinsurance treaty. Treaties are usually negotiated for a period of a year or longer.
+
+There are two types of reinsurance agreements: facultative and automatic. When reinsurers use facultative reinsurance, they
+underwrite each application separately (on a case-by-case basis). Automatic (also known as treaty) reinsurance is a predetermined,
+blanket arrangement.

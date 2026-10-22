@@ -1,0 +1,11 @@
+Implied
+
+Implied authority is authority that is not expressed or written into the contract, but which the agent is assumed to have in order to
+transact the business of insurance for the principal. Implied authority is incidental to and derives from express authority since not every
+single detail of an agent's authority can be spelled out in the written contract.
+
+Example:
+
+If the agency contract does not specifically authorize the agent to collect premiums and remit them to the insurer, but the agent
+routinely does so in the process of solicitation and delivery of policies, the agent has the implied authority to collect and remit
+premiums.

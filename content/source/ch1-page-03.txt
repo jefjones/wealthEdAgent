@@ -1,0 +1,24 @@
+Exposure
+Exposure is a unit of measure used to determine rates charged for insurance coverage. In life insurance, all of the following factors are
+considered in determining rates:
+
+* The age of the insured;
+
+* Medical history;
+
+* Occupation; and
+
+© Sex.
+A large number of units having the same or similar exposure to loss is known as homogeneous. The basis of insurance is sharing risk
+among the members of a large homogeneous group with similar exposure to loss.
+Hazard
+Hazards are conditions or situations that increase the probability of an insured loss occurring. Hazards are classified as physical
+hazards, moral hazards, or morale hazards. Conditions such as lifestyle and existing health, or activities such as scuba diving, are
+hazards and may increase the chance of a loss occurring.
+Physical hazards are individual characteristics that increase the chances of the cause of loss. Physical hazards exist because of a
+physical condition, past medical history, or a condition at birth, such as blindness.
+Moral hazards are tendencies towards increased risk. Moral hazards involve evaluating the character and reputation of the proposed
+insured. Moral hazards refer to those applicants who may lie on an application for insurance, or in the past, have submitted fraudulent
+claims against an insurer.
+Morale hazards are similar to moral hazards, except that they arise from a state of mind that causes indifference to loss, such as
+carelessness. Actions taken without a forethought may cause physical injuries.

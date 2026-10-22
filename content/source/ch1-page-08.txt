@@ -1,0 +1,7 @@
+5. Adverse Selection
+
+Insurance companies strive to protect themselves from adverse selection, the insuring of risks that are more prone to losses than the
+average risk. Poorer risks tend to seek insurance or file claims to a greater extent than better risks.
+
+To protect themselves from adverse selection, insurance companies have an option to refuse or restrict coverage for bad risks, or
+charge them a higher rate for insurance coverage.

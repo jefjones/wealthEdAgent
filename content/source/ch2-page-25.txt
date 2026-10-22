@@ -1,0 +1,26 @@
+Part 2 - Medical Information of the application includes information on the prospective insured’s medical background, present health,
+any medical visits in recent years, medical status of living relatives, and causes of death of deceased relatives. If the amount of
+insurance is relatively small, the agent and the proposed insured will complete all of the medical information. That would be considered
+a nonmedical application. For larger amounts, the insurer will usually require some sort of medical examination by a professional.
+
+Itis the agent's responsibility to make certain that the application is filled out completely, correctly, and to the best of the applicant's
+knowledge. The agent must probe beyond the stated questions in the application if he or she has any reason to believe the applicant is
+misrepresenting or concealing information, or does not understand the specific questions asked. Any information that is misleading,
+inaccurate or illegible may delay the issuance of the policy. If the agent feels that there could be some misrepresentation, he/she must
+inform the insurance company. Some insurers require that the applicant complete the application under the agent's watchful eye, while
+other insurers require that the agent complete the application in order to help avoid mistakes and unanswered questions.
+
+Agent's Report
+
+As a field underwriter, the agent (or producer) can be considered the most important source of information available to the company
+underwriters. The agent's (producer's) report provides the agent's personal observations concerning the proposed insured. The insurer
+may inquire whether the agent knows of any adverse information about the applicant, or ask the agent to express an opinion about the
+applicant's character, financial standing, and environment. The agent's report does not become a part of the entire contract, although it
+is a part of the application process.
+
+Signatures Required
+
+Both the agent and the proposed insured (usually the applicant) must sign the application. If the proposed insured and the
+policyowner are not the same person, such as a business purchasing insurance on an employee, then the policyowner must also sign
+the application. An exception to the proposed insured signing the application would be in the case of an adult, such as a parent or
+guardian, applying for insurance on a minor child.

@@ -1,0 +1,551 @@
+----- page 1 -----
+Before you learn the different types of policies that you will encounter as an insurance producer, you will need to understand some
+basic terminology and concepts. First you need to understand what insurance is and who or what may become insured. This chapter
+will discuss some basic underwriting concepts, address different classifications of insurers, and will end with an explanation of
+contracts. In general, this chapter will help build a foundation of concepts that will make it easier for you to learn the rest of the material
+in this course, so it is important for you to master these ideas before moving on to the next chapter.
+
+® TERMSTO KNOW
+
+Agent/Producer — a legal representative of an insurance company; the classification of producer usually includes agents and
+
+brokers; agents are the agents of the insurer
+
+Applicant or proposed insured — a person applying for insurance
+
+Beneficiary — a person who receives the benefits of an insurance policy
+
+Broker — an insurance producer not appointed by an insurer and is deemed to represent the client
+
+Indemnity — main principle of insurance, meaning that the insured cannot recover more than their loss; the purpose of insurance is
+
+to restore the insured to the same position as before the loss
+
+Insurance policy — a contract between a policyowner (and/or insured) and an insurance company which agrees to pay the
+
+insured or the beneficiary for loss caused by specific events
+
+Insured — the person covered by the insurance policy. This person may or may not be the policyowner
+
+Insurer (principal) — the company who issues an insurance policy
+
+Law of large numbers — the larger the number of people with a similar exposure to loss, the more predictable actual losses will be
+
+Policyowner — the person entitled to exercise the rights and privileges in the policy
+
+Premium — the money paid to the insurance company for the insurance policy
+
+Reciprocity/Reciprocal — a mutual interchange of rights and privileges
+
+----- page 2 -----
+Key Terms and Concepts
+1. Insurance
+Insurance is a contract in which one party (the insurance company) agrees to indemnify (make whole) the insured party against loss,
+damage or liability arising from an unknown event. In life insurance, the policy protects survivors from losses suffered after an insured’s
+death.
+Insurance is a transfer of risk of loss from an individual or a business entity to an insurance company, which, in turn, spreads the costs of
+unexpected losses to many individuals. If there were no insurance mechanism, the cost of a loss would have to be borne solely by the
+individual who suffered the loss.
+KNOW THIS
+CO} Insurance is the transfer of risk of loss. The cost of an insured's loss is transferred over to the insurer and spread among other
+insureds.
+2. Risk Management Key Terms
+Risk
+Risk is the uncertainty or chance of a loss occurring. The two types of risks are pure and speculative, only one of which is insurable.
+* Pure risk refers to situations that can only result in a loss or no change. There is no opportunity for financial gain. Pure risk is the
+only type of risk that insurance companies are willing to accept.
+* Speculative risk involves the opportunity for either loss or gain. An example of speculative risk is gambling. These types of risks are
+not insurable.
+
+----- page 3 -----
+Exposure
+Exposure is a unit of measure used to determine rates charged for insurance coverage. In life insurance, all of the following factors are
+considered in determining rates:
+
+* The age of the insured;
+
+* Medical history;
+
+* Occupation; and
+
+© Sex.
+A large number of units having the same or similar exposure to loss is known as homogeneous. The basis of insurance is sharing risk
+among the members of a large homogeneous group with similar exposure to loss.
+Hazard
+Hazards are conditions or situations that increase the probability of an insured loss occurring. Hazards are classified as physical
+hazards, moral hazards, or morale hazards. Conditions such as lifestyle and existing health, or activities such as scuba diving, are
+hazards and may increase the chance of a loss occurring.
+Physical hazards are individual characteristics that increase the chances of the cause of loss. Physical hazards exist because of a
+physical condition, past medical history, or a condition at birth, such as blindness.
+Moral hazards are tendencies towards increased risk. Moral hazards involve evaluating the character and reputation of the proposed
+insured. Moral hazards refer to those applicants who may lie on an application for insurance, or in the past, have submitted fraudulent
+claims against an insurer.
+Morale hazards are similar to moral hazards, except that they arise from a state of mind that causes indifference to loss, such as
+carelessness. Actions taken without a forethought may cause physical injuries.
+
+----- page 4 -----
+Peril
+Perils are the causes of loss insured against in an insurance policy.
+* Life insurance insures against the financial loss caused by the premature death of the insured;
+* Health insurance insures against the medical expenses and/or loss of income caused by the insured’s sickness or accidental
+injury;
+* Property insurance insures against the loss of physical property or the loss of its income-producing abilities;
+* Casualty insurance insures against the loss and/or damage of property and resulting liabilities.
+
+----- page 5 -----
+Loss
+Loss is defined as the reduction, decrease, or disappearance of value of the person or property insured in a policy, caused by a named
+peril. Insurance provides a means to transfer loss.
+
+----- page 6 -----
+3. Methods of Handling Risk
+Avoidance
+One of the methods of dealing with risk is avoidance, which means eliminating exposure to a loss. For example, if a person wanted to
+avoid the risk of being killed in an airplane crash, he/she might choose never to fly in an airplane. Risk avoidance is effective, but seldom
+practical.
+Retention
+Risk retention is the planned assumption of risk by an insured through the use of deductibles, co-payments, or self-insurance. It is also
+known as self-insurance when the insured accepts the responsibility for the loss before the insurance company pays. The purpose of
+retention is
+
+1. To reduce expenses and improve cash flow;
+
+2.To increase control of claim reserving and claims settlements; and
+
+3. To fund for losses that cannot be insured.
+Sharing
+Sharing is a method of dealing with risk for a group of individual persons or businesses with the same or similar exposure to loss to
+share the losses that occur within that group. A reciprocal insurance exchange is a formal risk-sharing arrangement.
+Reduction
+Since we usually cannot avoid risk entirely, we often attempt to lessen the possibility or severity of a loss. Reduction would include
+actions such as installing smoke detectors in our homes, having an annual physical to detect health problems early, or perhaps making
+change in our lifestyles.
+
+----- page 7 -----
+Transfer
+
+The most effective way to handle risk is to transfer it so that the loss is borne by another party. Insurance is the most common method
+of transferring risk from an individual or group to an insurance company. Though the purchasing of insurance will not eliminate the risk
+of death or illness, it relieves the insured of the financial losses these risks bring.
+
+There are several ways to transfer risk, such as hold harmless agreements and other contractual agreements, but the safest and most
+common method is to purchase insurance coverage.
+
+4. Elements of Insurable Risks
+
+Not alll risks are insurable. As noted earlier, insurers will insure only pure risks, or those that involve only the chance of loss with no
+chance of gain. Furthermore, even pure risks must have certain characteristics in order to be insurable. insurable risks involve the
+following characteristics:
+
+* Due to chance — A loss that is outside the insured’s control.
+
+* Definite and measurable — A loss that is specific as to the cause, time, place and amount. An insurer must be able to determine
+how much the benefit will be and when it becomes payable.
+
+* Statistically predictable — insurers must be able to estimate the average frequency and severity of future losses and set
+appropriate premium rates. (In life and health insurance, the use of mortality tables and morbidity tables allows the insurer to
+project losses based on statistics.)
+
+* Not catastrophic — Insurers need to be reasonably certain their losses will not exceed specific limits. That is why insurance policies
+usually exclude coverage for loss caused by war or nuclear events: There is no statistical data that allows for the development of
+rates that would be necessary to cover losses from events of this nature.
+
+* Randomly selected and large loss exposure — There must be a sufficiently large pool of the insured that represents a random
+selection of risks in terms of age, gender, occupation, health and economic status, and geographic location.
+
+----- page 8 -----
+5. Adverse Selection
+
+Insurance companies strive to protect themselves from adverse selection, the insuring of risks that are more prone to losses than the
+average risk. Poorer risks tend to seek insurance or file claims to a greater extent than better risks.
+
+To protect themselves from adverse selection, insurance companies have an option to refuse or restrict coverage for bad risks, or
+charge them a higher rate for insurance coverage.
+
+----- page 9 -----
+6. Law of Large Numbers
+
+The basis of insurance is sharing risk among a large pool of people with a similar exposure to loss (a homogeneous group). The law of
+large numbers states that the larger the number of people with a similar exposure to loss, the more predictable actual losses will be.
+This law forms the basis for statistical prediction of loss upon which insurance rates are calculated.
+
+Example:
+
+When an insurance company issues a policy on a 35-year-old male, the company really has no way of knowing or accurately
+predicting when he will die. However, the Law of Large Numbers looks at a large group of similar risks - 35-year-old males of similar
+lifestyles and health conditions - and makes some conclusions based on statistics of past losses. This allows the insurance company to
+have a general idea about the predicted time of death for this type of insured and to set the premiums accordingly.
+
+----- page 10 -----
+Classification of Insurers
+Insurance is available from both private companies and the government. The major difference between government and private
+insurance is that the government programs are funded with taxes and serve national and state social purposes, while private policies
+are funded by premiums.
+Private insurance companies can be classified in a variety of ways:
+
+* Ownership;
+
+* Authority to transact business;
+
+* Location (domicile);
+
+* Marketing and distribution systems; or
+
+* Rating (financial strength).
+As you read about different classifications of insurers, keep in mind that these categories are not mutually exclusive, and the same
+company can be described based on where it is located and allowed to transact the business of insurance, who owns it, and what type
+of agents it appoints.
+1. Ownership
+The following are the most common types of ownership.
+Stock Companies
+Stock companies are owned by the stockholders who provide the capital necessary to establish and operate the insurance company
+and who share in any profits or losses. Officers are elected by the stockholders and manage stock insurance companies. Traditionally,
+stock companies issue nonparticipating policies, in which policyowners do not share in profits or losses.
+Anonparticipating (stock) policy does not pay dividends to policyowners; however, taxable dividends are paid to stockholders. The
+dividends are not guaranteed as they are based on company profit.
+
+----- page 11 -----
+Mutual Companies
+
+Mutual companies are owned by the policyowners and issue participating policies. With participating policies, policyowners are
+entitled to dividends, which, in the case of mutual companies, are a return of excess premiums and are, therefore, nontaxable.
+Dividends are generated when the premiums and the earnings combined exceed the actual costs of providing coverage, creating a
+surplus. Dividends are not guaranteed.
+
+----- page 12 -----
+Fraternal Benefit Societies
+
+A fraternal benefit society is an organization formed to provide insurance benefits for members of an affiliated lodge, religious
+organization, or fraternal organization with a representative form of government. Fraternals sell only to their members and are
+considered charitable institutions, and not insurers. They are not subject to all of the regulations that apply to the insurers that offer
+coverage to the public at large.
+
+In most states, fraternal benefit societies are permitted to issue life insurance (including endowments), health insurance (including
+medical and disability), and annuities. They do not issue property or liability policies.
+
+Lloyd's Associations
+
+Lloyd's is not an insurance company. Lloyd's provides support facilities for underwriters or groups of individuals that accept insurance
+tisk.
+
+Lloyd's associations are a group of individuals who operate an insurance mechanism using the same principles of individual liability of
+insurers that Lloyd's of London uses, in that each individual underwriter assumes a part of each risk. Each individual promises to pay a
+specified amount in the event that the contingency insured against occurs. Members are liable only for their portion of the risk and are
+not bound to assume any portion of a defaulting member.
+
+While Lloyd's formed in this country operate in essentially the same manner as Lloyd's of London, they are not subject to the strict
+regulation which Lloyd's of London imposes upon its members. Most states have laws which prohibit the organization or licensing of
+American Lloyd's. Those Lloyd's which do exist operate almost exclusively in the property insurance field.
+
+Reciprocals
+
+A reciprocal exchange is insurance resulting from an interchange of reciprocal agreements of indemnity among persons known as
+subscribers. A reciprocal exchange is an unincorporated insurance company managed by an attorney-in-fact common to all
+subscribers, that operates like a mutual company. Subscribers agree to become liable for their share of losses and expenses incurred
+among all subscribers, and they authorize the attorney-in-fact to manage and operate the exchange.
+
+----- page 13 -----
+Risk Retention Groups
+Arisk retention group (RRG) is a liability insurance company owned by its members. The members are exposed to similar liability risks
+by virtue of being in the same business or industry. The purpose of a risk retention group is to assume and spread all or part of the
+liability of its group members. A risk retention group may reinsure another risk retention group's liability as long as the members of the
+second group are engaged in the same or similar business or industry.
+2. Admitted vs. Nonadmitted Insurers
+Before insurers may transact business in a specific state, they must apply for and be granted a license or Certificate of Authority from
+the state department of insurance and meet any financial (capital and surplus) requirements set by the state. Insurers who meet the
+state's financial requirements and are approved to transact business in the state are considered authorized or admitted into the state
+as a legal insurer. Those insurers who have not been approved to do business in the state are considered unauthorized or
+nonadmitted. Most states have laws that prohibit unauthorized insurers from conducting business in the state, except through licensed
+excess and surplus lines brokers.
+ry KNOW THIS
+Insurers must obtain a Certificate of Authority prior to transacting business in this state.
+3. Domestic, Foreign and Alien Insurers
+Insurance companies are classified according to the location of incorporation (domicile). Regardless of where an insurance company
+is incorporated, it must obtain a Certificate of Authority before transacting insurance within the state.
+ry KNOW THIS
+A domicile refers to the location where an insurer is incorporated, not necessarily where the insurer conducts business.
+
+----- page 14 -----
+A domestic insurer is an insurance company that is incorporated in this state. In most cases, the company’s home office is in the state
+in which it was formed — the company’s domicile. For instance, a company chartered in Pennsylvania would be considered a
+Pennsylvania domestic company.
+A foreign insurer is an insurance company that is incorporated in another state, the District of Columbia, or a territorial possession.
+Currently, the United States has 5 major US. territories: American Samoa, Guam, the Northern Mariana Islands, Puerto Rico, and the US.
+Virgin Islands.
+For example, a company chartered in California would be a foreign insurer within the state of New York. A company chartered in Puerto
+Rico will be foreign in any US. state.
+An alien insurer is an insurance company that is incorporated outside the United States.
+4. Marketing (Distribution) Systems
+Insurance companies market their products in different ways: through agents or direct solicitation to the customers.
+‘TYPE OF MARKETING
+CHARACTERISTICS
+ARRANGEMENTS
+* One independent agent represents several companies
+Independent Agency System/ * Nonexclusive
+American Agency System * Commissions on personal sales
+* Business renewal with any company
+* One agent represents one company
+Exclusive Agency System/ ° Exclusive
+y * Commissions on personal sales
+Captive Agents , —
+* Renewals can only be placed with the appointing
+insurer
+
+----- page 15 -----
+* General agent-entrepreneur represents one company
+ala * Exclusive
+General Agency Syster * Compensation and commissions
+* Appoints subagents
+* Branch manager (supervises agents)
+Managerial System * Salaried
+* Agents can be insurer's employees or independent contractors
+* No agents
+Direct Response Marketing * Company advertises directly to consumers (through mail, internet, television, other mass
+System marketing)
+* Consumers apply directly to the company
+5. Financial Status (Independent Rating Services)
+The financial strength and stability of an insurance company are two vitally important factors to potential insureds. The financial
+strength of an insurance company is based on prior claims experience, investment earnings, level of reserves (amount of money kept in
+a separate account to cover debts to policyholders), and management, to name a few. Guides to insurance companies’ financial
+integrity are published regularly by the following various independent rating services:
+* AMBest
+© Fitch
+* Standard and Poor's
+* Moody's
+* Weiss
+
+----- page 16 -----
+6. Reinsurance: Insurance for Insurers
+
+Reinsurance is a contract under which one insurance company (the reinsurer) indemnifies another insurance company for part or alll of
+its liabilities. The purpose of reinsurance is to protect insurers against catastrophic losses. The originating company that procures
+insurance on itself from another insurer is called the ceding insurer (because it cedes, or gives, the risk to the reinsurer). The other
+insurer is called the assuming insurer, or reinsurer.
+
+When reinsurance is purchased on a specific policy, it is classified as facultative reinsurance. When an insurer has an automatic
+reinsurance agreement between itself and the reinsurer in which the reinsurer is bound to accept all risks ceded to it, it is classified as a
+reinsurance treaty. Treaties are usually negotiated for a period of a year or longer.
+
+There are two types of reinsurance agreements: facultative and automatic. When reinsurers use facultative reinsurance, they
+underwrite each application separately (on a case-by-case basis). Automatic (also known as treaty) reinsurance is a predetermined,
+blanket arrangement.
+
+----- page 17 -----
+Producers and General Rules of Agency
+An agent/producer is an individual licensed to sell, solicit or negotiate insurance contracts on behalf of the principal (insurer). The law
+of agency defines the relationship between the principal and the agent/producer: the acts of the agent/producer within the scope of
+authority are deemed to be the acts of the insurer.
+In this relationship, it is a given that
+
+* An agent represents the insurer, not the insured;
+
+* Any knowledge of the agent is presumed to be knowledge of the insurer;
+
+* If the agent is working within the conditions of his/her contract, the insurer is fully responsible; and
+
+* When the insured submits payment to the agent, it is the same as submitting a payment to the insurer.
+The agent is responsible for accurately completing applications for insurance, submitting the application to the insurer for underwriting,
+and delivering the policy to the policyowner.
+
+ry KNOW THIS
+
+Insurance agents represent the insurer (principal). "Who is your pal? The principal!”
+
+1. Producer Authority
+The agency contract details the authority an agent has within his/her company. Contractually, only those actions that the agent is
+authorized to perform can bind the principal (insurer). In reality, an agent's authority is much broader. There are 3 types of agent
+authority: express, implied, and apparent.
+Express
+Express authority is the authority a principal intends to grant to an agent by means of the agent's contract. It is the authority that is
+written in the contract.
+
+----- page 18 -----
+Implied
+
+Implied authority is authority that is not expressed or written into the contract, but which the agent is assumed to have in order to
+transact the business of insurance for the principal. Implied authority is incidental to and derives from express authority since not every
+single detail of an agent's authority can be spelled out in the written contract.
+
+Example:
+
+If the agency contract does not specifically authorize the agent to collect premiums and remit them to the insurer, but the agent
+routinely does so in the process of solicitation and delivery of policies, the agent has the implied authority to collect and remit
+premiums.
+
+----- page 19 -----
+Apparent
+Apparent authority (also known as perceived authority) is the appearance or the assumption of authority based on the actions, words,
+or deeds of the principal or because of circumstances the principal created. For example, if an agent uses insurer's stationery when
+soliciting coverage, an applicant may believe that the agent is authorized to transact insurance on behalf of the insurer.
+2. Responsibilities to the Applicant and Insured
+Although the agents act for the insurer, they are legally obligated to treat applicants and insureds in an ethical manner. Because an
+agent handles the funds of the insured and the insurer, he/she has fiduciary responsibility. A fiduciary is someone in a position of trust.
+More specifically, it is illegal for insurance producers to commingle premiums collected from the applicants with their own personal
+funds.
+Market conduct describes the way companies and producers should conduct their business. It is a Code of Ethics for producers.
+Producers must adhere to certain established procedures, and failure to comply will result in penalties. Some of the market conduct
+regulations include, but are not limited to, the following:
+
+* Conflict of interest;
+
+* Arequest of a gift or loan as a condition to complete business; and
+
+* Supplying confidential information.
+Producers are required to perform in a professional manner at alll times. Professionalism means that a person is engaged in an
+occupation requiring an advanced level of training, knowledge, or skill. Being professional means placing the public’s interest above
+‘one's own in all situations. Any deviation could result in a penalty.
+
+----- page 20 -----
+Contracts
+A contract is an agreement between two or more parties enforceable by law. Because of unique aspects of insurance transactions, the
+general law of contracts had to be modified to fit the needs of insurance.
+1. Elements of a Legal Contract
+In order for insurance contracts to be legally binding, they must have 4 essential elements:
+
+1. Agreement — offer and acceptance;
+
+2. Consideration;
+
+3. Competent parties; and
+
+4. Legal purpose.
+Offer and Acceptance
+There must be a definite offer by one party, and the other party must accept this offer in its exact terms. In insurance, the applicant
+usually makes the offer when submitting the application. Acceptance takes place when an insurer's underwriter approves the
+application and issues a policy.
+Consideration
+The binding force in any contract is the consideration. Consideration is something of value that each party gives to the other. The
+consideration on the part of the insured is the payment of premium and the representations made in the application. The consideration
+on the part of the insurer is the promise to pay in the event of loss.
+
+----- page 21 -----
+Competent Parties
+
+The parties to a contract must be capable of entering into a contract in the eyes of the law. Generally, this requires that both parties be
+of legal age, mentally competent to understand the contract, and not under the influence of drugs or alcohol.
+
+Legal Purpose
+
+The purpose of the contract must be legal and not against public policy. To ensure legal purpose of a Life Insurance policy, for example,
+it must have both: insurable interest and consent. A contract without a legal purpose is considered void, and cannot be enforced by any
+party.
+
+2. Distinct Characteristics of an Insurance Contract
+
+In addition to required elements, insurance contracts have unique characteristics that distinguish them from other types of legal
+contracts. It is important to understand these features and how they affect parties to an insurance contract.
+
+----- page 22 -----
+Personal Contract
+
+In general, an insurance contract is a personal contract because it is between the insurance company and an individual. Because the
+company has a right to decide with whom it will and will not do business, the insured cannot be changed to someone else without the
+written consent of the insurer, nor can the owner transfer the contract to another person without the insurer's approvall. Life insurance is.
+an exception to this rule: A policyowner can transfer (or assign) ownership to another person. However, the insurer must still be notified
+in writing.
+
+Unilateral Contract
+
+In aunilateral contract, only one of the parties to the contract is legally bound to do anything. The insured makes no legally binding
+promises. However, an insurer is legally bound to pay losses covered by a policy in force.
+
+----- page 23 -----
+Contract of Adhesion
+
+A contract of adhesion is prepared by one of the parties (insurer) and accepted or rejected by the other party (insured). Insurance
+policies are not drawn up through negotiations, and an insured has little to say about its provisions. In other words, insurance contracts
+are offered on a take-it-or-leave-it basis by an insurer. Any ambiguities in the contract will be settled in favor of the insured.
+Aleatory Contract
+
+Insurance contracts are aleatory, which means there is an exchange of unequal amounts or values. The premium paid by the insured is
+small in relation to the amount that will be paid by the insurer in the event of loss.
+
+Life and Health Example:
+
+John purchases a life insurance policy for $100,000. His monthly premium is $100. If John only had the policy for 2 months, which means
+he only paid $200 in premiums, and he unexpectedly died, his beneficiary will receive $100,000. A $200 contribution on the part of the
+insured in exchange for $100,000 benefit from the insurer illustrates an aleatory contract.
+
+Property and Casualty Example:
+
+John purchases a homeowners insurance policy for $100,000. His monthly premium is $100. If John only had the policy for 2 months,
+which means he only paid $200 in premiums, and the home was unexpectedly destroyed by a covered peril, John will receive $100,000.
+$200 contribution on the part of the insured in exchange for $100,000 benefit from the insurer illustrates an aleatory contract.
+
+----- page 24 -----
+Conditional Contract
+
+As the name implies, a conditional contract requires that certain conditions must be met by the policyowner and the company in order
+for the contract to be executed, and before each party fulfills its obligations. For example, the insured must pay the premium and
+provide proof of loss in order for the insurer to cover a claim.
+
+3. Legal Interpretations Affecting Contracts
+
+Ambiguities in a Contract of Adhesion
+
+Because only the insurance company has the right to draw up a contract, and the insured has to adhere to the contract as issued, the
+courts have held that any ambiguity in the contract should be interpreted in favor of the insured.
+
+Reasonable Expectations
+
+Itis not always practical or necessary to state every direct and indirect provision or coverage offered by an insurance policy. If an agent
+implies through advertising, sales literature or statements that these provisions exist, an insured could reasonably expect coverage.
+Indemnity
+
+Indemnity (sometimes referred to as reimbursement) is a provision in an insurance policy that states that in the event of loss, an
+insured or a beneficiary is permitted to collect only to the extent of the financial loss, and is not allowed to gain financially because of
+the existence of an insurance contract. The purpose of insurance is to restore, but not let an insured or a beneficiary profit from the loss.
+Life and Health Example:
+
+Brenda has a health insurance policy for $20,000. After she was hospitalized, her medical expenses added up to $15,000. The insurance
+policy will reimburse Brenda only for $15,000 (the amount of the loss), and not for $20,000 (the total amount of insurance).
+
+----- page 25 -----
+Property and Casualty Example:
+
+Brenda has a homeowners insurance policy for $200,000. After her home was destroyed, her expense to rebuild the home added up to
+$150,000. The insurance policy will reimburse Brenda only for $150,000 (the amount of the loss), and not for $200,000 (the total amount
+of insurance).
+
+----- page 26 -----
+Utmost Good Faith
+
+The principle of utmost good faith implies that there will be no fraud, misrepresentation or concealment between the parties. As it
+pertains to insurance policies, both the insurer and insured must be able to rely on the other for relevant information. The insured is
+expected to provide accurate information on the application for insurance, and the insurer must clearly and truthfully describe policy
+features and benefits, and must not conceal or mislead the insured.
+
+Representations and Misrepresentations
+
+Representations are statements believed to be true to the best of one’s knowledge, but they are not guaranteed to be true. For
+insurance purposes, representations are the answers the insured gives to the questions on the insurance application.
+
+Untrue statements on the application are considered misrepresentations and could void the contract. A material misrepresentation is
+a statement that, if discovered, would alter the underwriting decision of the insurance company. Furthermore, if material
+misrepresentations are intentional, they are considered fraud.
+
+----- page 27 -----
+Warranties
+
+A warranty is an absolutely true statement upon which the validity of the insurance policy depends. Breach of warranties can be
+considered grounds for voiding the policy or a return of premium. Because of such a strict definition, statements made by applicants for
+life and health insurance policies, for example, are usually not considered warranties, except in cases of fraud.
+
+Concealment
+
+Concealment is the legal term for the intentional withholding of information of a material fact that is crucial in making a decision. In
+insurance, concealment is the withholding of information by the applicant that will result in an imprecise underwriting decision.
+Concealment may void a policy.
+
+----- page 28 -----
+Fraud
+
+Fraud is the intentional misrepresentation or intentional concealment of a material fact used to induce another party to make or refrain
+from making a contract, or to deceive or cheat a party. Fraud is grounds for voiding an insurance contract.
+
+Waiver and Estoppel
+
+Waiver is the voluntary act of relinquishing a legal right, claim or privilege.
+
+Estoppel is a legal process that can be used to prevent a party to a contract from re-asserting a right or privilege after that right or
+privilege has been waived. Estoppel is a legal consequence of a waiver.

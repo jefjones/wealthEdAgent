@@ -1,0 +1,26 @@
+Conditional Contract
+
+As the name implies, a conditional contract requires that certain conditions must be met by the policyowner and the company in order
+for the contract to be executed, and before each party fulfills its obligations. For example, the insured must pay the premium and
+provide proof of loss in order for the insurer to cover a claim.
+
+3. Legal Interpretations Affecting Contracts
+
+Ambiguities in a Contract of Adhesion
+
+Because only the insurance company has the right to draw up a contract, and the insured has to adhere to the contract as issued, the
+courts have held that any ambiguity in the contract should be interpreted in favor of the insured.
+
+Reasonable Expectations
+
+Itis not always practical or necessary to state every direct and indirect provision or coverage offered by an insurance policy. If an agent
+implies through advertising, sales literature or statements that these provisions exist, an insured could reasonably expect coverage.
+Indemnity
+
+Indemnity (sometimes referred to as reimbursement) is a provision in an insurance policy that states that in the event of loss, an
+insured or a beneficiary is permitted to collect only to the extent of the financial loss, and is not allowed to gain financially because of
+the existence of an insurance contract. The purpose of insurance is to restore, but not let an insured or a beneficiary profit from the loss.
+Life and Health Example:
+
+Brenda has a health insurance policy for $20,000. After she was hospitalized, her medical expenses added up to $15,000. The insurance
+policy will reimburse Brenda only for $15,000 (the amount of the loss), and not for $20,000 (the total amount of insurance).
