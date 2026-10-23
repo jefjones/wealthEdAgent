@@ -1,0 +1,17 @@
+Taxation of Individual Retirement Accounts
+1. Traditional IRAs
+Contributions, Deductible Amounts, and Distributions
+The following taxation rules apply to contributions made to traditional IRA plans:
+* Tax-deductible contributions for the year of the contribution (based on the person's income);
+* Contributions must be made in “cash” in order to be tax deductible (the term cash includes any form of money, such as cash,
+check, or money order);
+* Excess contributions are taxed at 6% per year as long as the excess amounts remain in the IRA; and
+* Tax-deferred earnings (the money that accumulates in the account) are not taxed until withdrawn.
+A distribution from an IRA is subject to income taxation in the year the withdrawal is made. In case of an early distribution (prior to age
+59 %), a 10% penalty will also apply.
+There are certain conditions, under which the 10% penalty for early withdrawals would not apply (penalty tax exceptions):
+* Participant is age 59%;
+* Participant is totally disabled;
+* The money is used to make the down payment on a home (not to exceed $10,000, and usually for first-time homebuyers);
+* Withdrawals are for post-secondary education expenses; and
+* Withdrawals are for catastrophic medical expenses, or upon death.

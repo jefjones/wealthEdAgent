@@ -1,0 +1,16 @@
+Nonforfeiture
+The nonforfeiture law stipulates that a deferred annuity must have a guaranteed surrender value that is available if the owner decides
+to surrender the annuity prior to annuitization (e.g,, 100% of the premium paid, less any prior withdrawals and related surrender
+charges). However, a 10% penalty will be applied for early withdrawals (prior to age 59 %).
+Surrender Charges
+The purpose of the surrender charge is to help compensate the company for loss of the investment value due to an early surrender of a
+deferred annuity.
+A surrender charge is levied against the cash value, and is generally a percentage that reduces over time. A common surrender charge
+might be 7% the first year, 6% the second year, and 5%, 4%, 3%, 2%, 1%, and 0% respectively thereafter. Therefore, if the annuity is
+surrendered in the 8'” year or after there would be no further surrender charge. At surrender, the owner gets the premium, plus
+interest (the value of the annuity), minus the surrender charge.
+Example:
+Assume that the annuity owner paid $700 in premium, which accumulated a total of $35 of interest, and a surrender charge is $70. If the
+annuity is surrendered prematurely, what will the annuity value be at surrender? The answer is $665.
+
+($700 Premium + $35 Interest) - $70 Surrender Charge = $665 Value of the Annuity

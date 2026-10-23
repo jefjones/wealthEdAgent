@@ -1,0 +1,24 @@
+Application
+
+An application for insurance begins with a form provided by the company and completed by the agent as questions are asked of the
+applicant, and the applicant's responses are recorded. This form - often called the “app” - is then submitted to the insurance company
+for its approval or rejection. The application is the applicant's written request to the insurance company to issue a policy or contract
+based upon the information contained in the application. If the policy is issued, a copy of this application is stapled in the back of the
+policy and it becomes part of the entire contract.
+
+Anotice to the applicant must be issued to all applicants for health insurance coverage. This notice informs the applicant that a credit
+report will be ordered concerning their past history and any other health insurance for which the applicant has previously applied. The
+agent must leave this notice with the applicant.
+
+Notice of Information Practices
+
+Insurers and producers must provide a notice of information practices to applicants and policyholders in connection with insurance
+transactions. The notice is usually required at the time an insurer or producer first collects personal information from a source other
+than the applicant or public records, or at policy delivery if the information is collected from the applicant or from public records. In the
+case of a policy renewal, the notice must be provided at the policy renewal date or annually.
+
+Completeness and Accuracy
+
+The agent must take special care with the accuracy of the application in the interest of both the company and the insured. Because the
+application is often the main source of underwriting information, it is the agent's responsibility to make certain that the application is
+filled out completely, correctly, and to the best of the applicant's knowledge.

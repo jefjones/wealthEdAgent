@@ -1,0 +1,10 @@
+Annuities Certain (Types)
+
+In contrast with life contingency benefit payment options, annuities certain are short-term annuities that limit the amounts paid to a
+certain fixed period or until a certain fixed amount is liquidated.
+
+Fixed Period
+
+With fixed-period installments, the annuitant selects the time period for the benefits, and the insurer determines how much each
+payment will be, based on the value of the account and future earnings projections. This option pays for a specified amount of time
+only, whether or not the annuitant is living.

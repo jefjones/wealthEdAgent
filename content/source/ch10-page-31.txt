@@ -1,0 +1,45 @@
+Health status (no discrimination): A group health plan or a health insurance issuer offering group or individual health insurance
+coverage may not establish rules for eligibility based on any of the following health status-related factors related to individuals or their
+dependents:
+
+* Health status;
+
+* Medical condition (including both physical and mental illnesses);
+
+* Claims experience;
+
+* Receipt of health care;
+
+* Medical history;
+
+* Genetic information;
+
+* Evidence of insurability (including conditions arising out of acts of domestic violence);
+
+* Disability; or
+
+* Any other health status related factor.
+When health insurers set their premium rates, they are only permitted to base those rates on 4 standards:
+
+1. Geographic rating area (location of residence within the state);
+
+2. Family composition (single or family enrollment);
+
+3. Age; and
+
+4, Tobacco use.
+For individual plans, the location is the insured’s home address; for small group plans, the location is the employer's principal place of
+business.
+Essential benefits: Essential benefits include hospitalization, maternity, emergency services, wellness and preventive services, and
+chronic disease management.
+
+* Note that all Health Insurance Marketplace plans must cover pregnancy and childbirth, even if pregnancy begins before the
+
+coverage takes effect.
+
+Guaranteed issue: Insurance companies must accept any eligible applicant for individual or group insurance coverage. Enrollment for
+coverage may be restricted to open or special enrollment periods.
+Guaranteed renewability: An insurance company that offers either group or individual health insurance coverage must renew or
+continue the policy at the option of the plan sponsor or the individual.
+Pre-existing conditions: The law creates a new program, the Pre-Existing Condition Insurance Plan, to make health coverage available
+to individuals who have been denied health insurance by private insurance companies because of a pre-existing condition.

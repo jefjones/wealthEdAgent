@@ -1,0 +1,6 @@
+Extended Term
+
+Under the extended-term option, the insurer uses the policy cash value to convert to term insurance for the same face amount as the
+former permanent policy. The duration of the new term coverage lasts for as long a period as the amount of cash value will purchase. If
+the policyowner has neglected to select one of these nonforfeiture options, the insurer will automatically implement the extended-term
+option in the event of termination of the original policy.

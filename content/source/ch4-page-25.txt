@@ -1,0 +1,11 @@
+Cost of Living
+
+The cost of living rider addresses the inflation factor by automatically increasing the amount of insurance without evidence of
+insurability from the insured. The face value of the policy may be increased by a cost of living factor tied to an inflation index such as the
+Consumer Price Index (CPI).
+
+Return of Premium
+
+The return of premium rider is implemented by using increasing term insurance. When added to a whole life policy, it provides that at
+death prior to a given age, not only is the original face amount payable, but an amount equal to all premiums previously paid is also
+payable to the beneficiary. The return of premium rider usually expires at a specified age such as age 60.

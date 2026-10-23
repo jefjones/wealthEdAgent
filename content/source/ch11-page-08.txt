@@ -1,0 +1,20 @@
+Types of Funding and Administration
+1. Conventional Fully-insured Plans
+A conventional fully insured plan is administered and guaranteed by an insurance company. In return for the premium collected from
+the insured by the insurer, the insurer assumes the risk of paying the cost of medical expenses that may or may not occur during the
+policy period.
+2. Fully Self-funded (Self-administered) Plans
+Under some circumstances, it is possible for a business or other organization to engage in the same types of activities as a commercial
+insurer dealing with its own risks. When these activities involve the operation of the law of large numbers and predictions regarding
+future losses, they are commonly referred to as self-insurance. Self-insurance applies when an organization develops a formal
+program for identifying, evaluating and funding its own losses.
+Characteristics
+Self-insurance is when an organization develops a formal program for identifying, evaluating and funding its own losses.
+Conditions Suitable for Self-funding
+For a self-insurance program to be dependable, it must:
+* Be big enough to permit the use of a sufficiently large number of exposure units so as to make losses predictable. (The program
+must be based on the operation of the law of large numbers.)
+* The plan must be financially dependable. This means it will likely require the accumulation of funds to meet losses that occur, with
+a sufficient accumulation to safeguard against unexpected deviations from predicted losses.
+* The individual units exposed to loss must be distributed in such a manner as to prevent a catastrophic loss. A loss that could affect
+all units at one time could cause financial failure to the program.

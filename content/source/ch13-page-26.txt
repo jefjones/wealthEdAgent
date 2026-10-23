@@ -1,0 +1,21 @@
+2. Medicaid
+
+Medicaid is a federal and state funded program for those whose income and resources are insufficient to meet the cost of necessary
+medical care. individual states design and administer the Medicaid programs (typically through the state's Department of Public
+Welfare) under broad guidelines established by the federal government.
+
+Eligibility
+
+To qualify for Medicaid, individuals must meet income and other eligibility requirements. Once a person is determined to qualify with low
+income and low assets, the person must meet other qualifiers, some of which are blindness, disability, pregnancy, age (over 65), or
+caring for children receiving welfare benefits. For many eligibility groups, income is calculated in relation to a percentage of the Federal
+Poverty Level (FPL).
+
+After the implementation of the Affordable Care Act, new, modernized rules regarding verification of Medicaid eligibility will mean that
+state Medicaid agencies will rely primarily on information available through data sources (such as the Social Security Administration,
+the Departments of Homeland Security and Labor) rather than paper documentation from families. Each state has prepared a
+verification plan for Medicaid in order to comply with the new rules.
+
+In addition to certain levels of income and assets, there are other nonfinancial eligibility criteria that are used in determining Medicaid
+eligibility. In order to be eligible for Medicaid, individuals need to satisfy federal and state requirements regarding residency,
+immigration status, and documentation of U.S. citizenship.

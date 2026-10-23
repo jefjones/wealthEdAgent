@@ -1,0 +1,30 @@
+Effect on Death Benefit
+If an insured withdraws a portion of the face amount by the use of the accelerated benefits rider, the benefit payable at death will be
+reduced by that amount, plus the amount of earnings lost by the insurance company in interest income.
+Payable Death Benefit = Face Amount - Amount withdrawn - Earnings lost by insurer in interest
+Example:
+The policy's face amount is $100,000; however, due to a terminal illness, the insured had to withdraw $30,000 from the policy 3 years
+before his death. Since this amount was withdrawn, the insurance company lost $300 worth of interest. Upon the insured's death, the
+beneficiary received $69,700 in death benefit:
+$100,000 (face amount) - $30,000 (accelerated benefit) - $300 (lost interest) = $69,700
+
+Long-term Care
+Conditions for Payment
+The accelerated benefits rider permits an insured to submit a claim for living benefits from a policy under one of the following
+circumstances:
+
+* Diagnosed with a terminal illness;
+
+* Needs long-term care;
+
+* Requires permanent confinement to a nursing home, or
+
+* Diagnosed with a dread disease.
+The payment of these benefits usually falls into one of the following categories:
+
+* Long-term care, which generally allows the insured to use part of the policy's face amount to pay nursing home or at home care;
+
+* Dread Disease, which pays (usually limited to % to % the death benefit) to cover the cost of heart attack, organ transplant, cancer
+
+treatment, or other catastrophic disease;
+* Terminal illness, which pays most of the death benefit.

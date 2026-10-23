@@ -30,7 +30,7 @@ These routes are **not** `ebi/WealthEd/auth`, except forgot and reset.
 
 `401` `{ "message": "Incorrect username or password." }`
 
-Works for an existing myWealthEd account. After success the person stays on this site.
+After success the person stays on this site.
 
 ### `POST api/wealthEdAgent/auth/register`
 
@@ -46,11 +46,17 @@ Limits the client enforces before send: username 100, first name 200, last name 
 
 Bearer token. `200` same shape as login, or `401`.
 
-### Forgot and reset
+### `POST api/wealthEdAgent/auth/password/forgot`
 
-`POST ebi/WealthEd/auth/password/forgot` with `{ "username" }`.
+`{ "username" }`
 
-`POST ebi/WealthEd/auth/password/reset` with `{ "token", "newPassword", "confirmPassword" }`. The page route is `/reset-password/:token`.
+Always `200`. When the account can be reset, the server emails a link to `https://wealthedagent.com/reset-password/<token>`. The response does not say whether the username exists. The login page links to `/forgot` with “Forgot password?”. After submit, the page shows: if an account exists for that username, a reset email was sent.
+
+### `POST api/wealthEdAgent/auth/password/reset`
+
+`{ "token", "newPassword", "confirmPassword" }`
+
+The public page is `/reset-password/:token`. The client checks that the two passwords match before sending. Tokens are single-use. An invalid or expired token returns an error `{ "message" }`, which the page shows. Success replaces the form with a confirmation and a link back to sign in.
 
 ## Study
 
@@ -80,9 +86,11 @@ The server does **not** return question ids. The client draws from the local ban
 
 ### `PUT attempts/{attemptId}/answers/{questionId}`
 
-`{ "chosenOptionId", "correctOptionId" }`
+`{ "chosenOptionId", "correctOptionId", "seconds"? }`
 
-`{ "answer": { "questionId", "chosenOptionId", "correctOptionId", "isCorrect", "answeredAt" }, "attempt" }`
+`seconds` is optional whole seconds from when the question was shown until it was answered. Older stored answers omit it.
+
+`{ "answer": { "questionId", "chosenOptionId", "correctOptionId", "isCorrect", "answeredAt", "seconds"? }, "attempt" }`
 
 `isCorrect` is a case-sensitive id match. Ids are 1–64 characters. `409` if the stored answer is different, the attempt is already complete, or the attempt is already full. Sending the same answer again returns the stored answer.
 
@@ -97,6 +105,38 @@ The server does **not** return question ids. The client draws from the local ban
 ### `GET attempts/{attemptId}`
 
 `{ "attempt", "answers": [] }`
+
+### `GET highlights`
+
+`{ "highlights": [{ "highlightId", "chapterId", "sectionId", "startOffset", "endOffset", "text", "createdAt" }] }`
+
+Offsets are JavaScript string indexes into that section’s stored plain text (`section.body`). `startOffset` is inclusive and `endOffset` is exclusive, so `text` is `body.slice(startOffset, endOffset)`. Newlines and the bullet prefix `• ` are part of the string and keep their offsets. If the section text changes and the offsets no longer slice to `text`, the client places the highlight on the nearest remaining copy of that text. If the text is gone, the study page does not paint it and the previous and next highlight links skip it. The Highlights report still lists it, notes “Text no longer in this section,” and still deletes it.
+
+### `POST highlights`
+
+`{ "chapterId", "sectionId", "startOffset", "endOffset", "text" }`
+
+`text` is 1 to 2000 characters and its length must equal `endOffset - startOffset`. `400` on bad input. An exact duplicate (same chapter, section, offsets, and text) returns the existing row.
+
+`200` `{ "highlight" }` with the fields from the list.
+
+### `DELETE highlights/{highlightId}`
+
+`200` `{ "deleted": true }`. `404` when the highlight is not on this account.
+
+A `404` on `GET` or `POST highlights` before those routes are deployed, or the study-wide `404` `Study progress is not available yet.`, keeps highlights in this browser the same way other study data does. The page says reading progress, test scores, and highlights are being kept in this browser. `DELETE` still returns `404` when the row is not theirs.
+
+### `POST activity`
+
+`{ "events": [ { "kind": "study"|"test"|"login", "chapterId": "ch-general", "seconds": 600, "occurredAtUtc": "2026-10-23T14:00:00.000Z" } ] }`
+
+1 to 50 events. `seconds` is a whole number from 0 to 7200. `chapterId` is required for `study` and `test`. It is the same id `PUT progress/{chapterId}/{sectionId}` already uses: `ch-general`, `ch-basics`, `ch-policies`, `ch-provisions`, `ch-annuities`, `ch-qualified`, `ch-taxation`, `ch-health`, `ch-disability`, `ch-medical`, `ch-group`, `ch-dental`, `ch-medicare`, `ch-health-tax`, or `ch-utah`. It is null only for `login`. The client does not send a chapter title or a display number. Those labels stay in the browser. `occurredAtUtc` is not in the future.
+
+`200` `{ "recorded": n, "lastActivityUtc": "..." }`. Any bad event rejects the whole batch with `400` `{ "message" }`. `404` means this route is not deployed yet.
+
+The client sends one `login` event after a successful sign-in (register or login), not on a restored session and not on token refresh. While a study section is open, the tab is visible, and the reader has scrolled, clicked, pressed a key, touched, or moved the pointer within the last 2 minutes, it counts active seconds for that chapter. It posts a `study` event when the chapter changes, every 5 minutes, when the tab is hidden, on sign-out, and on `pagehide`. `occurredAtUtc` is when that stretch started. A study stretch of 0 seconds is not sent. A login event is sent with `seconds` 0. Each event is capped at 7200 seconds. The client does not send `test` events; question time is already stored on attempt answers.
+
+Unsent events wait in `localStorage` under `wealthEdAgent.activity.v1` and are tried again on the next flush. A `404` or any other `4xx` drops that batch after one attempt. The page does not show an error and does not switch on the “kept in this browser” banner. Network failures and `5xx` stay queued. Mock mode does not send. Sign-out and `pagehide` use `fetch` with `keepalive` and the bearer header, and they do not block navigation.
 
 ## Network failures
 

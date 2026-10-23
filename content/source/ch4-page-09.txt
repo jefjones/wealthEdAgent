@@ -1,0 +1,18 @@
+Suicide Exclusion
+The suicide provision in life insurance policies protects the insurers from individuals who purchase life insurance with the intention of
+committing suicide. Insurance policies usually stipulate a period of time during which the death benefit will not be paid if the insured
+commits suicide. If the insured dies by suicide within 2 years following the policy effective date (issue date), the insurer's liability is
+limited to a refund of premium. If the insured dies by suicide after the 2-year period, the policy will pay the death proceeds to the
+designated beneficiary the same as if the insured had died of natural causes.
+13. Prohibited Provisions Including Backdating
+Life insurance companies cannot issue or deliver policies that will
+
+* Forfeit the policy for failure to repay any loan on the policy or to pay interest on the loan while the total indebtedness on the policy
+
+is less than its loan value; or
+
+* Allow assessments or calls to be made upon policyholders.
+Sometimes it is possible to lower the premium rate by backdating (or antedating) an application for insurance. If the applicant chooses
+to do this, the policy may not be backdated for more than 1 year before the date of the application or the medical examination,
+whichever is later. All premiums must be paid from the effective date of the policy. The only allowable reason that an application may
+be backdated is to affect a lower premium for the insured.

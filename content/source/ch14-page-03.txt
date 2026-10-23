@@ -1,0 +1,25 @@
+Employer Group Health Insurance
+
+1. Disability Income (STD, LTD)
+
+Premiums paid by the employer for disability income insurance for its employees are deductible as a business expense and are not
+considered as taxable income to the employee.
+
+Benefits received by an employee that are attributable to employer contributions are fully taxable to the employee as income.
+
+When the employer and employee share in disability insurance premium contributions, the employee's contribution is not deductible;
+however, benefits received by the employee that are attributable to the employee's portion of the contribution are not taxable as
+income. The taxation of income received by the employee would depend on the type of a group plan:
+
+* Noncontributory - The employer pays the entire cost of the disability insurance premium, so the income benefits are included in
+the employee's gross income and taxed as ordinary income.
+
+* Fully contributory - The employee pays the entire cost of the disability insurance premium, so the income benefits are received
+income tax free by the employee.
+
+* Partially contributory - The cost of disability insurance is paid partially by the employer and partially by the employee. The portion
+paid by the employee is received income tax free and the portion paid by the employer is included in the employee's gross income
+and taxed as ordinary income.
+
+For example, if an employee contributes 40% of the premium and receives a benefit of $1,000, only $600 (60% = employer contribution)
+of the benefit payment will be taxed to the employee as income, while $400 (40% = employee contribution) will be received tax free.

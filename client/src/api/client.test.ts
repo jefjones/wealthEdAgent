@@ -1,13 +1,17 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import {
   ApiError,
+  errorText,
   completeAttempt,
   createAttempt,
   getProgress,
   listAttempts,
+  forgotPassword,
   login,
+  NETWORK_MESSAGE,
   parseResponseBody,
   register,
+  resetPassword,
   resetApiForTests,
   resolveApiHost,
   saveProgress,
@@ -147,14 +151,81 @@ describe('signed-out study 401', () => {
       },
       `${header}.${payload}.sig`,
     )
-    const fetchMock = vi.fn(async () => new Response('', { status: 401 }))
+    const fetchMock = vi.fn(async (..._args: unknown[]) => new Response('', { status: 401 }))
     vi.stubGlobal('fetch', fetchMock)
     await expect(getProgress()).rejects.toBeInstanceOf(ApiError)
     expect(expired).toHaveBeenCalled()
     expect(fetchMock).toHaveBeenCalled()
-    expect(String(fetchMock.mock.calls[0]?.[0])).toBe(
-      'https://localhost:44348/api/wealthEdAgent/study/progress',
-    )
+    const calls = fetchMock.mock.calls as unknown as [string, ...unknown[]][]
+    expect(String(calls[0]?.[0])).toBe('https://localhost:44348/api/wealthEdAgent/study/progress')
+    vi.unstubAllGlobals()
+    vi.unstubAllEnvs()
+  })
+})
+
+describe('mock password reset', () => {
+  it('emails nothing visible, rotates the password once, and rejects the used token', async () => {
+    await register({
+      username: 'ada',
+      password: 'studytest1',
+      confirmPassword: 'studytest1',
+      fname: 'Ada',
+      lname: 'Lovelace',
+      emailAddress: 'ada@example.com',
+    })
+    const unknown = await forgotPassword('nobody')
+    expect(unknown).toEqual({ message: 'If an account exists for that username, a reset email was sent.' })
+    expect(localStorage.getItem('wealthEdAgent.mockResets.v1')).toBeNull()
+
+    const known = await forgotPassword('Ada')
+    expect(known).toEqual({ message: 'If an account exists for that username, a reset email was sent.' })
+    const resets = JSON.parse(localStorage.getItem('wealthEdAgent.mockResets.v1') || '{}') as Record<string, string>
+    const token = Object.keys(resets)[0]
+    expect(token).toBeTruthy()
+
+    await expect(
+      resetPassword({ token: token as string, newPassword: 'newpass1', confirmPassword: 'otherpass' }),
+    ).rejects.toMatchObject({ message: 'Password and confirm password must match.' })
+    await expect(login('ada', 'studytest1')).resolves.toMatchObject({ person: { username: 'ada' } })
+
+    await resetPassword({ token: token as string, newPassword: 'newpass12', confirmPassword: 'newpass12' })
+    await expect(login('ada', 'studytest1')).rejects.toMatchObject({ message: 'Incorrect username or password.' })
+    await expect(login('ada', 'newpass12')).resolves.toMatchObject({ person: { username: 'ada' } })
+    await expect(
+      resetPassword({ token: token as string, newPassword: 'newpass12', confirmPassword: 'newpass12' }),
+    ).rejects.toMatchObject({ message: 'This reset link is invalid or has expired.' })
+  })
+})
+
+describe('register failures are visible', () => {
+  const input = {
+    username: 'studyTest',
+    fname: 'Study',
+    lname: 'Test',
+    email: 'study@example.com',
+    emailAddress: 'study@example.com',
+    password: 'longenough1',
+    confirmPassword: 'longenough1',
+  }
+
+  it('shows the network message when the server cannot be reached', async () => {
+    setMockOverride(false)
+    vi.stubEnv('VITE_API_BASE_URL', 'https://localhost:44348/')
+    vi.stubGlobal('fetch', vi.fn(async () => { throw new TypeError('Failed to fetch') }))
+    const cause = await register(input).catch((error: unknown) => error)
+    expect(errorText(cause, 'Could not create the account.')).toBe(NETWORK_MESSAGE)
+    vi.unstubAllGlobals()
+    vi.unstubAllEnvs()
+  })
+
+  it('names the missing API host instead of failing silently', async () => {
+    setMockOverride(false)
+    vi.stubEnv('VITE_API_BASE_URL', '')
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+    const cause = await register(input).catch((error: unknown) => error)
+    expect(errorText(cause, 'Could not create the account.')).toBe('Set VITE_API_BASE_URL.')
+    expect(fetchMock).not.toHaveBeenCalled()
     vi.unstubAllGlobals()
     vi.unstubAllEnvs()
   })

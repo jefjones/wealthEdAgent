@@ -1,0 +1,11 @@
+3. Customer Groups (Depositors, Creditor-debtor, Other)
+
+Creditor group insurance, also called credit life and credit disability income insurance, is a specialized use of group life and group
+health insurance that covers debtors (borrowers). It protects the lending institution from losing money as the result of a borrower's
+death or disability. The contract owner is the creditor, such as a bank, a small-loan company, or a credit union. Generally, the debtor is
+the premium payor, but the lending institution is the beneficiary of the policy. If the debtor dies or becomes disabled, the insurance
+proceeds are paid to the creditor to liquidate the indebtedness. The amount of insurance cannot exceed the amount of indebtedness.
+4. Discretionary Groups
+
+A discretionary group is a group that can apply for group health insurance according to a decision made by the head of the
+Department of Insurance.

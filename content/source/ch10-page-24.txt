@@ -1,0 +1,32 @@
+HIPAA Requirements
+Legislation that took effect in July 1997 ensures “portability” of group insurance coverage and includes various required benefits that
+affect small employers, the self-employed, pregnant women, and the mentally ill. HIPAA (Health Insurance Portability and Accountability
+Act) regulates protection for both group health plans (for employers with 2 or more employees) and for individual insurance policies
+sold by insurance companies.
+HIPAA includes the following protection for coverage:
+Group Health Plans:
+
+* Prohibiting discrimination against employees and dependents based on their health condition; and
+
+* Allowing opportunities to enroll in a new plan to individuals in special circumstances.
+Individual Policies:
+
+* Guaranteeing access to individual policies for qualifying individuals; and
+
+* Guaranteeing renewability of individual policies.
+1. Eligibility
+HIPAA has regulations regarding eligibility for employer-sponsored group health plans. These plans cannot establish eligibility rules for
+enrollment under the plan that discriminate based on any health factor relating to an eligible individual or the individual's dependents.
+A health factor includes any of the following:
+
+* Health status;
+
+* Medical conditions (both physical and mental);
+
+* Claims experience;
+
+* Receipt of health care;
+
+* Medical history;
+
+* Genetic information;

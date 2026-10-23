@@ -46,7 +46,7 @@ export function RegisterPage() {
     <Card className="mx-auto max-w-lg p-6 sm:p-8">
       <h1 className="font-['Fraunces',Georgia,serif] text-3xl font-semibold text-[#14375f]">Create a study account</h1>
       <p className="mt-2 text-sm text-[#3d5166]">
-        This sign-up is for the study site. If you already have a myWealthEd username, sign in with it instead.
+        If you already have a study account, sign in instead.
       </p>
       <form className="mt-5 space-y-4" onSubmit={onSubmit}>
         <div className="grid gap-4 sm:grid-cols-2">

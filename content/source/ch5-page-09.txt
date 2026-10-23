@@ -1,0 +1,9 @@
+Annuities can also be classified according to when the income payments from the annuity begin. An immediate annuity is one that is
+purchased with a single, lump-sum payment and provides income payments that start within one year from the date of purchase.
+Typically, an immediate annuity will make the first payment as early as | month from the purchase date. Most commonly, this type of
+annuity is known as a Single Premium Immediate Annuity (SPIA).
+
+A deferred annuity is an annuity in which the income payments begin sometime after one year from the date of purchase. Deferred
+annuities can be funded with either a single lump sum (Single Premium Deferred Annuities — SPDAs) or through periodic payments
+(Flexible Premium Deferred Annuities — FPDAs). Periodic payments can vary from year to year. The longer the annuity is deferred, the
+more flexibility for payment of premiums it allows.

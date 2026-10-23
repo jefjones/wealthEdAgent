@@ -1,28 +1,25 @@
 import { question } from './build.ts'
 import type { Chapter } from './types.ts'
+import { chapter3Extra } from './extra/chapter3.ts'
 
 /** Wording follows the course OCR in content/source/chapter-3-ocr.txt. */
 export const chapter3: Chapter = {
   id: 'ch-policies',
   number: 3,
-  title: 'Types of Life Policies',
+  title: 'Kinds of Life Insurance',
   summary:
     'Term, whole life, adjustable and universal life, variable contracts, joint and juvenile policies, group life, and credit life.',
   sections: [
     {
       id: 'c3-term',
-      title: 'Term life insurance',
+      title: 'Term life: coverage for a set period',
       body: `All life insurance is either temporary or permanent. Term insurance is temporary protection for a specific period. It is also called pure life insurance. Term provides the greatest amount of coverage for the lowest premium of any form of protection. There is usually a maximum age above which coverage will not be offered or cannot be renewed.
 
 Term provides pure death protection. If the insured dies during the term, the policy pays the death benefit. If the policy is canceled or expires before death, nothing is payable. There is no cash value or other living benefit.
 
-Know this: Term insurance provides the greatest amount of coverage for the lowest premium. Term insurance has no cash value.
-
 The premium stays level during the term. Only the death benefit may change. When the policy is sold, renewed, or converted, the premium is figured at attained age, the insured’s age at the time of that transaction.
 
 Level term is the most common temporary protection. The word level refers to the death benefit, which does not change.
-
-Know this: “Level” in level term insurance refers to the death benefit, which does not change.
 
 Level premium term provides both a level death benefit and a level premium during the term. A $100,000 10-year level term policy pays $100,000 if the insured dies at any time during those 10 years.
 
@@ -103,15 +100,13 @@ Return of premium (ROP) is an increasing term policy that pays an additional dea
     },
     {
       id: 'c3-whole',
-      title: 'Whole life insurance',
+      title: 'Whole life: lifetime coverage with cash value',
       body: `Whole life provides lifetime protection and accumulates cash value. Key features:
 
 • Level premium — based on the issue age, and it stays the same for life.
 • Death benefit — guaranteed and level for life.
 • Cash value — scheduled to equal the face amount at age 100, the maturity date, and then paid to the policyowner. Cash values are credited regularly at a guaranteed interest rate. The insured and the policyowner do not have to be the same person.
 • Living benefits — the owner can borrow against the cash value or receive it on surrender. Cash value, also called the nonforfeiture value, usually does not build until the third policy year and grows tax deferred.
-
-Know this: Whole life insurance provides lifetime protection and accumulates cash value.
 
 To endow means the cash value has reached the contractual face amount.
 
@@ -173,7 +168,7 @@ Single premium whole life is paid with one lump sum. It creates an immediate cas
     },
     {
       id: 'c3-adjustable',
-      title: 'Adjustable life',
+      title: 'Adjustable life: move between term and whole life',
       body: `Adjustable life can be term or whole life, and the policyowner can move it from one to the other as needs change. The owner can increase or decrease the premium, and can change the face amount. An increase in the death benefit requires proof of insurability. The owner may also pay more than the permanent-plan premium in order to build extra cash value or to shorten the premium-paying period.
 
 The cash value of an adjustable life policy develops only when the premiums paid are more than the cost of the policy. Cash value earns a fixed rate and is held in the insurer’s general account. The owner can borrow against it.`,
@@ -205,10 +200,8 @@ The cash value of an adjustable life policy develops only when the premiums paid
     },
     {
       id: 'c3-universal',
-      title: 'Universal life',
+      title: 'Universal life: change the premium',
       body: `Universal life is also called flexible premium adjustable life. The owner may raise or lower the premium and may skip a premium. The policy does not lapse as long as the cash value can cover the monthly cost of insurance. If the cash value is too small, the policy expires.
-
-Know this: If an insured skips a premium on a universal life policy, the missing premium may be deducted from the cash value. The policy will not lapse if that cash value is sufficient.
 
 The minimum premium keeps the policy in force for the current year and makes it perform like annually renewable term. The target premium is the recommended amount that covers the cost of insurance and keeps the policy in force for life.
 
@@ -268,10 +261,8 @@ Option B is the increasing death benefit. The benefit equals the face amount plu
     },
     {
       id: 'c3-variable',
-      title: 'Variable life and variable universal life',
+      title: 'Variable life: cash value follows investments',
       body: `Fixed contracts offer guaranteed minimum or fixed benefits stated in the contract. Variable contracts accumulate cash value based on a portfolio of securities, with no guarantee of performance. The policyowner bears the investment risk.
-
-Know this: In variable contracts, the policyowner bears the investment risk. The assets are held in a separate account.
 
 Variable life, sometimes called variable whole life, has a level fixed premium and a guaranteed minimum death benefit. The cash value is not guaranteed and fluctuates with the portfolio. Because the insurer is not taking the investment risk, the assets cannot sit in the general account. They are held in a separate account, which invests in stocks, bonds, and other securities. A domestic insurer that issues variable contracts must establish one or more separate accounts. Each account’s assets must at least equal the reserves and other contract liabilities. Separate-account assets cannot be commingled with general-account assets.
 
@@ -331,12 +322,10 @@ Utah variable contract law: a company may not deliver variable contracts in this
     },
     {
       id: 'c3-joint',
-      title: 'Joint life and survivorship life',
+      title: 'One policy on two people',
       body: `Joint life insures two or more lives and pays at the first death. The premium is based on a joint age and is less than the sum of two individual premiums. It fits a need that ends at the first death, such as a two-income couple’s mortgage, or a buy-sell agreement between business partners.
 
-Survivorship life, also called second-to-die or last survivor, also uses a joint age, but it pays on the last death. Because payment is delayed, the premium is lower than a joint life premium. Survivorship coverage is often used to pay estate tax when the second insured dies.
-
-Know this: Joint life pays at the first death. Survivorship life pays at the second death.`,
+Survivorship life, also called second-to-die or last survivor, also uses a joint age, but it pays on the last death. Because payment is delayed, the premium is lower than a joint life premium. Survivorship coverage is often used to pay estate tax when the second insured dies.`,
       questions: [
         question(
           'c3q11',
@@ -365,7 +354,7 @@ Know this: Joint life pays at the first death. Survivorship life pays at the sec
     },
     {
       id: 'c3-juvenile',
-      title: 'Jumping juvenile',
+      title: 'Life insurance on a child',
       body: `Juvenile life insurance is any life insurance written on the life of a minor. A jumping juvenile policy is called that because the face amount increases at a predetermined age, often age 21. The face amount jumps. The premium stays level.`,
       questions: [
         question(
@@ -395,12 +384,10 @@ Know this: Joint life pays at the first death. Survivorship life pays at the sec
     },
     {
       id: 'c3-group',
-      title: 'Group life insurance',
+      title: 'Life insurance from a group',
       body: `Group life is issued to a sponsoring organization and covers more than one person. It is commonly written for employer groups, and also for debtor groups, labor unions, credit unions, and associations. The group must exist for a reason other than buying insurance. It is usually written as annually renewable term.
 
 Evidence of insurability is usually not required, unless someone enrolls outside the normal enrollment period. Participants do not receive a policy, because they do not own or control it. Each participant gets a certificate of insurance. The master policy goes to the sponsor, often the employer, and the sponsor is the policyholder.
-
-Know this: Group insurance is written as annually renewable term. The master contract is for the employer. Certificates of insurance are for the individual insureds.
 
 Underwriting looks at the group: its purpose, its size (the law of large numbers), a steady turnover of younger lives replacing older ones, and the financial strength to pay premiums. Cost is based on the average age of the group and the ratio of men to women. A minimum number of participants is required to limit adverse selection, and that minimum depends on who pays the premium.
 
@@ -458,7 +445,7 @@ If the master contract ends, every person who has been on the plan for at least 
     },
     {
       id: 'c3-credit',
-      title: 'Credit life',
+      title: 'Coverage that pays off a loan',
       body: `Credit life insures the debtor and pays off the balance of a loan if the debtor dies. It is usually written as decreasing term, either as an individual policy or as a group plan. In a group plan the creditor owns the master policy and each debtor receives a certificate.
 
 The creditor is the owner and the beneficiary, although the borrower generally pays the premium. The benefit cannot be more than the balance of the debt, so there is no financial incentive for the death of the insured. A creditor may require the debtor to have life insurance. The creditor cannot require the debtor to buy that insurance from a particular insurer.`,
@@ -511,5 +498,10 @@ The creditor is the owner and the beneficiary, although the borrower generally p
         ),
       ],
     },
+
   ],
+}
+
+for (const section of chapter3.sections) {
+  section.questions.push(...(chapter3Extra[section.id] ?? []))
 }

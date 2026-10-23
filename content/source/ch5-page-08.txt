@@ -1,0 +1,6 @@
+The first way to classify annuities can be based on how they can be funded (paid for). There are 2 options: a single premium (one-time
+lump-sum payment) or through periodic payments in which the premiums are paid in installments over a period of time. Periodic
+payment annuities can be either level premium, in which the annuitant/owner pays a fixed installment, or flexible premium, in which
+the amount and frequency of each installment varies.
+
+2. Immediate vs. Deferred Annuities

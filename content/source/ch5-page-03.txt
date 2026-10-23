@@ -1,0 +1,2 @@
+Beneficiary - The person who receives annuity assets (either the amount paid into the annuity or the cash value, whichever is greater)
+if the annuitant dies during the accumulation period, or to whom the balance of annuity benefits is paid out.

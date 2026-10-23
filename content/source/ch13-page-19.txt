@@ -1,0 +1,12 @@
+Medicare Supplement Plans K and L are lower premium plans with higher out-of-pocket costs. The core benefits are different in these 2
+plans as well:
+* Approved hospital costs for the copayments for days 61 through 90 in any Medicare benefit period.
+* Approved hospital costs for the copayments for lifetime reserve days 91 through 150.
+* Approved hospital costs for an additional 365 days after all Medicare benefits are used.
+* 50% of charges for the first 3 pints of blood in Plan K, 75% of charges for the first 3 pints of blood in Plan L
+* 50% of Part B coinsurance amount in Plan k, 75% of Part B coinsurance amount in Plan L
+* 50% of hospice cost-sharing and respite care expenses for Part A in Plan K, 75% of hospice cost-sharing and respite care expenses
+for Part Ain Plan L.
+Plan K includes 50% of the Medicare Part A deductible and 50% of skilled nursing facility coinsurance.
+Plan L includes 75% of the Medicare Part A deductible and 75% of skilled nursing facility coinsurance.
+Plans Mand N provide benefits similar to Plan D, but the co-pays and deductibles might be different.

@@ -1,0 +1,19 @@
+Modified Endowment Contracts (MECs)
+
+Generally speaking, an endowment policy is an investment instrument. Endowment life insurance policies promise to pay the face
+amount if the insured survives until the end of a specified period (e.g, 20 years; 30 years; or until the insured's age 65), and if the insured
+dies within the same specified period. Endowments require premiums far in excess of the amount required to fund the death benefit.
+Following the elimination of many traditional tax shelters by the Tax Reform Act of 1984, single premium life insurance remained as one
+of the few financial products offering significant tax advantages. Consequently, many of these types of policies were purchased solely
+for the purpose of setting aside large sums of money for the tax-deferred growth as well as tax-free cash flow available via policy loans
+and partial surrenders.
+
+1. Seven-pay Test
+
+To curtail this activity, and to determine if an insurance policy is overfunded, the Internal Revenue Service (IRS) established what is
+known as the 7-pay Test. Any life insurance policy that fails a 7-pay test is classified as a Modified Endowment Contract (MEC), and
+loses the standard tax benefits of a life insurance contract. In a MEC, the cumulative premiums paid during the first 7 years of the policy
+exceed the total amount of net level premiums that would be required to pay the policy up using guaranteed mortality costs and
+interest.
+
+Once a policy fails the 7-pay test and becomes a MEC, it remains a MEC.

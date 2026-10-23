@@ -1,12 +1,15 @@
-import { BookOpen, ClipboardList, LogOut, Menu, TrendingUp, X } from 'lucide-react'
+import { BookOpen, Bookmark, ClipboardList, LogOut, Menu, TrendingUp, X } from 'lucide-react'
 import { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext.tsx'
+import { HIGHLIGHTS_NAV_LABEL } from '../study/highlights.ts'
+import { ActivityBridge } from './ActivityBridge.tsx'
 
 const links = [
   { to: '/study', label: 'Study', icon: BookOpen },
   { to: '/practice', label: 'Practice Test', icon: ClipboardList },
   { to: '/progress', label: 'Progress', icon: TrendingUp },
+  { to: '/highlights', label: HIGHLIGHTS_NAV_LABEL, icon: Bookmark },
 ]
 
 export function Shell() {
@@ -97,25 +100,18 @@ export function Shell() {
       {localStudy ? (
         <div className="bg-[#fff6e8] text-[#6a4b16]">
           <p className="mx-auto max-w-6xl px-4 py-2 text-sm">
-            Study progress is not available on the server yet. Your reading progress and test scores are being kept in this
-            browser.
+            Study progress is not available on the server yet. Your reading progress, test scores, and highlights are being kept
+            in this browser.
           </p>
         </div>
       ) : null}
+      {person ? <ActivityBridge /> : null}
       <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:py-8">
         <Outlet />
       </main>
       <footer className="border-t border-[#d5e2f0] bg-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-sm text-[#4d6278] sm:flex-row sm:items-center sm:justify-between">
           <p>{first ? `Signed in as ${first}.` : 'A study site for Utah life insurance course material.'}</p>
-          <a
-            href="https://mywealthed.com"
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold text-[#2a6cb5] underline-offset-2 hover:underline"
-          >
-            Visit myWealthEd
-          </a>
         </div>
       </footer>
     </div>

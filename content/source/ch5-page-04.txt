@@ -1,0 +1,9 @@
+2. Accumulation Period vs. Annuity Period
+
+The accumulation period, also known as the pay-in period, is the period of time over which the owner makes payments (premiums)
+into an annuity. Furthermore, it is the period of time during which the payments earn interest on a tax-deferred basis.
+
+The annuity period, also known as the annuitization period, liquidation period, or pay-out period, is the time during which the sum
+that has been accumulated during the accumulation period is converted into a stream of income payments to the annuitant. The
+annuity period may last for the lifetime of the annuitant or for a specified period, which could be longer or shorter. The annuitization
+date is the time when the annuity benefit payouts begin (trigger for benefits).

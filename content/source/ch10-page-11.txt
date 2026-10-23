@@ -1,0 +1,18 @@
+Primary Care Physician vs. Referral (Specialty) Physician
+
+Care is provided to members of the HMO by a limited number of physicians that are approved to practice in the HMO.
+
+Primary Care Physician (PCP)
+
+When an individual becomes a member of the HMO, they will choose their primary care physician (PCP) or gatekeeper. Once chosen,
+the primary care physician or HMO will be regularly compensated for being responsible for the care of that member, whether care is
+provided or not. It should be in the primary care physician's best interest to keep this member healthy to prevent future time for
+treatment of disease.
+
+Referral (Specialty) Physician
+
+In order for the member to get to see a specialist, the primary care physician (gatekeeper) must refer the member. The referral system
+keeps the member away from higher priced specialists unless it is truly necessary. In many HMOs, there is a financial cost to the primary
+care physician for referring a patient to the more expensive specialist, thus the primary care physician may be inclined to use an
+alternative treatment before approving a referral. HMOs must have mechanisms to handle complaints which sometimes result in a
+delay of referral, or complaints about other patient care or coverage concerns.

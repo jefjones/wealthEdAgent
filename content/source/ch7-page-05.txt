@@ -1,0 +1,19 @@
+Surrenders
+When a policyowner surrenders a policy for cash value, some of the cash value received may be taxable as income if the cash
+surrender value exceeds the amount of the premiums paid for the policy. When the owner withdraws cash value from a universal life
+policy (partial surrender), both the cash value and the death benefit are reduced by the surrender.
+Example:
+Consider the following scenario:
+
+* Face amount $300,000
+
+* Premiums paid: $70,000
+
+* Total cash value: $100,000
+If the insured surrendered $30,000 of cash value, the full $30,000 would be income tax free. If the insured took out $100,000, the last
+$30,000 would be taxable because the $100,000 exceeds the premiums that were paid in by $30,000.
+2. Amounts Received by Beneficiary
+General Rule and Exceptions
+Life insurance proceeds paid to a named beneficiary are generally free of federal income taxation if taken as a lump sum. An exception
+to this rule would apply if the benefit payment results from a transfer for value, meaning the life insurance policy is sold to another party
+prior to the insured's death.

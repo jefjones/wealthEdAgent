@@ -1,0 +1,9 @@
+Policy Loans and Withdrawals
+
+The policy loan option is found only in policies that contain cash value. The policyowner is entitled to borrow an amount equal to
+
+the available cash value. Any outstanding loans, and accrued interest, will be deducted from the policy proceeds upon the insured’s
+death. The policy will not lapse with an outstanding policy loan unless the amount of the loan and accrued interest exceeds the
+available cash value. However, the insurer must provide 30 days’ written notice to the policyowner that the policy is going to lapse.
+Insurance companies may defer a policy loan request for up to 6 months, unless the reason for the loan is to pay the policy premium.
+Policy loans are not subject to income taxation.

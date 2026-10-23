@@ -1,0 +1,21 @@
+FEATURES FIXED ANNUITY VARIABLE ANNUITY
+Interest Rate Guaranteed by insurer No guarantee
+; General account Separate account
+Underlying Investment "
+(safe, conservative) (equities, no guarantee)
+
+License Needed Life insurance Life insurance PLUS securities
+
+Expenses Guaranteed Guaranteed
+
+Income Payment Guaranteed No guarantee
+Market Value Adjusted Annuities
+A market value or market value adjusted annuity (MVA), also known as a modified guaranteed annuity (MGA), is a single-premium
+deferred annuity that allows the owner to lock in a guaranteed interest rate over a specified maturity period, anywhere between 3 to 10
+years. In a MVA, penalties for a premature surrender depend upon current interest rates at the time of surrender.
+For example, assume that a client purchased a 10-year 6% fixed annuity tied to the Bond Fund Index Interest Rate (Moody's). If the client
+withdraws his/her money in 5 years and the current interest rate at that point is 6%, there is no adjustment. If the current interest rate at
+the time of surrender is 8%, a penalty will be assessed. If the interest rate at surrender is 4%, the insurance company may pay a bonus.
+The market value adjustment is usually a percentage of the difference between the contracted rate of interest in the annuity and the
+current rate at surrender. The insurance company requires the annuitant to share in the market risk of changing interest rates, if the
+annuity is surrendered early.

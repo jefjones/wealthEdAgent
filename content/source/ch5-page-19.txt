@@ -1,0 +1,18 @@
+Variable Annuities
+A variable annuity serves as a hedge against inflation, and is variable from the standpoint that the annuitant may receive different
+rates of return on the funds that are paid into the annuity. Listed below are the 3 main characteristics of variable annuities:
+
+* Underlying Investment: the payments that the annuitant makes into the variable annuity are invested in the insurer's separate
+account, not their general account. The separate account is not part of the insurance company’s own investment portfolio, and is
+not subject to the restrictions that are applicable to the insurer's own general account.
+
+* Interest Rate: issuing insurance company does not guarantee a minimum interest rate.
+
+* License Requirements: a variable annuity is considered a security and is regulated by the Securities Exchange Commission (SEC)
+in addition to state insurance regulations. An agent selling variable annuities must hold a securities license in addition to a life
+insurance license. Agents or companies that sell variable annuities must also be properly registered with FINRA.
+
+Variable premiums purchase accumulation units in the fund, which is similar to buying shares in a Mutual Fund. Accumulation units
+represent ownership interest in the separate account. Upon annuitization, the accumulation units are converted to annuity units. The
+income is then paid to the annuitant based on the value of the annuity units. The number of annuity units received remains level, but the
+unit values will fluctuate until actually paid out to the annuitant.

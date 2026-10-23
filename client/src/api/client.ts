@@ -1,11 +1,14 @@
 /**
  * The only module that talks to the network.
- * Login, register, and refresh use api/wealthEdAgent/auth/ (shared with myWealthEd accounts).
- * Forgot-password still posts to ebi/WealthEd/auth/password/forgot.
+ * Login, register, and refresh use api/wealthEdAgent/auth/.
+ * Forgot and reset use api/wealthEdAgent/auth/password/.
  * Study data uses api/wealthEdAgent/study/.
  * VITE_USE_MOCK=true never calls the network.
  * A study 404 "Study progress is not available yet." keeps that data in this browser.
  */
+
+import type { ActivityEvent } from '../study/activity.ts'
+import { highlightInputError } from '../study/highlights.ts'
 
 export const STORAGE = {
   person: 'wealthEd.person',
@@ -14,6 +17,7 @@ export const STORAGE = {
 
 const EXPIRED_KEY = 'wealthEd.sessionExpired'
 const MOCK_DIRECTORY = 'wealthEdAgent.mockDirectory.v1'
+const MOCK_RESETS = 'wealthEdAgent.mockResets.v1'
 const MOCK_STUDY = 'wealthEdAgent.mockStudy.v1'
 const LOCAL_STUDY = 'wealthEdAgent.localStudy.v1'
 
@@ -72,6 +76,26 @@ export type Answer = {
   correctOptionId: string
   isCorrect: boolean
   answeredAt: string
+  /** Seconds from question display to answer. Absent on results stored before timing. */
+  seconds?: number
+}
+
+export type Highlight = {
+  highlightId: string
+  chapterId: string
+  sectionId: string
+  startOffset: number
+  endOffset: number
+  text: string
+  createdAt: string
+}
+
+export type HighlightInput = {
+  chapterId: string
+  sectionId: string
+  startOffset: number
+  endOffset: number
+  text: string
 }
 
 export class ApiError extends Error {
@@ -88,6 +112,7 @@ type StudyDb = {
   sections: SectionProgress[]
   seen: SeenRow[]
   attempts: AttemptRecord[]
+  highlights?: Highlight[]
 }
 
 let onSessionExpired: (() => void) | null = null
@@ -314,9 +339,10 @@ async function realApi<T>(path: string, options: RequestInit = {}): Promise<T> {
   if (usedSession && tokenExpired(token)) expireFromCall()
 
   const clean = path.replace(/^\//, '')
+  const url = `${resolveApiHost()}${clean}`
   let response: Response
   try {
-    response = await fetch(`${resolveApiHost()}${clean}`, { ...options, headers })
+    response = await fetch(url, { ...options, headers })
   } catch (cause) {
     if (cause instanceof DOMException && cause.name === 'AbortError') throw cause
     const error = new ApiError(NETWORK_MESSAGE)
@@ -504,11 +530,17 @@ function publicAttempt(attempt: AttemptRecord): Attempt {
   }
 }
 
+function storedSeconds(seconds: number | undefined) {
+  if (typeof seconds !== 'number' || !Number.isFinite(seconds) || seconds < 0) return undefined
+  return Math.round(seconds)
+}
+
 function localAnswer(
   attemptId: string,
   questionId: string,
   chosenOptionId: string,
   correctOptionId: string,
+  seconds?: number,
 ) {
   assertId(attemptId, 'attemptId')
   assertId(questionId, 'questionId')
@@ -532,6 +564,8 @@ function localAnswer(
       isCorrect: chosenOptionId === correctOptionId,
       answeredAt: nowIso(),
     }
+    const elapsed = storedSeconds(seconds)
+    if (elapsed !== undefined) answer.seconds = elapsed
     attempt.answers.push(answer)
     touchSeen(db, questionId)
     score(attempt)
@@ -567,6 +601,75 @@ function localGet(attemptId: string) {
       answers: attempt.answers.map((answer) => ({ ...answer })),
     }
   })
+}
+
+function sameHighlight(row: Highlight, input: HighlightInput) {
+  return (
+    row.chapterId === input.chapterId &&
+    row.sectionId === input.sectionId &&
+    row.startOffset === input.startOffset &&
+    row.endOffset === input.endOffset &&
+    row.text === input.text
+  )
+}
+
+function localListHighlights() {
+  return withDb((db) => ({
+    highlights: (db.highlights ?? []).map((row) => ({ ...row })),
+  }))
+}
+
+function localCreateHighlight(input: HighlightInput) {
+  const message = highlightInputError(input)
+  if (message) fail(400, message)
+  return withDb((db) => {
+    const highlights = db.highlights ?? []
+    const existing = highlights.find((row) => sameHighlight(row, input))
+    if (existing) return { highlight: { ...existing } }
+    const highlight: Highlight = {
+      highlightId: crypto.randomUUID(),
+      chapterId: input.chapterId,
+      sectionId: input.sectionId,
+      startOffset: input.startOffset,
+      endOffset: input.endOffset,
+      text: input.text,
+      createdAt: nowIso(),
+    }
+    db.highlights = [highlight, ...highlights]
+    return { highlight: { ...highlight } }
+  })
+}
+
+function localDeleteHighlight(highlightId: string) {
+  assertId(highlightId, 'highlightId')
+  return withDb((db) => {
+    const highlights = db.highlights ?? []
+    const index = highlights.findIndex((row) => row.highlightId === highlightId)
+    if (index < 0) fail(404, 'Highlight not found.')
+    db.highlights = highlights.filter((row) => row.highlightId !== highlightId)
+    return { deleted: true as const }
+  })
+}
+
+async function highlightsCall<T>(
+  path: string,
+  options: RequestInit | undefined,
+  local: () => T,
+  missingRouteFallsBack: boolean,
+): Promise<T> {
+  if (mockApiEnabled() || localStudy) return local()
+  try {
+    return await realApi<T>(path, options)
+  } catch (error) {
+    const missing =
+      error instanceof ApiError && (error.studyUnavailable || (missingRouteFallsBack && error.status === 404))
+    if (missing) {
+      localStudy = true
+      onStudyUnavailable?.()
+      return local()
+    }
+    throw error
+  }
 }
 
 async function studyCall<T>(path: string, options: RequestInit | undefined, local: () => T): Promise<T> {
@@ -622,9 +725,37 @@ export async function refreshSession() {
   return sessionFrom(body)
 }
 
+const RESET_SENT_MESSAGE = 'If an account exists for that username, a reset email was sent.'
+const RESET_INVALID_MESSAGE = 'This reset link is invalid or has expired.'
+
+function mockForgot(username: string) {
+  const key = username.trim().toLowerCase()
+  const accounts = directory()
+  if (key && accounts[key]) {
+    const token = crypto.randomUUID()
+    const resets = readJson<Record<string, string>>(MOCK_RESETS, {})
+    resets[token] = key
+    localStorage.setItem(MOCK_RESETS, JSON.stringify(resets))
+  }
+  return { message: RESET_SENT_MESSAGE }
+}
+
+function mockReset(token: string, newPassword: string) {
+  const resets = readJson<Record<string, string>>(MOCK_RESETS, {})
+  const key = resets[token]
+  const accounts = directory()
+  const account = key ? accounts[key] : undefined
+  if (!key || !account) fail(400, RESET_INVALID_MESSAGE)
+  account.password = newPassword
+  saveDirectory(accounts)
+  delete resets[token]
+  localStorage.setItem(MOCK_RESETS, JSON.stringify(resets))
+  return { message: 'Your password was reset.' }
+}
+
 export async function forgotPassword(username: string) {
-  if (mockApiEnabled()) return { message: 'If that username is eligible, a reset email was sent.' }
-  return realApi<unknown>('ebi/WealthEd/auth/password/forgot', {
+  if (mockApiEnabled()) return mockForgot(username)
+  return realApi<unknown>('api/wealthEdAgent/auth/password/forgot', {
     method: 'POST',
     body: JSON.stringify({ username }),
   })
@@ -633,8 +764,8 @@ export async function forgotPassword(username: string) {
 export async function resetPassword(input: { token: string; newPassword: string; confirmPassword: string }) {
   if (input.newPassword.length < 8) fail(400, 'Password must be at least 8 characters.')
   if (input.newPassword !== input.confirmPassword) fail(400, 'Password and confirm password must match.')
-  if (mockApiEnabled()) fail(400, 'Reset link is invalid or expired.')
-  return realApi<unknown>('ebi/WealthEd/auth/password/reset', {
+  if (mockApiEnabled()) return mockReset(input.token, input.newPassword)
+  return realApi<unknown>('api/wealthEdAgent/auth/password/reset', {
     method: 'POST',
     body: JSON.stringify({
       token: input.token,
@@ -671,8 +802,9 @@ export function createAttempt(input: { mode: AttemptMode; questionCount: number 
 export function submitAnswer(
   attemptId: string,
   questionId: string,
-  input: { chosenOptionId: string; correctOptionId: string },
+  input: { chosenOptionId: string; correctOptionId: string; seconds?: number },
 ) {
+  const seconds = storedSeconds(input.seconds)
   return studyCall(
     `api/wealthEdAgent/study/attempts/${encodeURIComponent(attemptId)}/answers/${encodeURIComponent(questionId)}`,
     {
@@ -680,9 +812,10 @@ export function submitAnswer(
       body: JSON.stringify({
         chosenOptionId: input.chosenOptionId,
         correctOptionId: input.correctOptionId,
+        ...(seconds !== undefined ? { seconds } : {}),
       }),
     },
-    () => localAnswer(attemptId, questionId, input.chosenOptionId, input.correctOptionId),
+    () => localAnswer(attemptId, questionId, input.chosenOptionId, input.correctOptionId, seconds),
   )
 }
 
@@ -704,8 +837,63 @@ export function getAttempt(attemptId: string) {
   )
 }
 
+export function listHighlights() {
+  return highlightsCall('api/wealthEdAgent/study/highlights', undefined, localListHighlights, true)
+}
+
+export function createHighlight(input: HighlightInput) {
+  const message = highlightInputError(input)
+  if (message) fail(400, message)
+  return highlightsCall(
+    'api/wealthEdAgent/study/highlights',
+    { method: 'POST', body: JSON.stringify(input) },
+    () => localCreateHighlight(input),
+    true,
+  )
+}
+
+export function deleteHighlight(highlightId: string) {
+  return highlightsCall(
+    `api/wealthEdAgent/study/highlights/${encodeURIComponent(highlightId)}`,
+    { method: 'DELETE' },
+    () => localDeleteHighlight(highlightId),
+    false,
+  )
+}
+
+/**
+ * Report study and login activity. Mock mode does not call the network.
+ * A 4xx, including 404 when the route is not deployed, is a drop.
+ * This does not switch study data into the local fallback and does not sign the reader out.
+ */
+export async function postActivity(
+  events: readonly ActivityEvent[],
+  tokenOverride?: string,
+): Promise<'ok' | 'drop' | 'retry' | 'skipped'> {
+  if (events.length === 0) return 'ok'
+  if (mockApiEnabled()) return 'skipped'
+  const token = tokenOverride ?? localStorage.getItem(STORAGE.token) ?? ''
+  if (!token) return 'drop'
+  try {
+    const response = await fetch(`${resolveApiHost()}api/wealthEdAgent/study/activity`, {
+      method: 'POST',
+      keepalive: true,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ events }),
+    })
+    if (response.ok) return 'ok'
+    if (response.status >= 400 && response.status < 500) return 'drop'
+    return 'retry'
+  } catch {
+    return 'retry'
+  }
+}
+
 export function errorText(error: unknown, fallback: string) {
-  if (error instanceof ApiError && (error.network || error.sessionExpired)) return ''
+  if (error instanceof ApiError && error.sessionExpired) return ''
   if (error instanceof Error && error.message.trim()) return error.message.trim()
   return fallback
 }

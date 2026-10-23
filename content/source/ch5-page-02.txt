@@ -1,0 +1,19 @@
+Annuity Principles and Concepts
+
+An annuity is a contract that provides income for a specified period of years, or for life. An annuity protects individuals against outliving
+their money. Annuities are not life insurance, but rather a vehicle for the accumulation of money and the liquidation of an estate.
+Annuities are marketed by life insurance companies. Licensed life insurance agents are authorized to sell some types of annuities.
+Annuities do not pay a face amount upon the death of the annuitant. In fact, they do just the opposite. In most cases, the payments stop
+upon the death of the annuitant. Annuities use mortality tables, but these tables reflect a longer life expectancy than the mortality
+tables used for life insurance. Mortality tables indicate the number of individuals within a specified group (e.g., males, females, smokers,
+nonsmokers) starting at a certain age, who are expected to be alive at a succeeding age.
+
+1. Parties to an Annuity
+
+Owner - The purchaser of the annuity contract, but not necessarily the one who receives the benefits. The owner of the annuity has all
+of the rights, such as naming the beneficiary and surrendering the annuity. The owner of an annuity may be a corporation, trust, or
+other legal entity.
+
+Annuitant - The person who receives benefits or payments from the annuity, whose life expectancy is taken into consideration, and for
+whom the annuity is written. The annuitant and the contract owner do not need to be the same person, but most often are. A
+corporation, trust or other legal entity may own an annuity, but the annuitant must be a natural person.

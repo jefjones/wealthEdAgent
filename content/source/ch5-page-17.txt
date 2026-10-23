@@ -1,0 +1,20 @@
+4. Annuity Investment Options
+Annuities may be classified as fixed or variable based on how the premium payments are invested.
+Fixed Annuities
+A fixed annuity provides the following features:
+
+* Guaranteed minimum rate of interest to be credited to the purchase payment(s);
+
+* Income (annuity) payments that do not vary from one payment to the next; and
+
+* The insurance company guarantees the specified dollar amount for each payment and the length of the period of payments as
+
+determined by the settlement option chosen by the annuitant.
+
+With fixed annuities, the annuitant knows the exact amount of each payment received from the annuity during the annuity period. This is
+called level benefit payment amount. A disadvantage to fixed annuities is that the purchasing power that they afford may be eroded
+cover time due to inflation.
+General Account Assets
+Fixed annuity premiums are deposited into the life insurance company’s general account. The general account is comprised mostly of
+conservative investments like bonds. These investments are secure enough to allow the insurance company to guarantee a specified
+rate of interest, as well as assure the future income payments that the annuity will provide.

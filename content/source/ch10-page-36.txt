@@ -1,0 +1,16 @@
+4. Utah Health Exchange
+The Utah Health Exchange was created within the Governor's office of this state as a cooperative effort between the Insurance
+Department, Department of Health and Department of Workforce Services to reform the state's health system. The Health
+Exchange provides access to private and government health insurance websites and their electronic application forms and submission
+procedures. The exchange also provides employers with a free or low-cost method for employees to purchase health insurance using
+pre-tax dollars.
+The Health Insurance Exchange also provides information to consumers regarding the following:
+* Private and public health programs for which the consumer may qualify;
+* Comparison of and enrollment in a health benefit plan posted on the Exchange; and
+* Links to enrollment in premium assistance programs and other government assistance programs.
+The Exchange will also contract with one or more private vendors for the following services:
+* Administration of the enrollment process on the Health Insurance Exchange, including establishing a mechanism for consumers to
+compare health benefit plan features on the exchange and filter the plans based on consumer preferences;
+* Collection of health insurance premium payments made for a single policy by multiple payers, including the policyholder, one or
+more employers of one or more individuals covered by the policy, government programs, and others; and
+* Establishing a call center to provide unbiased answers to questions concerning exchange operations and plan information.

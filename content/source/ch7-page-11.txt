@@ -1,0 +1,25 @@
+Taxation of Annuities
+
+1. Individually-owned
+
+A portion of each annuity benefit payment is taxable, and a portion is not. The portion that is nontaxable is the anticipated return of the
+principal paid in. This is known as the cost base. The portion that is taxable is the interest earned on the principal. This is known as the
+tax base.
+
+The exclusion ratio is used to determine the annuity amounts to be excluded from taxes. The annuitant is able to recover the cost basis
+nontaxable. The cost basis is the principal amount, or the amount that was paid into the annuity, which is excluded from taxes. The rest
+of each annuity payment is interest that has been earned and is taxable.
+
+Accumulation Phase (Tax Issues Related to Withdrawals)
+
+The accumulation phase is the period after an annuity has been purchased but before distributions begin.
+
+Tax-deferred Accumulation
+
+The cost base represents the premium dollars that have already been taxed and will not be taxed again when withdrawn from the
+contract. The interest accumulated in an annuity is the tax base, but the taxes are deferred during the accumulation period.
+Withdrawal of Interest and Principal
+
+When money is withdrawn from the annuity during the accumulation phase, the amounts are taxed on a Last In, First Out basis (LIFO).
+Therefore, all withdrawals will be taxable until the owner's cost basis is reached. After all of the interest is received and taxed, the
+principal will be received with no additional tax consequences.

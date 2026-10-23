@@ -1,0 +1,845 @@
+----- page 1 -----
+This section will present different classes of health insurance policies, as well as concepts that generally apply to health insurance. You
+will begin by learning about the principal types of losses and benefits, common exclusions from coverage, and producer's
+responsibilities and liabilities for errors. This section will take an in-depth look at health insurance underwriting. This type of underwriting
+is particularly prone to unfair discrimination because of the presence of certain health conditions and the use of genetic
+information. Finally, you will learn about the concept of policy replacement and factors to consider in determining the best course of
+action.
+
+® TERMS TO KNOW
+
+Comprehensive coverage — health insurance that provides coverage for most types of medical expenses
+
+Copayment — an arrangement in which an insured must pay a specified amount for services “up front’ and the provider pays the
+
+remainder of the cost
+
+Deductible — the portion of the loss that is to be paid by the insured before any claim may be paid by the insurer
+
+Dependent — someone relying on the insured for support
+
+Enrollee — a person enrolled in a health insurance plan, an insured (doesn't include dependents of the insured)
+
+Insolvent — unable to meet financial obligations
+
+Pre-existing conditions — conditions for which the insured has received diagnosis, advice, care, or treatment during a specific time
+
+period prior to the application for health coverage
+
+Riders — added to the basic insurance policy to add, modify or delete policy provisions
+
+Solicitation — an attempt to persuade a person to buy an insurance policy; it can be done orally or in writing
+
+Waiting period — a period of time that must pass after a loss occurs before the insurer starts paying policy benefits
+
+----- page 2 -----
+Definitions of Perils
+
+There are two major causes of loss (perils) under a health insurance policy. Policies may cover both accident and sickness or accident
+only.
+
+1. Accidental Injury
+
+Accidental bodily injury is an unforeseen and unintended injury that resulted from an accident rather than a sickness.
+
+2. Sickness, Medical Necessity and Emergency
+
+Sickness is normally defined as an illness that first manifests itself while the policy is in force. The majority of health insurance claims
+result from sickness rather than accidental injury. An emergency medical condition is one which is so severe in pain or symptoms that if
+not treated quickly and properly could cause serious bodily harm, or possibly death.
+
+----- page 3 -----
+The term medical necessity means health care services that a prudent health care professional would provide to a patient in order to
+prevent, diagnose, or treat an illness, injury, or disease.
+
+----- page 4 -----
+Types of Losses and Benefits
+
+1. Loss of Income from Disability
+
+Loss of income caused by accident and/or sickness that results in the insured's inability to work and earn income is covered under
+disability income policies or coverages. Disability income insurance is a valued contract or stated amount that pays weekly or monthly
+benefits due to an injury or sickness. Benefits may be determined by the insured's past earnings and may be limited to a percentage of
+that income.
+
+2. Medical Expense
+
+A medical expense contract covers many of the expenses one incurs from an accident or sickness, such as a physician or hospital
+expense. Expenses may be paid directly to the insured, and the insured would be responsible for paying the medical expenses. This type
+of benefit payment is called reimbursement. if expenses are paid on a scheduled basis, the insurance company will refer to a list
+determining the cost of the treatment, and it will only pay up to a certain amount. If a person were covered as a dependent under their
+spouse's group insurance, payment of medical expenses would be coordinated.
+
+----- page 5 -----
+3. Dental Expense
+
+Dental expense insurance is a form of medical expense health insurance that covers the treatment, care and prevention of dental
+disease and injury to the insured's teeth. An important feature of a dental insurance plan which is typically not found in a medical
+expense insurance plan is the inclusion of diagnostic and preventive care (teeth cleaning, fluoride treatment, etc.). Some dental plans
+require periodic examinations as a condition for continued coverage.
+
+4. Long-term Care Expense
+
+Long-term care policies provide benefits for medically necessary services that an insured receives in a nursing home or their own home
+(home health care), but not care received in an acute care unit of a hospital.
+
+----- page 6 -----
+Classes of Health Insurance Policies
+Health insurance is a generic term encompassing several types of insurance contracts which, though related, are designed to protect
+against different risks.
+There are two separate types of insurance included in the generic term health insurance. One type provides coverage for expenses
+related to health care, and the second is designed to provide payments for loss of income. The terminology used to reference health
+insurance varies from state to state as well as from company to company. The health insurance policy that is designed to provide
+periodic payments when an insured is unable to work because of sickness or injury is referred to as disability income insurance.
+1. Individual vs. Group
+Most health insurance is written on a group basis from one’s employer. Individual coverage may be available for a family, but it would
+be medically underwritten.
+Individual health insurance policies are underwritten to cover the applicant, their spouse and family. Many of the factors considered in
+life insurance underwriting apply. However, unlike life insurance where there can be only one death claim per insured, in health
+insurance, multiple claims per insured is the rule rather than the exception. For this reason, underwriting and classification of risk is
+extremely important from an insurance company standpoint.
+The three most important underwriting factors considered in accepting or classifying health insurance applicants are as follows:
+
+1. Physical condition of the applicant and other insureds;
+
+2. Moral and morale hazards; and
+
+3. Occupation.
+
+----- page 7 -----
+From a consumer's standpoint, as important as the coverage provided, the right to continue the policy is extremely important,
+particularly if he/she has become uninsurable. While neatly all states have adopted the NAIC model law for uniform mandatory
+provisions, there are still more variables in individual health insurance policies than other types of policies.
+
+Group health insurance underwriting varies in important particulars from that of individual health insurance. While the purpose remains
+the same, evaluation of the inherent hazard and assignment of the appropriate class and premium rate, the techniques and standards
+for evaluation are decidedly different.
+
+The group underwriter has the responsibility not only of deciding whether and on what basis the group may be insured, but
+
+also of drawing the contract in such a way as to prevent adverse selection against the insurer by individuals eligible for coverage. Few
+applications for group health insurance are rejected if the applicant complies with any applicable statutory definition of a group eligible
+for this type of coverage. In part, this is because the underwriter may adjust the coverage and requirements necessary to afford
+protection to the insured. The underwriter's attitude toward group risks can be less restrictive than with individual policies, because the
+group policies are subject to annual re-evaluation on the anniversary date. Remedial measures may be taken if the initial evaluation
+proved to be incorrect.
+
+Franchise insurance provides health coverage for small groups whose numbers are too small to qualify for true group
+
+insurance. Franchise insurance is not group insurance, since individual policies are issued for each participant. Individual underwriting is
+done for each person, and each participant submits his or her own application and medical history. Premiums charged are generally
+less than for an individual policy, but more than group coverage.
+
+----- page 8 -----
+2. Private vs. Government
+
+Private insurance companies provide a large portion of all individual and group health insurance. The federal government, however,
+provides coverage for some disabled individuals and those over age 65 in the form of Medicare and Medicaid. Medicaid offers
+assistance as both a federal- and state-sponsored program. The federal government also offers disability insurance protection through
+the Social Security system.
+
+3. Limited vs. Comprehensive
+
+Limited health insurance policies only cover specific accidents or diseases. A comprehensive plan would cover all sickness or
+accidents that are not specifically excluded.
+
+4. Self-Funded vs. Fully Insured
+
+A conventional fully-insured plan is administered and guaranteed by an insurance company. In return for the premium collected from
+the insured by the insurer, the insurer assumes the risk of paying the cost of medical expenses that may or may not occur during the
+policy period.
+
+Under some circumstances, it is possible for a business or an organization to engage in the same types of activities as a commercial
+insurer dealing with its own risks. When these activities involve the operation of the law of large numbers and predictions regarding
+future losses, they are commonly referred to as self-insurance. Companies that choose to self-insurer must develop a formal program
+for identifying, evaluating and funding their own losses.
+
+----- page 9 -----
+5. Employer Group vs. Association Group
+The Commissioner of Insurance has provided rules to standardize and simplify terms for the public when purchasing group insurance.
+These rules apply to all groups authorized to operate in the state. Two such groups are single-employer groups and association groups.
+The single-employer group is formed by one employer for the benefit of its employees. Under a single-employer group, an employee
+can include
+
+* The owner running the business;
+
+* Partners of a partnership;
+
+* Retired employees;
+
+* Former employees; or
+
+* Directors of a corporation.
+The association group, such as an alumni group or professional group (e.g. state teachers’ association), can purchase group insurance
+for its members. Association groups normally are required to
+
+* Maintain a minimum of 100 members;
+
+* Have been active for at least 2 years;
+
+* Have a constitution and by-laws; and
+
+* Hold meetings at least annually.
+
+----- page 10 -----
+Limited Policies
+
+1. Limited Perils and Amounts
+
+There are a variety of health insurance policies providing limited coverage for specific accidents or sickness. These contracts must
+specify the type of accident or sickness covered, limited perils and amounts of coverage. Benefits may be paid on an expense-paid
+(reimbursement) basis or indemnity basis.
+
+----- page 11 -----
+2. Required Notice to Insured
+
+To make sure that the insured is aware that the policy's benefits are limited, the insurance company must, by law, plainly state the
+limited policy notice on the first page of the policy, "THIS IS A LIMITED POLICY.”
+
+3. Types of Limited Policies
+
+There are a variety of health insurance policies providing limited coverage for specific accidents or sickness. These contracts must
+specify the type of accident or sickness covered, limited perils and amounts of coverage. Benefits may be paid on an expense-paid
+(reimbursement) basis or indemnity basis.
+
+----- page 12 -----
+Accident-only
+
+Accident-only policies are limited policies that provide coverage for death, dismemberment, disability or hospital and medical care
+resulting from an accident. Because it is a limited medical expense policy, it will only pay for losses resulting from accidents and not
+sickness.
+
+Accidental Death and Dismemberment (AD&D)
+
+Accidental Death and Dismemberment (AD&D) coverage can be written as a rider or as a separate policy. It is, however, most
+frequently part of group life and group health plans. It provides for the payment of a lump-sum benefit in the event that the insured dies
+from an accident, as defined in the policy, or in the event of loss of certain body parts caused by an accident.
+
+Accidental Death and Dismemberment coverage only pays for accidental losses and is thus considered a pure form of accident
+insurance. The principal sum is paid for accidental death. This amount is usually equal the amount of coverage under the insurance
+contract, or the face amount. In case of loss of sight or accidental dismemberment, a percentage of that principal sum will be paid by
+the policy, often referred to as the capital sum. The amount of the benefit will vary according to the severity of the injury.
+
+The policy will usually pay the full principal for the loss of sight in both eyes, or two or more limbs; however, it may only pay 50% for the
+loss of one hand or one foot. in addition, some policies will pay double or triple indemnity, meaning the policy will pay twice or three
+times the face amount in the event of accidental death.
+
+Most policies will pay the accidental death benefit as long as the death is caused by the accident and occurs within 90 days.
+
+----- page 13 -----
+Travel Accident
+
+A travel accident policy provides coverage for death or injury resulting from accidents occurring while a fare-paying passenger is on a
+common carrier. The benefits are only paid if the loss occurs during the time of travel.
+
+Specified (Dread) Disease
+
+A dread disease, or limited risk, policy provides a variety of benefits for a specific disease such as cancer policy or heart disease policy.
+Benefits are usually paid as a scheduled, fixed-dollar amount of indemnity for specified events or medical procedures, such as hospital
+confinement or chemotherapy.
+
+----- page 14 -----
+Hospital Indemnity (Income)
+
+A hospital indemnity policy provides a specific amount on a daily, weekly or monthly basis while the insured is confined to a hospital.
+Payment under this type of policy is unrelated to the medical expense incurred, but based only on the number of days confined in a
+hospital. This can also be called a hospital fixed-rate policy.
+
+Credit Disability
+
+A credit disability policy is issued only to those in debt to a specific creditor. In case of the borrower's disability, payments to the creditor
+will be made on the loan until the disabled borrower is able to return to work.
+
+----- page 15 -----
+Blanket Insurance (Teams, Passengers, Other)
+
+A blanket policy covers members of a particular group when they are participating in a particular activity. Such groups include
+students, campers, passengers on a common carrier, or sports teams. Often the covered insureds names are not known because they
+come and go. Unlike group health insurance, the individuals are automatically covered, and they do not receive a certificate of
+insurance. Blanket policies are commonly written and pay on an accident-only basis.
+
+Prescription Drugs
+
+Prescription drug coverage is usually an optional benefit under a group medical policy. Generally, the insured pays a copayment
+amount (like $10) and the insurance company pays the balance. There are generally limitations on quantities that one can purchase at
+one time (such as 30-day supply).
+
+Vision and Hearing Care
+
+Some employers provide this form of group health insurance to their employees to cover eye examinations and eyeglasses, or hearing
+aids on a limited basis. Know that per the Affordable Care Act, pediatric vision benefits are mandatory.
+
+Itis common in most vision expense insurance plans to restrict benefits to one exam and one pair of glasses in any 12-month period.
+Dental Care
+
+Usually dental insurance distinguishes among several classes of dental expenses, and provides somewhat different treatment for each.
+Routine and preventive maintenance is covered up to an annual maximum without a deductible or copayment. This coverage benefit
+usually includes routine examinations and teeth cleaning once a year, and pethaps full-mouth x-ray once every 3 years. (The absence
+of a deductible and copayments intended to encourage preventive maintenance.)
+
+----- page 16 -----
+Routine and major restorative care includes treatments for cavities, oral surgery, bridges and dentures. These procedures are covered
+up to a specific maximum, subject to an annual deductible per insured family member and a coinsurance.
+
+Orthodontic care, if included, will have a separate maximum and a separate deductible, which may differ from the deductible for
+rectorotive care.
+
+----- page 17 -----
+Common Exclusions from Coverage
+The following losses are typically not covered in individual or group medical expense policies:
+© War or act of war injuries or sicknesses; active military duty may be also excluded from coverage;
+« Intentionally self-inflicted injuries;
+* Elective cosmetic surgery; however, if treatment is required to correct a condition due to an accident or a birth defect, or is
+medically necessary, then coverage may be available;
+* Experimental/investigation procedures;
+* Conditions covered by workers compensation if they are covered under workers compensation laws or other legislation;
+* Government plans: health insurance policies exclude expenses either paid or eligible for payment under Medicare or other federal,
+state, or local medical expense program;
+© Participation in criminal activity: if a person is injured while committing an illegal act, health insurance will not cover the expense
+of the injury;
+© Injuries resulting from drug or alcohol intoxication (unless administered by a physician).
+
+----- page 18 -----
+Licensee Responsibilities in Individual Health Insurance
+1. Marketing Requirements
+Advertising
+Advertising must be accurate and not misrepresent the facts.
+An advertisement may not contain descriptions of policy limitations, exceptions or reductions that are worded in a positive manner (for
+example, describing a waiting period as a benefit-builder). Limitation or exceptions must accurately describe the negative features.
+The advertisement for a policy that covers only one disease or a list of specified diseases cannot imply coverage beyond the terms of
+the policy. This advertisement must prominently state the limited nature of the policy. The statement must be worded similar to the
+following: "THIS IS A LIMITED POLICY,""THIS IS A CANCER-ONLY POLICY,” or "THIS IS AN AUTOMOBILE ACCIDENT-ONLY POLICY.”
+In addition, the use of the following terms is specifically prohibited in advertisements (unless they are true) as they may be misleading
+to a consumer:
+* Only, just, merely, minimum or similar to describe the applicability of any exceptions, reductions or exclusions;
+* Extra pay, extra cash, extra income or similar to describe a benefit for which payment is conditional upon confinement in a hospital
+or similar facility; and
+* All, full, complete, unlimited or similar, in a manner which exaggerates the extent of any policy benefit.
+There are specific disclosure requirements that apply to advertisements for life insurance products distributed in this state:
+* Clearly identify an insurer;
+* Include the words life insurance or annuity in the title or include other language clearly indicating that it is life insurance or an
+annuity;
+* Identify the source of any statistics used in an advertisement;
+* Advertisements that do not guarantee policy issue but use the terms nonmedical, no medical examination required, or similar
+terms must also clearly and prominently state that the policy issuance may depend on answers to health questions; and
+* Advertisements that use testimonials must ensure that the testimonials are genuine, accurately reproduced and represent the
+
+----- page 19 -----
+author's current opinion. If the person is compensated, the testimonial must clearly state that it's a paid endorsement.
+
+Insurers must maintain files containing all advertising for 3 years after its use.
+Advertising of Guaranty Association
+It is an unfair trade practice to make any statement that an insurer's policies are guaranteed by the existence of the Insurance
+Guaranty Association.
+Sales Presentations
+Sales presentations must be accurate and complete. Sales materials include any and all promotional materials, policy applications,
+replacement forms, outline of coverage and any other forms or information used in connection with solicitation or sale of accident and
+health insurance.
+Outline of Coverage
+An outline of coverage must be delivered at the time of application or upon delivery of the policy. With direct response sales, however,
+the insurer does not have an opportunity to provide the outline of coverage at the time of application, so it is not required. The purpose
+of the outline of coverage provision is to provide full and fair disclosure to the applicant.
+Compensation Disclosure
+Alicensee may receive from an insured or the purchaser of an insurance policy noncommission compensation if it is stated on a
+separate, written disclosure and
+
+* Includes the signature of the insured or prospective insured acknowledging the noncommission compensation;
+
+* Specifies the amount or extent of the noncommission compensation; and
+
+* Is given to the insured or prospective insured before the performance of the service.
+Noncommission compensation must be
+
+----- page 20 -----
+* Limited to reasonable expenses incurred for services; and
+
+* Uniformly applied to all insureds or prospective insureds.
+A licensee may receive noncommission compensation when acting as a producer for the insured if
+
+* The producer and the insured have agreed on the producer's noncommission compensation; and
+
+* The producer has disclosed to the insured the existence and source of any other compensation that accrues to the producer as a
+
+result of the transaction.
+2. Field Underwriting
+In health insurance, field underwriting is far more important than in life insurance. The basic purpose of health insurance underwriting
+is to minimize the problem of adverse selection. Adverse selection involves the fact that those most likely to have claims are those who
+are most likely to seek insurance. An insurance company that has sound underwriting guidelines will avoid adverse selection more often
+than not. Note that the specific underwriting requirements will vary by insurer.
+Moral hazard is a significant factor in health insurance underwriting because of the possibility of malingering, and it is the agent, not the
+home office underwriter, who actually has personal contact with the applicant. It is the responsibility of the agent to ask the applicant
+questions clearly and precisely and to record the answers accurately.
+A producer's function as the field underwriter is to gather credible information from an applicant that would assist the underwriter in
+screening marginal or unacceptable risks before taking an application for an insurance policy.
+Know This! A producer is the company's field underwriter.
+
+----- page 21 -----
+Nature and Purpose
+Underwriting is the first step in the total process of insuring health risks. The basic purpose of health insurance underwriting is to
+minimize the problem of adverse selection. Adverse selection involves the fact that those most likely to have claims are those who are
+most likely to seek insurance. An insurance company that has sound underwriting guidelines will avoid adverse selection more often
+than not.
+Employee Waiver Form
+When an insurer offers a health benefit plan to an individual or small employer, the insurer is allowed to combine the uniform
+application form and the uniform waiver form. The uniform waiver of coverage form
+* Identifies the employee purchasing the plan;
+* Verifies the employee's insurance; and
+* Cannot include any health status questions other than for pregnancy.
+Disclosure Information about Individuals
+An insurance company or an agent cannot disclose any personal or privileged information about an individual unless any of the
+following occurs:
+* Awritten authorization by the individual dated and signed within the past 12 months has been provided;
+* The information is being provided to all of the following:
+© Aninsurance regulatory authority or law enforcement agency, pursuant to the law;
+© An affiliate for an audit, but no further disclosure is to be made;
+© Agroup policyholder for the purpose of reporting claims experience;
+° Ton insurance company or self-insured plan for coordination of benefits; and
+© Alien holder, mortgagee, assignee or other persons having a legal or beneficial interest in a policy of insurance.
+
+----- page 22 -----
+Application
+
+An application for insurance begins with a form provided by the company and completed by the agent as questions are asked of the
+applicant, and the applicant's responses are recorded. This form - often called the “app” - is then submitted to the insurance company
+for its approval or rejection. The application is the applicant's written request to the insurance company to issue a policy or contract
+based upon the information contained in the application. If the policy is issued, a copy of this application is stapled in the back of the
+policy and it becomes part of the entire contract.
+
+Anotice to the applicant must be issued to all applicants for health insurance coverage. This notice informs the applicant that a credit
+report will be ordered concerning their past history and any other health insurance for which the applicant has previously applied. The
+agent must leave this notice with the applicant.
+
+Notice of Information Practices
+
+Insurers and producers must provide a notice of information practices to applicants and policyholders in connection with insurance
+transactions. The notice is usually required at the time an insurer or producer first collects personal information from a source other
+than the applicant or public records, or at policy delivery if the information is collected from the applicant or from public records. In the
+case of a policy renewal, the notice must be provided at the policy renewal date or annually.
+
+Completeness and Accuracy
+
+The agent must take special care with the accuracy of the application in the interest of both the company and the insured. Because the
+application is often the main source of underwriting information, it is the agent's responsibility to make certain that the application is
+filled out completely, correctly, and to the best of the applicant's knowledge.
+
+----- page 23 -----
+Signatures
+
+Every health insurance application requires the signature of the proposed insured, the policyowner (if different than the insured), and
+the agent who solicits the insurance.
+
+Changes in the Application
+
+Because the application is so important, most companies require that it be filled out in ink. The agent might make a mistake when filling
+out the app or the applicant might answer a question incorrectly and want to change it. There are two ways to correct an application.
+The first and best is to simply start over with a fresh application. If that is not practical, draw a line through the incorrect answer and
+insert the correct one. The applicant must initial the correct answer.
+
+----- page 24 -----
+Premiums with the Application
+
+Under the terms of the insurability conditional receipt, the insurance coverage becomes effective as of the date of the receipt, provided
+the application is approved. This receipt is generally provided to the applicant when the initial premium is paid at the time of
+application.
+
+Delivery of Policy
+
+Although policy delivery may be accomplished without physically delivering it in the policyowner's possession, an agent should
+personally deliver policies whenever possible. Once the delivery of a policy is made, the free-look period begins.
+
+Policy Review
+
+When delivering the policy, the agent should review the insured's original goals and needs. The policy should also be thoroughly
+reviewed with the insured.
+
+Statement of Good Health
+
+In many cases, the initial premium is not paid until the policy is delivered. Most insurance companies require that when collecting the
+premium, the agent must also obtain a statement signed by the insured testifying to continued good health.
+
+Utah Individual and Small Employer Health Insurance Application
+
+In an attempt to streamline the process of insurance application for individuals and small groups, Utah ruled that all accident and
+health insurers doing business in the state may accept the universal Utah Individual Health Insurance Application and Utah Small
+Employer Health Insurance Application.
+
+Use of the universal application is voluntary, but if it is used, it must not be altered or contain any logos or addresses of insurers. This is to
+make it easier to submit the application to several insurers by using a single application.
+
+----- page 25 -----
+3. Common Situations for Errors and Omissions
+
+At any time during the sales process there can be a misunderstanding or misrepresentation that could lead to legal action being taken
+by the insured. Agents should document everything: interviews, phone conversations, requests for information, etc. The sales interview
+and the policy delivery are the most common occasions for errors and omissions (E&O) situations to occur that may result in providing
+inadequate coverage or failure to maintain and service coverage.
+
+----- page 26 -----
+Individual Underwriting by the Insurer
+
+1. Underwriting Criteria
+
+The underwriter’s function is to select risks, which are acceptable to the insurance company. The selection criteria used in this process,
+by law, must be only those items that are based on sound actuarial principles or expected experience. The underwriter cannot decline a
+risk based on blindness or deafness, genetic characteristics, marital status, or sexual orientation.
+
+When underwriting health insurance policies, the prime considerations are age, gender, occupation, physical condition, avocations,
+moral and morale hazards, and financial status of the applicant.
+
+2. Sources of Underwriting Information
+
+Application
+
+An accurate and thorough application is imperative to the insurance company.
+
+Licensee Report
+
+There are a number of reports utilized by the underwriter in determining the underwriting outcome of any particular application. Each of
+the following reports is of great significance to the process.
+
+Only the agent/producer is involved in completing the agent's (producer's) report. It asks questions about the length of time that the
+applicant has been known to the agent, an estimate of the applicant's income and net worth and whether the agent knows of any
+reason that the contract should not be issued. The agent's statement does not become part of the entire contract.
+
+----- page 27 -----
+Attending Physician Statement
+
+If the underwriter deems it necessary, an attending physician's statement (APS) will be sent to the applicant's doctor to be completed.
+This source of information is best for accurate information on the applicant's medical history. The physician can explain exactly what
+the applicant was treated for, the treatment required, the length of treatment and recovery, and the prognosis.
+
+Investigative Consumer (Inspection)
+
+An investigative consumer report includes information on an applicant's character, general reputation, personal habits, and mode of
+living that is obtained through investigation. For example, this report could include interviews with associates, friends, and neighbors of
+the applicant. Such reports may not be performed unless the applicant is clearly and accurately informed of the report in writing. The
+consumer report notification is usually part of the application. at the time that the application is completed, the agent will separate the
+notification and give it to the applicant.
+
+Medical Information Bureau (MIB)
+
+The Medical Information Bureau (MIB) is a membership corporation owned by member insurance companies. It is a nonprofit trade
+organization which receives adverse medical information from insurance companies and maintains confidential medical impairment
+information on individuals. Reports on previous insurance information can be obtained from the Medical information Bureau. Members
+of MIB can request a report on an applicant and receive coded information from any other applications for insurance submitted to
+other MIB members. MIB information cannot be used in and of itself to decline a risk, but it can give the underwriter important additional
+information.
+
+Medical Examinations and Lab Tests (Including HIV Consent)
+
+Medical examinations, when required by the insurance company, are conducted by physicians or paramedics at the insurance
+company’s expense. Usually such exams are not required with regard to health insurance, thus stressing the importance of the agent in
+recording medical information on the application. The medical exam requirement is more common with life insurance underwriting. If
+an insurer requests a medical examination, the insurer is responsible for the costs of the exam.
+
+----- page 28 -----
+Itis common among insurers to require an HIV test when an applicant is applying for a large amount of coverage, or for any
+increased and additional benefits. To ensure proper obtaining and handling of results, and to protect the insureds’ privacy, states have
+enacted the following laws and regulations for insurers requiring an applicant to submit to an HIV test:
+* Prior to testing, the insurer must disclose the use of testing to the applicant, and obtain written consent from the applicant on the
+approved form;
+* The insurer must establish written policies and procedures for the internal dissemination of test results among its producers and
+employees to ensure confidentiality;
+* The test must be administered in a manner that meets the protocol of the U.S. Department of Health and Human Services;
+* The insurer must disclose the test results as authorized by the applicant in writing;
+* If the applicant has not identified a physician to receive test results, the positive test results and the identity of the applicant must
+be sent to the state Department of Health; and
+* The reporting of test results must include the name and address of the reporting company.
+Requiring an HIV test is not considered unfair discrimination as long as the following conditions are met:
+* The testing is required for alll individuals in the same class;
+* Proposed insured is not denied coverage on the basis of such testing alone (if no other conditions specified in the Insurance Code
+apply); and
+* The tests and testing procedures have been approved by the United States Food and Drug Administration (FDA) and otherwise
+comply with applicable state and federal laws.
+Insurers are permitted to ask a proposed insured whether he or she has tested positive on an AIDS-related test.
+
+----- page 29 -----
+3. Unfair Discrimination
+Information the companies obtain relating to risk factors helps the underwriters determine the extent of the risks involved. In order to
+avoid adverse selection, the company may discriminate in favor of good risks and against poor risks. However, insurance companies
+cannot unfairly discriminate between individuals of the same class and equal life expectancy in the rates, benefits, or any terms and
+conditions of the contract.
+The following are examples of underwriting practices in life and health insurance that would constitute unfair discrimination between
+individuals of the same class:
+* Discriminating in policy rates and benefits based solely on
+
+© Age or gender;
+
+© Physical or mental impairment;
+
+© Blindness or partial blindness; or
+
+© Genetic characteristics or genetic testing.
+
+* Investigating as part of the underwriting process a proposed insured's sexual orientation.
+
+Genetic Information and Nondiscrimination Act of 2008 (GINA)
+The purpose of the Genetic Information Nondiscrimination Act of 2008 (GINA) is to prevent the denial, conditioning or discrimination in
+the pricing of a group or individual health plan based on an applicant's genetic information.
+GINA also limits what requests and requirements a group health plan and group and individual health plan issuer can make
+regarding genetic testing, and prohibits the collection of genetic information for underwriting or other purposes before enrollment.
+4. Classification of Risk
+Once the underwriters have collected and reviewed all the necessary information on the applicant, they will make a decision to either
+accept or decline the applicant for insurance. The applicants that have been accepted will fall into one of the 3 categories: preferred,
+standard or substandard.
+
+----- page 30 -----
+Preferred
+
+Preferred risks reflect a reduced risk of loss and are covered at a reduced rate. Nonsmokers would be an example of preferred risks.
+Standard
+
+Standard risks reflect average exposures and may be insured at standard rates and premiums.
+
+Substandard
+
+Substandard risks are those that reflect an increased risk of loss. These applicants may be able to obtain health insurance coverage but
+at an increased premium. An applicant could be rated substandard for a poor health history or a dangerous vocation or avocation.
+
+----- page 31 -----
+Considerations in Replacing Accident and Health Insurance
+
+1. Benefits, Limitations and Exclusions
+
+When an agent attempts to replace the insured’s current health insurance policy with a new one, the agent needs to be careful not to
+mislead the insured or provide coverage that is to the insured’s detriment. It is the agent's responsibility to carefully compare the
+benefits, limitations and exclusions found in the current and the proposed replacement policy. The agent also must make sure that the
+current policy is not cancelled before the new policy is issued.
+
+----- page 32 -----
+2. Underwriting Requirements
+
+Underwriting is important when replacement is involved. It is an underwriter's duty to evaluate risk and decide whether or not a person is
+eligible for coverage. The insured may be under the assumption that a replacing policy is in his/her best interests, but after being
+evaluated by an underwriter, where premium and risk are exchanged, an insured may not be paying the same premium or receiving
+the same benefits.
+
+Example:
+
+When Robert applies for health insurance at age 25, as a nonsmoker without health problems, he should have a different premium than
+if he applied for a replacing policy at age 45, after suffering a heart-attack, and having smoked for 15 years. Let's assume that at the
+age of 25 Robert paid an excessively high policy premium because he was issued an overpriced policy. What happens at age 45?
+Robert is evaluated, with age and health taken into account (along with other factors), and the premiums are higher due to these
+factors. Even though Robert was told he was paying excessive premiums on his original policy, if a new policy is written, he will be judged
+on the factors that affect his policy at that time, not at the time the original policy was written.
+
+3. Required Notification
+
+When an agent replaces an accident and health insurance contract with a new policy, the agent must furnish the applicant with a
+state-specific notice of replacement. It is the agent's responsibility to carefully compare the benefits, limitations, and exclusions found in
+the current policy and the proposed replacement. The agent must also make sure that the current policy is not cancelled before the
+new policy is issued.
+
+4. Licensee Liability for Errors and Omissions
+
+If an agent or broker engages in misrepresentation during the replacement of health insurance contracts, he/she may be exposed to
+errors and omissions liability as well as having their insurance license suspended or revoked.
+
+----- page 33 -----
+Required, Uniform and General Policy Provisions
+
+1. Entire Contract; Changes
+
+The entire contract provision states that the health insurance policy, together with a copy of the signed application and attached riders
+and amendments, constitutes the entire contract. No changes may be made to the policy without the express written agreement of
+both parties, and any changes must also be made a part of the contract. Only an executive officer of the company, not an agent, has
+authority to make any changes to the policy.
+
+----- page 34 -----
+2. Grace Period
+
+The grace period is the period of time after the premium due date in which premiums may still be paid before the policy lapses for
+nonpayment of the premium. Although the grace period may differ according to individual state laws, in most cases the grace period
+can be not less than 15 days for weekly or monthly pay policies, and 30 days for all other modes. Coverage will continue in force
+during the grace period.
+
+3. Reinstatement
+
+If the premium has not been paid by the end of the policy's grace period, the policy will lapse (terminate). This provision stipulates
+under what conditions the insured may reinstate coverage. Reinstatement is automatic if the company or an authorized representative
+accepts the policy premium and does not require a reinstatement application. However, if a reinstatement application is required and a
+conditional receipt is issued for the payment of the policy premium, the company may approve or disapprove the reinstatement
+application. Coverage is automatically reinstated if not refused within 45 days from the date the conditional receipt was issued.
+Accidents will be covered immediately following the reinstatement; however, sickness is covered only after 10 days. This helps to protect
+the insurer from adverse selection.
+
+4. Change of Beneficiary
+
+The change of beneficiary provision stipulates that the policyowner may change the beneficiary at any time by providing a written
+request to the insurer. The consent of the beneficiary is not required. However, if the beneficiary designation is irrevocable, the
+policyholder must first obtain the permission of the beneficiary before any change can be made.
+
+Rights of Spouse
+
+If a married couple divorces or has an annulment, the spouse of the insured has a right to be issued an individual health policy without
+taking a medical exam but by completing an application and paying the applicable premium. When the insurer receives actual notice
+of a divorce or annulment, the insurer will promptly notify the spouse in writing of the right to obtain individual coverage. The newly
+issued policy will have coverage which is most nearly similar to the terminated coverage. Any waiting or probationary periods satisfied
+under the original policy will count toward the waiting and probationary periods in the new policy.
+
+----- page 35 -----
+5. Claim Procedures
+
+Notice of Claim
+
+The notice of claim provision spells out the insureds duty to provide the insurer with reasonable notice in the event of a loss. Notice is
+required within 20 days of the loss, or as soon as reasonably possible. Notice to the agent equals notice to the insurer.
+
+Claims Forms
+
+Upon receipt of a notice of claim, the company must supply ¢laims forms to the insured within a specified number of days (usually 15,
+but may vary from state to state). If forms are not furnished, the claimant is deemed to have complied with the requirements of the
+policy by submitting written proof of the occurrence, nature of the loss, and extent of loss to the insurer.
+
+Proof of Loss
+
+After a loss occurs, the claimant must submit proof of loss within 90 days of the loss or as soon as reasonably possible, but not to
+exceed one year. However, the year limit does not apply if the claimant is not legally competent to comply with this provision.
+Time of Payment of Claims
+
+The time of payment of claims provision specifies that claims are to be paid immediately upon written proof of loss. The time of
+payment for claims is usually specified in different policies as 60 days, 45 days, or 30 days. However, if the claim involves disability
+income benefits, the benefits must be paid not less frequently than monthly.
+
+----- page 36 -----
+Payment of Claims
+
+The payment of claims provision specifies to whom claims payments are to be made. All benefits are payable to the insured while the
+insured is living. If the insured is deceased, claims that are pending are paid to the beneficiary. if there is no beneficiary, benefits will be
+paid to the deceased's estate, unless the insured has assigned the benefits to be paid directly to a hospital or doctor who has rendered
+services.
+
+Some policies allow a provision that gives the insurer the right to expedite payments of urgently needed claim funds and pay up to a
+specified limit in benefits to a relative or individual who is considered to be equitably entitled to payment, called facility of payment
+clause.
+
+6. Physical Examinations and Autopsy
+
+The physical exam and autopsy provision gives the insurer the right to examine the insured, at its own expense, as often as may be
+reasonably necessary while a claim is pending. The insurer also usually has the right to conduct an autopsy, if not forbidden by a state
+law.
+
+7. Time Limit on Certain Defenses
+
+The time limit on certain defenses provision is similar to the incontestability provision found in life insurance policies. No statement or
+misstatement (except fraudulent misstatements) made in the application at the time of issue will be used to deny a claim after the
+policy has been in force for 2years. if the insurer discovers that the applicant has committed fraud, they may deny a claim any time the
+policy is in force, even after the first 2 years.
+
+Acclaim for loss incurred or disability commencing after 2 years from the date of policy issue may not be reduced or denied on the
+grounds that a disease or physical condition, not specifically excluded from coverage, had existed prior to the effective date of
+coverage.
+
+----- page 37 -----
+8. Legal Actions
+
+This provision limits the time during which a claimant may seek recovery from an insurer under a policy. The insured must wait 60 days,
+but not later than 3 years (in most states) after proof of loss, before legal action can be brought against the company.
+
+9. Misstatement of Age
+
+If an insurer discovers a misstatement of age on an insurance application, the benefits paid under the policy would be adjusted to
+what the premium paid would have purchased at the correct age.
+
+----- page 38 -----
+10. Change of Occupation
+
+Because the occupation of the insured is an important underwriting consideration, particularly for disability income insurance, health
+insurance policies usually include a provision that allows the insurer to adjust benefits if the insured changes occupations. If the
+insured makes a change to a more hazardous occupation, upon claim, benefits will be reduced to that which premiums paid would
+have purchased assuming the more hazardous occupation. If the change is to a less hazardous occupation, the insured is entitled to
+apply to the insurer for a rate reduction.
+
+----- page 39 -----
+Tl. Illegal Occupation
+
+This provision states that liability will be denied if the insured is injured while committing an illegal act or is engaged in an illegal
+occupation.
+
+12. Unpaid Premium
+
+Upon payment of a claim, any past due premiums will be deducted from the claim and the policyholder will be paid the net amount.
+13. Conformity with State Statutes
+
+This provision states that any provision of the policy which, on its effective date, is in conflict with the statutes of the state in which the
+insured resides on that date, is automatically amended to conform to the minimum requirement of the statutes. Although this is an
+optional provision, most states require that it be included in every health insurance contract issued.
+
+14. Insuring Clause
+
+The insuring agreement or clause is usually located on the first page of the policy. It is simply a general statement that identifies the
+basic agreement between the insurance company and the insured. It identifies the insured and the insurance company and states
+what kind of loss (peril) is covered.
+
+----- page 40 -----
+15. Right to Examine (Free Look)
+
+The free-look or right to examine provision allows the insured a period of several days to look over the policy, and if dissatisfied for any
+reason, return it for a full refund. It is commonly 10 days from the date the policy is delivered, but may vary for different types of policies.
+This provision is mandated for individual policies in most states.
+
+----- page 41 -----
+The 10-day free look regulation does not apply to
+
+* Group policies;
+
+* Credit life insurance;
+
+* Replacement policies where the required free-look period is 30 days; and
+
+* Any other classes of policies as determined by the Commissioner.
+16. Consideration Clause
+The consideration clause, which is usually located on the first page of the policy, makes it clear that both parties to the contract must
+give some valuable consideration. The payment of the premium and the statements in the application are the consideration given by
+the applicant. The insurer's consideration is the promise to pay in accordance with the contract terms.
+17. Renewability Clause
+The face page of the individual health insurance contract must clearly state under what conditions the policy may be renewed. If the
+insurer reserves the right to refuse renewal, the insurer must deliver or mail to the policyholder's last known address a written notice of
+its intention not to renew the policy beyond the period for which the premium has been accepted.
+Since individual health insurance policies provide coverage for a specified term, the absence of a cancellation provision does not
+guarantee continuing protection. Even when the insurer cannot cancel a policy, the insurer may retain the right to refuse to renew the
+policy.
+Each policy should be carefully examined to determine which renewal provision it contains, as these are extremely important provisions.
+
+----- page 42 -----
+Noncancellable
+
+The insurance company cannot cancel a noncancellable policy, nor can the premium be increased beyond what is stated in the policy
+(note that the policy may call for an increase in a certain year, such as "age 65,” but that must be stated in the original contract). The
+insured has the right to renew the policy for the life of the contract; the insurer cannot increase the premium above the amount for
+which the policy was originally issued. However, the guarantee to renew coverage usually only applies until the insured reaches age 65,
+at which time the insured is usually eligible for Medicare. For disability income insurance, the policy will be renewed beyond the insured's
+age 65 only if the insured can provide evidence of continuing to work in a full-time job.
+
+----- page 43 -----
+Guaranteed Renewable
+
+The guaranteed renewable provision is similar to the noncancellable provision, with the exception that the insurer can increase the
+policy premium on the policy anniversary date. The insured, however, has the unilateral right to renew the policy for the life of the
+contract. The insurer may increase premiums on a elass basis only and not on an individual policy. As with the noncancellable policy,
+coverage generally is not renewable beyond the insured’s age 65. Medicare Supplements and long-term care policies must be
+written as guaranteed renewable contracts, and cannot be cancelled by the company at the insured's age 65.
+
+----- page 44 -----
+Conditionally Renewable
+
+With a conditionally renewable policy, the insurer may terminate the contract only at renewal for certain conditions that are stipulated
+in the contract. For example, one condition may be that the insured must be employed to collect disability payments. In addition, the
+policy premiums may be increased. The company may not deny renewal due to claims experience.
+
+Renewable at Option of Insurer
+
+Optional renewability is similar to conditional renewability, except that the insurer may cancel the policy for any reason, on certain
+homogeneous classes (not individuals within a class). Renewability is at the option of the insurer. The insurer can only decide not to
+renew a policy on the policy anniversary or premium due date (renewal date). If the insurer elects to renew coverage, it may also
+increase the policy premium.
+
+Nonrenewable (Cancellable, Term)
+
+In some cases, an individual may need health insurance for a specified period of time. Coverage is then considered a term health
+policy, which is not renewable. When the term expires, the insured must purchase another policy. These policies are also called period of
+time policies as they are only effective for a specific period of time, and will be cancelled by the company at the end of the term.
+Examples of term health policies are travel accident policies, short term health plans, or accident only policies. Policies which cover
+specific events, such as school functions, summer camp, or athletic events, are other examples. Once the event is over, coverage is no
+longer in place.
+

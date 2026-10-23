@@ -10,23 +10,40 @@ export function ResetPage() {
   const { token = '' } = useParams()
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
-  const [message, setMessage] = useState('')
+  const [done, setDone] = useState(false)
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
 
   async function onSubmit(event: FormEvent) {
     event.preventDefault()
-    setBusy(true)
     setError('')
-    setMessage('')
+    if (password !== confirm) {
+      setError('Password and confirm password must match.')
+      return
+    }
+    setBusy(true)
     try {
       await resetPassword({ token, newPassword: password, confirmPassword: confirm })
-      setMessage('Your password was reset. Sign in with the new password.')
+      setDone(true)
     } catch (cause) {
       setError(errorText(cause, 'Could not reset the password.'))
     } finally {
       setBusy(false)
     }
+  }
+
+  if (done) {
+    return (
+      <Card className="mx-auto max-w-md p-6 sm:p-8">
+        <h1 className="font-['Fraunces',Georgia,serif] text-3xl font-semibold text-[#14375f]">Password updated</h1>
+        <p className="mt-3 text-[#3d5166]">Your password was reset. Sign in with the new password.</p>
+        <p className="mt-5">
+          <Link className="font-semibold text-[#2a6cb5] hover:underline" to="/login">
+            Back to sign in
+          </Link>
+        </p>
+      </Card>
+    )
   }
 
   return (
@@ -41,8 +58,11 @@ export function ResetPage() {
           <Label htmlFor="confirm">Confirm password</Label>
           <Input id="confirm" type="password" value={confirm} onChange={(event) => setConfirm(event.target.value)} required />
         </div>
-        {message ? <p className="rounded-xl bg-[#e8f6ee] px-3 py-2 text-sm text-[#146c36]">{message}</p> : null}
-        {error ? <p className="rounded-xl bg-[#fdecec] px-3 py-2 text-sm text-[#8d1d1d]">{error}</p> : null}
+        {error ? (
+          <p className="rounded-xl bg-[#fdecec] px-3 py-2 text-sm text-[#8d1d1d]" role="alert">
+            {error}
+          </p>
+        ) : null}
         <Button type="submit" className="w-full" disabled={busy || !token}>
           {busy ? 'Saving…' : 'Reset password'}
         </Button>

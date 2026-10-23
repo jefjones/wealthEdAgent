@@ -1,0 +1,25 @@
+Regulation of Employer Group Insurance Plans
+
+1. Employee Retirement Income Security Act (ERISA)
+
+The Employee Retirement Income Security Act of 1974 (ERISA) is a federal law that was enacted to ensure that employees receive the
+pension and other benefits promised by their employers. ERISA also incorporates and is tied to provisions of the Internal Revenue Code
+(IRC) designed to encourage employers to provide retirement benefits and other benefits to their employees. Many provisions of ERISA
+and the IRC are intended to ensure that tax-favored pension plans do not favor the highest-paid employees over rank-and-file
+employees in the way benefits are provided. To achieve these ends, ERISA has a complex series of rules that cover pension, profit-
+sharing stock bonus, and most ‘welfare benefit plans,” such as health and life insurance. ERISA supersedes almost all state laws that
+affect employee benefit plans and has thus created a single federal standard for employee benefits.
+
+Applicability
+
+All forms of heallth care, life insurance, prepaid legal services, and disability insurance (both long-term and short-term) are considered
+employee welfare benefit plans. Unfunded benefits or payroll practices, such as vacation, holidays, overtime premiums, holiday gifts,
+and compensation paid for time not worked are not included. Group-type voluntary insurance programs to which the employer makes
+no contribution are also excluded.
+
+ERISA treats as pension plans any form of deferred compensation such as deferred profit-sharing, stock purchasing, or savings and
+thrift plans, as well as pension plans.
+
+Cash bonus plans, cash profit-sharing plans, and severance pay of less than 2 years are considered compensation and are not
+regulated by ERISA. A bonus plan, payment of which is systematically deferred and paid out over several years, is considered a pension
+plan.

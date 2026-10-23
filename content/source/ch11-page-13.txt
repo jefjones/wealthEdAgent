@@ -1,0 +1,26 @@
+Employee Eligibility
+Employer group health insurance generally requires that to be eligible for coverage an employee must be a full-time employee, working
+in a covered classification, and must be actively at work.
+Under the Affordable Care Act (ACA), employers must extend coverage to all employees who work more than 30 hours per week. In
+addition, small and large employers may not be denied coverage for failure to satisfy the minimum participation or contribution
+requirements.
+Dependent Eligibility
+Employer group health insurance generally requires a dependent of an employee to be
+
+* A spouse;
+
+* Achild younger than the limiting age, including natural children of the insured, stepchildren, children legally placed for adoption,
+
+and legally adopted children; and/or
+* Disabled children who are incapable of self-support because of a physical or mental disability, and are dependent upon the
+insured for support and maintenance.
+Most insurers cover domestic or same-sex partners whether or not a state has a domestic partner or civil union law.
+3. Coordination of Benefits Provision
+The purpose of the coordination of benefits (COB) provision, found only in group health plans, is to avoid duplication of benefit
+payments and overinsurance when an individual is covered under multiple group health insurance plans. This provision limits the total
+amount of claims paid from all insurers covering the patient to no more than the total allowable medical expenses.
+The COB provision establishes which plan is the primary plan, or the plan that is responsible for providing the full benefit amounts as it
+specifies. Once the primary plan has paid its full promised benefit, the insured submits the claim to the secondary, or excess, provider
+for any additional benefits payable (including deductibles and coinsurance). In no case will the total amount the insured receives
+exceed the costs incurred or the total maximum benefits available under all plans.
+Loss - Amount covered by Primary Plan = Amount covered by Secondary Plan

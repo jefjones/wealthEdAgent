@@ -1,0 +1,10 @@
+1. Cash Loans
+Whenever a policy has cash value, it has loan value. The amount available to the policyowner for a loan equals the cash value minus
+any outstanding and unpaid policy loans including interest.
+
+Loan value = Cash value - (unpaid loans + interest)
+If there are outstanding loans at the time of the insured’s death, the loan amount will be considered a debt to the policy and the death
+benefit will be reduced by the amount of indebtedness.
+Example:
+Vera has a whole life policy with a $150,000 face amount. Three years ago she took out a $50,000 policy loan, which has accrued $3,500
+in interest. If Vera dies, the policy's death benefit will be $150,000 - $50,000 - $3,500 or $96,500.

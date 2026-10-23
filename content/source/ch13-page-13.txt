@@ -1,0 +1,25 @@
+5. Part D - Prescription Drug Insurance
+
+The Medicare Prescription Drug, Improvement, and Modernization Act of 2003 (MMA) was passed in November 2003. This act
+implemented a plan to add a Part D - Prescription Drug Benefit to the standard Medicare Coverages. This optional coverage is provided
+through private prescription drug plans (PDPs) that contract with Medicare. To receive the benefits provided, beneficiaries must sign up
+with a plan offering this coverage in their area and must be enrolled in Medicare Part A or in Parts A and B. In areas where no private
+plans are offered, the government will offer a standard plan. Medicaid recipients are automatically enrolled.
+
+If Medicare beneficiaries don't enroll when they are first eligible, they must pay a 1% penalty for each month they delayed enrollment.
+Medicare beneficiaries may choose between stand-alone plans that offer coverage on a fee-for-service basis, or integrated plans
+that group coverages together, including PPOs and HMOs (known as Medicare Advantage).
+
+The plans offered by private companies are restricted by some standards set by Medicare, but still have freedom to personalize their
+plans. Providers must cover drugs for certain classes, but do not have to cover every drug in each class.
+
+Those who sign up for the standard Prescription Drug Benefit plan will have a monthly premium and a deductible. The monthly premium
+varies by plan. After the deductible is paid, the plan would provide prescription drug costs coverage until a benefit limit is reached. Once
+the beneficiary and their plan spend $4,660 combined on drugs (including deductible), the beneficiary will generally pay no more than
+25% of the cost for prescription drugs until their out-of-pocket spending is $7,400 (for 2023), under the standard drug benefit.
+
+Once the beneficiary has reached their out-of-pocket spending, catastrophic coverage begins automatically. Catastrophic coverage
+will cover 95% of prescription drug costs. In most cases, the beneficiary will pay no more than 5% of the cost for covered drugs for the
+rest of the year.
+
+Additional assistance will be available for those with low income. There will be no gap in coverage for these beneficiaries.

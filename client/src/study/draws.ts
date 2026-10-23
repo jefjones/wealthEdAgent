@@ -1,6 +1,8 @@
 export type Draw = {
   questionIds: string[]
   optionOrder: Record<string, string[]>
+  /** Seconds recorded while this browser took the test. Missing on older draws. */
+  secondsByQuestion?: Record<string, number>
 }
 
 const KEY = 'wealthEdAgent.draws.v1'

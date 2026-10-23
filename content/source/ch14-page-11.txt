@@ -1,0 +1,22 @@
+2. Health Reimbursement Accounts (HRAs)
+In Health Reimbursement Accounts (HRAs), the employer's contribution is tax deductible in the year in which the reimbursement is
+made to the employee. The employee is not taxed on receipt of the benefit. Benefits must be paid solely to the employee for medical
+care expenses for the employee, the employee's spouse or dependents. If funds are distributed for other than medical care expenses,
+the benefit is considered to be taxable income to the employee.
+Tax Considerations for Health Insurance
+PREMIUMS BENEFITS
+Individual Disability Income Not deductible Not taxable
+- cobili Deductible for
+Group Disability Income Taxable
+employer
+Individual Medical Not deductible* Not taxable
+Deductible for
+Group Medical Not taxable
+employer
+Individual Long-Term Care Not deductible* Not taxable
+Deductible for
+Group Long-Term Care Not taxable
+employer
+Individual Medi
+ual Medicare Not deductible* Not taxable
+Supplement

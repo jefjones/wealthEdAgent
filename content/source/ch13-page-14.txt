@@ -1,0 +1,4 @@
+As defined by Medicare, a formulary is a list of prescription drugs covered by a prescription drug plan, also known as a drug list. Each
+plan has its own formulary that must be filed annually. Whenever the plan makes changes to the formulary, the insureds must be
+notified. Medicare drug plans categorize drugs into different tiers, each with a different cost. Drugs in a lower tier will cost less than drugs
+in a higher tier. A formulary must include at least 2 drugs in each treatment category, but it is not required to include all drugs.

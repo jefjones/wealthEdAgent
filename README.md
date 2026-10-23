@@ -2,7 +2,7 @@
 
 A frontend study site for the Utah life insurance course. Reading is stored in the app. Sign-in, reading progress, seen questions, and practice-test scores use the shared wealthEdAgent API.
 
-The pages are medium blue, separate from the myWealthEd site. An existing myWealthEd username and password signs in here and stays on this site.
+The pages are medium blue and the site stands on its own.
 
 ## Run locally
 
@@ -44,7 +44,7 @@ VITE_API_BASE_URL=https://ecdmy.com/
 
 ## What the app does
 
-- Register a study account, or sign in with a myWealthEd account. A taken username shows the server message and a link to sign in.
+- Register a study account, or sign in with an existing one. A taken username shows the server message and a link to sign in.
 - Read one section at a time, with previous and next, completion tracking, and resume.
 - Start an overall practice test. Choose how many questions, and whether they must be unseen.
 - After each answer, the wrong choice is marked in red and the correct choice in green, with an explanation of every option.

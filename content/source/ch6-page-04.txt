@@ -1,0 +1,25 @@
+Plan Types, Characteristics and Purchasers
+
+1. Individual Qualified Plans - IRA and Roth IRA
+
+The 2 most common qualified individual retirement plans are Traditional IRAs and Roth IRAs. Anybody with earned income can
+contribute to either plan.
+
+A Traditional Individual Retirement Account (IRA) allows individuals with earned income to make tax deductible contributions
+regardless of age. Plan participants are allowed to contribute up to a specified dollar limit each year, or 100% of their salary if less than
+the maximum allowable amount. Individuals who are age 50 or older are entitled to make additional catch-up contributions. A married
+couple could contribute a specified amount that is double the individual amount, even if only one person had earned income. Each
+spouse is required to maintain a separate account not exceeding the individual limit.
+
+In traditional IRAs, the owner may withdraw the funds at any time. However, withdrawals prior to age 59 % are considered early
+withdrawals and are subject to a 10% additional tax. Starting at age 59 %, the owner may withdraw assets without having to pay the 10%
+additional tax. However, the owner must start receiving distributions from the IRA at the age of 73*. Starting at age 73, the owner must
+receive at least a minimum annual amount, known as the required minimum distribution (RMD).
+
+*Effective January 1, 2023, the SECURE Act raised the required minimum distribution age from 72 to 73, and reduced the penalty for
+failing to take an RMD from 50% to 25%.
+
+The Roth IRA is a form of an individual retirement account funded with after-tax contributions. An individual can contribute 100% of
+earned income up to an IRS-specified maximum, as with traditional IRAs (the dollar amounts change every year). Roth IRA contributions
+can continue regardless of the account owner's age, and in contrast with a traditional IRA, distributions do not have to begin at a
+specified age. Roth IRAs grow tax free as long as the account is open for at least 5 years.

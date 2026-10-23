@@ -1,0 +1,24 @@
+Family Term
+
+The family term rider incorporates the spouse term rider along with the children's term rider in a single rider. When added to a whole life
+policy, the family term rider provides level term life insurance benefits covering the spouse and alll of the children in the family.
+
+Family Term = Spouse Term + Children’s Term
+
+3. Riders Affecting the Death Benefit Amount
+
+Some riders affect the amount of the death benefit paid out to the beneficiary, and either increase it through multiple indemnity or
+refunds of premiums, or decrease it if a portion of the death benefit was paid out to the insured while still living.
+
+Accidental Death
+
+The accidental death rider pays some multiple of the face amount if death is the result of an accident as defined in the policy. Death
+must usually occur within 90 days of such an accident. The benefit is normally two times (double indemnity) the face amount. Some
+policies pay triple the face amount (triple indemnity) for accidental death.
+
+Each policy specifies what will be considered accidental death. Accidental death does not include death that results from any health
+problem or disability. In addition, deaths that result from self-inflicted injuries, war, or hazardous hobbies or avocations are usually not
+covered. They would be covered under the base policy unless specifically excluded.
+
+This rider often expires at the insured’s age 65. No additional cash value is accumulated as a result of this rider. The accidental death
+benefits apply only to the policy's base face amount, and not to any additional benefits that may be purchased from policy dividends.

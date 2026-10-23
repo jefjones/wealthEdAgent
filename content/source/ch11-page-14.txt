@@ -1,0 +1,11 @@
+Ifalll policies have a COB provision, the order of payments is determined as follows:
+
+* Ifa married couple both have group coverage in which they are each named as dependents on the other's policy, then the
+person’s own group coverage will be considered primary. The secondary coverage (the spouses’ coverage) will pick up where the
+first policy left off.
+
+* If both parents name their children as dependents under their group policies, then the order of payment will usually be determined
+by the birthday rule, i.e, the coverage of the parent whose birthday is earlier in the year will be considered primary. Occasionally,
+the gender rule may also apply, according to which the father's coverage is considered primary.
+
+* Ifthe parents are divorced or separated, the policy of the parent who has custody of the children will be considered primary.

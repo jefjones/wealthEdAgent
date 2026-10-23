@@ -1,0 +1,21 @@
+Persistency Factors
+Persistency rate for a group of policies means the ratio of the number of policies that continue coverage on a premium due date to the
+number of policies that were in force as of the preceding due date. The persistency rate usually improves with policy duration. In health
+insurance, persistency is important for the following main reasons:
+
+* Expenses are higher during the first year than in subsequent years because of the costs of issuing the policy and certificates of
+
+insurance, and higher first-year commissions; and
+
+* Claim rates usually increase as the age of the insured increases.
+The underwriter takes persistency into consideration because groups that change insurance companies every year do not represent a
+good risk.
+Administrative Capability
+The per-capita administrative cost in group health insurance is less than the administrative cost found in individual coverage.
+2. Eligibility for Insurance
+Group health plans commonly impose a set of eligibility requirements that must be met before an individual member is eligible to
+participate in the group plan. It is common that in order to be eligible, the employee must be full time (usually 30 hours per week), and
+have been employed by the employer from 1 to 3 months.
+Annual Open Enrollment
+30-day open-enrollment period is available once a year to employees who reject coverage during the initial enrollment period and
+later wish to have coverage or to add dependent coverage. Evidence of insurability is not required during the open-enrollment period.

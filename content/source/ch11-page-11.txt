@@ -1,0 +1,29 @@
+1. Insurer Underwriting Criteria
+Generally underwriting for group health insurance is similar to underwriting for individual health insurance coverage, but the underwriter
+evaluates the group as a whole rather than each individual member. The group's risk profile determines whether the group will be
+accepted or rejected. As with any type of underwriting, the underwriter tries to avoid adverse selection. Adverse selection describes the
+tendency of poorer risks seeking out insurance protection.
+Group underwriting criteria help insurers determine the acceptability and premium to be charged, and to minimize the possibility of
+adverse selection. The following are considered in group health insurance underwriting:
+
+* Certificates are guaranteed issue with no individual underwriting;
+
+* Premiums are determined by age, sex and occupation of the entire group;
+
+* The reasons for forming the group are other than purchasing insurance;
+
+* Acertain participation level must be maintained;
+
+* There is a flow of new members through the group; and
+
+« There is an automatic determination of benefits which is not discriminatory (everyone has the same coverage).
+Characteristics of Groups
+One of the differences between group underwriting and individual underwriting is that in groups of 50 or more, medical information
+cannot be required of plan participants. In small groups even one bad risk can have an impact on the claims experience of the group.
+That's why in some states, insurers may allow some individual underwriting in small groups they insure.
+Plan Design Factors
+The same as group life insurance, group health insurance may be either contributory or noncontributory. With a contributory plan the
+eligible employees contribute to payment of the premium (both the employee and employer pay part of the premium). If a plan is
+contributory, at least 75% of alll eligible employees must participate in the plan. If the plan is noncontributory, 100% of the eligible
+employees must be included, and the participants do not pay part of the premium. The employer pays the entire premium. The reason
+for these participation requirements is to guard the insurer against adverse selection and to reduce administrative costs.

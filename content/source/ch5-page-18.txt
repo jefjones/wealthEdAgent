@@ -1,0 +1,24 @@
+Interest Rate Guarantees (Minimum vs. Current)
+
+In fixed annuities, the insurer bears the investment risk. Future interest rates actually paid by an insurer are based upon the
+performance of the insurance company’s general account. However, the rate may not drop below a policy's guaranteed minimum
+(typically 3%). Should interest rates drop below this guaranteed rate, the insurer is obligated to pay the guaranteed rate amount.
+
+During the accumulation phase, the insurer will invest the principal, or accumulation, and give the annuitant a guaranteed interest rate
+based on a minimum rate as specified in the annuity, or the current interest rate, whichever is higher. The minimum rate is the lowest
+rate that the principal can contractually earn.
+
+Equity Indexed Annuities
+
+Indexed (or equity indexed) annuities are fixed annuities that invest on a relatively aggressive basis to aim for higher returns. Like a
+fixed annuity, the indexed annuity has a guaranteed minimum interest rate (typically, 3 or 4%), which provides a guarantee for a certain
+rate of growth. At the end of the contract term, the annuity will be credited with the greater of the guaranteed minimum value or the
+current (indexed) value. The current interest rate that is actually credited is often tied to a familiar index like the Standard and Poor's
+500.
+
+Generally, the insurance companies reserve the initial returns for themselves but pay the excess to the annuitant. For example, the
+company may keep the first 4% earned for itself, but any accumulation in excess of 4% is credited to the annuitant's account. So if the
+interest earned is 12%, the company keeps 4% and credits the client’s account with 8%.
+
+Equity indexed annuities are less risky than a variable annuity or mutual fund but are expected to earn a higher interest rate than a fixed
+annuity.

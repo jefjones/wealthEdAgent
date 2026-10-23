@@ -1,0 +1,722 @@
+----- page 1 -----
+By this point, you should have a solid working knowledge of the different types of life insurance policies and their suitability for different
+types of insured individuals. Now you will learn about the provisions, riders, and options that operate within life insurance policies.
+Provisions stipulate the rights and obligations of an insurance contract and are fairly universal from one policy to the next. Riders
+modify provisions that already exist and are used to increase or decrease policy benefits and premiums. Options offer insurers and
+insureds ways to invest or distribute a sum of money available in a life policy. It is essential for you to have a good understanding of the
+different provisions, riders, and how they apply to life insurance transactions.
+
+® TERMSTO KNOW
+
+Activities of daily living (ADLs) — a person's essential activities that include bathing, dressing, eating, transferring, toileting,
+
+continence
+
+Assignment — transfer of rights of policy ownership
+
+Contingent beneficiary — a beneficiary who has second claim to the policy proceeds after the death of the insured (usually after
+
+the death of the primary beneficiary)
+
+NAIC — National Association of Insurance Commissioners, an organization composed of insurance commissioners from all 50
+
+states, the District of Columbia and the 5 U.S. territories, formed to resolve insurance regulatory issues
+
+Primary beneficiary — a beneficiary who has the first claim to the policy proceeds after the death of the insured
+
+Principal amount — the face value of the policy; the original amount invested before the earnings
+
+Trust — an arrangement in which funds or property are held by a person or corporation for the benefits of another person (trust
+
+beneficiary)
+
+----- page 2 -----
+Standard Provisions
+
+While there is no "standard" policy form in life insurance, the standard policy provisions adopted by the National Association of
+Insurance Commissioners (NAIC) create uniformity among life insurance policies.
+
+1. Ownership
+
+----- page 3 -----
+The parties to the insurance contract are the insurer, the policyowner, the insured, and the beneficiary. The policyowner and the insured
+may be the same person or different persons. Regardless, only the policyowner has the ownership rights under the policy, and not the
+insured or the beneficiary. Among the ownership rights are naming and changing the beneficiary, receiving the policy's living benefits,
+selecting a benefit payment options, and assigning the policy.
+The policyowner has the responsibility of paying the policy premiums, and is also the person who must have an insurable interest in the
+insured at the time of application for the insurance. When the owner and the insured are not the same person, the insurance
+arrangement is referred to as the third-party ownership.
+2. Assignment
+The policyowner of a life insurance policy has the right to transfer partial or complete ownership of the policy to another person without
+the consent of the insurer. However, the owner must notify the insurer in writing of the assignment. Without a written notice, the insurer
+may not recognize the assignment and would not assume responsibility for its validity. The company’s major concern is paying the
+claim twice. Transfer of the life insurance policy does not change the insured or amount of coverage; it only changes who has the
+policy ownership rights.
+The assignment provision specifies the policyowner's right to assign (transfer rights of ownership) the policy. The policyowner must
+advise the insurer in writing of the assignment. There are 2 types of policy assignment:
+* Absolute Assignment - involves transferring all rights of ownership to another person or entity. This is a permanent and total
+transfer of all the policy rights. The new policyowner does not need to have an insurable interest in the insured.
+* Collateral Assignment - involves a transfer of partial rights to another person. It is usually done in order to secure a loan or some
+other transaction. A collateral assignment is a partial and temporary assignment of some of the policy rights. Once the debt or
+loan is repaid, the assigned rights are returned to the policyowner.
+
+----- page 4 -----
+3. Entire Contract
+
+The entire contract provision stipulates that the policy and a copy of the application, along with any riders or amendments, constitute
+the entire contract. No statements made before the contract was written can be used to alter the contract. Neither the insurer nor the
+insured may change policy provisions once the policy is in effect without both parties agreeing to it and the change being affixed to the
+contract.
+
+----- page 5 -----
+4. Modifications
+
+Modifications or changes in the policy must be endorsed on, or attached to, the policy in writing over the signature of an executive
+officer of the insurer. While the policyowner may request changes, only an executive officer can make the changes to the contract. Most
+modification clauses specifically state that no agent has the right to waive policy provisions, make alterations or agreements, or extend
+the time for payment of premiums.
+
+5. Right to Examine (Free Look)
+
+This provision allows the policyowner 10 days from receipt to look over the policy and if dissatisfied for any reason, return it for a full
+refund of premium. The free-look period starts when the policyowner receives the policy (policy delivery), not when the insurer issues
+the policy. Certain life insurance transactions, such as replacement, may require a longer free-look period.
+
+----- page 6 -----
+The 10-day free look regulation does not apply to
+
+* Group policies;
+
+* Credit life insurance;
+
+* Replacement policies where the required free-look period is 30 days; and
+
+* Any other classes of policies as determined by the Commissioner.
+6. Payment of Premiums
+The policy stipulates when the premiums are due, how often they are to be paid (monthly, quarterly, semiannually, or annually) and to
+whom. If the insured dies during a period of time for which the premium has been paid, the insurer must refund any unearned premium
+along with the policy proceeds. The payment of premium provision also stipulates that premiums must be paid in advance.
+Any individual life insurance or annuity contract must contain a provision that states that all premiums are payable in advance either at
+the company's home office or to the appointed producer upon delivery of the policy. The policy itself should be considered a receipt for
+the first premium payment.
+7. Grace Period
+The grace period is the period of time after the premium due date that the policyowner has to pay the premium before the policy lapses
+(usually 30 or 31 days, or one month). The purpose of the grace period is to protect the policyholder against an unintentional lapse of
+the policy. If the insured dies during this period, the death benefit is payable; however, any unpaid premium will be deducted from the
+death benefit.
+
+----- page 7 -----
+8. Reinstatement
+
+The reinstatement provision allows a lapsed policy to be put back in force. The maximum time limit for reinstatement is usually 3 years
+after the policy has lapsed. If the policyowner elects to reinstate the policy, he/she will have to provide evidence of insurability.
+
+The policyowner is required to pay all back premiums plus interest, and may be required to repay any outstanding loans and interest.
+The advantage to reinstating a lapsed policy as opposed to purchasing a new one is that the policy will be restored to its original status,
+and retain all the values that were established at the insured's issue age.
+
+Note that a policy that has been surrendered cannot be reinstated.
+
+9. Incontestability
+
+The incontestability clause prevents an insurer from denying a claim due to statements in the application after the policy has been in
+force for 2years, even if there has been a material misstatement of facts or concealment of a material fact. During the first 2 years of
+the policy, an insurer may contest a claim if the insurer feels that inaccurate or misleading information was provided in the application.
+The incontestability period does not apply in the event of nonpayment of premiums; it also does not usually apply to statements
+relating to age, sex or identity.
+
+10. Misstatement of Age and Gender
+
+Because the age and gender of an insured are important to the premium that will be charged for a life insurance policy, a provision
+which allows the insurer to adjust the policy at any time due to a misstatement of age or gender is included in the policy. If the applicant
+has misstated his or her age or gender on the application, in the event of a claim, the insurer is allowed to adjust the benefits to an
+amount that the premium at the correct age or gender would have purchased. The proceeds calculations should be based on the
+insurer's rate at the date of policy issue.
+
+----- page 8 -----
+Tl. Physical Examination and Autopsy
+
+The physical examination and autopsy provision states that the insurance company can, at its own expense, examine the body of the
+insured, or have an autopsy performed on the deceased as often as the insurer reasonably requires during the pendency of a claim, to
+determine if the death was accidental or due to natural causes, as long as these procedures are not forbidden by state law.
+
+12. Exclusions
+
+Exclusions are the types of risks the policy will not cover. Certain exclusions are standard for alll policies, while others are attached to the
+policy as an exclusion rider. The most common exclusions found in life insurance policies are aviation, hazardous occupation, and war
+and military service.
+
+Aviation — Most life insurance will cover an insured as a fare-paying passenger or a pilot on a regularly scheduled airline, but will
+exclude coverage for noncommercial pilots, or require an additional premium for the coverage.
+
+Hazardous Occupations or Hobbies — If the insured is engaged in a hazardous occupation or participates in hazardous hobbies (such
+as skydiving or auto racing), death that results from the hazardous occupation or hobby may be excluded from coverage. The
+underwriter also has the option of charging a higher premium for insuring these risks.
+
+War or Military Service — Most life insurance policies issued today do not exclude military service. However, there are actually two
+different types of exclusions that may be used to limit the death benefit if the insured dies as a result of war, or while serving in the
+military. The status clause excludes all causes of death while the insured is on active duty in the military. The results clause only
+excludes the death benefit if the insured is killed as a result of an act of war (declared or undeclared).
+
+----- page 9 -----
+Suicide Exclusion
+The suicide provision in life insurance policies protects the insurers from individuals who purchase life insurance with the intention of
+committing suicide. Insurance policies usually stipulate a period of time during which the death benefit will not be paid if the insured
+commits suicide. If the insured dies by suicide within 2 years following the policy effective date (issue date), the insurer's liability is
+limited to a refund of premium. If the insured dies by suicide after the 2-year period, the policy will pay the death proceeds to the
+designated beneficiary the same as if the insured had died of natural causes.
+13. Prohibited Provisions Including Backdating
+Life insurance companies cannot issue or deliver policies that will
+
+* Forfeit the policy for failure to repay any loan on the policy or to pay interest on the loan while the total indebtedness on the policy
+
+is less than its loan value; or
+
+* Allow assessments or calls to be made upon policyholders.
+Sometimes it is possible to lower the premium rate by backdating (or antedating) an application for insurance. If the applicant chooses
+to do this, the policy may not be backdated for more than 1 year before the date of the application or the medical examination,
+whichever is later. All premiums must be paid from the effective date of the policy. The only allowable reason that an application may
+be backdated is to affect a lower premium for the insured.
+
+----- page 10 -----
+Beneficiaries
+
+1. Designation Options
+
+The beneficiary is the person or interest to which the policy proceeds will be paid upon the death of the insured. The beneficiary may be
+person, class of persons (sometimes used with children of the insured), the insured's estate, or an institution or other entity such as a
+foundation, charity, corporation or trustee of a trust. Trusts are commonly used in conjunction with beneficiary designations to manage
+life insurance proceeds for a minor or for estate tax purposes (although naming a trust as beneficiary does not avoid estate taxes).
+The beneficiary does not have to have an insurable interest in the insured. In addition, the policyowner does not have to name a
+beneficiary in order for the policy to be valid.
+
+Individuals
+
+The owner of a life insurance policy may name any individual as a beneficiary for the policy proceeds. The owner may name more than
+‘one individual, in which case the individual beneficiaries will split the benefit by the percentage specified in the policy.
+
+Benefits designated to a minor will either be paid to the minor's guardian, or paid to the trustee of the minor if the trust is the named
+beneficiary, or paid as directed by a court. The guardian and trustee can be the same person. It is generally accepted not to be a good
+practice to have life insurance benefits payable to a minor.
+
+Classes
+
+A.class of beneficiary is using a designation such as "my children.” This term can be vague if the insured has been married more than
+‘once, has adopted children, or has children out of wedlock. An example of a class that is less vague is “children of the union of Jane
+smith and James Smith.” Many insurers encourage the insured to name each child specifically and to state the percentage of benefit
+they are to receive.
+
+----- page 11 -----
+When naming beneficiaries, it is most prudent to be specific by naming each individual and by designating the exact amount to be
+given for that individual. Two class designations are available for use when an insured chooses to "group" the beneficiaries: per capita
+and per stirpes. Per capita, meaning by the head, evenly distributes benefits among the living named beneficiaries. Per stirpes,
+meaning by the bloodline, distributes the benefits of a beneficiary who died before the insured to that beneficiary's heirs.
+
+For example, Bryan purchased a $90,000 life insurance policy. He named his three sons, Quentin, Steve, and Patrick, as beneficiaries for
+equal shares. Quentin has two children of his own, Bob and Lou. Steve and Patrick are both married but have no children. Unfortunately,
+Quentin predeceases Bryan.
+
+If Bryan selected the per capita designation, which means "by the head," with Quentin gone, only 2 named beneficiaries remain. Steve &
+Patrick each will receive $45,000 ($90,000 divided by 2). Quentin's children would not receive any benefits, since they were not named
+as beneficiaries.
+
+If Bryan selected the per stirpes designation, which means "by the bloodline,” Steve and Patrick would receive $30,000 each and
+Quentin's sons would share his allotment equally at $15,000 each.
+
+Estates
+
+Ifnnone of the beneficiaries is alive at the time of the insured’s death, or if no beneficiary has been named, the insured’s estate will
+automatically receive the proceeds of a life insurance policy. The death benefit of the policy may be included in the insured's taxable
+estate if this occurs.
+
+----- page 12 -----
+Trusts
+
+Trusts are commonly established for minors, or to create a scholarship fund. Trusts can be used for estate planning purposes, and when
+used properly, can keep life insurance death proceeds out of the insured’s taxable estate. They are, however, expensive to administer.
+
+2. Succession
+
+The beneficiary designation provides for levels of priority or choice. In the event that the primary beneficiary predeceases the insured,
+the contingent (secondary or tertiary) level in the succession of beneficiaries will be entitled to the death proceeds. Each level in the
+succession of beneficiaries is only eligible for the death benefit if the beneficiary(s) in the level(s) above them has died before the
+insured.
+
+The primary beneficiary has first claim to the policy proceeds following the death of the insured. The policyowner may name more than
+one primary beneficiary, as well as how the proceeds are to be divided.
+
+The contingent beneficiary (also referred to as secondary or tertiary beneficiary) has second claim in the event that the primary
+beneficiary dies before the insured. Contingent beneficiaries do not receive anything if the primary beneficiary is still living at the time of
+the insureds death.
+
+----- page 13 -----
+The tertiary beneficiary is third in line for the death benefits in the event that both the primary and contingent beneficiaries predecease
+the insured.
+
+----- page 14 -----
+3. Revocable vs. Irrevocable
+Beneficiary designations may be either revocable or irrevocable. The policyowner, without the consent or knowledge of the beneficiary,
+may change a revocable designation at any time. An irrevocable designation may not be changed without the written consent of the
+beneficiary. Irrevocable beneficiaries have a vested interest in the policy; therefore, the policyowner may not exercise certain rights
+without the consent of the beneficiary. In addition to being unable to change the beneficiary designation, the policyowner cannot
+borrow against the policy's cash value (as this would decrease the policy face value until repaid) or assign the policy to another person
+without the beneficiary's agreement.
+Revocation at Divorce
+When a decree of divorce is rendered, and if either party owns a life insurance policy or an annuity contract, the court must include an
+acknowledgement that the policyowner:
+
+* Has reviewed and updated, when appropriate, the list of beneficiaries;
+
+* Has affirmed that the listed beneficiaries are in fact the intended beneficiaries after the divorce becomes final; and
+
+* Understands that if no changes are made to the policy, the beneficiaries currently listed will receive any funds paid by the
+
+insurance company under the policy terms.
+
+4. Common Disaster Clause
+If the insured and the primary beneficiary die at approximately the same time from a common accident with no clear evidence as to
+who died first, a problem may arise in identifying which party is eligible for the death benefit. The Uniform Simultaneous Death Law has
+been adopted by most states to address this problem, and to protect the policyowner's original intent, as well as to protect the
+contingent beneficiary. This law stipulates that if the insured and the primary beneficiary died in the same accident and there is no
+sufficient evidence to show who died first, the policy proceeds are to be distributed as if the primary beneficiary died first.
+
+----- page 15 -----
+The Common Disaster Clause, when added to a policy, provides that if the insured and the primary beneficiary died in a common
+disaster (even if the beneficiary outlived the insured by a specified number of days), it is presumed that the primary beneficiary died
+first, so the proceeds will be paid to either the contingent beneficiary or to the insured's estate, if no contingent beneficiary is
+designated. Most insurers specify a certain period of time, usually 14 to 30 days, in which the primary beneficiary's death must occur in
+order for the Common Disaster Clause to apply. As long as the beneficiary dies within this specified period of time following the death of
+the insured, it will still be interpreted that the beneficiary died first. The intent is to fulfill the wishes of the policyowner in regard to
+payment of proceeds to beneficiaries.
+
+Example:
+
+James had a life insurance policy that included a Common Disaster Clause. James was the insured; his wife Maggie was named the
+primary beneficiary, and his son Ben was named the contingent beneficiary. James and Maggie got in a terrible car accident, and
+James died immediately, but Maggie died 4 days later from her injuries from the same accident. Because the policy included the
+Common Disaster Clause, the death benefit would be paid to Ben, the contingent beneficiary, as if Maggie, the primary beneficiary, had
+died before James, the insured.
+
+----- page 16 -----
+5. Spendthrift Clause
+
+The spendthrift clause, when included in a life insurance policy, protects beneficiaries from the claims of their creditors, as well as
+prevents the beneficiary's reckless spending of benefits by requiring that the benefits be paid in a fixed period or fixed-amount
+installments. The beneficiary does not have the right to select a different settlement option and is not allowed to assign or borrow any of
+the proceeds. The spendthrift clause is designed to protect life insurance policy proceeds that have not yet been paid to a named
+beneficiary from the claims of the creditors of the beneficiary or policyowner.
+
+----- page 17 -----
+Policy Loans and Withdrawals
+
+The policy loan option is found only in policies that contain cash value. The policyowner is entitled to borrow an amount equal to
+
+the available cash value. Any outstanding loans, and accrued interest, will be deducted from the policy proceeds upon the insured’s
+death. The policy will not lapse with an outstanding policy loan unless the amount of the loan and accrued interest exceeds the
+available cash value. However, the insurer must provide 30 days’ written notice to the policyowner that the policy is going to lapse.
+Insurance companies may defer a policy loan request for up to 6 months, unless the reason for the loan is to pay the policy premium.
+Policy loans are not subject to income taxation.
+
+----- page 18 -----
+1. Cash Loans
+Whenever a policy has cash value, it has loan value. The amount available to the policyowner for a loan equals the cash value minus
+any outstanding and unpaid policy loans including interest.
+
+Loan value = Cash value - (unpaid loans + interest)
+If there are outstanding loans at the time of the insured’s death, the loan amount will be considered a debt to the policy and the death
+benefit will be reduced by the amount of indebtedness.
+Example:
+Vera has a whole life policy with a $150,000 face amount. Three years ago she took out a $50,000 policy loan, which has accrued $3,500
+in interest. If Vera dies, the policy's death benefit will be $150,000 - $50,000 - $3,500 or $96,500.
+
+----- page 19 -----
+2. Automatic Premium Loans
+
+The automatic premium loan provision is not required, but is commonly added to contracts with a cash value at no additional charge.
+This is a special type of loan that prevents the unintentional lapse of a policy due to nonpayment of the premium. For example, a loan
+against the policy cash value for the amount of premium due is automatically generated by the insurer when the policyowner has not
+paid the premium by the end of the premium-paying grace period. It is a loan for which the insurer will charge interest. If the loan and
+interest are not repaid and the insured dies, then it will be subtracted from the death benefit. While the insurer may defer requests for
+other loans for a period of up to 6 months, loan requests for payment of due premiums must be honored immediately.
+
+Usually, the policyowner must specifically elect this provision in writing to make it effective.
+
+3. Withdrawals of Partial Surrenders
+
+Universal life policies allow the partial withdrawal (partial surrender) of the policy cash value. However, there may be a charge for
+each withdrawal and there are usually limits as to how much and how often a withdrawal may be made. During the withdrawal, the
+interest earned on the withdrawn cash value may be subject to taxation, depending upon the plan. The death benefit will be reduced by
+the amount of any partial surrender. Note, however, that a partial surrender from a universal life policy is not the same as a policy loan.
+
+----- page 20 -----
+Riders
+
+Riders are written modifications attached to a policy that provide benefits not found in the original policy. Riders sometimes require an
+additional premium, but they also help tailor a policy to the specific needs of the insured, and can be classified according to their
+primary purpose.
+
+1. Disability Riders
+
+Some riders provide benefits in the event of the insured’s disability, while other riders provide for partial payment of the death benefit
+prior to the insured’s death, called accelerated or living benefits riders.
+
+Waiver of Premium
+
+The waiver of premium rider waives the premium for the policy if the insured becomes totally disabled. Coverage remains in force until
+the insured is able to return to work. If the insured is never able to return to work, the premiums will continue to be waived by the
+insurance company. Most insurers impose a 6-month waiting period from the time of disability until the first premium is waived. If the
+insured is still disabled after this waiting period, the insurer will refund the premium paid by the insured from the start of the disability.
+This rider usually expires when the insured reaches age 65.
+
+----- page 21 -----
+Waiver of Cost of Insurance
+
+The waiver of cost of insurance (or waiver of monthly deductions) rider is found in Universal Life Insurance. In the event of disability of
+the insured, this rider waives the cost of the insurance and other expenses, but does not waive the cost of premiums necessary to
+accumulate cash values.
+
+Disability Income
+
+With the disability income rider, in the event of disability the insurer will waive the policy premiums and pay a monthly income to the
+insured. The amount paid is normally based on a percentage of the face amount of the policy to which it is attached.
+
+Payor Benefit Rider
+
+The payor benefit rider is primarily used with juvenile policies (any life insurance written on the life of a minor); otherwise, it functions like
+the waiver of premium rider. If the payor (usually a parent or guardian) becomes disabled for at least 6 months or dies, the insurer will
+waive the premiums until the minor reaches a certain age, such as 21. This rider is also used when the owner and the insured are two
+different individuals.
+
+2. Riders Covering Additional Insureds
+
+There are riders that allow the policyowner to add additional insureds under the original policy, such as children’s term or family term.
+There is also a nonfamily term rider that allows the policyowner to change the insured under the policy.
+
+----- page 22 -----
+Spouse and Other Insured Term Rider
+
+The other insured rider provides coverage for one or more family members other than the insured. The rider is usually level term
+insurance, attached to the base policy covering the insured. This is also known as a family rider. If the rider covers just the spouse of the
+insured, it can be specified as a spouse term rider, and allows the spouse to be added to coverage for a limited period of time and for a
+specified amount (it usually expires when the spouse reaches age 65).
+
+Children's Term
+
+The children’s term rider allows children of the insured (natural, adopted or stepchildren) to be added to coverage for a limited period
+of time for a specified amount. This coverage is also term insurance and usually expires when the minor reaches a certain age (18 or 21).
+Most riders provide the minor with the option of converting to a permanent policy without evidence of insurability.
+
+Children's term riders provide temporary life insurance coverage on all children of the family for one premium. The premium does not
+change on the inclusion of additional children; it is based on an average number of children.
+
+----- page 23 -----
+Family Term
+
+The family term rider incorporates the spouse term rider along with the children's term rider in a single rider. When added to a whole life
+policy, the family term rider provides level term life insurance benefits covering the spouse and alll of the children in the family.
+
+Family Term = Spouse Term + Children’s Term
+
+3. Riders Affecting the Death Benefit Amount
+
+Some riders affect the amount of the death benefit paid out to the beneficiary, and either increase it through multiple indemnity or
+refunds of premiums, or decrease it if a portion of the death benefit was paid out to the insured while still living.
+
+Accidental Death
+
+The accidental death rider pays some multiple of the face amount if death is the result of an accident as defined in the policy. Death
+must usually occur within 90 days of such an accident. The benefit is normally two times (double indemnity) the face amount. Some
+policies pay triple the face amount (triple indemnity) for accidental death.
+
+Each policy specifies what will be considered accidental death. Accidental death does not include death that results from any health
+problem or disability. In addition, deaths that result from self-inflicted injuries, war, or hazardous hobbies or avocations are usually not
+covered. They would be covered under the base policy unless specifically excluded.
+
+This rider often expires at the insured’s age 65. No additional cash value is accumulated as a result of this rider. The accidental death
+benefits apply only to the policy's base face amount, and not to any additional benefits that may be purchased from policy dividends.
+
+----- page 24 -----
+Guaranteed Insurability
+
+The guaranteed insurability rider allows the insured to purchase additional coverage at specified future dates (usually every 3 years)
+or events (such as marriage or birth of a child), without evidence of insurability, for an additional premium. When this option is
+exercised, the insured purchases the additional coverage at his or her attained age. This rider usually expires at the insured's age 40.
+The guaranteed insurability rider is not modified or defeated by the existence of other riders.
+
+Example:
+
+Alan's life insurance policy contains both guaranteed insurability and waiver of premium rider. Three years after the policy was issued,
+Alan was totally and permanently disabled. Not only are Alan's life insurance premiums waived, but at the specified times or events
+stated in the policy, Alan may purchase additional amount of insurance with the premiums on those increases also waived.
+
+----- page 25 -----
+Cost of Living
+
+The cost of living rider addresses the inflation factor by automatically increasing the amount of insurance without evidence of
+insurability from the insured. The face value of the policy may be increased by a cost of living factor tied to an inflation index such as the
+Consumer Price Index (CPI).
+
+Return of Premium
+
+The return of premium rider is implemented by using increasing term insurance. When added to a whole life policy, it provides that at
+death prior to a given age, not only is the original face amount payable, but an amount equal to all premiums previously paid is also
+payable to the beneficiary. The return of premium rider usually expires at a specified age such as age 60.
+
+----- page 26 -----
+Accelerated (Living) Benefit Rider
+
+The Accelerated Benefit or Living Needs Rider provides for an early payment of part of the policy death benefit if the insured is
+diagnosed with a terminal illness that will result in death within 2 years, or has other qualifying conditions. It does not cover disability.
+The purpose of this rider is to provide the insured with the necessary funds to take care of necessary medical and nursing home
+expenses that incur as a result of the terminal illness. Many insurance companies do not charge for this rider since it is simply an
+advance payment of the death benefit. The remainder of the policy proceeds are payable to the beneficiary at the time of the insured’s
+death.
+
+----- page 27 -----
+Conditions for Payment
+Accelerated death benefits allow the early payment of a portion of the death benefit if the insured has any of the following conditions:
+* Aterminal illness;
+* Amedical condition that requires an extraordinary medical intervention (such as an organ transplant) for the insured to survive;
+* Amedical condition that without extensive treatment drastically limits the insured's lifetime;
+* Inability to perform activities of daily living (ADIs);
+* Permanent institutionalization or confinement to a long-term care facility; or
+* Any other conditions approved by the Department of Insurance.
+The maximum benefit is typically a percentage of the face amount of insurance, usually 50%, but it is legal for the insurer to pay up to
+100% of the death benefits before the insured dies. There may also be a dollar limit, such as $100,000. The face amount of insurance is
+reduced after the payments. The accelerated death benefit payout will not necessarily result in a reduction of the premium; however,
+premium may be waived.
+The Living Needs Rider provides for the payment of part of the policy death benefit if the insured is diagnosed with a terminal illness
+that will result in death within 2 years. The purpose of this rider is to provide the insured with the necessary funds to take care of
+necessary medical and nursing home expenses that incur as a result of the terminal illness. Many insurance companies do not charge
+for this rider since it is simply an advance payment of the death benefit. The remainder of the policy proceeds are payable to the
+beneficiary at the time of the insured's death.
+
+----- page 28 -----
+Effect on Death Benefit
+If an insured withdraws a portion of the face amount by the use of the accelerated benefits rider, the benefit payable at death will be
+reduced by that amount, plus the amount of earnings lost by the insurance company in interest income.
+Payable Death Benefit = Face Amount - Amount withdrawn - Earnings lost by insurer in interest
+Example:
+The policy's face amount is $100,000; however, due to a terminal illness, the insured had to withdraw $30,000 from the policy 3 years
+before his death. Since this amount was withdrawn, the insurance company lost $300 worth of interest. Upon the insured's death, the
+beneficiary received $69,700 in death benefit:
+$100,000 (face amount) - $30,000 (accelerated benefit) - $300 (lost interest) = $69,700
+
+Long-term Care
+Conditions for Payment
+The accelerated benefits rider permits an insured to submit a claim for living benefits from a policy under one of the following
+circumstances:
+
+* Diagnosed with a terminal illness;
+
+* Needs long-term care;
+
+* Requires permanent confinement to a nursing home, or
+
+* Diagnosed with a dread disease.
+The payment of these benefits usually falls into one of the following categories:
+
+* Long-term care, which generally allows the insured to use part of the policy's face amount to pay nursing home or at home care;
+
+* Dread Disease, which pays (usually limited to % to % the death benefit) to cover the cost of heart attack, organ transplant, cancer
+
+treatment, or other catastrophic disease;
+* Terminal illness, which pays most of the death benefit.
+
+----- page 29 -----
+The insurer has the right to require the insured to submit to examination by a physician of the insurer's choice (and at the insurer's
+expense) to confirm the diagnosis.
+Effect on Death Benefit
+Any policy of life insurance may pay the death benefit early under the following circumstances:
+* Terminal illness;
+* Catastrophic iliness; or
+* Eligibility for long-term care.
+
+----- page 30 -----
+Options
+
+Policyowners have decisions to make about how the cash value in the policy should be protected, how the return of excess premium
+(dividends) should be invested, and how benefit payments will be made. The different choices available to them are categorized as
+Nonforfeiture Options, Dividend Options, and Settlement Options.
+
+1. Nonforfeiture Options
+
+Because permanent life insurance policies have cash values, certain guarantees are built into the policy that cannot be forfeited by the
+policyowner. These guarantees (known as nonforfeiture values) are required by state law to be included in the policy. A table showing
+the nonforfeiture values for a minimum period of 20 years must be included in the policy. The policyowner chooses one of the following
+nonforfeiture options: cash surrender value, reduced paid-up insurance, or extended term.
+
+----- page 31 -----
+Cash Surrender Value
+
+The policyowner simply surrenders the policy for the current cash value at a time when coverage is no longer needed or affordable.
+Upon receipt of the cash surrender value, if the cash value exceeds premiums paid, the excess is taxable as ordinary income. Once this
+option is selected, the insured is no longer covered. A policy that has been surrendered for its cash value cannot be reinstated. A
+surrender charge is a fee charged to the insured when a life policy or annuity is surrendered for its cash value.
+
+----- page 32 -----
+Extended Term
+
+Under the extended-term option, the insurer uses the policy cash value to convert to term insurance for the same face amount as the
+former permanent policy. The duration of the new term coverage lasts for as long a period as the amount of cash value will purchase. If
+the policyowner has neglected to select one of these nonforfeiture options, the insurer will automatically implement the extended-term
+option in the event of termination of the original policy.
+
+----- page 33 -----
+Reduced Paid-Up Insurance
+
+Under this option, the policy cash value is used by the insurer as a single premium to purchase a completely paid-up permanent policy
+that has a reduced face amount from that of the former policy. The new reduced policy builds its own cash value and will remain in
+force until death or maturity.
+
+2. Dividend Options
+
+Dividends are paid only on participating policies. When the policyowner purchases a policy from a participating insurer, he or she
+actually pays a "grossed-up" premium. The higher premium is charged as a safety margin in the event the insurer's losses are higher
+than anticipated. If this extra amount is not needed by the insurer to pay death claims and expenses, or if actual mortality experience
+improves or interest earned by the company exceeds the assumptions, a dividend will be returned to the policyowner. In other words,
+dividends are a return of excess premiums, and for that reason they are net taxable to the policyowner. Insurance companies cannot
+guarantee dividends.
+
+The first dividend could be paid as early as the first policy anniversary, but must occur ne later than the end of the third policy year.
+From then on dividends are usually paid on an annual basis. Policyowners have the option of taking their dividends in one of several
+different ways.
+
+----- page 34 -----
+Cash Payment
+
+The insurer simply sends the policyowner a check for the amount of the dividend as it is declared, usually annually.
+
+Reduction of Premium Payments
+
+The insurer uses the dividend to reduce the next year's premium. For example, if the policyowner usually pays an annual premium of
+$1,000 and the insurer declares a $100 dividend, the policyowner would only pay a $900 premium that year.
+
+Accumulation at Interest
+
+The insurance company keeps the dividend in an account where it accumulates interest. The policyowner is allowed to withdraw the
+dividends at any time. The amount of interest is specified in the policy and compounds annually. Although the dividends themselves are
+not taxable, the interest on the dividends is taxable to the policyowner when credited to the policy, whether or not the policyowner
+receives the interest.
+
+Paid-up Additions
+
+The dividends are used to purchase a single premium policy in addition to the face amount of the permanent policy. No new separate
+policies are issued; however, each of these small single premium payments will increase the death benefit of the original policy by
+whatever amount the dividend will buy. In addition, each of these paid-up policies will accumulate cash value and pay dividends. The
+amount of additional coverage that can be purchased with the dividend is based on the insured's attained age at the time the dividend
+is declared.
+
+If the policyowner did not chose the dividend option, the insurer will automatically use paid-up additions to increase the death benefit
+of the original policy by the amount the dividend will buy.
+
+----- page 35 -----
+Paid-up Insurance
+
+Usually, the insurer first accumulates the dividends at interest and then uses the accumulated dividends, plus interest, and the policy
+cash value to pay the policy up early. In other words, if the insured had a continuous premium whole life policy (in which premiums are
+paid to age 100), using the paid-up option the policyowner is able to pay up the policy early.
+
+----- page 36 -----
+One-Year Term Option
+
+The insurance company uses the dividend to purchase additional insurance in the form of one-year term insurance that increases the
+overall policy death benefit. The policyowner's choice is to either use the dividend as a single premium on as much one-year term
+insurance as it will buy, or to purchase term insurance equal to the policy's cash value for as long as it will last. If the insured dies during
+the one-year term, the beneficiary receives both the death benefit of the original policy and the death benefit of the one-year term
+insurance.
+
+3. Settlement Options
+
+Settlement options are the methods used to pay the death benefits to a beneficiary upon the insured's death, or to pay the endowment
+benefit if the insured lives to the endowment date. The policyowner may select a settlement option at the time of policy application, and
+may also change that option at any time during the life of the insured. Once selected by the policyowner, the settlement option cannot
+be changed by the beneficiary. if the policyowner does not select a settlement option, the beneficiary will be allowed to choose one at
+the time of the insured's death.
+
+----- page 37 -----
+Cash Payment
+
+Upon the death of the insured, or at the point of endowment, the contract is designed to pay the proceeds in cash, called a lump sum,
+unless the recipient chooses a different mode of settlement. If no selection is made, the proceeds are automatically paid to the
+beneficiary in a single cash payment. As a rule, payments of the principal face amount after the insured's death are not taxable as
+income.
+
+Life Income
+
+The life-income option, also known as straight life, provides the recipient with an income that he or she cannot outlive. Installment
+payments are guaranteed for as long as the recipient lives, irrespective of the date of death. The amount of each installment paid is
+based on the recipient's life expectancy and the amount of principal. if the beneficiary lives for a very long time, payments may exceed
+the total principal. However, if the beneficiary dies shortly after he or she begins receiving installments, the balance of the principal is
+forfeited to the insurer. Because there is a chance that the beneficiary may not live long enough to receive all the life insurance
+proceeds, insurers make options available which provide at least a partial guarantee that some or all of the proceeds will be paid out.
+With each of the guarantees, the size of the installment is decreased.
+
+----- page 38 -----
+Single Life
+
+The single life option can provide a single beneficiary income for the rest of his/her life. Upon the death of the beneficiary, the payments
+stop.
+
+Joint and Survivor
+
+The life income joint and survivor option guarantees an income for two or more recipients for as long as they live. Most contracts
+provide that the surviving recipient will receive a reduced payment after the first recipient dies.
+
+Most commonly, the reduced option is written as “joint and % survivor" or “joint and 2/3 survivor,” in which the surviving beneficiary
+receives 4 or 2/3 of what was received when both beneficiaries were alive. This option is commonly selected by the policyowner who
+wants to protect two beneficiaries, such as elderly parents. Unless a period certain option is also chosen, as with the life income option,
+there is no guarantee that alll the life insurance proceeds will be paid out if all beneficiaries die shortly after the installments begin. This
+option guarantees, however, an income for the lives of all beneficiaries.
+
+Life with Period Certain
+
+Under life income with period certain option, the recipient is provided with the "best of both worlds’ in terms of a lifetime income and a
+guaranteed installment period. Not only are the payments guaranteed for the lifetime of the recipient, but there is also a specified
+period that is guaranteed. For example, a life income with 10 years certain option would provide the recipient with an income for as long
+as he or she lives. If the recipient dies shortly after starting to receive the payments, the payments will be continued to a beneficiary for
+the remainder of the 10-year period. As already stated, the installments for the life income with period certain option will be smaller than
+the life income only option.
+
+Joint life with term certain policy pays to 2 or more persons and stops paying at the death of the first. However, if the first death occurs
+during the specified term, the payments will continue to the other person(s) until the end of the specified term.
+
+----- page 39 -----
+Life Refund
+
+The life refund income option comes in either a cash refund form or an installment refund form. Both options guarantee that the total
+annuity fund will be paid out to the annuitant or to the beneficiary. The difference between the two options is that under the cash refund
+option, if the annuitant dies before the annuity fund is depleted, a lump-sum settlement of the remainder would be made to the
+beneficiary, while under the installment refund option, the beneficiary would receive the remaining funds in the form of continued
+annuity payments.
+
+Interest Only
+
+With the interest-only option, the insurance company retains the policy proceeds and pays interest on the proceeds to the recipient
+(beneficiary) at regular intervals (monthly, quarterly, semiannually, or annually). The insurer usually guarantees a certain rate of interest
+and will often pay interest in excess of the guaranteed rate. The interest option is considered to be a temporary option since the
+proceeds are retained by the insurer until some later point when the proceeds are paid out in a lump sum or paid under one of the
+other settlement options. When the beneficiary is allowed to select a settlement option, the interest option is sometimes used as a
+temporary option if the beneficiary needs some time to decide which settlement option to select. For example, the policyowner may
+specify that interest only will be paid annually to the surviving spouse, with the principal to be paid to their children when they reach a
+certain age or at the death of the surviving spouse.
+
+Fixed-Period Installments
+
+Under the fixed-period installments option (also called period certain), a specified period of years is selected, and equal installments
+are paid to the recipient. The payments will continue for the specified period even if the recipient dies before the end of that period. In
+the event of the recipient's death, the payments would continue to a beneficiary. The size of each installment is determined by the
+amount of principal, guaranteed interest, and the length of period selected. The longer the period selected, the smaller each installment
+will be. This option does not guarantee income for the life of the beneficiary; however, it does guarantee that the entire principal will be
+distributed.
+
+----- page 40 -----
+Fixed-Amount Installments
+
+The fixed-amount installments option pays a fixed, specified amount in installments until the proceeds (principal and interest) are
+exhausted. The recipient selects a specified fixed dollar amount to be paid until the proceeds are gone. If the beneficiary dies before the
+proceeds are exhausted, installments will continue to be paid to a contingent beneficiary until all proceeds have been paid out. With
+this option, the size of each installment will determine how long benefits will be received. The larger the installment, the shorter the
+income period will be. As with the fixed-period option, this option does not guarantee payments for the life of the beneficiary, but does
+guarantee that all proceeds will be paid out.
+

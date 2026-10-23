@@ -18,9 +18,8 @@ export function ForgotPage() {
     setError('')
     setMessage('')
     try {
-      const body = await forgotPassword(username.trim())
-      const record = (body ?? {}) as { message?: string }
-      setMessage(record.message || 'If that username is eligible, a reset email was sent.')
+      await forgotPassword(username.trim())
+      setMessage('If an account exists for that username, a reset email was sent.')
     } catch (cause) {
       setError(errorText(cause, 'Could not send the reset email.'))
     } finally {
@@ -31,13 +30,19 @@ export function ForgotPage() {
   return (
     <Card className="mx-auto max-w-md p-6 sm:p-8">
       <h1 className="font-['Fraunces',Georgia,serif] text-3xl font-semibold text-[#14375f]">Forgot password</h1>
-      <p className="mt-2 text-sm text-[#3d5166]">Enter your username. If it can be reset, you will get an email.</p>
+      <p className="mt-2 text-sm text-[#3d5166]">
+        Enter your username. If an account exists, we will email a link to choose a new password.
+      </p>
       <form className="mt-5 space-y-4" onSubmit={onSubmit}>
         <div className="space-y-1.5">
           <Label htmlFor="username">Username</Label>
           <Input id="username" maxLength={100} value={username} onChange={(event) => setUsername(event.target.value)} required />
         </div>
-        {message ? <p className="rounded-xl bg-[#e8f6ee] px-3 py-2 text-sm text-[#146c36]">{message}</p> : null}
+        {message ? (
+          <p className="rounded-xl bg-[#e8f6ee] px-3 py-2 text-sm text-[#146c36]" role="status">
+            {message}
+          </p>
+        ) : null}
         {error ? <p className="rounded-xl bg-[#fdecec] px-3 py-2 text-sm text-[#8d1d1d]">{error}</p> : null}
         <Button type="submit" className="w-full" disabled={busy}>
           {busy ? 'Sending…' : 'Send reset email'}

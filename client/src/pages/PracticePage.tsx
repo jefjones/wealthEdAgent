@@ -6,16 +6,27 @@ import { Button } from '../components/ui/button.tsx'
 import { Card } from '../components/ui/card.tsx'
 import { Input } from '../components/ui/input.tsx'
 import { Label } from '../components/ui/label.tsx'
-import { allQuestions } from '../content/pack.ts'
+import { studyPack } from '../content/pack.ts'
 import { drawQuestions } from '../study/draw.ts'
 import { reservedQuestionIds, saveDraw } from '../study/draws.ts'
+import { chapterSelectionError, questionsInChapters } from '../study/testSession.ts'
 
 export function PracticePage() {
   const { person } = useAuth()
   const navigate = useNavigate()
-  const bank = allQuestions()
+  const chapters = studyPack.chapters
+  const bank = chapters.flatMap((chapter) =>
+    chapter.sections.flatMap((section) =>
+      section.questions.map((question) => ({
+        id: question.id,
+        chapterId: chapter.id,
+        optionIds: question.options.map((option) => option.id),
+      })),
+    ),
+  )
   const [mode, setMode] = useState<AttemptMode>('unseen')
   const [count, setCount] = useState(10)
+  const [selected, setSelected] = useState<string[]>(() => chapters.map((chapter) => chapter.id))
   const [seenCount, setSeenCount] = useState(0)
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
@@ -41,6 +52,11 @@ export function PracticePage() {
   async function onSubmit(event: FormEvent) {
     event.preventDefault()
     if (!person) return
+    const selectionError = chapterSelectionError(selected)
+    if (selectionError) {
+      setError(selectionError)
+      return
+    }
     setBusy(true)
     setError('')
     try {
@@ -49,12 +65,8 @@ export function PracticePage() {
       if (mode === 'unseen') {
         reservedQuestionIds(person.personId).forEach((id) => seenIds.add(id))
       }
-      const drawn = drawQuestions(
-        bank.map((question) => ({ id: question.id, optionIds: question.options.map((option) => option.id) })),
-        seenIds,
-        count,
-        mode,
-      )
+      const pool = questionsInChapters(bank, selected)
+      const drawn = drawQuestions(pool, seenIds, count, mode)
       const created = await createAttempt({ mode, questionCount: count })
       saveDraw(person.personId, created.attempt.attemptId, {
         questionIds: drawn.map((row) => row.questionId),
@@ -72,8 +84,7 @@ export function PracticePage() {
     <div className="mx-auto max-w-xl">
       <h1 className="font-['Fraunces',Georgia,serif] text-3xl font-semibold text-[#14375f]">Practice test</h1>
       <p className="mt-2 text-[#3d5166]">
-        Questions are drawn from all three chapters. The answer order is shuffled. This is one overall test, not a quiz for a
-        single section.
+        Choose the chapters to include. The test draws only from the chapters you check, and the answer order is shuffled.
       </p>
       <Card className="mt-6 p-6">
         <p className="text-sm text-[#3d5166]">
@@ -95,6 +106,44 @@ export function PracticePage() {
               </label>
             </div>
           </fieldset>
+          <fieldset>
+            <legend className="text-sm font-semibold text-[#24364a]">Chapters</legend>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <Button type="button" variant="outline" size="sm" onClick={() => setSelected(chapters.map((chapter) => chapter.id))}>
+                Select all
+              </Button>
+              <Button type="button" variant="outline" size="sm" onClick={() => setSelected([])}>
+                Select none
+              </Button>
+            </div>
+            <div className="mt-3 space-y-2">
+              {chapters.map((chapter) => {
+                const checked = selected.includes(chapter.id)
+                return (
+                  <label key={chapter.id} className="flex items-start gap-3 rounded-xl border border-[#d5e2f0] px-3 py-2 text-sm">
+                    <input
+                      className="mt-0.5 h-4 w-4 shrink-0"
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() =>
+                        setSelected((current) =>
+                          current.includes(chapter.id) ? current.filter((id) => id !== chapter.id) : [...current, chapter.id],
+                        )
+                      }
+                    />
+                    <span>
+                      Chapter {chapter.number}. {chapter.title}
+                    </span>
+                  </label>
+                )
+              })}
+            </div>
+            {selected.length === 0 ? (
+              <p className="mt-3 rounded-xl bg-[#fdecec] px-3 py-2 text-sm text-[#8d1d1d]" role="alert">
+                Choose at least one chapter.
+              </p>
+            ) : null}
+          </fieldset>
           <div className="space-y-1.5">
             <Label htmlFor="count">Number of questions</Label>
             <Input
@@ -112,7 +161,7 @@ export function PracticePage() {
               {error}
             </p>
           ) : null}
-          <Button type="submit" disabled={busy || loading}>
+          <Button type="submit" disabled={busy || loading || selected.length === 0}>
             {busy ? 'Starting…' : 'Start test'}
           </Button>
         </form>

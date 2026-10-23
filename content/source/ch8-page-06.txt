@@ -1,0 +1,21 @@
+Classes of Health Insurance Policies
+Health insurance is a generic term encompassing several types of insurance contracts which, though related, are designed to protect
+against different risks.
+There are two separate types of insurance included in the generic term health insurance. One type provides coverage for expenses
+related to health care, and the second is designed to provide payments for loss of income. The terminology used to reference health
+insurance varies from state to state as well as from company to company. The health insurance policy that is designed to provide
+periodic payments when an insured is unable to work because of sickness or injury is referred to as disability income insurance.
+1. Individual vs. Group
+Most health insurance is written on a group basis from one’s employer. Individual coverage may be available for a family, but it would
+be medically underwritten.
+Individual health insurance policies are underwritten to cover the applicant, their spouse and family. Many of the factors considered in
+life insurance underwriting apply. However, unlike life insurance where there can be only one death claim per insured, in health
+insurance, multiple claims per insured is the rule rather than the exception. For this reason, underwriting and classification of risk is
+extremely important from an insurance company standpoint.
+The three most important underwriting factors considered in accepting or classifying health insurance applicants are as follows:
+
+1. Physical condition of the applicant and other insureds;
+
+2. Moral and morale hazards; and
+
+3. Occupation.

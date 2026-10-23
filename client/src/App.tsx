@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { useAuth } from './auth/AuthContext.tsx'
 import { Shell } from './components/Shell.tsx'
 import { ForgotPage } from './pages/ForgotPage.tsx'
+import { HighlightsPage } from './pages/HighlightsPage.tsx'
 import { LoginPage } from './pages/LoginPage.tsx'
 import { PracticePage } from './pages/PracticePage.tsx'
 import { ProgressPage } from './pages/ProgressPage.tsx'
@@ -10,6 +11,7 @@ import { RegisterPage } from './pages/RegisterPage.tsx'
 import { ResetPage } from './pages/ResetPage.tsx'
 import { StudyIndex, StudyPage } from './pages/StudyPage.tsx'
 import { TestPage } from './pages/TestPage.tsx'
+import { HighlightProvider } from './study/HighlightContext.tsx'
 
 function RequireAuth({ children }: { children: ReactNode }) {
   const { ready, person } = useAuth()
@@ -24,6 +26,7 @@ function RequireAuth({ children }: { children: ReactNode }) {
 
 export default function App() {
   return (
+    <HighlightProvider>
     <Routes>
       <Route element={<Shell />}>
         <Route path="/login" element={<LoginPage />} />
@@ -70,9 +73,18 @@ export default function App() {
             </RequireAuth>
           }
         />
+        <Route
+          path="/highlights"
+          element={
+            <RequireAuth>
+              <HighlightsPage />
+            </RequireAuth>
+          }
+        />
         <Route path="/" element={<Navigate to="/study" replace />} />
         <Route path="*" element={<Navigate to="/study" replace />} />
       </Route>
     </Routes>
+    </HighlightProvider>
   )
 }

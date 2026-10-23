@@ -1,0 +1,24 @@
+Prior to the enactment of the Affordable Care Act (ACA), individual insureds were entitled to receive credit for previous creditable
+coverage that occurred without a break of 63 (or more) consecutive days.
+
+The ACA has prohibited pre-existing condition exclusions and eliminated waiting period in excess of 90 days; it also eliminated the
+requirement to issue HIPAA group health plans certificates of creditable coverage after December 31, 2014.
+
+5. Renewability
+
+At the plan sponsor's option, the issuer offering group health coverage must renew or continue in force the current coverage. However,
+the group health coverage may be discontinued or nonrenewed because of nonpayment of premium, fraud, violation of participation or
+contribution rules, discontinuation of that particular coverage, or movement outside the service area or association membership
+cessation.
+
+6. Privacy
+
+Under the Privacy Rule for HIPAA (Health Insurance Portability and Accountability Act), protected information includes all "individually
+identifiable health information” held or transmitted by a covered entity or its business associate, in any form or media, whether
+electronic, paper or oral. This is called protected health information (PHI).
+
+Individually identifiable health information including demographic data that relates to past, present or future physical or mental health
+or condition, or payment information that could easily identify the individual.
+
+A covered entity must obtain the individual's written authorization to disclose information that is not for treatment, payment, or health
+care operations.

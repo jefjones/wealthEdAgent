@@ -1,0 +1,25 @@
+COBRA (Consolidated Omnibus Budget Reconciliation Act)
+The Consolidated Omnibus Budget Reconciliation Act of 1985 (COBRA) requires any employer with 20 or more employees to extend
+group health coverage to terminated employees and their families after a qualifying event. Qualifying events include the following:
+
+* Voluntary termination of employment;
+
+* Termination of employment for reasons other than gross misconduct (e.g. company downsizing); and
+
+* Employment status change: from full time to part time.
+For any of these qualifying events, coverage is extended up to 18 months. The terminated employee must exercise extension of benefits
+under COBRA within 60 days of separation from employment. The employer is permitted to collect a premium from the terminated
+employee at a rate of no more than 102% of the individual's group premium rate. The 2% charge is to cover the employer's
+administrative costs.
+For events such as death of the employee, divorce or legal separation, the period is 36 months for the dependents.
+Itis important to remember that COBRA benefits apply to group health insurance, not group life insurance. In addition, unlike the
+conversion privilege in which the individual converts coverage to an individual health insurance policy, COBRA continues the same
+group coverage the employee had and the employee pays the group premium that the employer paid (or employer and employee
+paid if the plan was contributory).
+Note that under the Patient Protection and Affordable Care Act, coverage for children of the insured must extend until the adult child
+reaches the age of 26 (unless the child qualifies as a disabled dependent). The same age limit applies to COBRA coverage for eligible
+children of the insured. In addition, in the event of loss of dependent child status under the group plan, the dependent child qualifies for
+a maximum period of continuation coverage of 36 months.
+There are also several disqualifying events under which the COBRA benefits may be discontinued. These include failure to make a
+premium payment, becoming covered under another group plan, becoming eligible for Medicare, or if the employer terminates all
+group health plans.

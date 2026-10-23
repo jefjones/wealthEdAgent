@@ -1,0 +1,6 @@
+3. Experience Rating vs. Community Rating
+
+Group health insurance is usually subject to experience rating, where the premiums are determined by the experience of this particular
+group as a whole. Individual policies are subject to community rating or pool rating, where the premium is based upon the overall
+claims experience of the insurance company. Experience rating helps employers with low claims experience because they get lower
+premiums.

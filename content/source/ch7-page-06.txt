@@ -1,0 +1,5 @@
+Settlement Options
+
+With settlement options, when the beneficiary receives payments consisting of both principal and interest, the interest portion of the
+payments received is taxable as income. For example, if $100,000 of life insurance proceeds were used in a settlement option paying
+$13,000 per year for 10 years, $10,000 per year would be income tax free and $3,000 per year would be income taxable.

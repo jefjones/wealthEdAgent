@@ -1,0 +1,8 @@
+Fixed-Amount Installments
+
+The fixed-amount installments option pays a fixed, specified amount in installments until the proceeds (principal and interest) are
+exhausted. The recipient selects a specified fixed dollar amount to be paid until the proceeds are gone. If the beneficiary dies before the
+proceeds are exhausted, installments will continue to be paid to a contingent beneficiary until all proceeds have been paid out. With
+this option, the size of each installment will determine how long benefits will be received. The larger the installment, the shorter the
+income period will be. As with the fixed-period option, this option does not guarantee payments for the life of the beneficiary, but does
+guarantee that all proceeds will be paid out.

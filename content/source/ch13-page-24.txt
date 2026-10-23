@@ -1,0 +1,23 @@
+5. Medicare SELECT
+A Medicare SELECT policy is a Medicare supplement policy that contains restricted network provisions — provisions that condition the
+payment of benefits, in whole or in part, on the use of network providers. SELECT plans negotiate with a provider network of doctors,
+hospitals and specialist to charge lower rates for medical services. It essentially operates like an HMO. These lower rates keep costs
+down for the SELECT plan provider, and plan members pay lower premiums.
+Each Medicare SELECT policy must be approved by the head of a state's department of insurance. Currently, issuers are not allowed to
+sell new Medicare SELECT policies to individuals whose primary residence is located outside of the issuer's service area.
+Every Medicare SELECT policy must do the following:
+* Provide payment for full coverage under the policy for covered services not available through network providers;
+* Not restrict payment for covered services provided by non-network providers if the services are for symptoms requiring emergency
+care and it is not reasonable to obtain such services through a network provider;
+* Make full and fair disclosure in writing of the provisions, restrictions, and limitations of the Medicare SELECT policy to each applicant;
+* Make available upon request the opportunity to purchase a Medicare supplement policy offered by the issuer which has
+comparable benefits and does not contain a restricted network provision. These policies must be available without requiring
+evidence of insurability if the Medicare SELECT policy has been in force for 6 months; and
+* Provide for continuation of coverage in the event that Medicare SELECT policies are discontinued due to the failure of the Medicare
+SELECT program.
+Itis important to note that a Medicare SELECT issuer must file any proposed changes to its plan of operation with the Commissioner
+before implementing them. similarly, any changes to the list of network providers must be filed with the Commissioner within 30 days of
+the change.
+In addition, a Medicare SELECT issuer must offer insureds the opportunity to purchase Medicare supplement policies with comparable
+benefits, but without a restricted network provision. The issuer must make the policies available without requiring evidence of insurability
+~ provided the insured’s Medicare SELECT policy has been in force for 6 months.

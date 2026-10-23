@@ -1,0 +1,25 @@
+3. Revocable vs. Irrevocable
+Beneficiary designations may be either revocable or irrevocable. The policyowner, without the consent or knowledge of the beneficiary,
+may change a revocable designation at any time. An irrevocable designation may not be changed without the written consent of the
+beneficiary. Irrevocable beneficiaries have a vested interest in the policy; therefore, the policyowner may not exercise certain rights
+without the consent of the beneficiary. In addition to being unable to change the beneficiary designation, the policyowner cannot
+borrow against the policy's cash value (as this would decrease the policy face value until repaid) or assign the policy to another person
+without the beneficiary's agreement.
+Revocation at Divorce
+When a decree of divorce is rendered, and if either party owns a life insurance policy or an annuity contract, the court must include an
+acknowledgement that the policyowner:
+
+* Has reviewed and updated, when appropriate, the list of beneficiaries;
+
+* Has affirmed that the listed beneficiaries are in fact the intended beneficiaries after the divorce becomes final; and
+
+* Understands that if no changes are made to the policy, the beneficiaries currently listed will receive any funds paid by the
+
+insurance company under the policy terms.
+
+4. Common Disaster Clause
+If the insured and the primary beneficiary die at approximately the same time from a common accident with no clear evidence as to
+who died first, a problem may arise in identifying which party is eligible for the death benefit. The Uniform Simultaneous Death Law has
+been adopted by most states to address this problem, and to protect the policyowner's original intent, as well as to protect the
+contingent beneficiary. This law stipulates that if the insured and the primary beneficiary died in the same accident and there is no
+sufficient evidence to show who died first, the policy proceeds are to be distributed as if the primary beneficiary died first.

@@ -23,6 +23,7 @@ import {
   type Person,
   type RegisterInput,
 } from '../api/client.ts'
+import { logoutActivity, recordLogin } from '../study/activityTracker.ts'
 
 type AuthValue = {
   ready: boolean
@@ -83,6 +84,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     async (username: string, password: string) => {
       const session = await apiLogin(username, password)
       apply(session.person, session.token)
+      recordLogin()
     },
     [apply],
   )
@@ -91,11 +93,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     async (input: RegisterInput) => {
       const session = await apiRegister(input)
       apply(session.person, session.token)
+      recordLogin()
     },
     [apply],
   )
 
   const logout = useCallback(() => {
+    logoutActivity()
     clearSession()
     setPerson(null)
     setToken('')

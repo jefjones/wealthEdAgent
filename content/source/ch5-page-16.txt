@@ -1,0 +1,5 @@
+Fixed Amount
+
+With fixed-amount installments, the annuitant selects how much each payment will be, and the insurer determines how long the
+benefits will be paid by analyzing the value of the account and future earnings. This option pays a specific amount until funds are
+exhausted, whether or not the annuitant is living.

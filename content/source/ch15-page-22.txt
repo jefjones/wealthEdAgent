@@ -1,0 +1,29 @@
+6. Insurance Fraud Regulation
+The following would be considered fraudulent insurance acts if an insurer, a producer, or another entity knowingly does any of the
+following:
+
+* Presents to an insurer any oral or written statement or representation knowing that it contains false, incomplete, or misleading
+information concerning any fact material to an application for the issuance or renewal of an insurance policy, certificate, or
+contract;
+
+* Presents to an insurer any oral or written statement or representation as part of, or in support of, a claim for payment or other
+benefit pursuant to an insurance policy, or in connection with any civil claim asserted for recovery of damages for personal or
+bodily injuries or property damage, knowing that the statement or representation contains false, incomplete, or misleading
+information material to the claim;
+
+* Accepts a benefit from the proceeds derived from a fraudulent insurance act;
+
+* Assists, abets, solicits, or conspires with another to commit a fraudulent insurance act; or
+
+* Supplies false or fraudulent material information in any document or statement required by the Department.
+
+An insurer or service provider is not liable for any fraudulent insurance act committed by an employee without the authority of the
+insurer or service provider unless the insurer or service provider knew or should have known of the fraudulent insurance act.
+
+7. Personal Liability for Unpaid Claims
+
+Contracts issued by unauthorized insurers would be deemed illegal, and therefore, unenforceable by the insurer. Such contracts may
+still be enforceable if an action is brought up against the insurer. If the policyowner entered an illegal contract without knowing it was
+illegal, the contract can be voided. Any person who assisted in the procurement of an illegal contract, and who knew or should have
+known the transaction was illegal, is liable to the insured for the full amount of a claim or loss payable under the contract, if the insurer
+does not pay it.

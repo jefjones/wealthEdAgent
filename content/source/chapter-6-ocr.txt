@@ -1,0 +1,189 @@
+----- page 1 -----
+Qualified retirement plans provide tax benefits, as opposed to nonqualified retirement plans which do not. Federal rules determine
+which plans can be considered qualified. This chapter is devoted to explaining the conditions under which plans are qualified, and also
+describes plan types. By the end of this chapter, you should be able to identify and describe different types of qualified plans.
+
+® TERMS TO KNOW
+
+Earned income — salary, wages, or commissions; but not income from investments, unemployment benefits, and similar
+
+Gross income — a person's income before taxes or other deductions
+
+Nonprofit organization — an organization that uses its surplus to fulfill its purpose instead of distributing the surplus to its owners or
+
+members
+
+Pretax contribution — contribution made before federal and/or state taxes are deducted from earnings
+
+Rollover — withdrawal of the money from one qualified plan and placing it into another plan
+
+Vesting — the right of a participant in a retirement plan to retain part or all of the benefits
+
+----- page 2 -----
+General Requirements
+An employer-sponsored qualified retirement plan is approved by the IRS, which then gives both the employer and employee benefits
+such as deductible contributions and tax-deferred growth.
+Qualified plans have the following characteristics:
+* Designed for the exclusive benefit of the employees and their beneficiaries;
+* Are formally written and communicated to the employees;
+* Use a benefit or contribution formula that does not discriminate in favor of the prohibited group — officers, stockholders, or highly
+paid employees;
+* Are not geared exclusively to the prohibited group;
+* Are permanent;
+* Are approved by the IRS; and
+* Have a vesting requirement.
+
+----- page 3 -----
+In contrast, nonqualified plans are not subject to the requirements regarding participation, discrimination, and vesting as qualified
+plans. Nonqualified plans require no government approval and are used as a means for an employer to discriminate in favor of a
+valuable employee with regard to employee benefits. Nonqualified plans accept after-tax contributions.
+The table below highlights the differences between qualified and nonqualified retirement plans.
+QUALIFIED NONQUALIFIED
+
+Contributions currently TAX DEDUCTIBLE Contributions NOT currently TAX DEDUCTIBLE
+
+Plan APPROVED by the IRS Plan DOES NOT NEED IRS APPROVAL
+
+Plan CANNOT DISCRIMINATE Plan CAN DISCRIMINATE
+
+Earnings grow TAX DEFERRED Earnings grow TAX DEFERRED
+
+ALL WITHDRAWALS are TAXED EXCESS over cost basis is TAXED
+
+----- page 4 -----
+Plan Types, Characteristics and Purchasers
+
+1. Individual Qualified Plans - IRA and Roth IRA
+
+The 2 most common qualified individual retirement plans are Traditional IRAs and Roth IRAs. Anybody with earned income can
+contribute to either plan.
+
+A Traditional Individual Retirement Account (IRA) allows individuals with earned income to make tax deductible contributions
+regardless of age. Plan participants are allowed to contribute up to a specified dollar limit each year, or 100% of their salary if less than
+the maximum allowable amount. Individuals who are age 50 or older are entitled to make additional catch-up contributions. A married
+couple could contribute a specified amount that is double the individual amount, even if only one person had earned income. Each
+spouse is required to maintain a separate account not exceeding the individual limit.
+
+In traditional IRAs, the owner may withdraw the funds at any time. However, withdrawals prior to age 59 % are considered early
+withdrawals and are subject to a 10% additional tax. Starting at age 59 %, the owner may withdraw assets without having to pay the 10%
+additional tax. However, the owner must start receiving distributions from the IRA at the age of 73*. Starting at age 73, the owner must
+receive at least a minimum annual amount, known as the required minimum distribution (RMD).
+
+*Effective January 1, 2023, the SECURE Act raised the required minimum distribution age from 72 to 73, and reduced the penalty for
+failing to take an RMD from 50% to 25%.
+
+The Roth IRA is a form of an individual retirement account funded with after-tax contributions. An individual can contribute 100% of
+earned income up to an IRS-specified maximum, as with traditional IRAs (the dollar amounts change every year). Roth IRA contributions
+can continue regardless of the account owner's age, and in contrast with a traditional IRA, distributions do not have to begin at a
+specified age. Roth IRAs grow tax free as long as the account is open for at least 5 years.
+
+----- page 5 -----
+In addition to individual plans, different types of qualified plans are available and have been designed for use by small and large
+employers.
+
+2. Self-employed Plans (HR 10 or Keogh Plans)
+
+HR-10 or Keogh plans make it possible for self-employed persons to be covered under an IRS qualified retirement plan. These plans
+allow the self-employed individuals to fund their retirement programs with pre-tax dollars as if under a corporate retirement or pension
+plan. To be covered under a Keogh retirement plan, the person must be self-employed or a partner working part time or full time who
+owns at least 10% of the business.
+
+Contribution limits are the lesser of an established dollar limit or 100% of their total earned income. The contribution is tax deductible,
+and it accumulates tax deferred until withdrawal.
+
+Upon a participant's death, payouts can be available immediately. if a participant becomes disabled, he or she may collect benefits
+immediately or the funds can be left to accumulate. When a participant enters retirement, distribution of funds must occur no earlier
+than age 59% and no later than age 73 (prior to January 2023, age 72). If withdrawn before 59%, there is a 10% penalty. At any time
+payments may be discontinued with no penalty, and funds can be left to accumulate.
+
+Under eligibility requirements, any individual who is at least 21 years of age, has worked for a self-employed person for one year or more,
+and worked at least 1,000 hours per year (full time) must be included in the Keogh Plan. The employer must contribute the same
+percentage of funds into the employee's retirement account as he/she contributes into his/her own account.
+
+----- page 6 -----
+3. Simplified Employee Pensions (SEPs)
+A Simplified Employee Pension (SEP) is a type of qualified plan suited for the small employer or for the self-employed. In a SEP, an
+employee establishes and maintains an individual retirement account to which the employer contributes. Employer contributions are
+not included in the employee's gross income. The primary difference between a SEP and an IRA is the much larger amount that can be
+contributed each year to a SEP (an IRS established annual dollar limit or 25% of the employee's compensation, whichever is less).
+4. SIMPLE Plans
+A SIMPLE (Savings Incentive Match Plan for Employees) plan is available to small businesses that employ no more than 100 employees
+who receive at least $5,000 in compensation from the employer during the previous year. To establish a SIMPLE plan, the employer must
+not have a qualified plan already in place. Employees who elect to participate may defer up to a specified amount each year, and the
+employer then makes a matching contribution, dollar for dollar, up to an amount equal to 3% of the employee's annual compensation.
+Taxation is deferred on both contributions and earnings until funds are withdrawn.
+5. Profit-sharing and 401(k) Plans
+Profit-sharing plans are qualified plans where a portion of the company’s profit is contributed to the plan and shared with employees. If
+the plan does not provide a definite formula for figuring the profits to be shared, employer contributions must be systematic and
+substantial.
+A 401(k) qualified retirement plan allows employees to take a reduction in their current salaries by deferring amounts into a retirement
+plan. The company can also match the employee's contribution, whether it is dollar for dollar or on a percentage basis.
+Under a 401(k) plan, participants may choose to do one of the following:
+
+* Receive taxable cash compensation; or
+
+* Have the money contributed into the 401(k), in cash or deferred arrangement plans (CODA).
+Contributions into the plan are excluded from the individual employee's gross income up to a specified dollar amount. The ceiling
+amount is adjusted annually for inflation. The plan allows participants age 50 or over to make additional catch-up contributions (up to
+a limit) at the end of the calendar year.
+
+----- page 7 -----
+A 401(k) plan may be arranged as:
+
+1. Pure salary reduction plan;
+
+2. Bonus plan; or
+
+3. Thrift plan.
+Under the bonus or thrift plan, the employer will contribute certain amount or percentage for each dollar contributed by the employee;
+however, employee contributions are not always required.
+Plans permit early withdrawal for specified hardship reasons such as death or disability. Loans are also permitted in certain instances
+up to 50% of the participant's vested accrued benefit or the annual IRS-established dollar amount.
+6. 403(b) Tax-sheltered Annuities (TSAs)
+A 403(b) plan or a tax-sheltered annuity (TSA) is a qualified plan available to employees of certain nonprofit organizations under
+Section 501(c)(3) of the Internal Revenue Code, and to employees of public school systems.
+Contributions can be made by the employer or by the employee through salary reduction and are excluded from the employee's
+current income. As with any other qualified plan, 403(') limits employee contributions to a maximum amount that changes annually,
+adjusted for inflation. The same catch-up provisions also apply.
+
+----- page 8 -----
+HR-10 Keogh SEP SIMPLE 401(k) 403(b) - TSA
+small
+avroyeror —_ Smallemployers
+Eligibility Self-employed et ha y' (no more than ‘Any employer Nonprofits
+100 empl
+oe eyed employees)
+Employer Employer
+Who Employer matches employee's employer matches matches Employer and
+contributes contributions Ploy’ employee's employee's employee
+contribution contribution
+
+----- page 9 -----
+Taxation
+1. Tax Advantages for Employers and Employees
+If the general requirements for qualified plans are met, the following tax advantages apply:
+
+* Employer contributions are tax deductible to the employer, and are not taxed as income to the employee;
+
+* The earnings in the plan accumulate tax deferred; and
+
+* Lump-sum distributions to employees are eligible for favorable tax treatment.
+2. Taxation of Distributions (Age-related)
+Benefits in qualified plans are taxable to the plan participant when they are received during retirement, at a time when the retired
+person is likely to be in a much lower tax bracket. Distributions prior to age 59% impose a 10% penalty, unless they fall under an exception
+to the 10% penalty.
+The following types of distributions are considered exceptions to the early distribution rule and, therefore, are not subject to the 10%
+early withdrawal penalty:
+
+* Death of the participant;
+
+* The participant's disability;
+
+* Adivorce decree requiring a distribution to a spouse as part of the settlement;
+
+* As aseries of equal payments (at least annually) over the participant's life expectancy;
+
+* Aloan from the plan; or
+
+* As part of a qualified rollover.
+

@@ -1,0 +1,15 @@
+The Common Disaster Clause, when added to a policy, provides that if the insured and the primary beneficiary died in a common
+disaster (even if the beneficiary outlived the insured by a specified number of days), it is presumed that the primary beneficiary died
+first, so the proceeds will be paid to either the contingent beneficiary or to the insured's estate, if no contingent beneficiary is
+designated. Most insurers specify a certain period of time, usually 14 to 30 days, in which the primary beneficiary's death must occur in
+order for the Common Disaster Clause to apply. As long as the beneficiary dies within this specified period of time following the death of
+the insured, it will still be interpreted that the beneficiary died first. The intent is to fulfill the wishes of the policyowner in regard to
+payment of proceeds to beneficiaries.
+
+Example:
+
+James had a life insurance policy that included a Common Disaster Clause. James was the insured; his wife Maggie was named the
+primary beneficiary, and his son Ben was named the contingent beneficiary. James and Maggie got in a terrible car accident, and
+James died immediately, but Maggie died 4 days later from her injuries from the same accident. Because the policy included the
+Common Disaster Clause, the death benefit would be paid to Ben, the contingent beneficiary, as if Maggie, the primary beneficiary, had
+died before James, the insured.

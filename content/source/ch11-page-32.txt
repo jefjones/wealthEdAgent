@@ -1,0 +1,5 @@
+Highly compensated employee means any employee who:
+* Owned more than 5% of the interest in the business at any time during the year or the preceding year (regardless of the
+employee's compensation); or
+* For the preceding year, received compensation from the business in excess of specified dollar amount ($150,000 if the preceding
+year is 2023), and, if the employer so chooses, was in the top 20% of employees when ranked by compensation.

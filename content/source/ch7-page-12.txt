@@ -1,0 +1,26 @@
+One-sum Cash Surrenders
+
+Cash surrender of an annuity results in immediate taxation of the interest earned.
+
+Premature Distributions and Penalty Tax
+
+The IRS imposes a penalty for certain premature distributions under annuity contracts. In addition to ordinary income tax that may be
+due, a 10% penalty is imposed on the annuity tax base for early withdrawals prior to age 59%.
+
+Example:
+
+Suppose a 58-year-old insured makes an early withdrawal from his annuity. If this withdrawal totals $6,000, and the entire amount is
+taxable, the insured can expect to receive a penalty equal to 10% of the withdrawal, or $600.
+
+Benefit Payment
+
+When an annuity is used to fund a traditional IRA, distributions are fully taxable if contributions were made with pretax dollars. If there
+are no distributions at the required age, or if the distributions are not large enough, the penalty is 50% of the shortfall from the required
+annual amount.
+
+Distributions at Death
+
+If the annuity contract holder dies before the annuitization date, the interest accumulated in the annuity becomes taxable. If the
+beneficiary of the annuity is a spouse, however, the tax can continue to be deferred.
+
+Any unpaid annuity benefits following the death of an annuitant are paid to the beneficiary and are taxable.

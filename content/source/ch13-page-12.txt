@@ -1,0 +1,24 @@
+4. Part C - Medicare Advantage
+
+The Medicare Modernization Act of 2003 changed the name of Part € from Medicare+Choice to Medicare Advantage. Medicare
+Advantage plans must cover all of the services covered under the Original Medicare except hospice care and some care in qualifying
+clinical research studies. However, Part C plans may have lower out-of-pocket costs than Original Medicare. They may also offer extra
+coverage, such as vision, hearing, dental, and other health and wellness programs.
+
+To be eligible for Medicare Advantage, beneficiaries must also be enrolled in Medicare Parts A and B. Medicare Advantage is Medicare
+provided by an approved Health Maintenance Organization or Preferred Provider Organization. Many HMOs or PPOs do not charge
+premiums beyond what is paid by Medicare. The advantages of an HMO or PPO for a Medicare recipient may be that there are no
+claims forms required, almost any medical problem is covered for a set fee so health care costs can be budgeted, and the HMO or PPO
+may pay for services not usually covered by Medicare or Medicare supplement policies, such as prescriptions, eye exams, hearing aids,
+or dental care.
+
+Most Medicare HMOs require that medical services be received through the plan, except in emergencies. A few allow greater freedom of
+choice through point-of-service plans.
+
+A Medicare Private Fee-for-Service Plan is a Medicare Advantage Plan offered by a private insurance company. Medicare pays a set
+amount of money every month to the private insurance company to provide health care coverage. The insurance company decides
+how much enrollees pay for the services they get.
+
+Another section of Medicare Advantage Plan (Part C), Special Needs Plans, provides more focused and specialized health care for
+specific groups of people. This includes people who have both Medicare and Medicaid, who reside in a nursing home, or have certain
+chronic medical conditions.

@@ -13,6 +13,7 @@ const buttonVariants = cva(
           'border border-[#c5d5e8] bg-white text-[#1c3f66] hover:bg-[#f3f7fc] focus-visible:ring-[#2a6cb5]',
         ghost: 'text-[#1c3f66] hover:bg-[#e7f0fa] focus-visible:ring-[#2a6cb5]',
         correct: 'bg-[#157a43] text-white hover:bg-[#116838]',
+        danger: 'bg-[#a32626] text-white hover:bg-[#7e1c1c] focus-visible:ring-[#a32626]',
       },
       size: {
         default: 'h-11 px-5',

@@ -1,0 +1,26 @@
+Fiduciary Responsibilities
+
+An employer's responsibilities under ERISA vary, depending on the type of plan involved. Pension plans, for example, are subject to all
+tules, including reporting and disclosure, financial management of benefit plan assets, administration of benefit plans, and
+participation, vesting, and funding requirements. Welfare plans (such as health insurance) need only worry about reporting and
+disclosure rules and financial management and plan administration standards.
+
+Reporting and Disclosure
+
+Different parts of ERISA are administered by different federal agencies. In general, the Internal Revenue Service (IRS) administers the
+taxation of contributions and benefits. In the retirement-plan area, IRS is responsible for enforcing funding, participation, and vesting
+standards. The Pension Benefit Guarantee Corporation is in charge of pension insurance provisions. And the U.S. Department of Labor
+(DOL) administers reporting and disclosure and the fiduciary requirements of ERISA that regulate the management of plan assets.
+There are reporting and disclosure exemptions for small unfunded welfare plans. Governmental and church plans, plans established
+solely to comply with unemployment compensation laws, workers compensation law, disability insurance laws, and plans that are
+designed to provide benefits in excess of the deduction limits to certain employees are exempt from ERISA requirements. Unfunded
+plans maintained “primarily’ to provide deferred compensation for a select group of management or highly compensated employees
+are exempt from the participation and vesting, funding, and fiduciary responsibility requirements of the law. These plans are commonly
+referred to as top hat plans. They are generally subject (unless some other exemption or partial exemption applies) to the reporting and
+disclosure, and administration and enforcement provisions of ERISA.
+
+2. Age Discrimination in Employment Act (ADEA)
+
+The Age Discrimination in Employment Act of 1967 serves to promote employment of older persons based on their ability rather than
+age, to prohibit arbitrary age discrimination in employment; to help employers and workers, and to find ways of meeting problems
+arising from the impact of age on employment.

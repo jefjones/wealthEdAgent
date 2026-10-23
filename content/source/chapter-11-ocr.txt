@@ -1,0 +1,642 @@
+Now that you have examined the different types of health plans, you can further focus on health plans available in group insurance. In
+this section, you will learn about characteristics of group health insurance, eligibility factors, and provisions that apply exclusively to
+group coverage. You will also learn about small employer group medical plans, and marketing considerations for health insurance
+providers.
+
+® TERMSTO KNOW
+
+Creditor — a lender of funds
+
+Debtor — a borrower of funds
+
+Extension of Benefits — a provision that allows coverage to continue beyond the policy's expiration date for employees who are not
+
+actively at work due to disability or who have dependents hospitalized on that date (coverage continues only until the employee
+
+returns to work or the dependent leaves the hospital)
+
+HIPAA — The Health insurance Portability and Accountability Act is a federal law that protects health information
+
+Persistency — the tendency or likelihood of insurance policies not lapsing or being replaced with insurance from another insurer
+
+Self-funded programs — a noninsured plan that uses a trust fund to pay for employees’ health care expenses directly
+
+Underwriting — risk selection and classification process
+Characteristics of Group Insurance
+
+In a group policy, the contract is between the insurance company and the group sponsor (the employer, union, trust, or other
+sponsoring organization), as opposed to the individual policy, where the contract is between the insurance company and the insured.
+1. Group Contract
+
+In group insurance, the policy is called the master policy, and is issued to the policyowner, which could be the employer, an association,
+a union, or a trust.
+
+2. Certificate of Coverage
+
+The individuals covered under a group insurance plan are issued evidence of coverage in the form of certificates of insurance, or
+certificates of coverage. The certificate of insurance cannot contain provisions or statements that are unfair, misleading or deceptive.
+The certificate tells what is covered in the policy; how to file a claim, how long the coverage will last, and how to convert the policy to an
+individual policy.
+3. Experience Rating vs. Community Rating
+
+Group health insurance is usually subject to experience rating, where the premiums are determined by the experience of this particular
+group as a whole. Individual policies are subject to community rating or pool rating, where the premium is based upon the overall
+claims experience of the insurance company. Experience rating helps employers with low claims experience because they get lower
+premiums.
+Marketing Considerations
+
+1. Advertising
+
+Health insurance advertising must be truthful and not misleading. Words and phrases may not be used if their meaning is clear only by
+implication or familiarity with insurance terminology.
+
+In advertisements of benefits payable, losses covered, and premiums payable, words, phrases or illustrations cannot be used in a
+manner which misleads, or has the tendency or capacity to deceive, concerning any policy benefit payable, loss covered, or premium
+payable. Advertisements must be sufficiently complete and clear as to avoid deception or the capacity or tendency to deceive.
+
+2. Regulatory Jurisdiction/Place of Delivery
+
+Group insurance can often provide coverage for employees in more than one state. The question then becomes which state law has
+jurisdiction over the policy. Generally speaking, the state in which the coverage was delivered would have jurisdiction. Most state laws
+governing group insurance say that multi-state policies are acceptable if the policy is approved by the issuing state, written in
+substantial compliance with the laws of the delivery state, and if the laws governing group insurance are substantially similar between
+the issuing state and the delivery state.
+Types of Eligible Groups
+
+In order to qualify for group coverage, the group must be formed for a purpose other than obtaining group health insurance. In other
+words, the coverage must be incidental to the group. There are generally 2 types of groups eligible for group insurance: employer-
+sponsored, and association-sponsored.
+
+1. Employment Related Groups
+
+With an employer-sponsored group, the employer (a partnership, corporation or a sole proprietorship) provides group coverage to its
+employees. Eligible employees usually must meet certain time of service requirements and work full-time. The same as group life
+insurance, group health insurance may be either contributory or noncontributory.
+
+Individual Employer Groups
+
+The individual employer normally will provide insurance coverage to all full-time employees. The employer can specify within some
+limitations how many hours are considered full time, and whether both salaried and hourly employees will be covered. The employer
+can legally exclude a particular group of employees, like union or part time, from the eligible class of employees.
+Multiple-Employer Trust (METs) or Welfare Arrangements (MEWAs)
+
+A Multiple-Employer Trust (MET) is made up of two or more employers in similar or related businesses who do not qualify for group
+insurance on their own. Before HIPAA defined small employers, many small companies were unable to get health insurance at a
+reasonable cost due to the fact that there weren't enough people in the company to insure. In situations like this, several small
+companies banded together to create a large pool of people so that the insurance company will provide coverage. This group of
+employers jointly purchase a single benefits plan to cover employees of each separate employer.
+Anoninsured plan may operate without the services and funds of an insurance company. Once the trust fund is established, it can pay
+for employees’ health care expenses directly (self-funding). The trustee has charge of the funds and all financial activities occur
+through it. As with any self-funded program, the employer assumes legal responsibility for providing coverage, and the employee has
+no conversion right upon leaving the group coverage.
+
+Multiple Employer Welfare Associations (MEWAs) can be any entity, other than a duly admitted insurer, that establishes an employee
+benefit plan for the purpose of offering or providing accident and sickness or death benefits to the employees of at least 2 employers,
+including self-employed individuals and their dependents.
+
+A Multiple-Employer Welfare Arrangement (MEWA) is similar to an MET, except that MEWAs are groups of employers that pool their risks
+in order to self-insure. These groups could be sponsored by an insurance company or an independent administrator who may help a
+MEWA to design a plan or handle the administration. Groups can be from the same or related industries because of the Law of Large
+Numbers/Similar Risks.
+
+Today, the terms have become blurred and MEWAs and METs are generally known as interchangeable plans. They are considered risky if
+not fully insured. Some METs/MEWAs are only partially insured, and the individuals or employers retain full responsibility for any debt if
+not fully insured.
+
+2. Associations (Alumni, Professional, Other)
+
+An association group (alumni or professional) can buy group insurance for its members. The group must have at least 100 members,
+be organized for a reason other than buying insurance, have been active for at least two years, have a constitution, by-laws, and must
+hold at least annual meetings. These groups include, but are not limited to, trade associations, professional associations, college alumni
+associations, veteran associations, customers of large retail chains, and saving account depositors, to name a few. Association group
+plans may be either contributory or noncontributory.
+3. Customer Groups (Depositors, Creditor-debtor, Other)
+
+Creditor group insurance, also called credit life and credit disability income insurance, is a specialized use of group life and group
+health insurance that covers debtors (borrowers). It protects the lending institution from losing money as the result of a borrower's
+death or disability. The contract owner is the creditor, such as a bank, a small-loan company, or a credit union. Generally, the debtor is
+the premium payor, but the lending institution is the beneficiary of the policy. If the debtor dies or becomes disabled, the insurance
+proceeds are paid to the creditor to liquidate the indebtedness. The amount of insurance cannot exceed the amount of indebtedness.
+4. Discretionary Groups
+
+A discretionary group is a group that can apply for group health insurance according to a decision made by the head of the
+Department of Insurance.
+Types of Funding and Administration
+1. Conventional Fully-insured Plans
+A conventional fully insured plan is administered and guaranteed by an insurance company. In return for the premium collected from
+the insured by the insurer, the insurer assumes the risk of paying the cost of medical expenses that may or may not occur during the
+policy period.
+2. Fully Self-funded (Self-administered) Plans
+Under some circumstances, it is possible for a business or other organization to engage in the same types of activities as a commercial
+insurer dealing with its own risks. When these activities involve the operation of the law of large numbers and predictions regarding
+future losses, they are commonly referred to as self-insurance. Self-insurance applies when an organization develops a formal
+program for identifying, evaluating and funding its own losses.
+Characteristics
+Self-insurance is when an organization develops a formal program for identifying, evaluating and funding its own losses.
+Conditions Suitable for Self-funding
+For a self-insurance program to be dependable, it must:
+* Be big enough to permit the use of a sufficiently large number of exposure units so as to make losses predictable. (The program
+must be based on the operation of the law of large numbers.)
+* The plan must be financially dependable. This means it will likely require the accumulation of funds to meet losses that occur, with
+a sufficient accumulation to safeguard against unexpected deviations from predicted losses.
+* The individual units exposed to loss must be distributed in such a manner as to prevent a catastrophic loss. A loss that could affect
+all units at one time could cause financial failure to the program.
+* Until the fund reaches the size where it is adequate to pay the largest loss possible, the possibility of loss is not eliminated for the
+individual exposure units.
+Benefits Suitable for Self-funding
+‘smaller losses which occur frequently are a better subject for self-insurance as opposed to large infrequent losses. Self-insurance is
+frequently used for workers compensation where losses are fairly predictable and most states have established regulations for self-
+insurance.
+Employer Group Health Insurance
+The majority of all health insurance in force today is provided on a group basis. The cost of group health insurance is lower than the cost
+for individual coverage since the administrative costs and selling expenses found in group health insurance are far less.
+1. Insurer Underwriting Criteria
+Generally underwriting for group health insurance is similar to underwriting for individual health insurance coverage, but the underwriter
+evaluates the group as a whole rather than each individual member. The group's risk profile determines whether the group will be
+accepted or rejected. As with any type of underwriting, the underwriter tries to avoid adverse selection. Adverse selection describes the
+tendency of poorer risks seeking out insurance protection.
+Group underwriting criteria help insurers determine the acceptability and premium to be charged, and to minimize the possibility of
+adverse selection. The following are considered in group health insurance underwriting:
+
+* Certificates are guaranteed issue with no individual underwriting;
+
+* Premiums are determined by age, sex and occupation of the entire group;
+
+* The reasons for forming the group are other than purchasing insurance;
+
+* Acertain participation level must be maintained;
+
+* There is a flow of new members through the group; and
+
+« There is an automatic determination of benefits which is not discriminatory (everyone has the same coverage).
+Characteristics of Groups
+One of the differences between group underwriting and individual underwriting is that in groups of 50 or more, medical information
+cannot be required of plan participants. In small groups even one bad risk can have an impact on the claims experience of the group.
+That's why in some states, insurers may allow some individual underwriting in small groups they insure.
+Plan Design Factors
+The same as group life insurance, group health insurance may be either contributory or noncontributory. With a contributory plan the
+eligible employees contribute to payment of the premium (both the employee and employer pay part of the premium). If a plan is
+contributory, at least 75% of alll eligible employees must participate in the plan. If the plan is noncontributory, 100% of the eligible
+employees must be included, and the participants do not pay part of the premium. The employer pays the entire premium. The reason
+for these participation requirements is to guard the insurer against adverse selection and to reduce administrative costs.
+Persistency Factors
+Persistency rate for a group of policies means the ratio of the number of policies that continue coverage on a premium due date to the
+number of policies that were in force as of the preceding due date. The persistency rate usually improves with policy duration. In health
+insurance, persistency is important for the following main reasons:
+
+* Expenses are higher during the first year than in subsequent years because of the costs of issuing the policy and certificates of
+
+insurance, and higher first-year commissions; and
+
+* Claim rates usually increase as the age of the insured increases.
+The underwriter takes persistency into consideration because groups that change insurance companies every year do not represent a
+good risk.
+Administrative Capability
+The per-capita administrative cost in group health insurance is less than the administrative cost found in individual coverage.
+2. Eligibility for Insurance
+Group health plans commonly impose a set of eligibility requirements that must be met before an individual member is eligible to
+participate in the group plan. It is common that in order to be eligible, the employee must be full time (usually 30 hours per week), and
+have been employed by the employer from 1 to 3 months.
+Annual Open Enrollment
+30-day open-enrollment period is available once a year to employees who reject coverage during the initial enrollment period and
+later wish to have coverage or to add dependent coverage. Evidence of insurability is not required during the open-enrollment period.
+Employee Eligibility
+Employer group health insurance generally requires that to be eligible for coverage an employee must be a full-time employee, working
+in a covered classification, and must be actively at work.
+Under the Affordable Care Act (ACA), employers must extend coverage to all employees who work more than 30 hours per week. In
+addition, small and large employers may not be denied coverage for failure to satisfy the minimum participation or contribution
+requirements.
+Dependent Eligibility
+Employer group health insurance generally requires a dependent of an employee to be
+
+* A spouse;
+
+* Achild younger than the limiting age, including natural children of the insured, stepchildren, children legally placed for adoption,
+
+and legally adopted children; and/or
+* Disabled children who are incapable of self-support because of a physical or mental disability, and are dependent upon the
+insured for support and maintenance.
+Most insurers cover domestic or same-sex partners whether or not a state has a domestic partner or civil union law.
+3. Coordination of Benefits Provision
+The purpose of the coordination of benefits (COB) provision, found only in group health plans, is to avoid duplication of benefit
+payments and overinsurance when an individual is covered under multiple group health insurance plans. This provision limits the total
+amount of claims paid from all insurers covering the patient to no more than the total allowable medical expenses.
+The COB provision establishes which plan is the primary plan, or the plan that is responsible for providing the full benefit amounts as it
+specifies. Once the primary plan has paid its full promised benefit, the insured submits the claim to the secondary, or excess, provider
+for any additional benefits payable (including deductibles and coinsurance). In no case will the total amount the insured receives
+exceed the costs incurred or the total maximum benefits available under all plans.
+Loss - Amount covered by Primary Plan = Amount covered by Secondary Plan
+Ifalll policies have a COB provision, the order of payments is determined as follows:
+
+* Ifa married couple both have group coverage in which they are each named as dependents on the other's policy, then the
+person’s own group coverage will be considered primary. The secondary coverage (the spouses’ coverage) will pick up where the
+first policy left off.
+
+* If both parents name their children as dependents under their group policies, then the order of payment will usually be determined
+by the birthday rule, i.e, the coverage of the parent whose birthday is earlier in the year will be considered primary. Occasionally,
+the gender rule may also apply, according to which the father's coverage is considered primary.
+
+* Ifthe parents are divorced or separated, the policy of the parent who has custody of the children will be considered primary.
+If plans cannot agree on the order of benefits within 30 days of receiving all necessary claim information, these plans will immediately
+pay the claim in equal shares. However, in these instances, no plan will be required to pay more than its policy limits.
+
+Aplan with coordination of benefits rules (a conforming plan) may coordinate benefits with a plan that is always secondary or uses
+inconsistent rules (a nonconforming plan). If the nonconforming plan does not provide the information needed by the conforming plan
+to determine its benefits within a reasonable time after receiving a request, the conforming plan will assume that the nonconforming
+plan has identical benefits. In these cases, the conforming plan will pay its benefits accordingly. If, within 3 years of payment, the
+conforming plan receives information about the nonconforming plan's actual benefits, it will adjust any payments accordingly.
+
+4. Conversion of Coverage
+
+Employees actively at work on the date coverage is transferred to another insurance carrier are automatically covered under the new
+plan, and they are exempt from any probationary period. Employees not actively at work on the date coverage is transferred must be
+included in the new plan, but their benefits can be limited to the prior plan’s level until they return to work.
+
+Coinsurance and Deductible Carryover
+
+Coinsurance and deductibles may be carried over from the old plan to the new plan. The purpose of coinsurance and deductible
+carryover provisions is to credit expenses incurred so as to not penalize the insured.
+
+No-Loss No-Gain
+
+No-loss/no-gain statutes involve the theory of indemnification and the concept of placing the insured in the same economic position
+after a loss as the insured was in prior to a loss. When changing health insurance, benefits must be paid for ongoing claims regardless
+of pre-existing conditions.
+Events that Terminate Coverage
+Group insurance policies provide for a termination of benefits in the event of certain occurrences.
+For Employees
+Generally, coverage will terminate for an employee on the earliest date in which one of the following occurs:
+* Employment terminates;
+* The employee ceases to be eligible;
+* The date the overall maximum benefit for major medical benefits is received;
+* The end of the last period for which the employee has made the required premium payments comes about; or
+* The master contract is terminated.
+For Dependents
+Coverage will terminate for a dependent on the earliest date in which one of the following situations occurs:
+* The dependent fails to meet the definition of a dependent;
+* The overall maximum benefit for major medical benefits is received; or
+* The end of the last period for which the employee has made the required premium for dependent coverage passes.
+Extension of Benefits
+When a group policy is discontinued, the policy must provide for a reasonable extension of benefits to any covered person who is
+totally disabled at the time the group policy is terminated.
+Continuation of Coverage
+There have been a number of state and federal statutes passed in recent years to protect insureds when their employment is
+terminated.
+COBRA (Consolidated Omnibus Budget Reconciliation Act)
+The Consolidated Omnibus Budget Reconciliation Act of 1985 (COBRA) requires any employer with 20 or more employees to extend
+group health coverage to terminated employees and their families after a qualifying event. Qualifying events include the following:
+
+* Voluntary termination of employment;
+
+* Termination of employment for reasons other than gross misconduct (e.g. company downsizing); and
+
+* Employment status change: from full time to part time.
+For any of these qualifying events, coverage is extended up to 18 months. The terminated employee must exercise extension of benefits
+under COBRA within 60 days of separation from employment. The employer is permitted to collect a premium from the terminated
+employee at a rate of no more than 102% of the individual's group premium rate. The 2% charge is to cover the employer's
+administrative costs.
+For events such as death of the employee, divorce or legal separation, the period is 36 months for the dependents.
+Itis important to remember that COBRA benefits apply to group health insurance, not group life insurance. In addition, unlike the
+conversion privilege in which the individual converts coverage to an individual health insurance policy, COBRA continues the same
+group coverage the employee had and the employee pays the group premium that the employer paid (or employer and employee
+paid if the plan was contributory).
+Note that under the Patient Protection and Affordable Care Act, coverage for children of the insured must extend until the adult child
+reaches the age of 26 (unless the child qualifies as a disabled dependent). The same age limit applies to COBRA coverage for eligible
+children of the insured. In addition, in the event of loss of dependent child status under the group plan, the dependent child qualifies for
+a maximum period of continuation coverage of 36 months.
+There are also several disqualifying events under which the COBRA benefits may be discontinued. These include failure to make a
+premium payment, becoming covered under another group plan, becoming eligible for Medicare, or if the employer terminates all
+group health plans.
+Utah Mini- COBRA
+An employee who participates in a group disability policy is entitled to have an individual policy issued on the same basis of eligibility.
+Utah Mini-COBRA allows the employees to extend coverage under the group policy for 12 months. The right to extend coverage includes
+voluntary and involuntary termination, retirement, sabbatical or leave of absence, reduction of hours, divorce or legal separation, loss of
+dependent status, disability or death.
+However, the employee does not have this right if he or she has not been continuously covered under this policy for 3 months prior to
+the termination.
+In addition, the employer must provide written notification of the right to extend group coverage within 30 days of the termination of
+group coverage.
+Furthermore, the insurer must provide the employee, spouse or dependent the opportunity to extend group coverage if:
+
+* The employer does not provide the terminated insured with the aforementioned notification; and
+
+« The employee contacts the insurer within 60 days of coverage termination.
+This extended coverage may be terminated if the insured:
+
+* Established residence outside the state;
+
+* Moves out of the insurer's service area;
+
+© Fails to pay premiums;
+
+* Commits fraud;
+
+* Makes a misrepresentation;
+
+* Becomes eligible for other, similar coverage; or
+
+The employer's coverage is terminated.
+Within 30 days of the exhaustion of any extended coverage, the insured and any dependents must be notified of their right to an
+individual conversion policy.
+Conversion Rights
+An individual that has lost group coverage may elect conversion coverage with the same insurer, if this person:
+
+* Has been continuously covered for 3 months by the policy;
+
+* Has exhausted Utah mini-COBRA coverage or federal COBRA coverage;
+
+* Isnot covered by any other group coverage, covering all pre-existing conditions; and
+
+* Resides in the insurer's service area.
+The application and first premium must be sent to the insurer no more than 60 days after the termination. The initial premium for the
+first 12 months of the converted policy must be determined in accordance with premium rates applicable to age, class of risk, and the
+type and amount of insurance provided.
+Reinstatement of Coverage for Military Personnel
+Insurers cannot refuse to reinstate an insured or any dependents whose coverage lapsed due to the insured's mobilization into the
+United States armed forces - provided an application is made within 180 days of release from active duty. If this provision is followed,
+the reinstated policy will not have a waiting period or exclude any pre-existing conditions. This policy may not excessively increase the
+insureds premium.
+Small Employer Medical Plans
+1. Definition and Participation Requirements
+When used in connection with a health benefit plan, the term “small employer” refers to any employer with an average of between 2
+and 50 eligible employees on each business day during the preceding calendar year, and at least 2employees on the first day of the
+plan year.
+When determining whether to provide coverage to a small employer, requirements must be applied uniformly among all small
+employers with the same number of employees. A covered carrier may require that a small employer have a minimum of 2 eligible
+employees. Once an employer is accepted for coverage, the carrier may not increase the employee requirement at any time.
+2. Basic Coverage
+Individual carriers offering health care plans must offer a choice of coverage that is at least equal to or greater than basic coverage.
+The following benefits apply to Basic Health Care Plans:
+
+* The maximum benefit per person for the entire period of coverage is $1,000,000;
+
+* The maximum annual benefit per person must not be less than $300,000; and
+
+* The annual out-of-pocket maximum per person is $5,000.
+Any waiting period cannot exceed 12 months with credit for prior coverage. The major medical deductible may not be less than $1,500
+per person. An annual deductible for prescription benefits may not be less than $500 per person. A copayment may not be less than
+$25 per office visits, and $150 per visit to the emergency room.
+3. Availability of Coverage
+As a condition of transacting business in this state with small employers, every small employer carrier is required to actively offer to
+small employers at least 2 health benefit plans. One plan offered by each small employer carrier must be a basic health benefit plan
+and one plan must be a standard health benefit plan.
+4. Open Enrollment
+
+Individual carriers must establish a procedure to determine the order of applications. All applications must be treated consistently. A
+written notice of the decision must be communicated to the applicant within 30 days of the decision. if the application is incomplete, a
+carrier must notify the applicant within 15 days of the application's receipt. However, before an application can be filed as incomplete,
+applicants must have at least 30 days to provide addition information.
+
+Asmall employer carrier must permit an eligible employee or dependent to enroll for coverage under the terms of the plans - if the
+employee requests enrollment no later than 30 days after the eligibility date.
+
+All records regarding enrollment applications must be retained for the current year plus 3 years.
+
+5. Rating of Small Employer Plans
+
+An insurer will assign rates charged to employees of small employers uniformly, consistently, and without discrimination. A small
+employer carrier will treat all health benefit plans issued or renewed in the same calendar month as having the same rating period.
+6. Defined Contribution Arrangement Market
+
+Starting Jan. 1, 2010, small employers may choose to participate in defined contribution arrangement health benefit plans. Defined
+contribution health benefit plans are employer-sponsored health plans that let individual employees control their plan choice. In a
+defined contribution arrangement, the employer offers a pre-determined level of funding that the employee uses to purchase their
+choice of health insurance.
+
+The plan benefits employers because of its simple nature: An employer's only decision is how much to contribute toward the employee's
+health benefit. This reduces the amount of administration and responsibility for a small employer who is no longer forced to look for a
+plan that suits every employee. The ability to make a defined contribution also lets employers predict health benefit costs.
+
+The plan gives employees the freedom to choose, buy, and own the health care coverage that best meets their needs. In addition,
+health benefits will be portable from job to job so long as both employers participate in defined contribution arrangements.
+Participating insurers
+* Must offer to accept all eligible employees of an employer, and their dependents, at the same level of benefits as anyone else who
+has the same health benefit plan in the defined contribution arrangement market; and
+* May not impose a premium surcharge.
+Participating insurers may
+* Request that employers submit a copy of the employer's quarterly wage list to determine whether the employees for whom
+coverage is provided or requested are bona fide employees of the employer; and
+* Deny or terminate coverage if the employer refuses to provide this documentation
+An insurer who chooses to offer a health benefit plan in the defined contribution market must offer
+* One health benefit plan that
+© Isa federally qualified high deductible health plan;
+© Has the lowest deductible permitted for a federally qualified high deductible health plan; and
+© Does not exceed annual out-of-pocket maximum equal to three times the amount of the annual deductible; and
+* One health benefit plan with benefits that have an actuarial value at least 15% greater that the aforementioned plan.
+7. Renewability of Coverage
+Asmall employer health benefit plan is renewable with respect to all eligible insureds at the option of the plan sponsor. However, a small
+employer health benefit plan may be discontinued if
+* The plan sponsor:
+© Fails to pay premiums;
+© Performs an act that constitutes fraud; or
+© Makes an intentional misrepresentation;
+* The covered carrier:
+© Elects to discontinue the coverage;
+© Provides notice of the discontinuation to each plan sponsor and insured at least 90 days before the coverage will be
+discontinued; and
+© Provides notice of the discontinuation to the Commissioner at least 3 working days prior to date the notice is sent to sponsors
+and insureds.
+An eligible employee that is discontinued may reenroll
+« 12months after the date of discontinuance; and
+* If the plan sponsor's coverage is in effect at the time the eligible employee applies to reenroll.
+8. Pre-existing Conditions
+A health benefit plan for small employer may impose a pre-existing condition exclusion if
+« The exclusion relates to a pre-existing condition for which medical advice, diagnosis, care or treatment was recommended 6
+months prior to enrollment;
+* The exclusion period ends no later than 12 months after the enrollment date (or 18 months after late enrollment); and
+* The exclusion period is reduced by any days of creditable coverage.
+In addition, a health benefit plan may impose a limitation period if:
+* Each policy that imposes a limitation period under the health benefit plan specifies the physical condition that it excludes;
+* The limitation period does not exceed 12 months; and
+* The limitation period is applied uniformly.
+9. Surcharge for Charging Carriers
+A carrier may charge a small group that moves coverage to it from another carrier a one-time charge of up to 25% of the annualized
+premium that the carrier could otherwise charge.
+The surcharge may not be imposed if
+* The change in carriers occurs on the anniversary of the plan year;
+« The previous coverage was terminated; or
+* Employees from an existing group form a new business.
+The charge may not be imposed if the offer occurs at a time other than the anniversary of the plan year because
+* The application for coverage is made prior to the anniversary date in accordance with the covered carrier's published policies; and
+the offer to cover the group is not issued until after the anniversary date; or
+* The application for coverage is made prior to the anniversary date in accordance with the covered carrier's published policies;
+and additional underwriting or rating information requested by the covered carrier is not received until after the anniversary date.
+Ifa covered carrier chooses to apply a surcharge, the application of the surcharge and the criteria for incurring or avoiding the
+surcharge must be stated in the
+* Written application materials provided to the applicant at the time of application; and
+* Written producer guidelines.
+Regulation of Employer Group Insurance Plans
+
+1. Employee Retirement Income Security Act (ERISA)
+
+The Employee Retirement Income Security Act of 1974 (ERISA) is a federal law that was enacted to ensure that employees receive the
+pension and other benefits promised by their employers. ERISA also incorporates and is tied to provisions of the Internal Revenue Code
+(IRC) designed to encourage employers to provide retirement benefits and other benefits to their employees. Many provisions of ERISA
+and the IRC are intended to ensure that tax-favored pension plans do not favor the highest-paid employees over rank-and-file
+employees in the way benefits are provided. To achieve these ends, ERISA has a complex series of rules that cover pension, profit-
+sharing stock bonus, and most ‘welfare benefit plans,” such as health and life insurance. ERISA supersedes almost all state laws that
+affect employee benefit plans and has thus created a single federal standard for employee benefits.
+
+Applicability
+
+All forms of heallth care, life insurance, prepaid legal services, and disability insurance (both long-term and short-term) are considered
+employee welfare benefit plans. Unfunded benefits or payroll practices, such as vacation, holidays, overtime premiums, holiday gifts,
+and compensation paid for time not worked are not included. Group-type voluntary insurance programs to which the employer makes
+no contribution are also excluded.
+
+ERISA treats as pension plans any form of deferred compensation such as deferred profit-sharing, stock purchasing, or savings and
+thrift plans, as well as pension plans.
+
+Cash bonus plans, cash profit-sharing plans, and severance pay of less than 2 years are considered compensation and are not
+regulated by ERISA. A bonus plan, payment of which is systematically deferred and paid out over several years, is considered a pension
+plan.
+Fiduciary Responsibilities
+
+An employer's responsibilities under ERISA vary, depending on the type of plan involved. Pension plans, for example, are subject to all
+tules, including reporting and disclosure, financial management of benefit plan assets, administration of benefit plans, and
+participation, vesting, and funding requirements. Welfare plans (such as health insurance) need only worry about reporting and
+disclosure rules and financial management and plan administration standards.
+
+Reporting and Disclosure
+
+Different parts of ERISA are administered by different federal agencies. In general, the Internal Revenue Service (IRS) administers the
+taxation of contributions and benefits. In the retirement-plan area, IRS is responsible for enforcing funding, participation, and vesting
+standards. The Pension Benefit Guarantee Corporation is in charge of pension insurance provisions. And the U.S. Department of Labor
+(DOL) administers reporting and disclosure and the fiduciary requirements of ERISA that regulate the management of plan assets.
+There are reporting and disclosure exemptions for small unfunded welfare plans. Governmental and church plans, plans established
+solely to comply with unemployment compensation laws, workers compensation law, disability insurance laws, and plans that are
+designed to provide benefits in excess of the deduction limits to certain employees are exempt from ERISA requirements. Unfunded
+plans maintained “primarily’ to provide deferred compensation for a select group of management or highly compensated employees
+are exempt from the participation and vesting, funding, and fiduciary responsibility requirements of the law. These plans are commonly
+referred to as top hat plans. They are generally subject (unless some other exemption or partial exemption applies) to the reporting and
+disclosure, and administration and enforcement provisions of ERISA.
+
+2. Age Discrimination in Employment Act (ADEA)
+
+The Age Discrimination in Employment Act of 1967 serves to promote employment of older persons based on their ability rather than
+age, to prohibit arbitrary age discrimination in employment; to help employers and workers, and to find ways of meeting problems
+arising from the impact of age on employment.
+Applicability to Employees and Workers
+Itis illegal for an employer, or a labor organization to discriminate against an employee based on his or her age. Unfair discrimination
+means any of the following actions:
+* Failing or refusing to hire, discharging, or refusing to refer for employment any individual, or discriminating against any individual
+with respect to compensation, terms, conditions, or privileges of employment;
+* Limiting, segregating, or classifying employees in any way which would deprive them of employment opportunities, or otherwise
+adversely affect the employee's status;
+* Reducing the wage rate of any employee; and
+* Printing or publishing any notice or advertisement relating to employment indicating any preference, limitation, or specification
+based on age.
+Itis notillegal for an employer, employment agency, or labor organization to take any action otherwise prohibited where age is a bona
+fide occupational qualification reasonably necessary to the normal operation of the particular business, or where the differentiation is
+based on reasonable factors other than age, or where such practices involve an employee in a workplace in a foreign country, and
+compliance with such subsections would cause such employer, or a corporation controlled by such employer, to violate the laws of the
+country in which such workplace is located.
+Permitted Reductions in Insured Benefits
+An employer may reduce benefits based on age only if the cost of providing the reduced benefits to older workers is the same as the
+cost of providing benefits to younger workers.
+Permitted Increases in Employee Contributions
+An employee's contribution may be increased whenever the cost of providing benefits is increased on all employees, but not solely
+related to the increased age of the employee.
+Requirements for Medical Expense Coverage
+Under the Age Discrimination in Employment Act, retiree health benefits provided by an employer must at least be equal in value to:
+
+* Benefits provided under the Social Security Act for the retirees below age 65; and
+
+* One-fourth the value of Social Security benefits for the retirees age 65 or older.
+The values are adjusted on the annual basis, based on the Consumer Price Index.
+3. Civil Rights Act/Pregnancy Discrimination Act Applicability
+Applicability
+The Pregnancy Discrimination Act is an amendment to the Civil Rights Act of 1964. The Act states that pregnancy, childbirth and any
+related medical conditions must be covered to the same extent as any other medical condition under the policy. The Act applies to
+employers with 15 or more employees.
+Guidelines
+An employer may not refuse to hire, promote, discharge, demote, or terminate any person, or to retaliate against, harass, or
+discriminate in matters of compensation or in terms, privileges, and conditions of employment against any person otherwise qualified,
+because of race, color, sex, pregnancy, childbirth, or pregnancy-related conditions, age, if the individual is 40 years of age or older,
+religion, national origin, or disability.
+An applicant or candidate for any job or position may not be considered "otherwise qualified,” unless the applicant or candidate
+possesses the education, training, ability, moral character, integrity, disposition to work, adherence to reasonable rules and regulations,
+and other job-related qualifications required by an employer for any particular job, job classification, or position to be filled or created.
+An employment agency may not refuse to list and properly classify for employment, or refuse to refer an individual for employment, in a
+known available job for which the individual is otherwise qualified, because of race, color, sex, pregnancy, childbirth, or pregnancy-
+related conditions, religion, national origin, age, if the individual is 40 years of age or older, or disability.
+A labor organization may not exclude any individual otherwise qualified from full membership rights in the labor organization, expel the
+individual from membership in the labor organization, or otherwise discriminate against or harass any of its members in full
+employment of work opportunity, or representation, because of race, sex, pregnancy, childbirth, or pregnancy-related conditions,
+religion, national origin, age, if the individual is 40 years of age or older, or disability.
+
+An employer, employment agency, or labor organization may not print, or circulate, or cause to be printed or circulated, any statement,
+advertisement, or publication, use any form of application for employment or membership, or make any inquiry in connection with
+prospective employment or membership that expresses, either directly or indirectly any limitation, specification, or discrimination as to
+race, color, religion, sex, pregnancy, childbirth, or pregnancy-related conditions, national origin, age, if the individual is 40 years of age or
+older, or disability.
+
+An employer, labor organization, joint apprenticeship committee, or vocational school, may not deny to, or withhold from, any qualified
+person, the right to be admitted to, or participate in any apprenticeship training program, on-the-job-training program, or other
+occupational instruction, training or retraining program because of race, color, sex, pregnancy, childbirth, or pregnancy-related
+conditions, religion, national origin, age, if the individual is 40 years of age or older, or disability.
+
+An employer, labor organization, joint apprenticeship committee, or vocational school, may not discriminate against or harass any
+qualified person in that person's pursuit of such programs, or to discriminate against such a person in the terms, conditions, or privileges
+of such programs, because of race, color, sex, pregnancy, childbirth, or pregnancy-related conditions, religion, national origin, age, if the
+individual is 40 years of age or older, or disability.
+
+Itis not a discriminatory or prohibited employment practice for an employer to hire and employ employees, for an employment agency
+to classify or refer for employment any individual, for a labor organization to classify its membership or to classify or refer for
+employment any individual or for an employer, labor organization, or joint labor-management committee controlling apprenticeship or
+other training or retraining programs to admit or employ any individual in any such program, on the basis of religion, sex, pregnancy,
+childbirth, or pregnancy-related conditions, age, national origin, or disability in those certain instances where religion, sex, pregnancy,
+childbirth, or pregnancy-related conditions, age, if the individual is 40 years of age or older, national origin, or disability is a bona fide
+occupational qualification reasonably necessary to the normal operation of that particular business or enterprise.
+4. Relationship with Medicare
+Medicare Secondary Rules
+All Employers
+When a person insured under an employer's group health coverage also qualifies for Medicare, it is important to determine which
+coverage is primary (pays first), and which coverage is secondary (pays second).
+‘TYPE OF INSURED GROUP PLAN MEDICARE
+For individuals who are age 65 or older and
+* Currently employed (or insured under a working spouse's PRIMARY SECONDARY
+group plan)
+* Working for an employer who has 20 or more employees
+For individuals who are age 65 or older and
+* Currently employed (or insured under a working spouse's SECONDARY PRIMARY
+group plan)
+* Working for an employer who has fewer than 20 employees
+For individuals who are under the age of 65 and disabled, and
+* Currently employed (or insured under a working spouse's PRIMARY SECONDARY
+group plan)
+* Working for an employer who has 100 or more employees
+SECONDARY for the first 30
+For individuals who are eligible for Medicare due to end-stage PRIMARY for the first 30 a onhe ond or tne Tis
+renal disease (ESRD) months "
+PRIMARY after that
+Employers with 20 or More Employees
+If an individual is covered under an employer's group health plan covering 20 or more employees, the employer's group health plan is
+primary and Medicare is secondary coverage.
+Employers with 100 or More Employees
+Disabled employees or disabled dependents under the age of 65 who are eligible for Medicare and who are covered under large
+employer group plans will have primary coverage under such group plan. Medicare will become secondary coverage. Large group
+employer plans are those covering 100 or more employees.
+Medicare Carve-outs and Supplements
+Medicare carve-out and supplement plans are available to individuals enrolled in Medicare, and act as excess insurance that pays for
+covered expenses not paid by Medicare, such as deductibles or copayments.
+5. Nondiscrimination Rules (Highly-compensated)
+To avoid nondiscrimination rules violations, and determine the number of employees in the top-paid group (highly-compensated
+employees), the following employees must be excluded from coverage:
+
+* Have not completed 6 months of service;
+
+* Normally work fewer than 17% hours per week;
+
+* Normally work during no more than 6 months per year;
+
+* Are under the age of 21; and
+
+* Included in a unit of employees covered by an agreement which the Secretary of Labor finds to be a collective bargaining
+
+agreement between employee representatives and the employer, except to the extent provided in regulations.
+Highly compensated employee means any employee who:
+* Owned more than 5% of the interest in the business at any time during the year or the preceding year (regardless of the
+employee's compensation); or
+* For the preceding year, received compensation from the business in excess of specified dollar amount ($150,000 if the preceding
+year is 2023), and, if the employer so chooses, was in the top 20% of employees when ranked by compensation.

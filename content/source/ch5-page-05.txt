@@ -1,0 +1,5 @@
+3. Insurance Aspects of Annuities
+
+Annuities are not life insurance; they do not pay a face amount upon the death of the annuitant. In fact, they are just the opposite. In
+most cases, the payment phase stops upon the death of the annuitant. Annuities do use a mortality table, but this table reflects a
+longer life expectancy than the table used in life insurance. A deferred annuity does grow tax-deferred.

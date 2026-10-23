@@ -50,13 +50,13 @@ export function LoginPage() {
           Read the course. Then prove it on a practice test.
         </h1>
         <p className="mt-4 max-w-xl text-lg text-[#3d5166]">
-          Three chapters from the Utah life course: general insurance, life insurance basics, and the types of policies.
+          The Utah life and health course, from Insurance Basics through Utah Insurance Rules.
           Your reading progress and scores stay with your account.
         </p>
       </div>
       <Card className="p-6 sm:p-8">
         <h2 className="font-['Fraunces',Georgia,serif] text-2xl font-semibold text-[#14375f]">Sign in</h2>
-        <p className="mt-2 text-sm text-[#3d5166]">Have a myWealthEd account? Use the same username and password.</p>
+        <p className="mt-2 text-sm text-[#3d5166]">Sign in with your study account username and password.</p>
         {notice ? <p className="mt-4 rounded-xl bg-[#fff6e8] px-3 py-2 text-sm text-[#6a4b16]">{notice}</p> : null}
         <form className="mt-5 space-y-4" onSubmit={onSubmit}>
           <div className="space-y-1.5">
@@ -99,8 +99,8 @@ export function LoginPage() {
           </Link>
         </p>
         <p className="mt-2 text-sm">
-          <Link className="text-[#2a6cb5] hover:underline" to="/forgot">
-            Forgot password
+          <Link className="font-semibold text-[#2a6cb5] hover:underline" to="/forgot">
+            Forgot password?
           </Link>
         </p>
       </Card>
