@@ -550,7 +550,7 @@ export const chapter6Extra: Record<string, Question[]> = {
         },
         {
           text: 'It is an early withdrawal subject to a 25% additional tax.',
-          why: '25% is the reduced penalty for failing to take a required minimum distribution. An early withdrawal before age 59½ is subject to a 10% additional tax.',
+          why: 'The penalty for failing to take a required minimum distribution is 25% of the shortfall, or 10% of the shortfall if the person corrects it in time. An early withdrawal before age 59½ is subject to a 10% additional tax.',
         },
         {
           text: 'The owner may take it, but it is an early withdrawal subject to a 10% additional tax.',
@@ -587,21 +587,21 @@ export const chapter6Extra: Record<string, Question[]> = {
       'Effective January 1, 2023, what did the SECURE Act change about required minimum distributions?',
       [
         {
-          text: 'It lowered the required minimum distribution age from 73 to 72 and raised the missed-distribution penalty from 25% to 50%.',
-          why: 'The direction is reversed. The SECURE Act raised the age from 72 to 73 and reduced the penalty from 50% to 25%.',
+          text: 'It lowered the required minimum distribution age from 73 to 72 and raised the missed-distribution penalty above 25% of the shortfall.',
+          why: 'The direction is reversed. SECURE 2.0 raised the age from 72 to 73. The penalty is 25% of the shortfall, or 10% of the shortfall if the person corrects it in time.',
         },
         {
-          text: 'It raised the required minimum distribution age from 72 to 73 and reduced the penalty for failing to take an RMD from 50% to 25%.',
-          why: 'Effective January 1, 2023, the SECURE Act raised the required minimum distribution age from 72 to 73 and reduced the penalty for failing to take an RMD from 50% to 25%.',
+          text: 'It raised the required minimum distribution age from 72 to 73 and set the penalty for failing to take an RMD at 25% of the shortfall, or 10% of the shortfall if the person corrects it in time.',
+          why: 'Effective January 1, 2023, SECURE 2.0 raised the required minimum distribution age from 72 to 73. The penalty is 25% of the shortfall, or 10% of the shortfall if the person corrects it in time.',
           correct: true,
         },
         {
           text: 'It replaced the 10% additional tax on withdrawals before age 59½ with a 25% tax.',
-          why: 'The 10% additional tax still applies before age 59½. The 50% to 25% change is the penalty for failing to take a required minimum distribution.',
+          why: 'The 10% additional tax still applies before age 59½. The missed-RMD penalty is 25% of the shortfall, or 10% of the shortfall if the person corrects it in time.',
         },
         {
           text: 'It moved the start of required distributions to age 59½ and set the missed-distribution penalty at 10%.',
-          why: 'Age 59½ is when the 10% additional tax on early withdrawals ends. The SECURE Act change concerns the required minimum distribution age and the penalty for missing that distribution.',
+          why: 'Age 59½ is when the 10% additional tax on early withdrawals ends. It is not the required-distribution age. The missed-RMD penalty is 25% of the shortfall, or 10% of the shortfall only when the person corrects it in time.',
         },
       ],
     ),

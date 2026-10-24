@@ -3,7 +3,7 @@ import type { Chapter } from './types.ts'
 import { chapter14Extra } from './extra/chapter14.ts'
 
 /**
- * Wording follows the course OCR in content/source/chapter-14-ocr.txt.
+ * Section text is the current study wording.
  * The source pages have no practice questions. Questions are written from that text,
  * four options each, with a reason for the right answer and for each wrong one.
  */
@@ -17,20 +17,21 @@ export const chapter14: Chapter = {
     {
       id: 'c14-personal',
       title: 'Health insurance you pay for yourself',
-      body: `Taxation of insurance benefits is often determined by whether or not the premiums were taxed. The comparison here is between personally owned health insurance and similar coverage provided by an employer.
+      body: `How an insurance benefit is taxed often depends on whether the premium was taxed. The comparison here is between health insurance a person owns and similar coverage an employer provides.
 
-Terms used in this chapter:
-• Adjusted gross income — gross income, meaning all income from whatever source, minus adjustments to income.
-• Defined-benefit plans — the employer specifies an amount of benefits promised to the employee.
-• Defined-contribution plans — focus on contributions rather than on the benefits they will pay out.
-• IRS — the Internal Revenue Service, the U.S. government agency responsible for collecting taxes and enforcing the Internal Revenue Code.
-• Tax deductible — a qualified expense that may reduce the amount of income subject to taxation.
-• Tax exempt — not subject to taxation.
-• Taxable — subject to taxation.
+These words are used in this chapter.
 
-Premium payments on personally owned disability income policies are nondeductible by the individual. Disability income benefits are received income tax free by the individual.
+• Adjusted gross income. Gross income, meaning all income from whatever source, minus adjustments to income.
+• Defined-benefit plan. A plan in which the employer specifies the amount of benefits promised to the employee.
+• Defined-contribution plan. A plan that focuses on the contributions rather than on the benefits they will pay out.
+• IRS. The Internal Revenue Service, the U.S. agency that collects taxes and enforces the Internal Revenue Code.
+• Tax deductible. A qualified expense that may reduce the amount of income subject to tax.
+• Tax exempt. Not subject to tax.
+• Taxable. Subject to tax.
 
-In a medical expense policy, unreimbursed medical expenses paid for the insured, the insured’s spouse, and dependents may be claimed as deductions if the expenses exceed a certain percentage of the insured’s adjusted gross income. The law permits deductions for unreimbursed expenses in excess of 7.5% of adjusted gross income. This applies only if the insured itemizes these deductions on the tax return.`,
+A premium payment on a personally owned disability income policy is not deductible by the individual. The disability income benefit is received free of income tax by the individual.
+
+On a medical expense policy, unreimbursed medical expenses paid for the insured, the insured's spouse, and dependents may be claimed as deductions if the expenses exceed a certain percentage of the insured's adjusted gross income. The law permits a deduction for unreimbursed expenses in excess of 7.5% of adjusted gross income. That 7.5% floor applies at every age. This applies only if the insured itemizes those deductions on the tax return.`,
       questions: [
         question(
           'c14q01',
@@ -83,22 +84,23 @@ In a medical expense policy, unreimbursed medical expenses paid for the insured,
     {
       id: 'c14-disability',
       title: 'Disability premiums an employer pays',
-      body: `Premiums the employer pays for employees’ disability income insurance are deductible as a business expense and are not taxable income to the employee.
+      body: `A premium the employer pays for an employee's disability income insurance is deductible as a business expense, and it is not taxable income to the employee.
 
-Benefits an employee receives that are attributable to employer contributions are fully taxable to the employee as income. The employee’s own contribution is not deductible. Benefits attributable to the employee’s portion of the contribution are not taxable.
+A benefit the employee receives that is attributable to an employer contribution is fully taxable to the employee as income. The employee's own contribution is not deductible. A benefit attributable to the employee's portion of the contribution is not taxable.
 
-How the benefit is taxed depends on the plan:
-• Noncontributory — the employer pays the entire premium, so the income benefits are included in the employee’s gross income and taxed as ordinary income.
-• Fully contributory — the employee pays the entire premium, so the income benefits are received income tax free.
-• Partially contributory — the employer and the employee each pay part of the premium. The portion paid by the employee is received income tax free. The portion paid by the employer is included in the employee’s gross income and taxed as ordinary income.
+How the benefit is taxed depends on the plan.
 
-If an employee contributes 40% of the premium and receives a benefit of $1,000, only $600 is taxed. That $600 is the 60% employer share. The $400 that matches the employee’s 40% contribution is received tax free.
+• Noncontributory. The employer pays the entire premium, so the income benefits are included in the employee's gross income and taxed as ordinary income.
+• Fully contributory. The employee pays the entire premium, so the income benefits are received free of income tax.
+• Partially contributory. The employer and the employee each pay part of the premium. The portion the employee paid is received free of income tax. The portion the employer paid is included in the employee's gross income and taxed as ordinary income.
 
-Short-term disability group plans usually have a benefit period of less than 2 years. It is common to place a maximum dollar amount on the benefit regardless of earnings, and to have an elimination period, except for disability resulting from accidents.
+If an employee contributes 25% of the premium and receives a benefit of $2,000, only $1,500 is taxed. That $1,500 is the 75% employer share. The $500 that matches the employee's 25% contribution is received tax free.
 
-Long-term disability group plans usually pay benefits for 2 years or longer.
+A short-term disability group plan usually has a benefit period of less than 2 years. It is common to place a maximum dollar amount on the benefit regardless of earnings, and to have an elimination period, except for a disability that results from an accident.
 
-Benefits paid to disabled employees that are attributable to the employer’s contribution are subject to Federal Insurance Contributions Act (FICA) withholding for Social Security purposes. Any portion of the benefit paid for and deducted by the employer is taxable income to the employee.`,
+A long-term disability group plan usually pays benefits for 2 years or longer.
+
+A benefit paid to a disabled employee that is attributable to the employer's contribution is subject to Federal Insurance Contributions Act (FICA) withholding for Social Security. Any portion of the benefit that the employer paid for and deducted is taxable income to the employee.`,
       questions: [
         question(
           'c14q03',
@@ -174,16 +176,17 @@ Benefits paid to disabled employees that are attributable to the employer’s co
     {
       id: 'c14-medical',
       title: 'Group medical, dental, long-term care, and AD&D',
-      body: `For group medical and dental expense insurance, any premium the employer pays is deductible as a business expense. Premiums the employee pays are deductible only to the extent that those premiums, added to all other unreimbursed medical expenses, exceed a percentage of adjusted gross income, and only for people who itemize. Most people who itemize can claim unreimbursed medical expenses, those not covered by health insurance, that exceed 7.5% of adjusted gross income. Group medical and dental benefits are received income tax free by the employee.
+      body: `For group medical and dental expense insurance, any premium the employer pays is deductible as a business expense. A premium the employee pays is deductible only to the extent that the premium, added to all other unreimbursed medical expenses, exceeds a percentage of adjusted gross income, and only for a person who itemizes. A person who itemizes can claim unreimbursed medical expenses, meaning expenses health insurance does not cover, that exceed 7.5% of adjusted gross income. That floor applies at every age. Group medical and dental benefits are received free of income tax by the employee.
 
-These general rules apply to long-term care policies:
-• Premiums may be deductible.
-• Daily benefits are received income tax free, as long as they do not exceed the daily cost of long-term care.
-• Benefits paid in excess of the cost of care received are taxed as ordinary income.
+These general rules apply to a long-term care policy.
 
-Premiums for group accidental death and dismemberment are deductible to the employer as an ordinary business expense. The benefits are received income tax free.
+• The premium may be deductible.
+• A daily benefit is received free of income tax, as long as it does not exceed the daily cost of the long-term care.
+• A benefit paid in excess of the cost of the care received is taxed as ordinary income.
 
-Sole proprietors and partners may deduct 100% of the cost of a medical expense plan provided to them and their families, because they are self-employed individuals, not employees. The deduction may not exceed the taxpayer’s earned income for the year.`,
+A premium for group accidental death and dismemberment is deductible to the employer as an ordinary business expense. The benefit is received free of income tax.
+
+A sole proprietor or a partner may deduct 100% of the cost of a medical expense plan provided to that person and that person's family, because they are self-employed individuals, not employees. The deduction may not exceed the taxpayer's earned income for the year.`,
       questions: [
         question(
           'c14q06',
@@ -236,11 +239,11 @@ Sole proprietors and partners may deduct 100% of the cost of a medical expense p
     {
       id: 'c14-business',
       title: 'Key person and buy-sell disability',
-      body: `A business buys disability insurance on key employees to protect itself from loss when the employee becomes disabled, just as an individual buys disability income insurance to protect the ability to earn a living.
+      body: `A business buys disability insurance on a key employee to protect itself from loss when the employee becomes disabled, just as an individual buys disability income insurance to protect the ability to earn a living.
 
-Key-person disability is purchased by the employer on the life of a key employee. The key person’s economic value is the potential loss of business income, plus the expense of hiring and training a replacement. The business owns the contract, pays the premium, and is the beneficiary. The key person is the insured, and the business must have that person’s written consent to be insured. The premiums are not deductible to the business. The benefits are received income tax free by the business.
+Key-person disability is purchased by the employer on the life of a key employee. The key person's economic value is the potential loss of business income, plus the expense of hiring and training a replacement. The business owns the contract, pays the premium, and is the beneficiary. The key person is the insured, and the business must have that person's written consent to be insured. The premium is not deductible to the business. The benefit is received free of income tax by the business.
 
-Disability buy-sell insurance is typically written to cover partners or corporate officers of a closely held business. It provides funds for the business to purchase the business interest of a disabled partner. Whether the policy is a cross purchase or an entity purchase, the premiums are not deductible to the business, and the benefits are received income tax free by the business.`,
+Disability buy-sell insurance is typically written to cover partners or corporate officers of a closely held business. It provides funds for the business to purchase the business interest of a disabled partner. Whether the policy is a cross purchase or an entity purchase, the premium is not deductible to the business, and the benefit is received free of income tax by the business.`,
       questions: [
         question(
           'c14q08',
@@ -293,11 +296,12 @@ Disability buy-sell insurance is typically written to cover partners or corporat
     {
       id: 'c14-cdhp',
       title: 'High-deductible plans and health savings accounts',
-      body: `Consumer-driven plans, also called consumer-driven health plans, high-deductible plans, or patient-directed plans, are controlled by the employer. The employee receives first-dollar coverage from a designated health account, which can be a health reimbursement account or a health savings account, until the funds are depleted. A deductible gap must then be met before an insurance plan covers additional cost. Other plans may restrict certain coverage. Members of a consumer-driven plan may use plan funds for costs such as genetic testing or a special nursery school for a child without being denied coverage. These plans are taxed in the same manner as other traditional health plans.
+      body: `A consumer-driven plan is also called a consumer-driven health plan, a high-deductible plan, or a patient-directed plan. The employer controls it. The employee receives first-dollar coverage from a designated health account, which can be a health reimbursement account or a health savings account, until the funds are depleted. A deductible gap must then be met before an insurance plan covers additional cost. Another plan may restrict certain coverage. A member of a consumer-driven plan may use plan funds for a cost such as genetic testing, or a special nursery school for a child, without being denied coverage. These plans are taxed in the same manner as other traditional health plans.
 
-Health savings accounts feature tax-deferred growth. They let the insured pay for medical expenses with pre-tax income. Excess funds can be carried over to the next year. Regardless of how income is earned, money deposited into a health savings account is an above-the-line deduction, a 100% write-off against adjusted gross income.
+A health savings account features tax-deferred growth. It lets the insured pay for medical expenses with pre-tax income. Excess funds can be carried over to the next year. Regardless of how the income is earned, money deposited into a health savings account is an above-the-line deduction, a 100% write-off against adjusted gross income.
 
-Tax-free withdrawals include:
+These withdrawals are tax free.
+
 • Doctors, dentists, and hospitals.
 • Artificial limbs.
 • Drugs.
@@ -361,7 +365,7 @@ Tax-free withdrawals include:
     {
       id: 'c14-hra',
       title: 'Health reimbursement accounts',
-      body: `In a health reimbursement account, the employer’s contribution is tax deductible in the year the reimbursement is made to the employee. The employee is not taxed on receipt of the benefit. Benefits must be paid solely to the employee for medical care of the employee, the employee’s spouse, or dependents. If funds are distributed for something other than medical care, the benefit is taxable income to the employee.`,
+      body: `In a health reimbursement account, the employer's contribution is tax deductible in the year the reimbursement is made to the employee. The employee is not taxed when the benefit is received. The benefit must be paid solely to the employee for medical care of the employee, the employee's spouse, or a dependent. If funds are distributed for something other than medical care, the benefit is taxable income to the employee.`,
       questions: [
         question(
           'c14q12',
@@ -391,24 +395,25 @@ Tax-free withdrawals include:
     {
       id: 'c14-chart',
       title: 'A chart of what is deductible and what is taxed',
-      body: `The course chart summarizes premiums and benefits this way:
-• Individual disability income — premiums not deductible, benefits not taxable.
-• Group disability income — premiums deductible for the employer, benefits taxable.
-• Individual medical — premiums not deductible, benefits not taxable.
-• Group medical — premiums deductible for the employer, benefits not taxable.
-• Individual long-term care — premiums not deductible, benefits not taxable.
-• Group long-term care — premiums deductible for the employer, benefits not taxable.
-• Individual Medicare supplement — premiums not deductible, benefits not taxable.
-• Group Medicare supplement — premiums deductible for the employer, benefits not taxable.
-• Buy-sell — premiums not deductible, benefits not taxable.
-• Key person — premiums not deductible, benefits not taxable.
-• Business overhead expense — premiums deductible for the employer, benefits taxable.
-• MSAs — premiums deductible. Benefits are not taxable when used for medical expenses, and taxable when taken out at the end of the year.
-• FSAs — premiums not deductible, benefits not taxable.
-• Health reimbursement accounts — premiums deductible, benefits not taxable.
-• Health savings accounts — premiums deductible. Benefits are not taxable when used for medical expenses. They are taxable, plus a 20% penalty, for nonmedical use under age 65. There is no penalty over age 65.
+      body: `The course chart summarizes premiums and benefits this way.
 
-The chart marks individual medical, individual long-term care, and individual Medicare supplement premiums with a note: unless combined premiums and unreimbursed medical expenses exceed 10% of adjusted gross income, or 7.5% for individuals age 65 or older, and subject to the tax-qualified limitations.`,
+• Individual disability income. Premiums are not deductible. Benefits are not taxable.
+• Group disability income. Premiums are deductible for the employer. Benefits are taxable.
+• Individual medical. Premiums are not deductible. Benefits are not taxable.
+• Group medical. Premiums are deductible for the employer. Benefits are not taxable.
+• Individual long-term care. Premiums are not deductible. Benefits are not taxable.
+• Group long-term care. Premiums are deductible for the employer. Benefits are not taxable.
+• Individual Medicare supplement. Premiums are not deductible. Benefits are not taxable.
+• Group Medicare supplement. Premiums are deductible for the employer. Benefits are not taxable.
+• Buy-sell. Premiums are not deductible. Benefits are not taxable.
+• Key person. Premiums are not deductible. Benefits are not taxable.
+• Business overhead expense. Premiums are deductible for the employer. Benefits are taxable.
+• MSAs. Premiums are deductible. Benefits are not taxable when they are used for medical expenses, and they are taxable when they are taken out at the end of the year.
+• FSAs. Premiums are not deductible. Benefits are not taxable.
+• Health reimbursement accounts. Premiums are deductible. Benefits are not taxable.
+• Health savings accounts. Premiums are deductible. Benefits are not taxable when they are used for medical expenses. They are taxable, plus a 20% penalty, for a nonmedical use under age 65. There is no penalty over age 65.
+
+The chart marks individual medical, individual long-term care, and individual Medicare supplement premiums with a note. Those premiums are deductible only when the combined premiums and unreimbursed medical expenses exceed 7.5% of adjusted gross income, the taxpayer itemizes, and the deduction meets the tax-qualified limits. The 7.5% floor applies at every age.`,
       questions: [
         question(
           'c14q13',
@@ -461,13 +466,13 @@ The chart marks individual medical, individual long-term care, and individual Me
           'What exception does the chart give for individual medical, long-term care, and Medicare supplement premiums?',
           [
             {
-              text: 'They are not deductible unless combined premiums and unreimbursed medical expenses exceed 10% of adjusted gross income, or 7.5% for a person age 65 or older, subject to the tax-qualified limitations.',
-              why: 'The narrative on personally owned medical expense insurance states a deduction for unreimbursed expenses in excess of 7.5% of adjusted gross income when the person itemizes. The chart states this 10% and age-65 7.5% note for those three individual premium lines.',
+              text: 'They are deductible only when combined premiums and unreimbursed medical expenses exceed 7.5% of adjusted gross income, the taxpayer itemizes, and the deduction meets the tax-qualified limits. The 7.5% floor applies at every age.',
+              why: 'The 7.5% floor applies at every age. It is not a 10% threshold, and it is not limited to people age 65 or older. The taxpayer must itemize, and the tax-qualified limits still apply.',
               correct: true,
             },
             {
               text: 'They are deductible in full for a person under 65, and not deductible at 65 or older.',
-              why: 'The chart’s exception runs the other way for age. The 7.5% threshold on the chart applies to individuals age 65 or older. Under that age the chart uses 10%.',
+              why: 'The 7.5% floor applies at every age. Age does not switch the threshold to 10% or remove the deduction.',
             },
             {
               text: 'They are always deductible above the line, like a health savings account deposit.',

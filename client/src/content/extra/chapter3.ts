@@ -55,7 +55,7 @@ export const chapter3Extra: Record<string, Question[]> = {
       [
         {
           text: 'There is no maximum age, and renewal always keeps the original premium.',
-          why: 'That contradicts the term rule. There is usually a maximum age above which coverage will not be offered or cannot be renewed. Age 100 is the whole life maturity date, not a promise that term can always be renewed.',
+          why: 'That contradicts the term rule. There is usually a maximum age above which coverage will not be offered or cannot be renewed. Age 121 is the whole life maturity date, not a promise that term can always be renewed.',
         },
         {
           text: 'The premium must be based on a joint age.',
@@ -173,8 +173,8 @@ export const chapter3Extra: Record<string, Question[]> = {
           why: 'A premium that increases at each renewal because it is based on attained age describes annual renewable term. In level term, level refers to the death benefit.',
         },
         {
-          text: 'Cash value that equals the face amount at age 100.',
-          why: 'Cash value scheduled to equal the face amount at age 100 is whole life. Level term has no cash value. Level refers to the death benefit, which does not change.',
+          text: 'Cash value that equals the face amount at age 121.',
+          why: 'Cash value scheduled to equal the face amount at age 121 is whole life. Level term has no cash value. Level refers to the death benefit, which does not change.',
         },
         {
           text: 'A death benefit that drops each year while the premium stays level.',
@@ -265,8 +265,8 @@ export const chapter3Extra: Record<string, Question[]> = {
           why: 'A death benefit that drops each year, with a level premium, is decreasing term. The annual renewable term premium increases because it is based on attained age.',
         },
         {
-          text: 'Because the policy endows at age 100.',
-          why: 'Cash value scheduled to equal the face amount at age 100 is whole life. The annual renewable term premium increases because it is based on attained age.',
+          text: 'Because the policy endows at age 121.',
+          why: 'Cash value scheduled to equal the face amount at age 121 is whole life. The annual renewable term premium increases because it is based on attained age.',
         },
         {
           text: 'Because return of premium costs sometimes 25% to 50% more than traditional term.',
@@ -330,8 +330,8 @@ export const chapter3Extra: Record<string, Question[]> = {
       'Return of premium is an increasing term policy. If the insured dies within a stated period, what additional death benefit does it pay?',
       [
         {
-          text: 'The cash value scheduled to equal the face amount at age 100.',
-          why: 'Cash value equal to the face amount at age 100 is whole life maturity. Return of premium pays an additional death benefit equal to the premiums paid.',
+          text: 'The cash value scheduled to equal the face amount at age 121.',
+          why: 'Cash value equal to the face amount at age 121 is whole life maturity. Return of premium pays an additional death benefit equal to the premiums paid.',
         },
         {
           text: 'Nothing. An increasing term benefit never pays on death.',
@@ -406,7 +406,7 @@ export const chapter3Extra: Record<string, Question[]> = {
         },
         {
           text: 'The policyowner.',
-          why: 'Cash value is scheduled to equal the face amount at age 100, the maturity date, and is then paid to the policyowner.',
+          why: 'Cash value is scheduled to equal the face amount at age 121, the maturity date, and is then paid to the policyowner.',
           correct: true,
         },
         {
@@ -433,12 +433,12 @@ export const chapter3Extra: Record<string, Question[]> = {
         },
         {
           text: 'They are credited regularly at a guaranteed interest rate.',
-          why: 'Whole life cash values are credited regularly at a guaranteed interest rate and are scheduled to equal the face amount at age 100.',
+          why: 'Whole life cash values are credited regularly at a guaranteed interest rate and are scheduled to equal the face amount at age 121.',
           correct: true,
         },
         {
           text: 'A current rate may be higher than the contract rate, and that current rate is not guaranteed.',
-          why: 'A contract rate, often 3% to 6%, with a higher current rate that is not guaranteed, describes universal life. Whole life cash values are credited regularly at a guaranteed interest rate.',
+          why: 'A contract rate, about 0% to 2%, with a higher current rate that is not guaranteed, describes universal life. Whole life cash values are credited regularly at a guaranteed interest rate.',
         },
       ],
     ),
@@ -517,20 +517,20 @@ export const chapter3Extra: Record<string, Question[]> = {
       [
         {
           text: 'With one lump sum, which creates immediate cash value.',
-          why: 'One lump sum and immediate cash value describe single premium whole life. Straight life premiums continue from issue until the insured dies or age 100, whichever comes first.',
+          why: 'One lump sum and immediate cash value describe single premium whole life. Straight life premiums continue from issue until the insured dies or age 121, whichever comes first.',
         },
         {
           text: 'Only until age 65, after which every straight life policy is paid up.',
-          why: 'Life paid-up at 65 is a limited-pay example. Straight life premiums continue until the insured dies or age 100, whichever comes first.',
+          why: 'Life paid-up at 65 is a limited-pay example. Straight life premiums continue until the insured dies or age 121, whichever comes first.',
         },
         {
-          text: 'From issue until the insured dies or age 100, whichever comes first.',
-          why: 'Straight life is the basic policy. The owner pays from issue until the insured dies or age 100, whichever comes first. Cash value builds more slowly than in a limited-pay policy.',
+          text: 'From issue until the insured dies or age 121, whichever comes first.',
+          why: 'Straight life is the basic policy. The owner pays from issue until the insured dies or age 121, whichever comes first. Cash value builds more slowly than in a limited-pay policy.',
           correct: true,
         },
         {
           text: 'Until the first death when two lives are insured.',
-          why: 'Payment at the first death is joint life. Straight life premiums run until the insured dies or age 100, whichever comes first.',
+          why: 'Payment at the first death is joint life. Straight life premiums run until the insured dies or age 121, whichever comes first.',
         },
       ],
     ),
@@ -567,8 +567,8 @@ export const chapter3Extra: Record<string, Question[]> = {
           correct: true,
         },
         {
-          text: 'Premiums continue to age 100, and cash value usually starts in the third policy year.',
-          why: 'Premiums until death or age 100, with cash value that usually starts in the third policy year, describe straight whole life. Single premium whole life is one lump sum and creates immediate cash value.',
+          text: 'Premiums continue to age 121, and cash value usually starts in the third policy year.',
+          why: 'Premiums until death or age 121, with cash value that usually starts in the third policy year, describe straight whole life. Single premium whole life is one lump sum and creates immediate cash value.',
         },
         {
           text: 'The premium increases at each renewal, and there is no cash value.',
@@ -688,8 +688,8 @@ export const chapter3Extra: Record<string, Question[]> = {
           correct: true,
         },
         {
-          text: 'A current rate that is not guaranteed and may exceed a contract rate of 3% to 6%.',
-          why: 'A contract guarantee often of 3% to 6%, with a higher current rate that is not guaranteed, describes universal life. Adjustable life cash value earns a fixed rate in the general account.',
+          text: 'A current rate that is not guaranteed and may exceed a contract rate of about 0% to 2%.',
+          why: 'A contract guarantee of about 0% to 2%, with a higher current rate that is not guaranteed, describes universal life. Adjustable life cash value earns a fixed rate in the general account.',
         },
         {
           text: 'No rate, because adjustable life cannot develop cash value.',
@@ -760,7 +760,7 @@ export const chapter3Extra: Record<string, Question[]> = {
         },
         {
           text: 'It guarantees the current interest rate.',
-          why: 'The current rate is not guaranteed. The contract guarantees a rate, often 3% to 6%. The minimum premium keeps the policy in force for the current year and makes it perform like annually renewable term.',
+          why: 'The current rate is not guaranteed. The contract guarantees a rate, about 0% to 2%. The minimum premium keeps the policy in force for the current year and makes it perform like annually renewable term.',
         },
         {
           text: 'It makes the death benefit equal the face amount plus the cash value.',
@@ -782,12 +782,12 @@ export const chapter3Extra: Record<string, Question[]> = {
           correct: true,
         },
         {
-          text: 'A level premium payable until death or age 100, whichever comes first.',
-          why: 'Premiums until death or age 100 describe straight whole life. The target premium is the recommended universal life amount that keeps the policy in force for life.',
+          text: 'A level premium payable until death or age 121, whichever comes first.',
+          why: 'Premiums until death or age 121 describe straight whole life. The target premium is the recommended universal life amount that keeps the policy in force for life.',
         },
         {
-          text: 'The guaranteed contract interest rate, often 3% to 6%.',
-          why: 'Often 3% to 6% is the guaranteed contract interest rate. It is not the target premium. The target premium is the recommended amount that covers the cost of insurance and keeps the policy in force for life.',
+          text: 'The guaranteed contract interest rate, about 0% to 2%.',
+          why: 'About 0% to 2% is the guaranteed contract interest rate. It is not the target premium. The target premium is the recommended amount that covers the cost of insurance and keeps the policy in force for life.',
         },
       ],
     ),
@@ -797,20 +797,20 @@ export const chapter3Extra: Record<string, Question[]> = {
       [
         {
           text: 'The current rate is guaranteed, and the contract rate is not.',
-          why: 'The contract guarantees a rate, often 3% to 6%. A current rate may be higher and is not guaranteed.',
+          why: 'The contract guarantees a rate, about 0% to 2%. A current rate may be higher and is not guaranteed.',
         },
         {
           text: 'Cash value can earn only a fixed general-account rate, with no current rate.',
-          why: 'A fixed rate in the general account describes adjustable life cash value. Universal life guarantees a contract rate, often 3% to 6%, and a current rate may be higher and is not guaranteed.',
+          why: 'A fixed rate in the general account describes adjustable life cash value. Universal life guarantees a contract rate, about 0% to 2%, and a current rate may be higher and is not guaranteed.',
         },
         {
-          text: 'The contract guarantees a rate, often 3% to 6%. A current rate may be higher and is not guaranteed.',
-          why: 'Universal life is interest sensitive. The contract guarantees a rate, often 3% to 6%. A current rate may be higher and is not guaranteed.',
+          text: 'The contract guarantees a rate, about 0% to 2%. A current rate may be higher and is not guaranteed.',
+          why: 'Universal life is interest sensitive. The contract guarantees a rate, about 0% to 2%. A current rate may be higher and is not guaranteed.',
           correct: true,
         },
         {
           text: 'The only rate is the portfolio return, and the owner bears the investment risk.',
-          why: 'A portfolio of securities, with investment risk on the policyowner, describes a variable contract. Universal life uses a guaranteed contract rate, often 3% to 6%, and an unguaranteed current rate.',
+          why: 'A portfolio of securities, with investment risk on the policyowner, describes a variable contract. Universal life uses a guaranteed contract rate, about 0% to 2%, and an unguaranteed current rate.',
         },
       ],
     ),
@@ -855,8 +855,8 @@ export const chapter3Extra: Record<string, Question[]> = {
           why: 'A death benefit that drops each year and is zero at the end of the term describes decreasing term. Option A keeps the total death benefit level.',
         },
         {
-          text: 'The policy matures when cash value equals the face amount at age 100.',
-          why: 'Cash value scheduled to equal the face amount at age 100 is traditional whole life. Under Option A, pure insurance shrinks so the total death benefit stays level.',
+          text: 'The policy matures when cash value equals the face amount at age 121.',
+          why: 'Cash value scheduled to equal the face amount at age 121 is traditional whole life. Under Option A, pure insurance shrinks so the total death benefit stays level.',
         },
       ],
     ),
@@ -1013,8 +1013,8 @@ export const chapter3Extra: Record<string, Question[]> = {
           why: 'An attained-age premium increase describes annual renewable term. Variable life has a level fixed premium and a guaranteed minimum death benefit. The cash value is not guaranteed.',
         },
         {
-          text: 'One lump sum, and cash value is scheduled to equal the face amount at age 100.',
-          why: 'One lump sum describes single premium whole life, and age 100 is the traditional whole life maturity date. Variable life uses a level fixed premium, guarantees a minimum death benefit, and does not guarantee cash value.',
+          text: 'One lump sum, and cash value is scheduled to equal the face amount at age 121.',
+          why: 'One lump sum describes single premium whole life, and age 121 is the traditional whole life maturity date. Variable life uses a level fixed premium, guarantees a minimum death benefit, and does not guarantee cash value.',
         },
         {
           text: 'A level fixed premium and a guaranteed minimum death benefit. The cash value is not guaranteed and fluctuates with the portfolio.',
@@ -1074,8 +1074,8 @@ export const chapter3Extra: Record<string, Question[]> = {
       'What must a domestic insurer that issues variable contracts establish, and what must the assets of each account at least equal?',
       [
         {
-          text: 'One general account, with assets equal to the face amount at age 100.',
-          why: 'Equality of cash value and face amount at age 100 is a whole life schedule. A domestic insurer that issues variable contracts must establish one or more separate accounts, and the assets of each account must at least equal the reserves and other contract liabilities.',
+          text: 'One general account, with assets equal to the face amount at age 121.',
+          why: 'Equality of cash value and face amount at age 121 is a whole life schedule. A domestic insurer that issues variable contracts must establish one or more separate accounts, and the assets of each account must at least equal the reserves and other contract liabilities.',
         },
         {
           text: 'A trust for the policyowners, with assets equal to two individual premiums.',
@@ -1101,8 +1101,8 @@ export const chapter3Extra: Record<string, Question[]> = {
           why: 'A fixed rate in the general account describes adjustable life cash value. Separate-account assets cannot be commingled with general-account assets.',
         },
         {
-          text: 'They are scheduled to equal the face amount at age 100.',
-          why: 'Cash value scheduled to equal the face amount at age 100 is whole life. Separate-account assets cannot be commingled with general-account assets, and variable cash value is not guaranteed.',
+          text: 'They are scheduled to equal the face amount at age 121.',
+          why: 'Cash value scheduled to equal the face amount at age 121 is whole life. Separate-account assets cannot be commingled with general-account assets, and variable cash value is not guaranteed.',
         },
         {
           text: 'They are returned if the insured is alive at the end of the term.',
@@ -1166,8 +1166,8 @@ export const chapter3Extra: Record<string, Question[]> = {
       'How do most investment choices in variable universal life differ from universal life?',
       [
         {
-          text: 'They guarantee the contract rate of 3% to 6%.',
-          why: 'A contract guarantee, often 3% to 6%, is a universal life interest feature. Most variable universal life investment choices do not guarantee a return.',
+          text: 'They guarantee the contract rate of about 0% to 2%.',
+          why: 'A contract guarantee, about 0% to 2%, is a universal life interest feature. Most variable universal life investment choices do not guarantee a return.',
         },
         {
           text: 'They earn a fixed rate in the general account.',
@@ -1179,8 +1179,8 @@ export const chapter3Extra: Record<string, Question[]> = {
           correct: true,
         },
         {
-          text: 'They guarantee that cash value will equal the face amount at age 100.',
-          why: 'Cash value scheduled to equal the face amount at age 100 is traditional whole life. Most variable universal life investment choices do not guarantee a return.',
+          text: 'They guarantee that cash value will equal the face amount at age 121.',
+          why: 'Cash value scheduled to equal the face amount at age 121 is traditional whole life. Most variable universal life investment choices do not guarantee a return.',
         },
       ],
     ),
@@ -1291,8 +1291,8 @@ export const chapter3Extra: Record<string, Question[]> = {
           why: 'Increasing term is used for inflation and is often added as a rider. Joint life fits a need that ends at the first death.',
         },
         {
-          text: 'A permanent need that continues until age 100.',
-          why: 'Lifetime protection, with cash value scheduled to equal the face amount at age 100, is whole life. Joint life fits a need that ends at the first death.',
+          text: 'A permanent need that continues until age 121.',
+          why: 'Lifetime protection, with cash value scheduled to equal the face amount at age 121, is whole life. Joint life fits a need that ends at the first death.',
         },
         {
           text: 'The mortgage of a two-income couple, or a buy-sell agreement between business partners.',
@@ -1377,8 +1377,8 @@ export const chapter3Extra: Record<string, Question[]> = {
       'The face amount of a jumping juvenile policy increases at a predetermined age. The chapter says that age is often what?',
       [
         {
-          text: 'Age 100.',
-          why: 'Age 100 is the maturity date when traditional whole life cash value is scheduled to equal the face amount. The jumping juvenile face amount increases at a predetermined age, often age 21.',
+          text: 'Age 121.',
+          why: 'Age 121 is the maturity date when traditional whole life cash value is scheduled to equal the face amount. The jumping juvenile face amount increases at a predetermined age, often age 21.',
         },
         {
           text: 'Age 65.',
@@ -1479,8 +1479,8 @@ export const chapter3Extra: Record<string, Question[]> = {
           why: 'A separate account is a variable-contract requirement. The group must exist for a reason other than buying insurance.',
         },
         {
-          text: 'It must exist so that every certificate endows at age 100.',
-          why: 'Age 100 is the traditional whole life maturity date. The group must exist for a reason other than buying insurance.',
+          text: 'It must exist so that every certificate endows at age 121.',
+          why: 'Age 121 is the traditional whole life maturity date. The group must exist for a reason other than buying insurance.',
         },
         {
           text: 'It must exist for a reason other than buying insurance.',
@@ -1567,8 +1567,8 @@ export const chapter3Extra: Record<string, Question[]> = {
           why: 'A separate account invests in stocks, bonds, and other securities for a variable contract. Group underwriting looks at purpose, size, turnover of younger lives, and financial strength.',
         },
         {
-          text: 'The guaranteed interest rate and endowment at age 100.',
-          why: 'A guaranteed interest rate and maturity at age 100 are whole life features. Group underwriting looks at purpose, size, turnover, and financial strength to pay premiums.',
+          text: 'The guaranteed interest rate and endowment at age 121.',
+          why: 'A guaranteed interest rate and maturity at age 121 are whole life features. Group underwriting looks at purpose, size, turnover, and financial strength to pay premiums.',
         },
         {
           text: 'The corridor percentages and the Option A death benefit.',
@@ -1599,8 +1599,8 @@ export const chapter3Extra: Record<string, Question[]> = {
           why: 'A joint age, with a premium less than the sum of two individual premiums, is joint life. Group cost uses the average age of the group and the ratio of men to women.',
         },
         {
-          text: 'The universal life contract rate, often 3% to 6%.',
-          why: 'Often 3% to 6% is the guaranteed contract interest rate on universal life. Group cost is based on the average age of the group and the ratio of men to women.',
+          text: 'The universal life contract rate, about 0% to 2%.',
+          why: 'About 0% to 2% is the guaranteed contract interest rate on universal life. Group cost is based on the average age of the group and the ratio of men to women.',
         },
       ],
     ),
@@ -1659,12 +1659,12 @@ export const chapter3Extra: Record<string, Question[]> = {
           why: 'Five years is how long a person must have been on the plan to convert when the master contract ends. An employee who leaves has 31 days to convert and remains covered under the group policy during that period.',
         },
         {
-          text: 'Until age 100, with no separate conversion window.',
-          why: 'Age 100 is the traditional whole life maturity date. The employee has 31 days to convert and remains covered under the group policy during that period.',
+          text: 'Until age 121, with no separate conversion window.',
+          why: 'Age 121 is the traditional whole life maturity date. The employee has 31 days to convert and remains covered under the group policy during that period.',
         },
         {
           text: 'Until cash value equals the face amount, as on a whole life maturity date.',
-          why: 'Cash value scheduled to equal the face amount at age 100 is whole life maturity. An employee who leaves the group has 31 days to convert and remains covered under the group policy during that period.',
+          why: 'Cash value scheduled to equal the face amount at age 121 is whole life maturity. An employee who leaves the group has 31 days to convert and remains covered under the group policy during that period.',
         },
         {
           text: '31 days, and the employee remains covered under the group policy during that period.',
@@ -1795,8 +1795,8 @@ export const chapter3Extra: Record<string, Question[]> = {
       'Why can the credit life benefit not be more than the balance of the debt?',
       [
         {
-          text: 'So the policy will endow at age 100.',
-          why: 'Endowment when cash value reaches the face amount, scheduled at age 100, is whole life. The credit life limit exists so there is no financial incentive for the death of the insured.',
+          text: 'So the policy will endow at age 121.',
+          why: 'Endowment when cash value reaches the face amount, scheduled at age 121, is whole life. The credit life limit exists so there is no financial incentive for the death of the insured.',
         },
         {
           text: 'So there is no financial incentive for the death of the insured.',

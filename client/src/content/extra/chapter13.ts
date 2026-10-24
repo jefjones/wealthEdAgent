@@ -78,7 +78,7 @@ export const chapter13Extra: Record<string, Question[]> = {
       [
         {
           text: 'Original Medicare, meaning Part A and Part B only.',
-          why: 'Original Medicare means Part A and Part B only. Medicare is administered by the Center for Medicare and Medicaid Services, a division of the United States Department of Health and Human Services.',
+          why: 'Original Medicare means Part A and Part B only. Medicare is administered by the Centers for Medicare & Medicaid Services (CMS), which is part of the United States Department of Health and Human Services.',
         },
         {
           text: 'A network provider that contracts with other providers to serve the network’s subscribers.',
@@ -89,8 +89,8 @@ export const chapter13Extra: Record<string, Question[]> = {
           why: 'An HMO is a prepaid medical service plan in which specified providers contract with the organization, with a focus on preventive care. It does not administer Medicare.',
         },
         {
-          text: 'The Center for Medicare and Medicaid Services, a division of the United States Department of Health and Human Services.',
-          why: 'Medicare is administered by the Center for Medicare and Medicaid Services, a division of the United States Department of Health and Human Services.',
+          text: 'The Centers for Medicare & Medicaid Services (CMS), which is part of the United States Department of Health and Human Services.',
+          why: 'Medicare is administered by the Centers for Medicare & Medicaid Services (CMS), which is part of the United States Department of Health and Human Services.',
           correct: true,
         },
       ],
@@ -383,8 +383,8 @@ export const chapter13Extra: Record<string, Question[]> = {
           correct: true,
         },
         {
-          text: 'Anyone who paid Medicare taxes for fewer than 30 quarters and owes the $506 premium.',
-          why: 'The standard Part A premium is $506 when Medicare taxes were paid for fewer than 30 quarters. That premium is not the citizen or legal-resident eligibility path.',
+          text: 'Anyone who paid Medicare taxes for fewer than 30 quarters and owes the $565 premium.',
+          why: 'The standard Part A premium is $565 when Medicare taxes were paid for fewer than 30 quarters. That premium is not the citizen or legal-resident eligibility path.',
         },
         {
           text: 'A person whose spouse is younger than 62 and who is not qualified for Social Security or Railroad Retirement benefits.',
@@ -456,7 +456,7 @@ export const chapter13Extra: Record<string, Question[]> = {
         },
         {
           text: 'Only after Medicare taxes were paid for 30 to 39 quarters.',
-          why: 'Medicare taxes paid for 30 to 39 quarters set the standard Part A premium at $278. They do not open the special enrollment period.',
+          why: 'Medicare taxes paid for 30 to 39 quarters set the standard Part A premium at $311. They do not open the special enrollment period.',
         },
         {
           text: 'At any time during the year if the person or the person’s spouse is still employed and covered under a group health plan.',
@@ -502,12 +502,12 @@ export const chapter13Extra: Record<string, Question[]> = {
           correct: true,
         },
         {
-          text: 'The premium becomes $506 because Medicare taxes were paid for 30 to 39 quarters.',
-          why: 'The $506 standard premium applies to fewer than 30 quarters, and $278 applies to 30 to 39 quarters. A late signup may instead raise the monthly premium 10% unless a special enrollment period applies.',
+          text: 'The premium becomes $565 because Medicare taxes were paid for 30 to 39 quarters.',
+          why: 'The $565 standard premium applies to fewer than 30 quarters, and $311 applies to 30 to 39 quarters. A late signup may instead raise the monthly premium 10% unless a special enrollment period applies.',
         },
         {
-          text: 'The premium becomes $278 because Medicare taxes were paid for fewer than 30 quarters.',
-          why: 'Fewer than 30 quarters produces the $506 standard premium, and 30 to 39 quarters produces $278. A late signup may instead raise the monthly premium 10% unless a special enrollment period applies.',
+          text: 'The premium becomes $311 because Medicare taxes were paid for fewer than 30 quarters.',
+          why: 'Fewer than 30 quarters produces the $565 standard premium, and 30 to 39 quarters produces $311. A late signup may instead raise the monthly premium 10% unless a special enrollment period applies.',
         },
       ],
     ),
@@ -2171,7 +2171,7 @@ export const chapter13Extra: Record<string, Question[]> = {
         },
         {
           text: 'The Part A deductible, skilled nursing facility coinsurance, 100% of Medicare Part B excess charges, and the foreign travel benefit.',
-          why: 'Those are the items Plan G adds, and Plan G must also pay for services of activities of daily living that Medicare does not cover. Plan B adds the Medicare Part A deductible.',
+          why: 'Those items are part of what Plan G adds. Medigap does not cover custodial help with activities of daily living, and Plan G does not cover the Part B deductible. Plan B adds the Medicare Part A deductible.',
         },
         {
           text: '50% of the Part A deductible and 50% of skilled nursing facility coinsurance.',
@@ -2972,8 +2972,8 @@ export const chapter13Extra: Record<string, Question[]> = {
       'Who designs and administers Medicaid, and under what kind of guidelines?',
       [
         {
-          text: 'The states, typically through the state’s Department of Public Welfare, under broad federal guidelines.',
-          why: 'States design and administer Medicaid, typically through the state’s Department of Public Welfare, under broad federal guidelines.',
+          text: 'The states, typically through the state’s Medicaid agency, under broad federal guidelines. In Utah, that agency is the Utah Department of Health and Human Services.',
+          why: 'States design and administer Medicaid, typically through the state’s Medicaid agency, under broad federal guidelines. In Utah, that agency is the Utah Department of Health and Human Services.',
           correct: true,
         },
         {
@@ -2982,7 +2982,7 @@ export const chapter13Extra: Record<string, Question[]> = {
         },
         {
           text: 'The Departments of Homeland Security and Labor, with no state welfare department.',
-          why: 'Those departments are examples of data sources. States design and administer the program, typically through the Department of Public Welfare.',
+          why: 'Those departments are examples of data sources. States design and administer the program, typically through the state’s Medicaid agency. In Utah, that agency is the Utah Department of Health and Human Services.',
         },
         {
           text: 'The federal government alone, with states barred from setting eligibility.',
@@ -3049,8 +3049,8 @@ export const chapter13Extra: Record<string, Question[]> = {
           why: 'Individuals must meet documentation rules for U.S. citizenship, but income verification after the Affordable Care Act relies primarily on agency data rather than paper from families.',
         },
         {
-          text: 'Only the state’s Department of Public Welfare case notes.',
-          why: 'That department is the typical administrator. The data sources named for this change include the Social Security Administration and the Departments of Homeland Security and Labor.',
+          text: 'Only the Utah Department of Health and Human Services case notes.',
+          why: 'In Utah, the Medicaid agency is the Utah Department of Health and Human Services. The data sources named for this change include the Social Security Administration and the Departments of Homeland Security and Labor, not only that agency’s case notes.',
         },
         {
           text: 'Data from sources such as the Social Security Administration and the Departments of Homeland Security and Labor.',
@@ -3320,19 +3320,19 @@ export const chapter13Extra: Record<string, Question[]> = {
       [
         {
           text: 'Out-of-pocket costs for every Medicare Advantage enrollee.',
-          why: 'The out-of-pocket limit applies to dual eligibles and beneficiaries in a specialized Medicare Advantage plan for special-needs individuals. The eliminations are specified psychiatric copayments and Medicare Part D late-enrollment penalties.',
+          why: 'The out-of-pocket limit applies to dual eligibles and beneficiaries in a specialized Medicare Advantage plan for special-needs individuals. The act eliminates copayments for non-inpatient Medicare psychiatric services. It did not eliminate the Part D late-enrollment penalty.',
         },
         {
-          text: 'Interest on late Part D claims.',
-          why: 'Part D changes require interest on late claims. The act eliminates certain psychiatric copayments and Medicare Part D late-enrollment penalties.',
+          text: 'Interest on late Part D claims, and the Part D late-enrollment penalty.',
+          why: 'Part D changes require interest on late claims. The act did not eliminate the late-enrollment penalty. It changed the low-income subsidy, also called Extra Help.',
         },
         {
           text: 'Copayments for psychiatric services while the person is a hospital inpatient.',
           why: 'The eliminated copayments are for Medicare psychiatric services for a person who is not a hospital inpatient when the expenses are incurred.',
         },
         {
-          text: 'Copayments for Medicare psychiatric services for a person who is not a hospital inpatient when the expenses are incurred, and Medicare Part D late-enrollment penalties.',
-          why: 'The act eliminates those psychiatric copayments and eliminates Medicare Part D late-enrollment penalties. It also prohibits gifts or prizes as enrollment inducements, unsolicited direct contact, cross-selling of nonhealth products such as annuities and life insurance during a Medicare Advantage sales presentation, and meals for prospective enrollees.',
+          text: 'Copayments for Medicare psychiatric services for a person who is not a hospital inpatient when the expenses are incurred.',
+          why: 'The act eliminates those psychiatric copayments. It did not eliminate the Part D late-enrollment penalty. That penalty remains 1% of the national base beneficiary premium for each uncovered month. The act changed the Part D low-income subsidy, also called Extra Help.',
           correct: true,
         },
       ],

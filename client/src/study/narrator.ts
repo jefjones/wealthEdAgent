@@ -1,3 +1,4 @@
+import { subjectTitle } from '../content/rewrite.ts'
 import { anchorHighlight, orderHighlights } from './highlights.ts'
 
 /**
@@ -21,8 +22,23 @@ export type SpeechPart = {
   speak: string
 }
 
-/** Stay under Chrome's roughly 15 second utterance cutoff, including the slower 0.8× rate. */
-export const SPEECH_CHUNK_LIMIT = 180
+/**
+ * A sentence is one utterance. The course sentences are shorter than this limit.
+ * Anything longer is split so Chrome does not drop the end of a very long utterance.
+ */
+export const SPEECH_CHUNK_LIMIT = 520
+
+/** Browser default. Set explicitly so a later change cannot drift. */
+export const NARRATION_PITCH = 1
+
+export const AUTO_VOICE_ID = 'auto'
+export const NARRATION_VOICE_STORAGE_KEY = 'study-narration-voice'
+export const VOICE_PREVIEW_TEXT = 'This is a preview of the voice that will read the lesson.'
+
+export const IOS_VOICE_HINT =
+  'For a more natural voice, download an Enhanced or Premium voice in iPhone Settings > Accessibility > Spoken Content > Voices, then pick it here.'
+
+export const IOS_CHROME_VOICE_NOTE = 'Chrome on iPhone uses the same WebKit voices as Safari.'
 
 export const NARRATION_RATES = [0.8, 1, 1.25] as const
 export type NarrationRate = (typeof NARRATION_RATES)[number]
@@ -73,6 +89,7 @@ export type VoiceChoice = {
   lang: string
   name: string
   default?: boolean
+  voiceURI?: string
 }
 
 export const SENTENCE_TAP_MOVE_PX = 10
@@ -278,7 +295,7 @@ export function isSentenceTap(input: {
 }
 
 export function highlightAnnouncement(chapterNumber: number, sectionTitle: string): string {
-  const title = sectionTitle.replace(/\s+/g, ' ').trim().replace(/[.!?]+$/u, '')
+  const title = subjectTitle(sectionTitle).replace(/\s+/g, ' ').trim().replace(/[.!?]+$/u, '')
   return `Chapter ${chapterNumber}, ${title}.`
 }
 
@@ -372,6 +389,48 @@ export function stepDestination(
   return moveGroup(parts, at, direction)
 }
 
+export type NarrationJump = { action: 'ignore' } | { action: 'anchor' } | { action: 'jump'; index: number }
+
+/**
+ * A plain tap while speaking moves the queue to that sentence or highlight.
+ * A drag or long-press is not a plain tap, so the highlight popup can open.
+ * Idle taps only choose where the next Start begins.
+ */
+export function narrationJump(input: {
+  phase: PlayerPhase
+  parts: readonly { group: string }[]
+  targetGroup: string
+  index: number | null
+  plainTap: boolean
+}): NarrationJump {
+  if (!input.plainTap || !input.targetGroup) return { action: 'ignore' }
+  const dest = input.parts.findIndex((part) => part.group === input.targetGroup)
+  if (dest < 0) return { action: 'ignore' }
+  if (input.phase !== 'speaking') return { action: 'anchor' }
+  const current = input.index != null ? input.parts[input.index]?.group : null
+  if (current === input.targetGroup) return { action: 'anchor' }
+  return { action: 'jump', index: dest }
+}
+
+export type NarrationRun = {
+  /** Token captured when this run's utterances were queued. */
+  token: number
+  phase: PlayerPhase
+  index: number | null
+}
+
+/** The next run token is assigned before cancel(), so the old utterance's onend is stale. */
+export function beginNarrationRun(token: number, index: number): NarrationRun {
+  return { token: token + 1, phase: 'speaking', index }
+}
+
+/** cancel() on iOS and Chrome fires onend for the utterance it just dropped. */
+export function narrationRunAfterEnd(run: NarrationRun, eventToken: number, last: boolean): NarrationRun {
+  if (eventToken !== run.token) return run
+  if (!last || run.phase !== 'speaking') return run
+  return { ...run, phase: 'idle', index: null }
+}
+
 export function listNarrationStatus(input: {
   supported: boolean
   phase: PlayerPhase
@@ -399,19 +458,106 @@ export function listNarrationStatus(input: {
   return input.fromStart
 }
 
-export function preferEnglishVoice<T extends VoiceChoice>(voices: readonly T[]): T | null {
-  const english = voices.filter((voice) => voice.lang.toLowerCase().startsWith('en'))
-  if (english.length === 0) return null
-  const score = (voice: T) => {
-    const lang = voice.lang.toLowerCase()
-    const name = voice.name.toLowerCase()
-    let value = 0
-    if (lang === 'en-us') value += 4
-    if (voice.default) value += 1
-    if (/natural|premium|enhanced|samantha|google/.test(name)) value += 3
-    return value
+const NOVELTY_VOICE =
+  /\b(?:albert|bad news|good news|bells|boing|bubbles|cellos|fred|jester|organ|superstar|trinoids|whisper|zarvox|wobble|eddy|flo|grandma|grandpa|reed|rocko|sandy|shelley)\b/
+
+const NAMED_VOICE = /\b(?:ava|samantha|zoe|allison|evan|nathan|aria|jenny)\b/
+
+function voiceLang(lang: string) {
+  return lang.trim().toLowerCase().replaceAll('_', '-')
+}
+
+function isDisfavoredVoice(name: string) {
+  return NOVELTY_VOICE.test(name) || /\bcompact\b/.test(name)
+}
+
+function hasQualityMarker(name: string) {
+  return /\b(?:enhanced|premium|neural|natural|siri)\b/.test(name)
+}
+
+/**
+ * Higher is more natural. English only; other languages score null and drop out.
+ * Quality markers (Enhanced, Premium, Neural, Natural, Siri) outrank a plain voice.
+ * Google English voices and Microsoft Natural or Online voices are next, then the
+ * named macOS voices. Novelty and compact voices are pushed to the end.
+ * en-US beats the same voice in another English locale.
+ */
+export function narrationVoiceScore(voice: VoiceChoice): number | null {
+  const lang = voiceLang(voice.lang)
+  if (!lang.startsWith('en')) return null
+  const name = voice.name.toLowerCase()
+  const base = (lang === 'en-us' ? 1000 : 0) + 100 + (voice.default ? 1 : 0)
+  if (isDisfavoredVoice(name)) return base - 5000
+  let quality = 0
+  if (hasQualityMarker(name)) quality += 400
+  if (/\bgoogle\b/.test(name)) {
+    quality += /english/.test(name) ? 250 : 180
+    if (name.includes('google us english')) quality += 40
   }
-  return [...english].sort((left, right) => score(right) - score(left) || left.name.localeCompare(right.name))[0] ?? null
+  if (/\bmicrosoft\b/.test(name) && (/\bnatural\b/.test(name) || /\bonline\b/.test(name))) quality += 250
+  if (NAMED_VOICE.test(name)) quality += 200
+  return base + quality
+}
+
+export function rankNarrationVoices<T extends VoiceChoice>(voices: readonly T[]): T[] {
+  return voices
+    .map((voice) => ({ voice, score: narrationVoiceScore(voice) }))
+    .filter((row): row is { voice: T; score: number } => row.score != null)
+    .sort(
+      (left, right) =>
+        right.score - left.score ||
+        left.voice.name.localeCompare(right.voice.name) ||
+        left.voice.lang.localeCompare(right.voice.lang),
+    )
+    .map((row) => row.voice)
+}
+
+export function voiceStorageId(voice: VoiceChoice): string {
+  const uri = voice.voiceURI?.trim()
+  if (uri) return uri
+  return `${voice.lang}::${voice.name}`
+}
+
+export function preferEnglishVoice<T extends VoiceChoice>(voices: readonly T[]): T | null {
+  return rankNarrationVoices(voices)[0] ?? null
+}
+
+/** Saved choice, or auto when the saved voice is gone after the voice list has loaded. */
+export function resolveNarrationVoice<T extends VoiceChoice>(
+  voices: readonly T[],
+  savedId: string | null,
+  voicesReady: boolean,
+): { id: string; voice: T | null } {
+  const ranked = rankNarrationVoices(voices)
+  const best = ranked[0] ?? null
+  const saved = savedId && savedId !== AUTO_VOICE_ID ? savedId : null
+  if (!saved) return { id: AUTO_VOICE_ID, voice: best }
+  const match = ranked.find((voice) => voiceStorageId(voice) === saved)
+  if (match) return { id: saved, voice: match }
+  if (!voicesReady) return { id: saved, voice: best }
+  return { id: AUTO_VOICE_ID, voice: best }
+}
+
+export function readVoicePreference(storage: { getItem(key: string): string | null } | null): string {
+  try {
+    const value = storage?.getItem(NARRATION_VOICE_STORAGE_KEY)?.trim()
+    return value ? value : AUTO_VOICE_ID
+  } catch {
+    return AUTO_VOICE_ID
+  }
+}
+
+export function writeVoicePreference(storage: { setItem(key: string, value: string): void } | null, id: string) {
+  try {
+    storage?.setItem(NARRATION_VOICE_STORAGE_KEY, id || AUTO_VOICE_ID)
+  } catch {
+    // Private mode can reject storage. The in-memory choice still applies.
+  }
+}
+
+export function isIosWebKitVoiceHost(userAgent: string, touchPoints = 0, platform = ''): boolean {
+  if (/iPhone|iPad|iPod/i.test(userAgent)) return true
+  return platform === 'MacIntel' && touchPoints > 1
 }
 
 export function speechSynthesisAvailable(host: { speechSynthesis?: unknown; SpeechSynthesisUtterance?: unknown }): boolean {

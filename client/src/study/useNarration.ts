@@ -1,14 +1,24 @@
-import { useCallback, useEffect, useReducer, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import {
+  AUTO_VOICE_ID,
+  NARRATION_PITCH,
+  VOICE_PREVIEW_TEXT,
   initialPlayerState,
+  isIosWebKitVoiceHost,
   nextNarrationRate,
   playerReducer,
-  preferEnglishVoice,
+  rankNarrationVoices,
+  readVoicePreference,
+  resolveNarrationVoice,
   speechSynthesisAvailable,
+  narrationJump,
   startPartIndex,
   stepDestination,
+  voiceStorageId,
+  writeVoicePreference,
   type NarrationRate,
   type SpeechPart,
+  type VoiceChoice,
 } from './narrator.ts'
 
 /**
@@ -17,15 +27,37 @@ import {
  * user gesture. The queue is cancelled on stop, scope change, unmount,
  * pagehide, and when the page is hidden.
  */
+function choiceFrom(voice: SpeechSynthesisVoice): VoiceChoice {
+  return { lang: voice.lang, name: voice.name, default: voice.default, voiceURI: voice.voiceURI }
+}
+
+function nativeVoice(catalog: readonly SpeechSynthesisVoice[], savedId: string, voicesReady: boolean) {
+  const resolved = resolveNarrationVoice(catalog.map(choiceFrom), savedId, voicesReady)
+  if (!resolved.voice) return null
+  const id = voiceStorageId(resolved.voice)
+  return catalog.find((voice) => voiceStorageId(choiceFrom(voice)) === id) ?? null
+}
+
 export function useNarration(scope: string, parts: readonly SpeechPart[]) {
   const [state, dispatch] = useReducer(playerReducer, undefined, initialPlayerState)
   const supported =
     typeof window !== 'undefined' && speechSynthesisAvailable(window as Window & typeof globalThis)
+  const [savedVoiceId, setSavedVoiceId] = useState(() =>
+    typeof window === 'undefined' ? AUTO_VOICE_ID : readVoicePreference(window.localStorage),
+  )
+  const [catalog, setCatalog] = useState<SpeechSynthesisVoice[]>([])
+  const [voicesReady, setVoicesReady] = useState(false)
   const tokenRef = useRef(0)
   const stateRef = useRef(state)
   stateRef.current = state
   const partsRef = useRef(parts)
   partsRef.current = parts
+  const voiceRef = useRef<SpeechSynthesisVoice | null>(null)
+  const appliedVoiceRef = useRef<string | null>(null)
+  const catalogRef = useRef(catalog)
+  catalogRef.current = catalog
+  const readyRef = useRef(voicesReady)
+  readyRef.current = voicesReady
 
   const speakFrom = useCallback((index: number, rate: NarrationRate) => {
     const synth = window.speechSynthesis
@@ -34,14 +66,17 @@ export function useNarration(scope: string, parts: readonly SpeechPart[]) {
       dispatch({ type: 'finish' })
       return
     }
+    // Bump the run token before cancel(). iOS and Chrome fire onend for the
+    // utterance cancel() just dropped, and that stale end must not finish this run.
     const token = tokenRef.current + 1
     tokenRef.current = token
     if (synth.speaking || synth.pending) synth.cancel()
-    const voice = preferEnglishVoice(synth.getVoices())
+    const voice = voiceRef.current
     const pending = list.slice(index)
     pending.forEach((part, offset) => {
       const utter = new SpeechSynthesisUtterance(part.speak)
       utter.rate = rate
+      utter.pitch = NARRATION_PITCH
       utter.lang = voice?.lang || 'en-US'
       if (voice) utter.voice = voice
       const partIndex = index + offset
@@ -66,13 +101,41 @@ export function useNarration(scope: string, parts: readonly SpeechPart[]) {
   useEffect(() => {
     const synth = window.speechSynthesis
     if (!synth) return
-    synth.getVoices()
-    const prime = () => {
-      synth.getVoices()
+    const apply = (ready: boolean) => {
+      const list = synth.getVoices()
+      setCatalog(list)
+      // iOS often returns an empty list until voiceschanged. Do not treat that
+      // first empty read as the final catalog, or a saved voice would be dropped.
+      if (ready || list.length > 0) setVoicesReady(true)
     }
-    synth.addEventListener('voiceschanged', prime)
-    return () => synth.removeEventListener('voiceschanged', prime)
+    apply(false)
+    const onChange = () => apply(true)
+    synth.addEventListener('voiceschanged', onChange)
+    return () => synth.removeEventListener('voiceschanged', onChange)
   }, [supported])
+
+  useEffect(() => {
+    if (!voicesReady) return
+    if (!savedVoiceId || savedVoiceId === AUTO_VOICE_ID) return
+    const stillThere = rankNarrationVoices(catalog.map(choiceFrom)).some((voice) => voiceStorageId(voice) === savedVoiceId)
+    if (stillThere) return
+    writeVoicePreference(window.localStorage, AUTO_VOICE_ID)
+    setSavedVoiceId(AUTO_VOICE_ID)
+  }, [voicesReady, catalog, savedVoiceId])
+
+  useEffect(() => {
+    const voice = nativeVoice(catalog, savedVoiceId, voicesReady)
+    voiceRef.current = voice
+    const marker = voice ? voiceStorageId(choiceFrom(voice)) : ''
+    if (appliedVoiceRef.current == null) {
+      appliedVoiceRef.current = marker
+      return
+    }
+    if (appliedVoiceRef.current === marker) return
+    appliedVoiceRef.current = marker
+    const current = stateRef.current
+    if (current.phase === 'speaking' && current.index != null) speakFrom(current.index, current.rate)
+  }, [catalog, savedVoiceId, voicesReady, speakFrom])
 
   useEffect(() => {
     tokenRef.current += 1
@@ -117,9 +180,25 @@ export function useNarration(scope: string, parts: readonly SpeechPart[]) {
     dispatch({ type: 'stop' })
   }, [signature])
 
-  const select = useCallback((group: string) => {
-    dispatch({ type: 'select', group })
-  }, [])
+  const select = useCallback(
+    (group: string) => {
+      const current = stateRef.current
+      const decision = narrationJump({
+        phase: current.phase,
+        parts: partsRef.current,
+        targetGroup: group,
+        index: current.index,
+        plainTap: true,
+      })
+      if (decision.action === 'ignore') return
+      dispatch({ type: 'select', group })
+      if (decision.action === 'jump') {
+        dispatch({ type: 'start', index: decision.index })
+        speakFrom(decision.index, current.rate)
+      }
+    },
+    [speakFrom],
+  )
 
   const start = useCallback(
     (group?: string) => {
@@ -168,7 +247,43 @@ export function useNarration(scope: string, parts: readonly SpeechPart[]) {
     }
   }, [speakFrom])
 
+  const chooseVoice = useCallback((id: string) => {
+    const next = id || AUTO_VOICE_ID
+    if (typeof window !== 'undefined') writeVoicePreference(window.localStorage, next)
+    voiceRef.current = nativeVoice(catalogRef.current, next, readyRef.current)
+    setSavedVoiceId(next)
+  }, [])
+
+  const previewVoice = useCallback(() => {
+    const synth = window.speechSynthesis
+    if (!synth) return
+    tokenRef.current += 1
+    if (synth.speaking || synth.pending) synth.cancel()
+    dispatch({ type: 'stop' })
+    const utter = new SpeechSynthesisUtterance(VOICE_PREVIEW_TEXT)
+    utter.rate = 1
+    utter.pitch = NARRATION_PITCH
+    const voice = voiceRef.current
+    utter.lang = voice?.lang || 'en-US'
+    if (voice) utter.voice = voice
+    synth.speak(utter)
+    synth.resume()
+  }, [])
+
   const activeGroup = state.phase === 'speaking' && state.index != null ? (parts[state.index]?.group ?? null) : null
+  const voiceOptions = useMemo(
+    () =>
+      rankNarrationVoices(catalog.map(choiceFrom)).map((voice) => ({
+        id: voiceStorageId(voice),
+        name: voice.name,
+        lang: voice.lang,
+      })),
+    [catalog],
+  )
+  const voiceSelection = resolveNarrationVoice(catalog.map(choiceFrom), savedVoiceId, voicesReady).id
+  const showIosVoiceHint =
+    typeof navigator !== 'undefined' &&
+    isIosWebKitVoiceHost(navigator.userAgent, navigator.maxTouchPoints, navigator.platform)
 
   return {
     supported,
@@ -179,17 +294,17 @@ export function useNarration(scope: string, parts: readonly SpeechPart[]) {
     activeGroup,
     canPrevious: stepDestination(parts, state.phase, state.index, state.anchor, -1) != null,
     canNext: stepDestination(parts, state.phase, state.index, state.anchor, 1) != null,
+    voiceId: voiceSelection,
+    voices: voiceOptions,
+    showIosVoiceHint,
     select,
     start,
     stop,
     previous,
     next,
     cycleRate,
+    chooseVoice,
+    previewVoice,
   }
 }
 
-export function scrollNarrationTarget(node: Element | null, block: ScrollLogicalPosition = 'center') {
-  if (!(node instanceof HTMLElement)) return
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  node.scrollIntoView({ block, inline: 'nearest', behavior: reduced ? 'auto' : 'smooth' })
-}

@@ -2509,24 +2509,24 @@ export const chapter9Extra: Record<string, Question[]> = {
     ),
     question(
       'c9q125',
-      'Benefits that continue for 3 months after a return to work earning more than $1,050 a month are intended as what?',
+      'In 2026, which statement matches the Social Security disability trial work period?',
       [
         {
-          text: 'An incentive to return to work.',
-          why: 'If the person returns to work making more than $1,050 a month, disability benefits continue for 3 months. That is an incentive to return to work.',
+          text: 'A month counts toward the trial when earnings are over $1,210, and benefits are not cut off just because of earnings during the trial. When benefits later stop because of work, Social Security pays the cessation month and the next two months.',
+          why: 'In 2026 the trial-work threshold is $1,210. After the trial, substantial gainful activity for a person who is not blind is $1,690 a month. When benefits stop because of work, Social Security pays the month disability ceases and the next two months.',
           correct: true,
         },
         {
           text: 'A retroactive payment to the first day of disability.',
-          why: 'Benefits are not retroactive to the start of the disability. The 3-month continuation after earnings above $1,050 a month is an incentive to return to work.',
+          why: 'Benefits are not retroactive to the start of the disability. A 2026 trial-work month is earnings over $1,210, and benefits are not cut off just because of earnings during the trial.',
         },
         {
           text: 'A substitute for the 5-month waiting period.',
-          why: 'The waiting period is 5 months, and benefits begin at the start of the 6th month. The 3-month continuation is an incentive to return to work.',
+          why: 'The waiting period is 5 months, and benefits begin at the start of the 6th month. That wait is separate from the trial work period, which counts a month when 2026 earnings are over $1,210.',
         },
         {
           text: 'A way to drop the lowest 5 years of earnings.',
-          why: 'The lowest 5 years may be dropped from Average Indexed Monthly Earnings. Continuing benefits for 3 months above $1,050 a month is an incentive to return to work.',
+          why: 'The lowest 5 years may be dropped from Average Indexed Monthly Earnings. That calculation is separate from the trial work period, which counts a month when 2026 earnings are over $1,210.',
         },
       ],
     ),

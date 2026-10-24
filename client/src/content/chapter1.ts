@@ -2,7 +2,7 @@ import { question } from './build.ts'
 import type { Chapter } from './types.ts'
 import { chapter1Extra } from './extra/chapter1.ts'
 
-/** Wording follows the course OCR in content/source/chapter-1-ocr.txt. */
+/** Section text is the current study wording. */
 export const chapter1: Chapter = {
   id: 'ch-general',
   number: 1,
@@ -13,23 +13,24 @@ export const chapter1: Chapter = {
     {
       id: 'c1-terms',
       title: 'What insurance is',
-      body: `Before the policy types, the course starts with the words every producer uses. Insurance is a contract in which one party, the insurance company, agrees to indemnify the insured against loss, damage, or liability arising from an unknown event. In life insurance, the policy protects survivors from losses suffered after an insured’s death.
+      body: `Insurance is a contract. The insurance company agrees to indemnify the insured against loss, damage, or liability that comes from an unknown event. Indemnify means the company pays for that covered loss. In life insurance, the policy protects the survivors from the financial loss that follows the insured person's death.
 
-Insurance transfers the risk of loss from a person or a business to an insurer, which spreads the cost of unexpected losses across many insureds. Without that mechanism, the person who suffered the loss would bear the whole cost.
+Insurance transfers the risk of loss from a person or a business to an insurer. The insurer spreads the cost of unexpected losses across many people it insures. Without that transfer, the person who suffered the loss would pay the whole cost.
 
-The terms used throughout the course:
-• Agent/producer — a legal representative of an insurance company. Producers include agents and brokers. Agents are the agents of the insurer.
-• Applicant or proposed insured — a person applying for insurance.
-• Beneficiary — a person who receives the benefits of an insurance policy.
-• Broker — a producer not appointed by an insurer, deemed to represent the client.
-• Indemnity — the insured cannot recover more than the loss. Insurance restores the insured to the position held before the loss.
-• Insurance policy — a contract between a policyowner (and/or insured) and an insurer, which agrees to pay the insured or the beneficiary for loss caused by specific events.
-• Insured — the person covered by the policy. This person may or may not be the policyowner.
-• Insurer (principal) — the company that issues the policy.
-• Law of large numbers — the larger the number of people with a similar exposure to loss, the more predictable actual losses will be.
-• Policyowner — the person entitled to exercise the rights and privileges in the policy.
-• Premium — the money paid to the insurance company for the policy.
-• Reciprocity/reciprocal — a mutual interchange of rights and privileges.`,
+These words are used in every later chapter.
+
+• Agent or producer. A legal representative of an insurance company. Producers include agents and brokers. An agent represents the insurer.
+• Applicant or proposed insured. The person applying for insurance.
+• Beneficiary. The person who receives the benefits of an insurance policy.
+• Broker. A producer who is not appointed by an insurer. The law treats a broker as representing the client.
+• Indemnity. The insured cannot recover more than the loss. Insurance restores the insured to the financial position held before the loss.
+• Insurance policy. The contract between a policyowner (and/or the insured) and an insurer. The insurer agrees to pay the insured or the beneficiary for loss caused by specific events.
+• Insured. The person the policy covers. This person may or may not be the policyowner.
+• Insurer (principal). The company that issues the policy.
+• Law of large numbers. The larger the number of people with a similar exposure to loss, the more predictable the actual losses will be.
+• Policyowner. The person entitled to exercise the rights and privileges in the policy.
+• Premium. The money paid to the insurance company for the policy.
+• Reciprocity or reciprocal. A mutual interchange of rights and privileges.`,
       questions: [
         question(
           'c1q01',
@@ -82,13 +83,19 @@ The terms used throughout the course:
     {
       id: 'c1-risk',
       title: 'Risk, hazard, peril, and loss',
-      body: `Risk is the uncertainty or chance of a loss occurring. Only one of the two types is insurable.
+      body: `Risk is the uncertainty, or the chance, that a loss will occur. Only one of the two types can be insured.
 
-Pure risk can result only in a loss or in no change. There is no chance of financial gain. Pure risk is the only type insurance companies will accept. Speculative risk involves a chance of loss or gain. Gambling is the textbook example, and it is not insurable.
+Pure risk can end only in a loss or in no change. There is no chance of a financial gain. Pure risk is the only type insurance companies will accept.
 
-Exposure is a unit of measure used to determine rates. In life insurance the factors include the insured’s age, medical history, occupation, and sex. A large number of units with the same or similar exposure to loss is homogeneous. Insurance shares risk among the members of a large homogeneous group.
+Speculative risk involves a chance of loss or a chance of gain. Gambling is the textbook example. Speculative risk is not insurable.
 
-Hazards are conditions that increase the probability of an insured loss. Physical hazards are individual characteristics such as a physical condition, past medical history, or a condition at birth, such as blindness. Moral hazards are tendencies toward increased risk tied to character and reputation, including lying on an application or submitting fraudulent claims. Morale hazards come from a state of mind that causes indifference to loss, such as carelessness.
+Exposure is a unit of measure used to set rates. In life insurance, the factors include the insured's age, medical history, occupation, and sex. A large number of units with the same or similar exposure to loss is called homogeneous. Insurance shares risk among the members of a large homogeneous group.
+
+A hazard is a condition that increases the probability of an insured loss.
+
+• A physical hazard is an individual characteristic. Examples are a physical condition, past medical history, or a condition at birth, such as a congenital heart defect.
+• A moral hazard is a tendency toward increased risk that comes from character and reputation. Lying on an application or submitting a fraudulent claim is a moral hazard. A contractor who says a knee injury never happened, or a store owner who claims a break-in that did not occur, is showing a moral hazard.
+• A morale hazard comes from a state of mind that causes indifference to loss, such as carelessness. A cafe owner who stops locking the walk-in cooler, because spoiled food would be insured, is a morale hazard.
 
 A peril is the cause of a loss. A loss is the reduction in value, or the basis of a claim, that results when a peril occurs.`,
       questions: [
@@ -143,15 +150,17 @@ A peril is the cause of a loss. A loss is the reduction in value, or the basis o
     {
       id: 'c1-handling',
       title: 'Ways to handle a risk',
-      body: `Avoidance means eliminating exposure to a loss. A person who never flies avoids the risk of dying in a plane crash. Avoidance works, but it is seldom practical.
+      body: `There are five ways to handle a risk.
 
-Retention is the planned assumption of risk through deductibles, copayments, or self-insurance. The insured accepts the loss before the insurer pays. Retention is used to reduce expenses and improve cash flow, to increase control of claim reserving and settlements, and to fund losses that cannot be insured.
+Avoidance means eliminating the exposure to a loss. A homeowner who decides never to own a pool avoids the risk of a drowning on the property. Avoidance works, but it is seldom practical.
+
+Retention is the planned assumption of risk. Deductibles, copayments, and self-insurance are forms of retention. The insured accepts that part of the loss before the insurer pays. Retention is used to reduce expenses and improve cash flow, to increase control of claim reserving and settlements, and to fund losses that cannot be insured.
 
 Sharing is a method for a group of people or businesses with the same or similar exposure to share the losses that occur in that group. A reciprocal insurance exchange is a formal risk-sharing arrangement.
 
-Reduction lessens the possibility or severity of a loss. Smoke detectors, an annual physical, and lifestyle changes are reduction.
+Reduction lessens the possibility or the severity of a loss. A bakery that adds nonslip mats, a driver who schedules a yearly vision check, and a family that installs a carbon monoxide alarm are all reducing risk.
 
-Transfer moves the loss to another party. Insurance is the most common method. Buying coverage does not eliminate the risk of death or illness, but it relieves the insured of the financial loss. Hold-harmless and other contracts can also transfer risk. Purchasing insurance is the safest and most common method.`,
+Transfer moves the loss to another party. Insurance is the most common method. Buying coverage does not eliminate the risk of death or illness. It relieves the insured of the financial loss those events would cause. A hold-harmless agreement and other contracts can also transfer risk. Purchasing insurance is the safest and most common method of transfer.`,
       questions: [
         question(
           'c1q05',
@@ -204,17 +213,17 @@ Transfer moves the loss to another party. Insurance is the most common method. B
     {
       id: 'c1-insurable',
       title: 'Which risks can be insured',
-      body: `Not all risks are insurable. Insurers insure only pure risks, and even those must have certain characteristics:
+      body: `Not every risk can be insured. Insurers insure only pure risks, and even a pure risk must have these characteristics.
 
-• Due to chance — the loss is outside the insured’s control.
-• Definite and measurable — the loss is specific as to cause, time, place, and amount, so the insurer can tell how much the benefit is and when it is payable.
-• Statistically predictable — the insurer can estimate the average frequency and severity of future losses and set premium rates. Mortality tables and morbidity tables are used in life and health insurance.
-• Not catastrophic — the insurer needs to be reasonably certain losses will not exceed specific limits. Policies usually exclude war and nuclear events because there is no statistical basis for a rate.
-• Randomly selected and large loss exposure — there must be a large pool that represents a random selection of risks by age, gender, occupation, health, economic status, and location.
+• Due to chance. The loss is outside the insured's control.
+• Definite and measurable. The loss is specific as to cause, time, place, and amount. The insurer can tell how much the benefit is and when it is payable.
+• Statistically predictable. The insurer can estimate the average frequency and severity of future losses and set premium rates. Life and health insurance uses mortality tables and morbidity tables for that estimate.
+• Not catastrophic. The insurer needs to be reasonably certain that losses will not exceed specific limits. Policies usually exclude war and nuclear events because there is no statistical basis for a rate.
+• Randomly selected, and a large loss exposure. There must be a large pool that represents a random selection of risks by age, gender, occupation, health, economic status, and location.
 
 Adverse selection is the tendency of people with a higher probability of loss to buy insurance more often than people who present a lower risk. Underwriting protects the insurer against adverse selection.
 
-The law of large numbers says that the larger the number of people with a similar exposure to loss, the more predictable actual losses will be. That predictability is what makes a premium rate possible.`,
+The law of large numbers says that the larger the number of people with a similar exposure to loss, the more predictable the actual losses will be. That predictability is what makes a premium rate possible.`,
       questions: [
         question(
           'c1q07',
@@ -267,28 +276,38 @@ The law of large numbers says that the larger the number of people with a simila
     {
       id: 'c1-contracts',
       title: 'What makes an insurance contract',
-      body: `A contract is an agreement between two or more parties enforceable by law. Insurance contracts need four elements:
+      body: `A contract is an agreement between two or more parties that a court can enforce. An insurance contract needs four elements.
 
-• Agreement — offer and acceptance. The applicant usually makes the offer by submitting the application. Acceptance occurs when the underwriter approves the application and issues a policy.
-• Consideration — something of value each party gives. The insured’s consideration is the premium and the representations in the application. The insurer’s consideration is the promise to pay in the event of loss.
-• Competent parties — each party must be of legal age, mentally competent, and not under the influence of drugs or alcohol.
-• Legal purpose — the purpose must be legal and not against public policy. A life policy needs insurable interest and consent. A contract without a legal purpose is void.
+• Agreement. This is offer and acceptance. The applicant usually makes the offer by submitting the application. Acceptance occurs when the underwriter approves the application and issues a policy.
+• Consideration. Each party gives something of value. The insured's consideration is the premium and the representations made in the application. The insurer's consideration is the promise to pay in the event of a loss.
+• Competent parties. Each party must be of legal age, mentally competent, and not under the influence of drugs or alcohol.
+• Legal purpose. The purpose must be legal and not against public policy. A life policy needs insurable interest and the insured's consent. A contract without a legal purpose is void.
 
-Insurance contracts also have distinct characteristics. They are personal: the contract is between the insurer and a particular insured, though a life policy may be assigned if the insurer is notified. They are unilateral: only the insurer makes an enforceable promise. The insured does not promise to pay premiums, but the insurer does not have to pay a claim if premiums are not paid. They are contracts of adhesion: the insurer prepares the contract, and the insured accepts or rejects it. Any ambiguity is settled in favor of the insured. They are aleatory: the amounts exchanged are unequal. A policyowner who paid $200 in premium can leave a beneficiary $100,000. They are conditional: the policyowner and the company must meet conditions, such as paying the premium and providing proof of loss, before the contract is carried out.
+Insurance contracts also have features that set them apart from many other contracts.
 
-Courts interpret an ambiguity in a contract of adhesion in favor of the insured. Under reasonable expectations, if an agent implies coverage through advertising, sales literature, or statements, the insured can reasonably expect that coverage.
+They are personal. The contract is between the insurer and a particular insured. A life policy may still be assigned if the insurer is notified.
 
-Indemnity, sometimes called reimbursement, lets the insured or beneficiary collect only to the extent of the financial loss. Insurance restores. It does not let anyone profit from the loss. A health policy with a $20,000 limit reimburses $15,000 of medical bills, not $20,000, when the loss is $15,000.
+They are unilateral. Only the insurer makes an enforceable promise. The insured does not promise to pay premiums. If the premiums are not paid, the insurer does not have to pay a claim.
 
-Utmost good faith means there will be no fraud, misrepresentation, or concealment between the parties. The insured must give accurate information. The insurer must describe features and benefits clearly and must not conceal or mislead.
+They are contracts of adhesion. The insurer prepares the contract, and the insured accepts it or rejects it. Any ambiguity is settled in favor of the insured. Courts interpret an ambiguity in a contract of adhesion in favor of the insured.
 
-Representations are statements believed to be true to the best of one’s knowledge, but they are not guaranteed. On an application, they are the applicant’s answers. Untrue statements are misrepresentations and can void the contract. A material misrepresentation would alter the underwriting decision. If it is intentional, it is fraud.
+Under reasonable expectations, if an agent implies coverage through advertising, sales literature, or statements, the insured can reasonably expect that coverage.
 
-A warranty is a statement that must be absolutely true, and the validity of the policy depends on it. Breach can void the policy. Statements on life and health applications are usually representations, not warranties, except in cases of fraud.
+They are aleatory. The amounts exchanged are unequal. Luis pays a $65 premium. If Luis dies while the policy is in force, the beneficiary may receive $80,000.
 
-Concealment is the intentional withholding of a material fact. It can void a policy. Fraud is intentional misrepresentation or intentional concealment of a material fact used to induce a contract or to deceive. Fraud is grounds for voiding the contract.
+They are conditional. The policyowner and the company must meet conditions before the contract is carried out. Those conditions include paying the premium and providing proof of loss.
 
-Waiver is the voluntary giving up of a known legal right. Estoppel prevents a party from reasserting a right after that right has been waived. Estoppel is the legal consequence of a waiver.`,
+Indemnity, sometimes called reimbursement, means the insured or the beneficiary can collect only to the extent of the financial loss. Insurance restores the loss. It does not let anyone profit from the loss. Nora has a health policy with a $30,000 limit. Her covered medical bills are $8,200. The policy pays $8,200. It does not pay the $30,000 limit.
+
+Utmost good faith means there will be no fraud, misrepresentation, or concealment between the parties. The insured must give accurate information. The insurer must describe features and benefits clearly and must not conceal information or mislead.
+
+A representation is a statement believed to be true to the best of one's knowledge. It is not guaranteed to be true. On an application, the applicant's answers are representations. An untrue statement is a misrepresentation and can void the contract. A material misrepresentation is one that would alter the underwriting decision. If a material misrepresentation is intentional, it is fraud.
+
+A warranty is a statement that must be absolutely true. The validity of the policy depends on it. A breach of warranty can void the policy. Statements on life and health applications are usually representations, not warranties, except in cases of fraud.
+
+Concealment is the intentional withholding of a material fact. Concealment can void a policy. Fraud is the intentional misrepresentation or the intentional concealment of a material fact, used to induce a contract or to deceive. Fraud is grounds for voiding the contract.
+
+A waiver is the voluntary giving up of a known legal right. Estoppel prevents a party from reasserting a right after that right has been waived. Estoppel is the legal consequence of a waiver.`,
       questions: [
         question(
           'c1q15',
@@ -343,23 +362,29 @@ Waiver is the voluntary giving up of a known legal right. Estoppel prevents a pa
       title: 'Who issues the policy',
       body: `Insurance comes from private companies and from government. Government programs are funded with taxes and serve national and state social purposes. Private policies are funded by premiums.
 
-Private insurers can be classified by ownership, authority to transact business, domicile, marketing system, and financial rating. The same company can fit more than one description.
+A private insurer can be classified by ownership, by its authority to transact business, by domicile, by its marketing system, and by its financial rating. The same company can fit more than one of these descriptions.
 
-Stock companies are owned by stockholders, who provide the capital and share in profits or losses. Officers elected by the stockholders manage the company. Stock companies traditionally issue nonparticipating policies. A nonparticipating policy does not pay dividends to policyowners. Taxable dividends may be paid to stockholders, and those dividends are not guaranteed because they depend on profit.
+A stock company is owned by stockholders. The stockholders provide the capital and share in the profits or losses. Officers elected by the stockholders manage the company. Stock companies traditionally issue nonparticipating policies. A nonparticipating policy does not pay dividends to policyowners. Taxable dividends may be paid to stockholders. Those stockholder dividends are not guaranteed, because they depend on profit.
 
-Mutual companies are owned by the policyowners and issue participating policies. Participating policies may pay dividends to policyowners. Those dividends are a return of excess premium and are generally not taxable.
+A mutual company is owned by the policyowners and issues participating policies. A participating policy may pay dividends to policyowners. Those policy dividends are a return of excess premium and are generally not taxable.
 
 A fraternal benefit society provides insurance for members of an affiliated lodge, religious organization, or fraternal organization with a representative form of government. Fraternals sell only to members and are considered charitable institutions. They may issue life insurance, including endowments, health insurance, and annuities. They do not issue property or liability policies.
 
-Lloyd’s is not an insurance company. It provides facilities for underwriters who each assume a part of a risk. Each member is liable only for that member’s portion. American Lloyd’s associations operate mainly in property insurance, and most states prohibit organizing or licensing them.
+Lloyd's is not an insurance company. It provides facilities for underwriters, and each underwriter assumes a part of a risk. Each member is liable only for that member's portion. American Lloyd's associations operate mainly in property insurance, and most states prohibit organizing or licensing them.
 
-A reciprocal is an unincorporated exchange of indemnity agreements among subscribers, managed by an attorney-in-fact. It operates like a mutual. Subscribers are liable for their share of losses and expenses.
+A reciprocal is an unincorporated exchange of indemnity agreements among subscribers. An attorney-in-fact manages the exchange. It operates like a mutual. Subscribers are liable for their share of losses and expenses.
 
-A risk retention group is a liability insurance company owned by its members, who are in the same business or industry and share similar liability risks. Its purpose is to assume and spread the liability of its members.
+A risk retention group is a liability insurance company owned by its members. The members are in the same business or industry and share similar liability risks. The group's purpose is to assume and spread the liability of its members.
 
-An admitted (authorized) insurer has that certificate and meets the state’s financial requirements. A nonadmitted (unauthorized) insurer does not. Most states bar unauthorized insurers except through licensed excess and surplus lines brokers.
+An admitted insurer, also called an authorized insurer, has a Certificate of Authority and meets the state's financial requirements. A nonadmitted insurer, also called an unauthorized insurer, does not. Most states bar unauthorized insurers except through licensed excess and surplus lines brokers.
 
-A domestic insurer is incorporated in this state. A foreign insurer is incorporated in another state, the District of Columbia, or a U.S. territory (American Samoa, Guam, the Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands). An alien insurer is incorporated outside the United States. A company chartered in Puerto Rico is foreign in any U.S. state. Every insurer, wherever it is incorporated, still needs a Certificate of Authority before it transacts insurance in the state.`,
+Domicile is the place where the insurer was incorporated.
+
+• A domestic insurer is incorporated in this state.
+• A foreign insurer is incorporated in another state, the District of Columbia, or a U.S. territory. Those territories are American Samoa, Guam, the Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands.
+• An alien insurer is incorporated outside the United States.
+
+A company chartered in Puerto Rico is a foreign insurer in any U.S. state. Every insurer, wherever it is incorporated, still needs a Certificate of Authority before it transacts insurance in the state.`,
       questions: [
         question(
           'c1q09',
@@ -412,9 +437,10 @@ A domestic insurer is incorporated in this state. A foreign insurer is incorpora
     {
       id: 'c1-producers',
       title: 'Agents and the authority they have',
-      body: `An agent or producer is licensed to sell, solicit, or negotiate insurance on behalf of the principal, the insurer. Under the law of agency, the acts of the producer within the scope of authority are the acts of the insurer.
+      body: `An agent, or producer, is licensed to sell, solicit, or negotiate insurance on behalf of the principal. The principal is the insurer. Under the law of agency, the acts of the producer within the scope of the producer's authority are the acts of the insurer.
 
-In that relationship:
+Four rules follow from that relationship.
+
 • An agent represents the insurer, not the insured.
 • Any knowledge of the agent is presumed to be knowledge of the insurer.
 • If the agent is working within the contract, the insurer is fully responsible.
@@ -422,11 +448,15 @@ In that relationship:
 
 The agent completes applications accurately, submits them for underwriting, and delivers the policy.
 
-Express authority is what the principal intends to grant, written in the agent’s contract. Implied authority is not written, but the agent is assumed to have it in order to transact business. It is incidental to express authority, because the contract cannot spell out every detail. Apparent authority, also called perceived authority, is the appearance of authority created by the principal’s actions, words, or deeds. If an agent uses the insurer’s stationery, an applicant may believe the agent is authorized to transact insurance for that insurer.
+Express authority is the authority the principal intends to grant. It is written in the agent's contract.
 
-Agents must treat applicants and insureds ethically. Because the agent handles funds of both the insured and the insurer, the agent is a fiduciary, a person in a position of trust. It is illegal to commingle premium collected from applicants with the producer’s personal funds.
+Implied authority is not written. The agent is assumed to have it in order to transact business. Implied authority is incidental to express authority, because the contract cannot spell out every detail.
 
-Market conduct is the code of ethics for how companies and producers do business. It covers conflicts of interest, asking for a gift or loan as a condition of completing business, and supplying confidential information. Professionalism means placing the public’s interest above one’s own. A failure can bring a penalty.`,
+Apparent authority, also called perceived authority, is the appearance of authority created by the principal's actions, words, or deeds. If an agent uses the insurer's stationery, an applicant may believe the agent is authorized to transact insurance for that insurer.
+
+Agents must treat applicants and insureds ethically. The agent handles funds of both the insured and the insurer, so the agent is a fiduciary. A fiduciary is a person in a position of trust. It is illegal to commingle premiums collected from applicants with the producer's personal funds.
+
+Market conduct is the code of ethics for how companies and producers do business. It covers conflicts of interest, asking for a gift or a loan as a condition of completing business, and supplying confidential information. Professionalism means placing the public's interest above one's own. A failure of market conduct can bring a penalty.`,
       questions: [
         question(
           'c1q13',
@@ -479,19 +509,21 @@ Market conduct is the code of ethics for how companies and producers do business
     {
       id: 'c1-market',
       title: 'How policies are sold and shared',
-      body: `Insurers market through agents or by selling directly to customers.
+      body: `Insurers market through agents, or they sell directly to customers.
 
-• Independent agency / American agency system — one agent represents several companies, is nonexclusive, earns commissions on personal sales, and may place renewals with any company.
-• Exclusive agency / captive agents — one agent represents one company. Renewals can be placed only with the appointing insurer.
-• General agency system — a general agent entrepreneur represents one company, is paid by compensation and commissions, and appoints subagents.
-• Managerial system — a branch manager supervises agents, is salaried, and the agents may be employees or independent contractors.
-• Direct response — no agents. The company advertises through mail, the internet, television, or other mass marketing, and consumers apply directly.
+• Independent agency system, also called the American agency system. One agent represents several companies. The agent is nonexclusive, earns commissions on personal sales, and may place renewals with any company.
+• Exclusive agency system, also called captive agents. One agent represents one company. Renewals can be placed only with the appointing insurer.
+• General agency system. A general agent is an entrepreneur who represents one company. The general agent is paid by compensation and commissions and appoints subagents.
+• Managerial system. A branch manager supervises agents and is salaried. The agents may be employees or independent contractors.
+• Direct response. There are no agents. The company advertises through mail, the internet, television, or other mass marketing, and consumers apply directly.
 
-Financial strength is judged from claims experience, investment earnings, reserves, and management. Independent rating services that publish guides include AM Best, Fitch, Standard & Poor’s, Moody’s, and Weiss.
+Financial strength is judged from claims experience, investment earnings, reserves, and management. Independent rating services that publish guides include AM Best, Fitch, Standard & Poor's, Moody's, and Weiss.
 
-Reinsurance is a contract under which one insurer indemnifies another for part or all of its liabilities. The purpose is to protect against catastrophic losses. The originating company is the ceding insurer. The company that takes the risk is the assuming insurer, or reinsurer.
+Reinsurance is a contract under which one insurer indemnifies another insurer for part or all of its liabilities. The purpose is to protect against catastrophic losses. The originating company is the ceding insurer. The company that takes the risk is the assuming insurer, also called the reinsurer.
 
-Facultative reinsurance covers a specific policy. The reinsurer underwrites each application separately. A treaty, also called automatic reinsurance, is a blanket arrangement: the reinsurer must accept all risks ceded to it. Treaties are usually negotiated for a year or longer.`,
+Facultative reinsurance covers a specific policy. The reinsurer underwrites each application separately.
+
+A treaty, also called automatic reinsurance, is a blanket arrangement. The reinsurer must accept all risks ceded to it. Treaties are usually negotiated for a year or longer.`,
       questions: [
         question(
           'c1q11',

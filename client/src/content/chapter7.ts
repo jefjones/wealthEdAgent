@@ -3,7 +3,7 @@ import type { Chapter } from './types.ts'
 import { chapter7Extra } from './extra/chapter7.ts'
 
 /**
- * Wording follows the course OCR in content/source/chapter-7-ocr.txt.
+ * Section text is the current study wording.
  * The source pages have no practice questions. Questions are written from that text,
  * four options each, with a reason for the right answer and for each wrong one.
  */
@@ -17,27 +17,28 @@ export const chapter7: Chapter = {
     {
       id: 'c7-life',
       title: 'Taxes on life insurance you own',
-      body: `This chapter explains taxation of policy benefits, dividends, and loans, and the options for nontaxable exchanges.
+      body: `This chapter explains how policy benefits, dividends, loans, and certain exchanges are taxed.
 
-Terms used in this chapter:
-• Exclusion ratio — the calculation used to determine the annuity amounts to be excluded from taxes.
-• LIFO (Last In, First Out) — the funds paid into the policy last are assumed to be paid out first.
-• FIFO (First In, First Out) — the funds paid into the policy first are assumed to be paid out first.
-• Policy endowment — the maturity date.
-• Policy proceeds — in life insurance, the death benefit.
-• Surrender — early termination of a policy by the policyowner.
-• Tax deductible — a reduction of taxable income, resulting in lower tax liability.
-• Taxable — subject to taxation, payable to state and federal government.
-• Tax deferred — taxes on investments or gains, such as interest or dividends, are paid at a future date instead of in the period in which they are incurred.
-• Vesting — the right of a participant in a retirement plan to retain part or all of the benefits.
+These words are used in this chapter.
 
-Premiums paid for personal life insurance are not tax deductible. A death benefit taken as a lump-sum distribution to a named beneficiary is tax free. If the proceeds are paid in installments, the principal is tax free and the interest is taxable.
+• Exclusion ratio. The calculation that decides how much of an annuity payment is left out of taxable income.
+• LIFO (Last In, First Out). The money paid into the contract last is treated as the money paid out first.
+• FIFO (First In, First Out). The money paid into the contract first is treated as the money paid out first.
+• Policy endowment. The maturity date.
+• Policy proceeds. In life insurance, the death benefit.
+• Surrender. The policyowner's early termination of a policy.
+• Tax deductible. An amount that reduces taxable income and therefore reduces the tax owed.
+• Taxable. Subject to tax, payable to the state and the federal government.
+• Tax deferred. Tax on a gain, such as interest or a dividend, is paid at a later date instead of in the year the gain is earned.
+• Vesting. A retirement-plan participant's right to keep part or all of the benefits.
 
-Cash value grows tax deferred. The policyowner may borrow against it, or receive it on surrender. On surrender or endowment, any cash value in excess of the cost basis (the premium payments) is taxable as ordinary income. On death, the face amount is paid and there is no more cash value. Death benefits generally are paid to the beneficiary income tax free.
+Premiums an individual pays for personal life insurance are not tax deductible. A death benefit paid as a lump sum to a named beneficiary is tax free. If the proceeds are paid in installments, the principal is tax free and the interest is taxable.
 
-Dividends are a return of unused premiums, so they are not income for tax purposes. If dividends are left with the insurer to accumulate interest, the interest is taxed as ordinary income each year it is earned, whether or not it is paid out to the policyowner.
+Cash value grows tax deferred. The policyowner may borrow against it or receive it on surrender. On a surrender or an endowment, any cash value above the cost basis is taxable as ordinary income. The cost basis is the premiums that were paid. On death, the face amount is paid and there is no longer a cash value. A death benefit is generally paid to the beneficiary free of income tax.
 
-Money borrowed against the cash value is not income taxable. The company charges interest on outstanding policy loans. A policy loan, with interest, can be repaid by the owner while the policy is in force, subtracted from the cash value at surrender or maturity, or subtracted from the death benefit at the insured’s death.`,
+A dividend is a return of unused premium, so it is not income for tax purposes. If dividends are left with the insurer to accumulate interest, that interest is taxed as ordinary income in each year it is earned, whether or not it is paid out to the policyowner.
+
+Money borrowed against the cash value is not taxable as income. The company charges interest on an outstanding policy loan. A policy loan, together with its interest, can be repaid by the owner while the policy is in force. It can also be subtracted from the cash value at surrender or maturity, or subtracted from the death benefit when the insured dies.`,
       questions: [
         question(
           'c7q01',
@@ -113,13 +114,13 @@ Money borrowed against the cash value is not income taxable. The company charges
     {
       id: 'c7-surrender',
       title: 'Cashing in a policy, and the death benefit',
-      body: `If the cash surrender value exceeds the premiums paid, some of the cash value received is taxable as income. A partial surrender, a withdrawal of cash value from a universal life policy, reduces both the cash value and the death benefit.
+      body: `If the cash surrender value is more than the premiums paid, some of the cash value the owner receives is taxable as income. A partial surrender, which is a withdrawal of cash value from a universal life policy, reduces both the cash value and the death benefit.
 
-In the course example, the face amount is $300,000, premiums paid are $70,000, and total cash value is $100,000. If the insured surrenders $30,000 of cash value, the full $30,000 is income tax free. If the insured takes out $100,000, the last $30,000 is taxable, because $100,000 exceeds the premiums paid by $30,000.
+The face amount is $400,000. The premiums paid are $90,000, and the total cash value is $140,000. If the owner withdraws $25,000 of cash value, the full $25,000 is free of income tax, because $25,000 does not exceed the premiums paid. If the owner takes out the full $140,000, the last $50,000 is taxable, because $140,000 exceeds the premiums paid by $50,000.
 
-Life insurance proceeds paid to a named beneficiary are generally free of federal income tax if taken as a lump sum. An exception applies if the benefit results from a transfer for value, meaning the policy is sold to another party before the insured’s death.
+Life insurance proceeds paid to a named beneficiary are generally free of federal income tax if they are taken as a lump sum. There is an exception when the benefit results from a transfer for value, which means the policy was sold to another party before the insured's death.
 
-With a settlement option, the interest portion of payments that include both principal and interest is taxable. If $100,000 of proceeds pay $13,000 a year for 10 years, $10,000 a year is income tax free and $3,000 a year is income taxable.`,
+Under a settlement option, the interest portion of a payment that includes both principal and interest is taxable. If $80,000 of proceeds is paid as $10,000 a year for 10 years, $8,000 a year is the return of principal and is free of income tax, and $2,000 a year is interest and is taxable.`,
       questions: [
         question(
           'c7q04',
@@ -172,13 +173,13 @@ With a settlement option, the interest portion of payments that include both pri
     {
       id: 'c7-estate',
       title: 'Life insurance in the taxable estate',
-      body: `The death benefit or face amount may be included in the insured’s taxable estate and subject to federal estate tax. Three situations bring the life insurance into that estate.
+      body: `The death benefit, or face amount, may be included in the insured's taxable estate and subject to the federal estate tax. Three situations bring the life insurance into that estate.
 
-Incidents of ownership. An incident of ownership is any right of policy ownership, such as the right to cash value, the right to change the beneficiary, the right to obtain policy loans, or the right to assign the policy. If the insured or policyowner held any one of these rights at death, the entire face amount is included in the taxable estate, even though the proceeds were paid to the beneficiary.
+Incidents of ownership. An incident of ownership is any right of policy ownership. Examples are the right to the cash value, the right to change the beneficiary, the right to obtain a policy loan, and the right to assign the policy. If the insured or the policyowner held any one of these rights at death, the entire face amount is included in the taxable estate, even though the proceeds were paid to the beneficiary.
 
-Estate as beneficiary. If the insured’s estate is the designated beneficiary at death, the entire face amount is included in the taxable estate.
+Estate as beneficiary. If the insured's estate is the designated beneficiary at death, the entire face amount is included in the taxable estate.
 
-Transfer of ownership. If the insured, as policyowner, assigns or transfers ownership of the policy, or makes a gift of the policy, within 3 years before death, the entire face amount is included in the taxable estate.`,
+Transfer of ownership. If the insured, as policyowner, assigns or transfers ownership of the policy, or gives the policy away, within 3 years before death, the entire face amount is included in the taxable estate.`,
       questions: [
         question(
           'c7q06',
@@ -208,17 +209,18 @@ Transfer of ownership. If the insured, as policyowner, assigns or transfers owne
     {
       id: 'c7-mec',
       title: 'Modified endowment contracts',
-      body: `An endowment promises to pay the face amount if the insured survives to the end of a specified period, such as 20 years, 30 years, or age 65, and also if the insured dies during that period. Endowments require premiums far beyond the amount needed to fund the death benefit. After the Tax Reform Act of 1984 eliminated many tax shelters, single premium life was still used to set aside large sums for tax-deferred growth and tax-free cash flow through loans and partial surrenders.
+      body: `An endowment promises to pay the face amount if the insured survives to the end of a specified period, such as 20 years, 30 years, or age 65. It also pays if the insured dies during that period. An endowment requires premiums far beyond the amount needed to fund the death benefit. After the Tax Reform Act of 1984 eliminated many tax shelters, single premium life was still used to set aside large sums for tax-deferred growth and for tax-free cash flow through loans and partial surrenders.
 
-The IRS 7-pay test determines whether a policy is overfunded. Any life insurance policy that fails the 7-pay test is a Modified Endowment Contract (MEC) and loses the standard tax benefits of a life insurance contract. A policy fails when the cumulative premiums paid during the first 7 years exceed the total net level premiums that would pay the policy up using guaranteed mortality costs and interest. Once a policy becomes a MEC, it remains a MEC.
+The IRS 7-pay test decides whether a policy is overfunded. Any life insurance policy that fails the 7-pay test is a Modified Endowment Contract, or MEC, and it loses the standard tax benefits of a life insurance contract. A policy fails the test when the cumulative premiums paid during the first 7 years exceed the total net level premiums that would pay the policy up, using guaranteed mortality costs and interest. Once a policy becomes a MEC, it remains a MEC.
 
-All life insurance policies are subject to the 7-pay test. A material change, such as an increase in the death benefit, requires a new 7-pay test. The death benefit is tax free whether it comes from a life insurance policy or a MEC.
+Every life insurance policy is subject to the 7-pay test. A material change, such as an increase in the death benefit, requires a new 7-pay test. The death benefit is tax free whether it is paid from a life insurance policy or from a MEC.
 
-MEC cash value is taxed as follows:
+MEC cash value is taxed as follows.
+
 • Accumulations are tax deferred.
-• Any distribution is taxable, including withdrawals and policy loans.
-• Distributions are taxed on a LIFO basis, the interest-first rule.
-• Distributions before age 59½ are subject to a 10% penalty.`,
+• Any distribution is taxable, including a withdrawal and a policy loan.
+• Distributions are taxed on a LIFO basis. That is the interest-first rule.
+• A distribution before age 59½ is subject to a 10% penalty.`,
       questions: [
         question(
           'c7q07',
@@ -271,19 +273,19 @@ MEC cash value is taxed as follows:
     {
       id: 'c7-annuity',
       title: 'Taxes on an annuity you own',
-      body: `A portion of each annuity payment is taxable and a portion is not. The nontaxable portion is the anticipated return of the principal paid in. That is the cost base. The taxable portion is the interest earned on the principal. That is the tax base. The exclusion ratio determines the annuity amounts excluded from taxes. The annuitant recovers the cost basis without tax. The rest of each payment is taxable interest.
+      body: `Part of each annuity payment is taxable, and part is not. The nontaxable part is the expected return of the principal that was paid in. That principal is the cost base. The taxable part is the interest earned on the principal. That interest is the tax base. The exclusion ratio decides how much of each annuity payment is left out of taxable income. The annuitant recovers the cost basis without tax. The rest of each payment is taxable interest.
 
-The accumulation phase is the period after purchase and before distributions begin. Premium dollars already taxed are the cost base and are not taxed again when withdrawn. Interest is the tax base, and those taxes are deferred during accumulation.
+The accumulation phase is the period after the purchase and before distributions begin. Premium dollars that have already been taxed are the cost base, and they are not taxed again when they are withdrawn. Interest is the tax base, and the tax on that interest is deferred during accumulation.
 
-Money withdrawn during the accumulation phase is taxed LIFO. Withdrawals are taxable until the owner’s cost basis is reached. After all the interest has been received and taxed, the principal is received with no additional tax.
+Money withdrawn during the accumulation phase is taxed LIFO. Withdrawals are taxable until the owner's cost basis is reached. After all of the interest has been received and taxed, the principal is received with no additional tax.
 
-A cash surrender results in immediate taxation of the interest earned.
+A cash surrender causes the interest that has been earned to be taxed immediately.
 
-Besides ordinary income tax, the IRS imposes a 10% penalty on the annuity tax base for early withdrawals before age 59½. In the course example, a 58-year-old withdraws $6,000 and the entire amount is taxable. The penalty is 10% of the withdrawal, $600.
+Besides ordinary income tax, the IRS imposes a 10% penalty on the annuity tax base for an early withdrawal before age 59½. A 57-year-old withdraws $8,000, and the entire amount is taxable. The penalty is 10% of the withdrawal, which is $800.
 
-When an annuity funds a traditional IRA, distributions are fully taxable if contributions were made with pretax dollars. If there are no distributions at the required age, or the distributions are not large enough, the penalty is 50% of the shortfall from the required annual amount.
+When an annuity funds a traditional IRA, the distributions are fully taxable if the contributions were made with pretax dollars. Required minimum distributions begin at age 73 under SECURE 2.0, and at age 75 for a person who reaches age 74 after December 31, 2032. If there is no distribution at the required age, or if the distribution is not large enough, the penalty is 25% of the shortfall from the required annual amount. The penalty is 10% of the shortfall if the person corrects it in time.
 
-If the contract holder dies before the annuitization date, the interest accumulated in the annuity becomes taxable. If the beneficiary is a spouse, the tax can continue to be deferred. Unpaid annuity benefits after the annuitant’s death are paid to the beneficiary and are taxable.`,
+If the contract holder dies before the annuitization date, the interest that has accumulated in the annuity becomes taxable. If the beneficiary is a spouse, the tax can continue to be deferred. Unpaid annuity benefits after the annuitant's death are paid to the beneficiary, and those benefits are taxable.`,
       questions: [
         question(
           'c7q09',
@@ -319,7 +321,7 @@ If the contract holder dies before the annuitization date, the interest accumula
             },
             {
               text: '$3,000, half the withdrawal, because every early annuity withdrawal is taxed at 50%.',
-              why: 'The 10% figure is the early-withdrawal penalty. A 50% penalty in this chapter is the shortfall penalty when a traditional IRA funded by an annuity misses the required amount.',
+              why: 'The 10% figure is the early-withdrawal penalty. The shortfall penalty, when a traditional IRA funded by an annuity misses the required amount, is 25% of the shortfall, or 10% of the shortfall if it is corrected in time.',
             },
             {
               text: 'Nothing. Annuity withdrawals before age 59½ are tax free.',
@@ -336,9 +338,9 @@ If the contract holder dies before the annuitization date, the interest accumula
     {
       id: 'c7-corporate',
       title: 'Annuities in the estate and company-owned annuities',
-      body: `If the annuitant dies during the accumulation period, the insurer must return all or a portion of the annuity cash value, the values accumulated under the contract. That amount is included in the deceased annuitant’s estate. If the annuity has been paid up and the annuitant dies during the annuity period, the annuity benefits are taxable and are included in the estate.
+      body: `If the annuitant dies during the accumulation period, the insurer must return all or a portion of the annuity cash value, which is the value accumulated under the contract. That amount is included in the deceased annuitant's estate. If the annuity has been paid up and the annuitant dies during the annuity period, the annuity benefits are taxable and are included in the estate.
 
-Corporate-owned annuities are taxed differently from individual annuities. Growth in the annuity is not tax deferred. Interest income is taxed annually, unless the corporation owns a group annuity for its employees and each employee receives a certificate of participation.`,
+A corporate-owned annuity is taxed differently from an individual annuity. Growth in the corporate annuity is not tax deferred. The interest income is taxed every year, unless the corporation owns a group annuity for its employees and each employee receives a certificate of participation.`,
       questions: [
         question(
           'c7q11',
@@ -368,18 +370,20 @@ Corporate-owned annuities are taxed differently from individual annuities. Growt
     {
       id: 'c7-ira',
       title: 'Taxes on a traditional IRA',
-      body: `These rules apply to traditional IRA contributions:
-• Contributions are tax deductible for the year of the contribution, based on the person’s income.
-• Contributions must be made in cash to be tax deductible. Cash includes any form of money, such as cash, a check, or a money order.
-• Excess contributions are taxed at 6% per year as long as the excess remains in the IRA.
-• Earnings are tax deferred and are not taxed until withdrawn.
+      body: `These rules apply to contributions to a traditional IRA.
 
-A distribution is subject to income tax in the year it is withdrawn. An early distribution, before age 59½, also draws a 10% penalty. The 10% penalty does not apply when:
+• A contribution is tax deductible for the year of the contribution, based on the person's income.
+• The contribution must be made in cash in order to be tax deductible. Cash includes any form of money, such as currency, a check, or a money order.
+• An excess contribution is taxed at 6% per year for as long as the excess remains in the IRA.
+• Earnings are tax deferred and are not taxed until they are withdrawn.
+
+A distribution is subject to income tax in the year it is withdrawn. An early distribution, before age 59½, also draws a 10% penalty. The 10% penalty does not apply in these cases.
+
 • The participant is age 59½.
 • The participant is totally disabled.
-• The money is used for a down payment on a home, not to exceed $10,000, and usually for first-time homebuyers.
-• Withdrawals are for post-secondary education expenses.
-• Withdrawals are for catastrophic medical expenses, or upon death.`,
+• The money is used as a down payment on a home, not to exceed $10,000, and usually for a first-time homebuyer.
+• The withdrawal pays post-secondary education expenses.
+• The withdrawal pays catastrophic medical expenses, or it is made upon death.`,
       questions: [
         question(
           'c7q12',
@@ -409,16 +413,17 @@ A distribution is subject to income tax in the year it is withdrawn. An early di
     {
       id: 'c7-roth',
       title: 'Roth IRAs compared with traditional IRAs',
-      body: `Roth IRA contributions are not tax deductible. Excess contributions are subject to a 6% tax penalty.
+      body: `Roth IRA contributions are not tax deductible. An excess contribution is subject to a 6% tax penalty.
 
-How the course compares the two accounts:
-• Both allow a contribution of 100% of income up to an IRS-specified limit.
-• Both charge a 6% penalty on excess contributions.
+The two accounts compare this way.
+
+• Both allow a contribution of 100% of earned income, up to an IRS-specified limit.
+• Both charge a 6% penalty on an excess contribution.
 • A traditional IRA grows tax deferred. A Roth IRA grows tax free if the account is open for at least 5 years.
-• Traditional contributions are tax deductible and are made with pre-tax dollars. Roth contributions are not tax deductible and are made with after-tax dollars.
-• A traditional IRA has a 10% penalty for early nonqualified distributions before age 59½, with some exceptions. A Roth qualified distribution cannot occur until the account has been open for 5 years and the owner is 59½.
-• Traditional distributions are taxable. Roth distributions are not taxable.
-• Traditional payouts must begin by age 73. A Roth IRA has no required minimum age for payouts.`,
+• A traditional contribution is tax deductible and is made with pre-tax dollars. A Roth contribution is not tax deductible and is made with after-tax dollars.
+• A traditional IRA has a 10% penalty for an early nonqualified distribution before age 59½, with some exceptions. A Roth qualified distribution cannot occur until the account has been open for 5 years and the owner is 59½.
+• A traditional distribution is taxable. A Roth distribution is not taxable.
+• Traditional payouts must begin by age 73, or by age 75 for an owner who reaches age 74 after December 31, 2032. A Roth IRA has no required minimum age for payouts.`,
       questions: [
         question(
           'c7q14',
@@ -448,15 +453,16 @@ How the course compares the two accounts:
     {
       id: 'c7-inherited',
       title: 'What an IRA beneficiary receives',
-      body: `If the owner dies before distributions have begun, the entire interest must be distributed in full on or before December 31 of the calendar year that contains the fifth anniversary of the owner’s death, unless the owner named a beneficiary.
+      body: `If the owner dies before distributions have begun, the entire interest must be distributed in full on or before December 31 of the calendar year that contains the fifth anniversary of the owner's death, unless the owner named a beneficiary.
 
-A spouse who is the sole designated beneficiary may:
-• Treat the IRA as the spouse’s own.
-• Base the required minimum distribution on the spouse’s own current age.
-• Base the required minimum distribution on the decedent’s age at death, reducing the distribution period by one each year.
-• Withdraw the entire account balance by the end of the fifth year following the owner’s death, if the owner died before the required beginning date. If the owner died before the required beginning date, the surviving spouse can wait until the owner would have turned 73 to begin receiving required minimum distributions.
+A spouse who is the sole designated beneficiary may do any of the following.
 
-An individual beneficiary other than a spouse must withdraw the entire amount within 10 years of the owner’s death. A non-spouse beneficiary may not treat an inherited IRA as the beneficiary’s own, may not make contributions to it, and may not roll amounts into or out of the inherited IRA. Like the original owner, the beneficiary generally will not owe tax on the assets until distributions are received.`,
+• Treat the IRA as the spouse's own.
+• Base the required minimum distribution on the spouse's own current age.
+• Base the required minimum distribution on the decedent's age at death, reducing the distribution period by one each year.
+• Withdraw the entire account balance by the end of the fifth year following the owner's death, if the owner died before the required beginning date. If the owner died before the required beginning date, the surviving spouse can wait until the owner would have reached the required beginning age, 73 or 75 under the SECURE 2.0 rule above, to begin receiving required minimum distributions.
+
+An individual beneficiary who is not a spouse must withdraw the entire amount within 10 years of the owner's death. A non-spouse beneficiary may not treat an inherited IRA as the beneficiary's own. That beneficiary may not make contributions to it, and may not roll amounts into or out of the inherited IRA. Like the original owner, the beneficiary generally will not owe tax on the assets until a distribution is received.`,
       questions: [
         question(
           'c7q13',
@@ -488,9 +494,9 @@ An individual beneficiary other than a spouse must withdraw the entire amount wi
       title: 'Rolling money from one plan to another',
       body: `A person may move money from one qualified retirement plan to another. Benefits withdrawn from a qualified plan are taxable in the year they are received if the money is not moved properly. The two methods are a rollover and a transfer.
 
-A rollover is a tax-free distribution of cash from one retirement plan to another. IRA rollovers generally must be completed within 60 days from the time the money is taken out of the first plan. If the distribution is paid directly to the participant, the payor must withhold 20%. That 20% withholding can be avoided if the distribution is made directly from the first plan to the trustee or administrator/custodian of the new IRA. That is a direct rollover.
+A rollover is a tax-free distribution of cash from one retirement plan to another. An IRA rollover generally must be completed within 60 days from the time the money is taken out of the first plan. If the distribution is paid directly to the participant, the payor must withhold 20%. That 20% withholding can be avoided if the distribution goes directly from the first plan to the trustee, or to the administrator or custodian, of the new IRA. That direct movement is a direct rollover.
 
-A transfer, or direct transfer, is a tax-free transfer of funds from one retirement program to a traditional IRA, or a transfer of interest in a traditional IRA from one trustee directly to another.`,
+A transfer, also called a direct transfer, is a tax-free movement of funds from one retirement program to a traditional IRA, or a movement of the interest in a traditional IRA from one trustee directly to another trustee.`,
       questions: [
         question(
           'c7q15',
@@ -520,14 +526,15 @@ A transfer, or direct transfer, is a tax-free transfer of funds from one retirem
     {
       id: 'c7-1035',
       title: 'Swapping one contract for another',
-      body: `Under Section 1035 of the Internal Revenue Code, certain exchanges of life insurance policies and annuities are nontaxable. When a policyowner exchanges a cash value life policy for another cash value life policy, a cash value life policy for an annuity, or an annuity for an annuity, the contracts must be on the same life. There is no income tax on these transactions.
+      body: `Under Section 1035 of the Internal Revenue Code, certain exchanges of life insurance policies and annuities are not taxable. When a policyowner exchanges a cash value life policy for another cash value life policy, a cash value life policy for an annuity, or an annuity for another annuity, the contracts must be on the same life. There is no income tax on these transactions.
 
-Allowable exchanges:
+These exchanges are allowed.
+
 • A life insurance policy for another life insurance policy, an endowment contract, or an annuity contract.
-• An endowment contract for another endowment contract or an annuity contract.
+• An endowment contract for another endowment contract, or for an annuity contract.
 • An annuity contract for another annuity contract.
 
-A policyowner may not exchange funds from an annuity into a cash value life policy. Term life is not used in a 1035 exchange because it has no cash value. The exchange may not be from a less tax-advantaged contract to a more tax-advantaged contract. Same to same is acceptable.`,
+A policyowner may not exchange funds from an annuity into a cash value life policy. Term life is not used in a 1035 exchange, because term life has no cash value. The exchange may not go from a contract with fewer tax advantages to a contract with more tax advantages. An exchange of the same kind of contract for the same kind is acceptable.`,
       questions: [
         question(
           'c7q16',

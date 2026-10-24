@@ -3,7 +3,7 @@ import type { Chapter } from './types.ts'
 import { chapter10Extra } from './extra/chapter10.ts'
 
 /**
- * Wording follows the course OCR in content/source/chapter-10-ocr.txt.
+ * Section text is the current study wording.
  * The source pages have no practice questions. Questions are written from that text,
  * four options each, with a reason for the right answer and for each wrong one.
  */
@@ -17,29 +17,30 @@ export const chapter10: Chapter = {
     {
       id: 'c10-concepts',
       title: 'Deductibles, coinsurance, and copays',
-      body: `Basic medical expense insurance covers essential medical, hospital, and surgical benefits. Early basic plans, sold separately as hospital, medical, and surgical coverage, used first-dollar coverage, meaning no deductible, and low dollar limits. They did not protect a family against a catastrophic bill. Medical expense coverage can be broad, or it can be written narrowly for only one or two benefits.
+      body: `Basic medical expense insurance covers essential medical, hospital, and surgical benefits. Early basic plans were sold separately as hospital, medical, and surgical coverage. They used first-dollar coverage, which means no deductible, and they used low dollar limits. They did not protect a family against a catastrophic bill. Medical expense coverage can be broad, or it can be written narrowly for only one or two benefits.
 
-Fee-for-service plans pay providers for their billed charges for each service. Prepaid plans provide medical and hospital benefits as services rather than dollars. Providers are paid regularly whether or not they treat the person, and they receive no extra payment when they do.
+A fee-for-service plan pays a provider for the billed charge for each service. A prepaid plan provides medical and hospital benefits as services rather than as dollars. The providers are paid regularly whether or not they treat the person, and they receive no extra payment when they do.
 
-Specified coverage limits the policy to one illness or one narrow set of benefits, such as a cancer policy, prescription drugs, or dental care. These policies are often written alone or alongside a traditional fee-for-service major medical policy. Comprehensive care covers most medical expenses, typically preventive care, routine physicals, immunizations, outpatient services, and hospitalization. HMOs are an example.
+Specified coverage limits the policy to one illness or to one narrow set of benefits, such as a cancer policy, prescription drugs, or dental care. These policies are often written alone or alongside a traditional fee-for-service major medical policy. Comprehensive care covers most medical expenses. That typically includes preventive care, routine physicals, immunizations, outpatient services, and hospitalization. An HMO is an example.
 
 A benefit schedule states exactly what is covered and for how much. Usual, reasonable, and customary charges mean the insurer pays an amount based on the average charge for that procedure in that geographic area.
 
-Traditional reimbursement plans let the insured use most any qualified physician. Managed care limits benefits to physicians and care centers on a list.
+A traditional reimbursement plan lets the insured use most any qualified physician. Managed care limits the benefits to physicians and care centers that are on a list.
 
-Insureds are people covered by insurance who usually receive the benefits. Subscribers, also called participants or members, sign up for prepaid plans such as HMOs. On an individual policy, the subscriber is the person in whose name the contract is issued. On a group policy, the subscriber is the person whose employment or other status, other than family dependency, makes that person eligible to enroll.
+An insured is a person covered by insurance who usually receives the benefits. A subscriber, also called a participant or a member, signs up for a prepaid plan such as an HMO. On an individual policy, the subscriber is the person in whose name the contract is issued. On a group policy, the subscriber is the person whose employment, or other status other than family dependency, makes that person eligible to enroll.
 
-Other terms in this chapter:
-• Appeal — a request that a higher authority review a decision.
-• Blanket policy — covers members of a group during a particular activity, without naming each person, such as students, passengers, or sports teams.
-• Capitation — a set amount paid to a physician or group for each enrolled person per period, whether or not that person seeks care.
-• Gatekeeper — the primary care physician in an HMO.
-• Indemnity plan — pays the insured a predetermined fixed rate, regardless of the actual expense.
-• Nonrenewal — termination at the policy’s expiration date.
-• Out-of-pocket expenses — coinsurance and deductibles the insured pays before the insurer pays its portion.
-• Reimbursement — repaying a party who has spent or lost money.
-• Stop-loss — the amount the insured pays out of pocket during the year.
-• Subscriber — a person who signs up for a prepaid health plan, such as an HMO.`,
+These words are also used in this chapter.
+
+• Appeal. A request that a higher authority review a decision.
+• Blanket policy. Coverage for members of a group during a particular activity, without naming each person. Students, passengers, and sports teams are examples.
+• Capitation. A set amount paid to a physician or a group for each enrolled person per period, whether or not that person seeks care.
+• Gatekeeper. The primary care physician in an HMO.
+• Indemnity plan. A plan that pays the insured a predetermined fixed rate, regardless of the actual expense.
+• Nonrenewal. Termination at the policy's expiration date.
+• Out-of-pocket expenses. The coinsurance and deductibles the insured pays before the insurer pays its portion.
+• Reimbursement. Repaying a party who has spent or lost money.
+• Stop-loss. The amount the insured pays out of pocket during the year.
+• Subscriber. A person who signs up for a prepaid health plan, such as an HMO.`,
       questions: [
         question(
           'c10q01',
@@ -92,23 +93,23 @@ Other terms in this chapter:
     {
       id: 'c10-major',
       title: 'Major medical plans',
-      body: `Carriers include stock and mutual insurers, Blue Cross and Blue Shield, HMOs, and PPOs. Care is given in offices and hospitals, and also in surgicenters, urgent care centers, and skilled nursing facilities.
+      body: `The carriers include stock and mutual insurers, Blue Cross and Blue Shield, HMOs, and PPOs. Care is given in offices and hospitals, and also in surgicenters, urgent care centers, and skilled nursing facilities.
 
-Major medical plans grew out of basic hospital expense policies as treatment became more sophisticated and expensive. Basic plans had low limits and first-dollar coverage, and they left catastrophic bills unprotected. Major medical was built for catastrophic loss. Deductibles and coinsurance keep it affordable because the policy does not respond to small claims the insured can absorb, and it does respond to rare, financially disastrous losses.
+Major medical plans grew out of basic hospital expense policies as treatment became more sophisticated and more expensive. Basic plans had low limits and first-dollar coverage, and they left a catastrophic bill unprotected. Major medical was built for a catastrophic loss. Deductibles and coinsurance keep it affordable, because the policy does not respond to a small claim the insured can absorb, and it does respond to a rare loss that would be financially disastrous.
 
-Major medical contracts use high maximum limits, blanket coverage, coinsurance, and a deductible. The deductible is paid up front. Coinsurance, the sharing of cost, applies after the deductible is met and the claim is submitted. Most plans cover eligible expenses in and out of the hospital and have high maximums.
+A major medical contract uses a high maximum limit, blanket coverage, coinsurance, and a deductible. The deductible is paid up front. Coinsurance, which is the sharing of the cost, applies after the deductible is met and the claim is submitted. Most plans cover eligible expenses in and out of the hospital, and they have high maximums.
 
-Common exclusions are injuries caused by war, intentionally self-inflicted injuries, regular dental, vision, or hearing care, custodial care, injuries covered by workers compensation, and cosmetic surgery unless a birth defect or an accident requires it.
+The common exclusions are injuries caused by war, intentionally self-inflicted injuries, regular dental, vision, or hearing care, custodial care, injuries covered by workers compensation, and cosmetic surgery unless a birth defect or an accident requires it.
 
-Premiums vary with the deductible, the coinsurance percentage, the stop-loss, and the maximum benefit. A typical annual deductible is $100 to $2,500. The insured pays that portion each year before benefits start. A higher deductible lowers the premium.
+The premium varies with the deductible, the coinsurance percentage, the stop-loss, and the maximum benefit. A typical annual deductible is $100 to $2,500. The insured pays that portion each year before benefits start. A higher deductible lowers the premium.
 
-After the deductible, the insured and the insurer share expenses. The insurer generally pays the larger share: 90/10, 80/20, or 70/30, or an equal 50/50 share. The smaller the insurer’s percentage, the lower the premium. Coinsurance requires the insured to participate in the ongoing cost.
+After the deductible, the insured and the insurer share the expenses. The insurer generally pays the larger share: 90/10, 80/20, or 70/30, or an equal 50/50 share. The smaller the insurer's percentage, the lower the premium. Coinsurance requires the insured to participate in the ongoing cost. On an 80/20 plan with a $500 deductible, a $4,000 eligible bill leaves $3,500 to be shared. The insurer pays 80% of $3,500, which is $2,800. The insured pays the $500 deductible plus $700.
 
-Stop-loss is the amount the insured pays out of pocket during the year. Once that amount is reached, the insurer pays 100% of eligible expenses for the rest of the year. The expenses that count are the insured’s share of coinsurance, and they may or may not include the deductible. A higher stop-loss means a lower premium.
+Stop-loss is the amount the insured pays out of pocket during the year. Once that amount is reached, the insurer pays 100% of eligible expenses for the rest of the year. The expenses that count are the insured's share of coinsurance, and they may or may not include the deductible. A higher stop-loss means a lower premium.
 
-An impairment, or exclusion, rider removes coverage for a defined pre-existing condition, such as back injuries. It may be temporary or permanent. It is often the only way a person with an existing impairment can buy coverage at a reasonable cost. In the course example, a physician with a prior back injury can be issued a disability policy that excludes back claims and still covers other disabilities. The underwriter decides whether the exclusion lasts for a short time, such as a period with no further treatment, or permanently. Most riders add coverage and cost extra. This rider takes coverage away. There is no extra charge, and the premium is not reduced.
+An impairment rider, also called an exclusion rider, removes coverage for a defined pre-existing condition, such as a back injury. It may be temporary or permanent. It is often the only way a person with an existing impairment can buy coverage at a reasonable cost. A carpenter with a prior knee injury can be issued a disability policy that excludes knee claims and still covers other disabilities. The underwriter decides whether the exclusion lasts for a short time, such as a period with no further treatment, or permanently. Most riders add coverage and cost extra. This rider takes coverage away. There is no extra charge, and the premium is not reduced.
 
-A small employer may offer a defined benefit health plan or a defined contribution arrangement. The defined contribution plan is an employer group plan the employee selects individually, using pre-tax dollars. The insurer must follow the state insurance code: allow a small employer to enroll, impose no surcharge for that choice, and allow a large employer group to enroll.`,
+A small employer may offer a defined benefit health plan or a defined contribution arrangement. The defined contribution plan is an employer group plan the employee selects individually, using pre-tax dollars. The insurer must follow the state insurance code. It must allow a small employer to enroll, it must impose no surcharge for that choice, and it must allow a large employer group to enroll.`,
       questions: [
         question(
           'c10q03',
@@ -184,15 +185,15 @@ A small employer may offer a defined benefit health plan or a defined contributi
     {
       id: 'c10-hmo',
       title: 'HMOs',
-      body: `The Health Maintenance Act of 1973 supported HMOs and required employers with more than 25 employees to offer an HMO as an alternative to their regular plan. The dual-choice requirement has expired and has not been reenacted. The goal was to cut cost through preventive care. HMOs offer free annual checkups for the family, hoping to catch disease early, and free or low-cost immunizations.
+      body: `The Health Maintenance Act of 1973 supported HMOs and required an employer with more than 25 employees to offer an HMO as an alternative to the regular plan. The dual-choice requirement has expired and has not been reenacted. The goal was to cut cost through preventive care. An HMO offers a free annual checkup for the family, hoping to catch a disease early, and free or low-cost immunizations.
 
-An HMO provides benefits as services, not as reimbursement of a physician’s or hospital’s bill. It both finances and delivers care. It serves people who live inside specific boundaries, such as a county or a city. People outside those boundaries are not eligible. Care comes from physicians who meet the HMO’s standards and accept a prenegotiated price.
+An HMO provides benefits as services, not as reimbursement of a physician's bill or a hospital's bill. It both finances care and delivers care. It serves people who live inside specific boundaries, such as a county or a city. A person outside those boundaries is not eligible. Care comes from physicians who meet the HMO's standards and who accept a prenegotiated price.
 
-A copayment is a specific part of the cost, or a flat dollar amount, such as $5, $10, or $25 per office visit. HMO plans usually have no deductible. The HMO is capitated: it receives a flat amount each month for each member, whether or not the member sees a physician. It is a prepaid plan.
+A copayment is a specific part of the cost, or a flat dollar amount, such as $5, $10, or $25 per office visit. An HMO plan usually has no deductible. The HMO is capitated. It receives a flat amount each month for each member, whether or not the member sees a physician. It is a prepaid plan.
 
-The member chooses a primary care physician, the gatekeeper. That physician or the HMO is paid regularly for responsibility for the member, whether or not care is provided. It is in the physician’s interest to keep the member healthy. A specialist visit requires a referral from the gatekeeper. The referral system keeps members away from higher-priced specialists unless the visit is necessary. In many HMOs the primary physician bears a financial cost for a referral, so the physician may try another treatment first. HMOs must have a way to handle complaints about delayed referrals or other care and coverage issues.
+The member chooses a primary care physician, who is the gatekeeper. That physician, or the HMO, is paid regularly for responsibility for the member, whether or not care is provided. It is in the physician's interest to keep the member healthy. A visit to a specialist requires a referral from the gatekeeper. The referral system keeps members away from higher-priced specialists unless the visit is necessary. In many HMOs the primary physician bears a financial cost for a referral, so the physician may try another treatment first. An HMO must have a way to handle a complaint about a delayed referral or about another care or coverage issue.
 
-Inpatient hospital care is provided in or out of the service area. Treatment of mental, emotional, or nervous disorders, including alcohol or drug rehabilitation, may be limited. Emergency care must be available in or out of the service area. If emergency care is given outside the area, the HMO tries to bring the member back so salaried member physicians can provide the care.`,
+Inpatient hospital care is provided in or out of the service area. Treatment of a mental, emotional, or nervous disorder, including alcohol or drug rehabilitation, may be limited. Emergency care must be available in or out of the service area. If emergency care is given outside the area, the HMO tries to bring the member back so salaried member physicians can provide the care.`,
       questions: [
         question(
           'c10q06',
@@ -222,19 +223,19 @@ Inpatient hospital care is provided in or out of the service area. Treatment of 
     {
       id: 'c10-ppo',
       title: 'PPOs and other network plans',
-      body: `A preferred provider organization is a traditional answer to the HMO. Physicians are paid fees rather than a salary, and members are encouraged, through better benefits, to use physicians who agreed to the fees. A member may use any physician. The PPO might pay 90% of the cost of a physician on its list and only 70% if the member uses a physician who is not.
+      body: `A preferred provider organization is a traditional answer to the HMO. Physicians are paid fees rather than a salary. Members are encouraged, through better benefits, to use physicians who agreed to those fees. A member may use any physician. The PPO might pay 85% of the cost of a physician on its list and only 60% if the member uses a physician who is not on the list.
 
-A PPO is a group of physicians and hospitals that contract with employers, insurers, or third parties to provide care at a reduced fee. It differs from an HMO in two ways. Care is not prepaid. Physicians are paid fee-for-service. Subscribers are not required to use contracted physicians or facilities.
+A PPO is a group of physicians and hospitals that contract with employers, insurers, or third parties to provide care at a reduced fee. It differs from an HMO in two ways. The care is not prepaid, and the physicians are paid fee-for-service. Subscribers are not required to use the contracted physicians or facilities.
 
-A limited health plan furnishes, directly or through others, services of dentists, optometrists, physical therapists, podiatrists, psychologists, physicians, chiropractic physicians, naturopathic physicians, osteopathic physicians, social workers, family counselors, other providers, or reasonable combinations of those services. The services are exchanged for prepaid periodic payments set before the service period, and the plan must arrange or provide the services. A limited health plan does not include an HMO, an insurer licensed under the nonprofit health service insurance corporation law, or an individual who contracts only to perform that individual’s own professional services.
+A limited health plan furnishes, directly or through others, the services of dentists, optometrists, physical therapists, podiatrists, psychologists, physicians, chiropractic physicians, naturopathic physicians, osteopathic physicians, social workers, family counselors, other providers, or a reasonable combination of those services. The services are exchanged for prepaid periodic payments that are set before the service period, and the plan must arrange or provide the services. A limited health plan does not include an HMO, an insurer licensed under the nonprofit health service insurance corporation law, or an individual who contracts only to perform that individual's own professional services.
 
 Open panel means the caregiver contracts with the health organization but may still treat patients who are not members. Those doctors are not employees of the organization. Closed panel means the caregiver treats only members and may not treat other patients. Those doctors are employees of the organization.
 
-Any physician or hospital that qualifies, follows the PPO’s standards, and charges the PPO’s fees can be added to the list at any time. Providers may belong to several PPOs at once.
+Any physician or hospital that qualifies, follows the PPO's standards, and charges the PPO's fees can be added to the list at any time. A provider may belong to several PPOs at once.
 
-Utah NetCare is alternative coverage for people who cannot afford COBRA premiums. It is available to people eligible for federal COBRA or state mini-COBRA continuation, or for conversion to an individual plan after those benefits are exhausted. A spouse or dependent, including a surviving spouse or dependent whose coverage ends at the employee’s death, may extend coverage. NetCare is an individual or group plan for up to 12 months for Utah residents leaving an employer plan. After 12 months, members must reapply as individuals. Rates are lower because NetCare does not meet the minimum coverage other Utah health plans must provide. The insured pays some expenses, including diabetes management, adoption benefits, and use of a specialist as a primary care physician.
+Utah NetCare is alternative coverage for a person who cannot afford a COBRA premium. It is available to a person who is eligible for federal COBRA or for state mini-COBRA continuation, or for conversion to an individual plan after those benefits are exhausted. A spouse or a dependent, including a surviving spouse or a dependent whose coverage ends at the employee's death, may extend coverage. NetCare is an individual or group plan for up to 12 months for a Utah resident who is leaving an employer plan. After 12 months, the member must reapply as an individual. The rates are lower because NetCare does not meet the minimum coverage that other Utah health plans must provide. The insured pays some expenses, including diabetes management, adoption benefits, and the use of a specialist as a primary care physician.
 
-Insurers required to offer alternative coverage must give employers a model letter explaining it at renewal, or when an employer or employee asks.`,
+An insurer that is required to offer alternative coverage must give employers a model letter explaining it at renewal, or when an employer or an employee asks.`,
       questions: [
         question(
           'c10q07',
@@ -289,9 +290,9 @@ Insurers required to offer alternative coverage must give employers a model lett
       title: 'Point-of-service plans',
       body: `A point-of-service plan combines an HMO and a PPO. Employees do not have to lock into one plan. They can choose differently each time they need care.
 
-PPO members, like HMO members, have a contracted network, but they do not have to use only in-network providers. In a point-of-service plan the person may visit an in-network provider or an out-of-network physician. Out-of-network copayments, coinsurance, and deductibles may be substantially higher. Participants usually have a network controlled by a primary care physician. They may seek care outside the network at reduced coverage. These plans are also called open-ended HMOs.
+PPO members, like HMO members, have a contracted network, but they do not have to use only in-network providers. In a point-of-service plan the person may visit an in-network provider or an out-of-network physician. The out-of-network copayment, coinsurance, and deductible may be substantially higher. Participants usually have a network controlled by a primary care physician. They may seek care outside the network at reduced coverage. These plans are also called open-ended HMOs.
 
-Gatekeeping is combined with the ability to self-refer at a higher out-of-pocket cost. Care arranged by the primary care physician pays a higher benefit at a lower cost. Self-referral, without the primary physician arranging the service, is generally more expensive. If a nonmember physician is used, that physician is paid a fee for service, and the member pays a higher coinsurance amount or percentage.`,
+Gatekeeping is combined with the ability to self-refer at a higher out-of-pocket cost. Care arranged by the primary care physician pays a higher benefit at a lower cost. A self-referral, without the primary physician arranging the service, is generally more expensive. If a physician who is not a member is used, that physician is paid a fee for service, and the member pays a higher coinsurance amount or percentage.`,
       questions: [
         question(
           'c10q09',
@@ -321,13 +322,13 @@ Gatekeeping is combined with the ability to self-refer at a higher out-of-pocket
     {
       id: 'c10-hsa',
       title: 'Health savings accounts',
-      body: `A health savings account helps an individual save for qualified health expenses of the individual, spouse, or dependents. A person covered by a high deductible health plan may make a tax-deductible contribution and use it for out-of-pocket medical expenses. Employer contributions are not included in the individual’s taxable income.
+      body: `A health savings account helps a person save for the qualified health expenses of that person, a spouse, or a dependent. A person covered by a high deductible health plan may make a tax-deductible contribution and use it for out-of-pocket medical expenses. An employer contribution is not included in the individual's taxable income.
 
-To be eligible, the person must be covered by a high deductible health plan, must not have other health insurance, must not be eligible for Medicare, and cannot be claimed as a dependent on someone else’s return. The other-coverage rule does not apply to specific injury insurance, accident, disability, dental, vision, or long-term care.
+To be eligible, the person must be covered by a high deductible health plan, must not have other health insurance, must not be eligible for Medicare, and cannot be claimed as a dependent on someone else's return. The other-coverage rule does not apply to specific injury insurance, accident, disability, dental, vision, or long-term care.
 
-The account is linked to high deductible insurance. In 2023 the qualified plan’s minimum deductible is $1,500 for singles and $3,000 for families. Eligible people, or their employers, may save up to the contribution limit regardless of the plan deductible: $3,850 for singles and $7,750 for families. The account must be opened before Medicare eligibility age. Taxpayers age 55 and older may contribute an extra amount, up to $1,000.
+The account is linked to high deductible insurance. For 2026, a high deductible health plan must have a minimum deductible of $1,700 for self-only coverage and $3,400 for family coverage, and the out-of-pocket maximum, not counting premiums, cannot exceed $8,500 for self-only coverage or $17,000 for family coverage (IRS Revenue Procedure 2025-19). An eligible person, or that person's employer, may contribute up to $4,400 for self-only coverage and $8,750 for family coverage in 2026. The account must be opened before the age of Medicare eligibility. A taxpayer age 55 or older may contribute an extra amount, up to $1,000.
 
-Money used for a nonhealth expense is taxed, plus a 20% penalty. After age 65, a nonhealth withdrawal is taxed but not penalized.`,
+Money used for an expense that is not a health expense is taxed, and a 20% penalty is added. After age 65, a nonhealth withdrawal is taxed, but it is not penalized.`,
       questions: [
         question(
           'c10q10',
@@ -335,7 +336,7 @@ Money used for a nonhealth expense is taxed, plus a 20% penalty. After age 65, a
           [
             {
               text: 'Someone covered by a high deductible health plan, with no other disqualifying health insurance, who is not eligible for Medicare and is not claimed as a dependent.',
-              why: 'Accident, disability, dental, vision, long-term care, and specific injury policies do not spoil eligibility. In 2023 the minimum deductibles are $1,500 and $3,000, and the contribution limits are $3,850 and $7,750. Age 55 and older may add up to $1,000. A nonhealth withdrawal is taxed plus 20% before age 65, and taxed without the penalty after 65.',
+              why: 'Accident, disability, dental, vision, long-term care, and specific injury policies do not spoil eligibility. In 2026 the minimum deductibles are $1,700 for self-only coverage and $3,400 for family coverage. The out-of-pocket maximum, not counting premiums, cannot exceed $8,500 or $17,000. The contribution limits are $4,400 and $8,750. Age 55 and older may add up to $1,000. A nonhealth withdrawal is taxed plus 20% before age 65, and taxed without the penalty after 65.',
               correct: true,
             },
             {
@@ -357,11 +358,11 @@ Money used for a nonhealth expense is taxed, plus a 20% penalty. After age 65, a
     {
       id: 'c10-hra',
       title: 'Health reimbursement accounts',
-      body: `A health reimbursement account is employer money set aside to reimburse employees for qualified medical expenses, such as deductibles and coinsurance. Employers get the same kind of preferential tax treatment they get for funding an insurance plan, and they may deduct the cost as a business expense.
+      body: `A health reimbursement account is employer money set aside to reimburse employees for qualified medical expenses, such as deductibles and coinsurance. The employer gets the same kind of preferential tax treatment it gets for funding an insurance plan, and it may deduct the cost as a business expense.
 
-An HRA is a contribution health care plan, not a defined benefit plan. It is not a taxable employee benefit. Employer contributions are tax deductible. Employees may roll unused balances to the next year. Employers do not have to advance claim payments during the early months of the plan year. The account is funded with employer dollars, not employee salary reductions. Coupling it with a high deductible, usually lower-cost, health plan can reduce the employer’s cost. It is meant to balance the purchasing power of larger and smaller employers.
+An HRA is a contribution health care plan, not a defined benefit plan. It is not a taxable employee benefit. The employer's contributions are tax deductible. An employee may roll an unused balance to the next year. The employer does not have to advance a claim payment during the early months of the plan year. The account is funded with employer dollars, not with an employee salary reduction. Coupling it with a high deductible health plan, which is usually lower in cost, can reduce the employer's cost. It is meant to balance the purchasing power of larger and smaller employers.
 
-HRAs are open to employees of companies of all sizes, but the employer sets eligibility and contribution limits. There is no statutory contribution limit. The employer may set the limit and decide whether unused amounts roll over. Former employees, including retirees, may keep access to unused amounts, at the employer’s discretion. The account stays with the originating employer and does not follow the employee to a new job.`,
+An HRA is open to employees of companies of all sizes, but the employer sets the eligibility rules and the contribution limits. There is no statutory contribution limit. The employer may set the limit and may decide whether an unused amount rolls over. A former employee, including a retiree, may keep access to an unused amount, at the employer's discretion. The account stays with the originating employer. It does not follow the employee to a new job.`,
       questions: [
         question(
           'c10q11',
@@ -391,15 +392,15 @@ HRAs are open to employees of companies of all sizes, but the employer sets elig
     {
       id: 'c10-cost',
       title: 'How plans try to control cost',
-      body: `Managed care plans such as HMOs and PPOs control cost by controlling how participants use care. Cost-saving and case-management provisions include controlled access to providers, large-claim management, preventive care, alternatives to hospitalization, second surgical opinions, preadmission testing, catastrophic case management, risk sharing, and high-quality care. Insurers use case managers for large ongoing claims through utilization management. The manager evaluates whether care is appropriate, necessary, and of good quality, and may use prospective and concurrent review.
+      body: `A managed care plan, such as an HMO or a PPO, controls cost by controlling how participants use care. The cost-saving and case-management provisions include controlled access to providers, management of large claims, preventive care, alternatives to hospitalization, a second surgical opinion, preadmission testing, catastrophic case management, risk sharing, and high-quality care. An insurer uses a case manager for a large ongoing claim through utilization management. The manager evaluates whether the care is appropriate, necessary, and of good quality, and the manager may use prospective review and concurrent review.
 
-Plans encourage preventive care and a healthier lifestyle. Annual exams, mammograms, and other tests can find a problem before symptoms appear. Because hospital stays are costly, many plans push outpatient services when possible.
+Plans encourage preventive care and a healthier lifestyle. An annual exam, a mammogram, and other tests can find a problem before symptoms appear. Because a hospital stay is costly, many plans push outpatient services when that is possible.
 
-Alternatives to a hospital stay include home health care, with periodic visits and possibly a home health aide working with a family member. A terminally ill patient may choose hospice instead of the hospital. Hospice handles daily needs and pain relief and does not attempt a cure. Painkillers and special beds are paid for. Operations and antibiotics are not.
+Alternatives to a hospital stay include home health care, with periodic visits and possibly a home health aide working with a family member. A terminally ill patient may choose hospice instead of the hospital. Hospice handles daily needs and pain relief. It does not attempt a cure. Painkillers and special beds are paid for. Operations and antibiotics are not.
 
-If a policy has maternity benefits, it must cover mother and newborn for at least 48 hours after a normal birth and 96 hours after a caesarean section.
+If a policy has maternity benefits, it must cover the mother and the newborn for at least 48 hours after a normal birth and for 96 hours after a caesarean section.
 
-Utilization management reviews whether health care services and resources are appropriate and efficiently allocated, including review of claims. Prospective review, or precertification, lets the physician submit claim information before treatment to learn whether the procedure is covered and at what rate. Concurrent review monitors the hospital stay so the patient is released as planned. Retrospective review is the third type.`,
+Utilization management reviews whether health care services and resources are appropriate and efficiently allocated, including a review of claims. Prospective review, also called precertification, lets the physician submit claim information before treatment in order to learn whether the procedure is covered and at what rate. Concurrent review monitors the hospital stay so the patient is released as planned. Retrospective review is the third type.`,
       questions: [
         question(
           'c10q12',
@@ -429,19 +430,19 @@ Utilization management reviews whether health care services and resources are ap
     {
       id: 'c10-dependents',
       title: 'Who can be covered as a dependent in Utah',
-      body: `Individual and group health policies issued in Utah must include these benefits. For an adoption, a child is anyone younger than 18. If a policy covers any family members, it must cover, on the same basis, a newborn from the moment of birth, and an adopted child from the moment of birth if placement occurs within 30 days of birth, or from the date of placement if placement is 30 days or more after birth.
+      body: `An individual or group health policy issued in Utah must include these benefits. For an adoption, a child is anyone younger than 18. If a policy covers any family member, it must cover, on the same basis, a newborn from the moment of birth, and an adopted child from the moment of birth if placement occurs within 30 days of birth. If placement is 30 days or more after birth, coverage starts on the date of placement.
 
-A policy or HMO contract that covers dependents must cover all unmarried dependents up to age 26 and cannot end that coverage because of age before the 26th birthday. The cost for unmarried dependents ages 19 through 26 is included in the premium on the same basis as other dependent coverage. The employer may still require the employee to pay all or part of that cost. Dependent coverage that is reinstated must be treated, for exclusions and limitations, as if it had never stopped.
+A policy or an HMO contract that covers dependents must cover all unmarried dependents up to age 26, and it cannot end that coverage because of age before the 26th birthday. The cost for an unmarried dependent from age 19 through 26 is included in the premium on the same basis as other dependent coverage. The employer may still require the employee to pay all or part of that cost. Dependent coverage that is reinstated must be treated, for exclusions and limitations, as if it had never stopped.
 
-If a court orders a parent who is eligible for family coverage to cover a child, the insurer may not deny enrollment because the child was born out of wedlock, is not claimed as a tax dependent, or does not live with the parent or in the service area. A group policy cannot deny a child solely because the child does not live with the group member, or solely because the child depends on a former spouse rather than the group member. A child who lives elsewhere may still be excluded on the same basis as a child who lives with the member.
+If a court orders a parent who is eligible for family coverage to cover a child, the insurer may not deny enrollment because the child was born out of wedlock, is not claimed as a tax dependent, or does not live with the parent or in the service area. A group policy cannot deny a child solely because the child does not live with the group member, or solely because the child depends on a former spouse rather than on the group member. A child who lives elsewhere may still be excluded on the same basis as a child who lives with the member.
 
-A disabled dependent is a child unable to engage in gainful employment because of a physical or mental impairment that may result in death or last at least 12 months, and who is chiefly dependent on the insured for support. Coverage of a disabled dependent cannot end because the child reaches the limiting age. The policyholder must give proof of incapacity and dependency at least 30 days before that age. The insurer may ask for proof again during the two years after that birthday, and after that no more than once a year.
+A disabled dependent is a child who is unable to engage in gainful employment because of a physical or mental impairment that may result in death or last at least 12 months, and who is chiefly dependent on the insured for support. Coverage of a disabled dependent cannot end because the child reaches the limiting age. The policyholder must give proof of the incapacity and the dependency at least 30 days before that age. The insurer may ask for proof again during the two years after that birthday, and after that no more than once a year.
 
 If the insured has maternity coverage on the date of an adoptive placement, the policy must pay an adoptive indemnity benefit when a child is placed for adoption within 90 days of birth. If more than one child from the same birth is placed, only one indemnity is required. The amount is $4,000, subject to adjustment.
 
-Family coverage must cover newborns from the moment of birth, without pre-existing condition limits, for 30 days. An additional premium is required if coverage continues beyond 30 days. Newborns adopted within 30 days of birth are covered from birth. If adoption is 30 days or more after birth, coverage starts at placement.
+Family coverage must cover a newborn from the moment of birth, without a pre-existing condition limit, for 30 days. An additional premium is required if coverage continues beyond 30 days. A newborn adopted within 30 days of birth is covered from birth. If the adoption is 30 days or more after birth, coverage starts at placement.
 
-Each group accident and health policy must offer an optional rider for alcohol or drug dependency treatment in programs licensed by the Department of Human Services, inpatient hospitals accredited by the Joint Commission, or facilities licensed by the Department of Health.`,
+Each group accident and health policy must offer an optional rider for alcohol or drug dependency treatment in a program licensed by the Department of Human Services, in an inpatient hospital accredited by the Joint Commission, or in a facility licensed by the Department of Health.`,
       questions: [
         question(
           'c10q13',
@@ -494,21 +495,21 @@ Each group accident and health policy must offer an optional rider for alcohol o
     {
       id: 'c10-hipaa',
       title: 'HIPAA',
-      body: `Legislation effective in July 1997 made group coverage portable and set required benefits affecting small employers, the self-employed, pregnant women, and the mentally ill. HIPAA applies to group health plans of employers with two or more employees and to individual policies sold by insurers.
+      body: `Legislation effective in July 1997 made group coverage portable and set required benefits that affect small employers, the self-employed, pregnant women, and the mentally ill. HIPAA applies to a group health plan of an employer with two or more employees, and to an individual policy sold by an insurer.
 
-Group plans may not discriminate against employees and dependents based on health, and they must allow special enrollment. Individual policies must guarantee access for qualifying people and guarantee renewability.
+A group plan may not discriminate against an employee or a dependent based on health, and it must allow special enrollment. An individual policy must guarantee access for a qualifying person and must guarantee renewability.
 
-An employer plan cannot set enrollment rules that discriminate on a health factor of an eligible person or dependent. Health factors include health status, physical and mental medical conditions, claims experience, receipt of health care, medical history, genetic information, disability, and evidence of insurability, including domestic violence and activities such as motorcycling, skiing, or snowmobiling. Waiting periods are allowed if they apply to everyone the same way.
+An employer plan cannot set an enrollment rule that discriminates on a health factor of an eligible person or a dependent. Health factors include health status, a physical or mental medical condition, claims experience, receipt of health care, medical history, genetic information, disability, and evidence of insurability, including domestic violence and an activity such as motorcycling, skiing, or snowmobiling. A waiting period is allowed if it applies to everyone in the same way.
 
-To convert from group coverage to an individual policy, a person must have 18 months of continuous creditable coverage, have been covered under a group plan most recently, have used up COBRA or state continuation, not be eligible for Medicare or Medicaid, have no other health insurance, and apply within 63 days of losing the prior coverage. Those people are guaranteed the right to buy individual coverage. If a new employee meets the requirements, the employer must offer coverage on a guaranteed-issue basis.
+To convert from group coverage to an individual policy, a person must have 18 months of continuous creditable coverage, must have been covered under a group plan most recently, must have used up COBRA or state continuation, must not be eligible for Medicare or Medicaid, must have no other health insurance, and must apply within 63 days of losing the prior coverage. Those people are guaranteed the right to buy individual coverage. If a new employee meets the requirements, the employer must offer coverage on a guaranteed-issue basis.
 
-A pre-existing condition, under HIPAA, is one for which the person sought medical advice, diagnosis, or treatment within a specified period before issue. Creditable coverage gives day-for-day credit for prior health coverage against a pre-existing exclusion when moving from one group plan to another, or from group coverage to an individual plan.
+Under HIPAA, a pre-existing condition is one for which the person sought medical advice, a diagnosis, or treatment within a specified period before issue. Creditable coverage gives day-for-day credit for prior health coverage against a pre-existing exclusion when the person moves from one group plan to another, or from group coverage to an individual plan.
 
-Before the Affordable Care Act, credit applied when the break in coverage was not 63 or more consecutive days. The Act prohibited pre-existing condition exclusions, eliminated waiting periods longer than 90 days, and eliminated the requirement to issue HIPAA certificates of creditable coverage after December 31, 2014.
+Before the Affordable Care Act, that credit applied when the break in coverage was not 63 or more consecutive days. The Act prohibited pre-existing condition exclusions, eliminated a waiting period longer than 90 days, and eliminated the requirement to issue a HIPAA certificate of creditable coverage after December 31, 2014.
 
-At the plan sponsor’s option, a group issuer must renew or continue the coverage. It may discontinue or nonrenew for nonpayment, fraud, violation of participation or contribution rules, discontinuation of that particular coverage, or movement outside the service area or the end of association membership.
+At the plan sponsor's option, a group issuer must renew or continue the coverage. It may discontinue or nonrenew for nonpayment, for fraud, for a violation of participation or contribution rules, for discontinuation of that particular coverage, or because the person moved outside the service area or association membership ended.
 
-Protected health information is all individually identifiable health information a covered entity or its business associate holds or transmits, in electronic, paper, or oral form. It includes demographic data about past, present, or future physical or mental health or condition, or payment information that could identify the person. A covered entity needs the person’s written authorization to disclose information that is not for treatment, payment, or health care operations.`,
+Protected health information is all individually identifiable health information that a covered entity, or its business associate, holds or transmits, in electronic, paper, or oral form. It includes demographic data about past, present, or future physical or mental health or condition, and payment information that could identify the person. A covered entity needs the person's written authorization to disclose information that is not for treatment, payment, or health care operations.`,
       questions: [
         question(
           'c10q15',
@@ -561,17 +562,17 @@ Protected health information is all individually identifiable health information
     {
       id: 'c10-pool',
       title: 'The Utah high-risk health pool',
-      body: `The Comprehensive Health Insurance Pool Act gives residents who are denied adequate insurance, and who are considered uninsurable, low-cost access to coverage. A board of 12 directors runs the pool under a plan the Commissioner approves. The board includes the Commissioner, the executive director of the Department of Health, and 10 members the Governor appoints with Senate consent.
+      body: `The Comprehensive Health Insurance Pool Act gives a resident who is denied adequate insurance, and who is considered uninsurable, low-cost access to coverage. A board of 12 directors runs the pool under a plan the Commissioner approves. The board includes the Commissioner, the executive director of the Department of Health, and 10 members the Governor appoints with the consent of the Senate.
 
-A person who is not HIPAA-eligible may qualify by paying the premium, living in the state, and meeting the health criteria. The following are not eligible: people eligible for Medicaid or Medicare, people who terminated pool coverage in the last 12 months unless the termination was involuntary for a reason other than nonpayment, people who have received the pool’s maximum lifetime benefit, inmates, people eligible for a public health plan, people who do not qualify because of a health condition, people eligible for similar employer-group coverage, people covered by any other health plan, people who have not lived in Utah for at least 12 consecutive months before applying, and people whose employer pays any part of their health premium. Someone whose coverage in another state’s high-risk pool ended because that person moved may apply within 63 days.
+A person who is not HIPAA-eligible may qualify by paying the premium, living in the state, and meeting the health criteria. These people are not eligible: a person eligible for Medicaid or Medicare; a person who terminated pool coverage in the last 12 months, unless the termination was involuntary for a reason other than nonpayment; a person who has received the pool's maximum lifetime benefit; an inmate; a person eligible for a public health plan; a person who does not qualify because of a health condition; a person eligible for similar employer-group coverage; a person covered by any other health plan; a person who has not lived in Utah for at least 12 consecutive months before applying; and a person whose employer pays any part of the health premium. Someone whose coverage in another state's high-risk pool ended because that person moved may apply within 63 days.
 
-The pool offers major medical coverage. The board sets the schedule, exclusions, and limits, and the Commissioner approves them. At least one plan must be offered through managed care. A pre-existing condition may be excluded for no longer than 6 months. The lifetime maximum of covered benefits may not exceed $1,500,000. A pre-existing pregnancy may be excluded for 10 months, but not for a HIPAA-eligible person. The pre-existing exclusion is waived if the person applies within 63 days of an involuntary termination of prior coverage.
+The pool offers major medical coverage. The board sets the schedule, the exclusions, and the limits, and the Commissioner approves them. At least one plan must be offered through managed care. A pre-existing condition may be excluded for no longer than 6 months. The lifetime maximum of covered benefits may not exceed $1,500,000. A pre-existing pregnancy may be excluded for 10 months, but not for a HIPAA-eligible person. The pre-existing exclusion is waived if the person applies within 63 days of an involuntary termination of prior coverage.
 
-Deductibles are based on calendar years, and at least two deductible choices must be offered. In most cases coinsurance of at least 20% of eligible expenses is required in addition to the deductible. After the enrollee hits the maximum aggregate out-of-pocket amount, an additional coinsurance of no more than 5% of eligible expenses may be imposed.
+Deductibles are based on calendar years, and at least two deductible choices must be offered. In most cases, coinsurance of at least 20% of eligible expenses is required in addition to the deductible. After the enrollee hits the maximum aggregate out-of-pocket amount, an additional coinsurance of no more than 5% of eligible expenses may be imposed.
 
-Federal-HIPUtah was a temporary, federally subsidized high-risk pool for people with pre-existing conditions who had been without coverage for 6 months. It was to last until 2014, when exchanges arrived and pre-existing exclusions ended. Eligibility required lawful presence or citizenship, Utah residency on the application date, no creditable coverage in the prior 6 months, a pre-existing condition and the state’s underwriting criteria, payment of the premium, and no other bar to eligibility.
+Federal-HIPUtah was a temporary, federally subsidized high-risk pool for a person with a pre-existing condition who had been without coverage for 6 months. It was to last until 2014, when the exchanges arrived and pre-existing exclusions ended. Eligibility required lawful presence or citizenship, Utah residency on the application date, no creditable coverage in the prior 6 months, a pre-existing condition and the state's underwriting criteria, payment of the premium, and no other bar to eligibility.
 
-Insurers must issue a health benefit plan card that shows the insured’s name, the insurer’s name, contact information, copayments and deductibles, and whether the state regulates the plan.`,
+An insurer must issue a health benefit plan card that shows the insured's name, the insurer's name, contact information, the copayments and deductibles, and whether the state regulates the plan.`,
       questions: [
         question(
           'c10q17',
@@ -601,33 +602,33 @@ Insurers must issue a health benefit plan card that shows the insured’s name, 
     {
       id: 'c10-aca',
       title: 'The Affordable Care Act and the Utah exchange',
-      body: `The Patient Protection and Affordable Care Act was signed on March 23, 2010, and was to be phased in until 2018. It is federal law, so state rules must conform. It increases preventive, educational, and community-based services. It set up a competitive private market, holds insurers accountable by keeping premiums down, preventing denials, and, as of January 2014, eliminating pre-existing condition exclusions. It was also meant to reduce the deficit and to extend coverage for adult children on individual and group plans until age 26. Small businesses and nonprofits can receive a tax credit for employer contributions. Insurers cannot rescind coverage because the insured becomes ill, and lifetime benefit limits are eliminated. Retiree-only plans, stand-alone dental, Medigap, and long-term care are generally exempt. Because the law has been contested, agents should check current law before advising.
+      body: `The Patient Protection and Affordable Care Act was signed on March 23, 2010, and it was to be phased in until 2018. It is federal law, so state rules must conform. It increases preventive, educational, and community-based services. It set up a competitive private market. It holds insurers accountable by keeping premiums down and preventing denials, and, as of January 2014, by eliminating pre-existing condition exclusions. It was also meant to reduce the deficit and to extend coverage for an adult child on an individual or group plan until age 26. A small business or a nonprofit can receive a tax credit for an employer contribution. An insurer cannot rescind coverage because the insured becomes ill, and lifetime benefit limits are eliminated. A retiree-only plan, stand-alone dental, Medigap, and long-term care are generally exempt. Because the law has been contested, an agent should check current law before advising.
 
-Marketplace coverage is available to an uninsured person who is a U.S. citizen or national or is lawfully present, lives in the United States, and is not incarcerated. A person with Medicare cannot use the Marketplace to buy a health or dental plan.
+Marketplace coverage is available to an uninsured person who is a U.S. citizen or national, or who is lawfully present, who lives in the United States, and who is not incarcerated. A person with Medicare cannot use the Marketplace to buy a health plan or a dental plan.
 
-A group or individual issuer cannot set eligibility rules based on health status, physical or mental medical condition, claims experience, receipt of care, medical history, genetic information, evidence of insurability including domestic violence, disability, or any other health-status factor. Premiums may be based on only four standards: geographic rating area, family composition, age, and tobacco use. For an individual plan, location is the home address. For a small group, it is the employer’s principal place of business.
+A group or individual issuer cannot set an eligibility rule based on health status, a physical or mental medical condition, claims experience, receipt of care, medical history, genetic information, evidence of insurability including domestic violence, disability, or any other health-status factor. A premium may be based on only four standards: the geographic rating area, family composition, age, and tobacco use. For an individual plan, the location is the home address. For a small group, it is the employer's principal place of business.
 
-Essential benefits include hospitalization, maternity, emergency services, wellness and preventive services, and chronic disease management. Every Marketplace plan must cover pregnancy and childbirth even if the pregnancy began before coverage. Insurers must accept any eligible applicant. Enrollment may be limited to open or special enrollment. Coverage must be renewed or continued at the option of the plan sponsor or the individual.
+Essential benefits include hospitalization, maternity, emergency services, wellness and preventive services, and chronic disease management. Every Marketplace plan must cover pregnancy and childbirth even if the pregnancy began before coverage. An insurer must accept any eligible applicant. Enrollment may be limited to open enrollment or special enrollment. Coverage must be renewed or continued at the option of the plan sponsor or the individual.
 
-If an insurer rescinds individual or group coverage for fraud or an intentional misrepresentation of a material fact, it must give at least 30 days’ notice so the insured can appeal. The person may review the file, present evidence and testimony, and keep coverage in force while the appeal is pending.
+If an insurer rescinds individual or group coverage for fraud or for an intentional misrepresentation of a material fact, it must give at least 30 days' notice so the insured can appeal. The person may review the file, present evidence and testimony, and keep the coverage in force while the appeal is pending.
 
-Coverage for children extends to age 26 regardless of marital status, residency, financial dependence, or eligibility for the child’s own employer plan. It may continue past the 26th birthday if the child cannot hold self-sustaining work because of an intellectual or physical disability and is chiefly dependent on the policyholder for support.
+Coverage for a child extends to age 26 regardless of marital status, residency, financial dependence, or eligibility for the child's own employer plan. It may continue past the 26th birthday if the child cannot hold self-sustaining work because of an intellectual or physical disability and is chiefly dependent on the policyholder for support.
 
-Plans cannot put a dollar limit on essential benefits or a lifetime dollar limit. Emergency services must be covered even at an out-of-network provider, at the amount that would have been paid in network. Preventive care, including routine checkups, screenings, and counseling, must be covered at 100% with no cost sharing. A group plan’s annual cost sharing cannot exceed the stated limits.
+A plan cannot put a dollar limit on an essential benefit or a lifetime dollar limit. Emergency services must be covered even at an out-of-network provider, at the amount that would have been paid in network. Preventive care, including a routine checkup, a screening, and counseling, must be covered at 100% with no cost sharing. A group plan's annual cost sharing cannot exceed the stated limits.
 
-Exchanges administer subsidies and help people enroll in private insurance, Medicaid, and the Children’s Health Insurance Program. They let an applicant compare plans, learn about options and tax credits, and enroll.
+An exchange administers subsidies and helps a person enroll in private insurance, Medicaid, and the Children's Health Insurance Program. It lets an applicant compare plans, learn about the options and the tax credits, and enroll.
 
-All plans must include ten essential benefits: ambulatory patient services, emergency services, hospitalization, maternity and newborn care, mental health and substance use disorder services including behavioral health treatment, prescription drugs, rehabilitative and habilitative services and devices, laboratory services, preventive and wellness services and chronic disease management, and pediatric services including oral and vision care.
+Every plan must include ten essential benefits: ambulatory patient services, emergency services, hospitalization, maternity and newborn care, mental health and substance use disorder services including behavioral health treatment, prescription drugs, rehabilitative and habilitative services and devices, laboratory services, preventive and wellness services and chronic disease management, and pediatric services including oral and vision care.
 
-Marketplace plans fall into four metal levels and catastrophic plans. On average the metal plans pay bronze 60%, silver 70%, gold 80%, and platinum 90%. Under bronze, participants cover the other 40% on average, and a person with severe disease may pay much more. Insurers that offer adult and family metal coverage must also offer child-only coverage.
+Marketplace plans fall into four metal levels, plus catastrophic plans. On average the metal plans pay bronze 60%, silver 70%, gold 80%, and platinum 90%. Under bronze, participants cover the other 40% on average, and a person with a severe disease may pay much more. An insurer that offers adult and family metal coverage must also offer child-only coverage.
 
 Those plans have lower premiums and high deductibles, often several thousand dollars. The insured usually pays all costs up to the deductible. After that, essential benefits are covered with no copayment or coinsurance.
 
-Marketplace enrollment began in October 2013, and tax credits began in 2014. A qualified person can take an advance credit, paid to the insurer, to reduce the monthly premium. Household income for the credit is the modified adjusted gross income of the taxpayer, spouse, and dependents, including wages, salary, foreign income, interest, dividends, and Social Security. Legal residents and citizens with income from 100% to 400% of the federal poverty level qualify. States may extend Medicaid to people under 138% of that level. Medicare or Medicaid recipients do not qualify for the credit. People eligible for the credit with income from 100% to 250% of the poverty level can get cost-sharing reductions, but they must buy a silver plan. The credit is based on expected annual income.
+Marketplace enrollment began in October 2013, and the tax credits began in 2014. A qualified person can take an advance credit, paid to the insurer, to reduce the monthly premium. Household income for the credit is the modified adjusted gross income of the taxpayer, the spouse, and the dependents. It includes wages, salary, foreign income, interest, dividends, and Social Security. A legal resident or a citizen with income from 100% to 400% of the federal poverty level qualifies. A state may extend Medicaid to a person under 138% of that level. A person on Medicare or Medicaid does not qualify for the credit. A person who is eligible for the credit and whose income is from 100% to 250% of the poverty level can get a cost-sharing reduction, but that person must buy a silver plan. The credit is based on expected annual income.
 
-A small employer may get a federal credit based on average wages and size. Employers with fewer than $50,000 average wages per employee and 25 or fewer workers may receive up to 50% of premiums for a small business and 35% for a small tax-exempt employer. The employer must pay premiums for employees in a qualified plan offered through a Small Business Health Options Program. The credit lasts for two consecutive taxable years.
+A small employer may get a federal credit based on average wages and on size. An employer with fewer than $50,000 of average wages per employee, and with 25 or fewer workers, may receive up to 50% of the premiums for a small business and 35% for a small tax-exempt employer. The employer must pay the premiums for employees in a qualified plan offered through a Small Business Health Options Program. The credit lasts for two consecutive taxable years.
 
-The Utah Health Exchange was created in the Governor’s office, with the Insurance Department, the Department of Health, and the Department of Workforce Services. It links to private and government insurance sites and electronic applications, and it gives employers a free or low-cost way for employees to buy coverage with pre-tax dollars. It tells consumers which public and private programs they may qualify for, lets them compare and enroll, and links to premium assistance. It contracts with private vendors to run enrollment and plan comparisons, to collect one policy’s premium from several payers, and to run a call center with unbiased answers.`,
+The Utah Health Exchange was created in the Governor's office, with the Insurance Department, the Department of Health, and the Department of Workforce Services. It links to private and government insurance sites and to electronic applications. It gives an employer a free or low-cost way for employees to buy coverage with pre-tax dollars. It tells a consumer which public and private programs that person may qualify for, lets the consumer compare and enroll, and links to premium assistance. It contracts with private vendors to run enrollment and plan comparisons, to collect one policy's premium from several payers, and to run a call center that gives unbiased answers.`,
       questions: [
         question(
           'c10q18',

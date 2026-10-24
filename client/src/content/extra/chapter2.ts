@@ -218,7 +218,7 @@ export const chapter2Extra: Record<string, Question[]> = {
       [
         {
           text: 'How long a whole life policy can stay in force if the premium is paid.',
-          why: 'Permanent insurance can stay in force to age 100. Planning survivor protection looks at the family finances, not the maturity age of the policy.',
+          why: 'Permanent insurance can stay in force to age 121. Planning survivor protection looks at the family finances, not the maturity age of the policy.',
         },
         {
           text: 'Current assets, liabilities, and what the survivors will need.',
@@ -426,8 +426,8 @@ export const chapter2Extra: Record<string, Question[]> = {
       'In the human life value example, how much of the wage is spent on family needs, and until what age do the wages continue?',
       [
         {
-          text: '$50,000 a year until age 100.',
-          why: 'Age 100 is the maturity point described for whole life. In this example the person earns $50,000 until age 65, and $40,000 a year is spent on family needs.',
+          text: '$50,000 a year until age 121.',
+          why: 'Age 121 is the maturity point described for whole life. In this example the person earns $50,000 until age 65, and $40,000 a year is spent on family needs.',
         },
         {
           text: '$1,000,000 a year until age 65.',
@@ -761,7 +761,7 @@ export const chapter2Extra: Record<string, Question[]> = {
           why: 'That is the business of life settlements, and STOLI violates insurable interest. It is not the most common business use of life insurance.',
         },
         {
-          text: 'Industrial insurance with a face amount of $2,000 to $10,000.',
+          text: 'Industrial insurance with a face amount of about $1,000 or less.',
           why: 'Those small face amounts describe industrial, or home service, life insurance. The most common business use is an employee benefit.',
         },
         {
@@ -1007,7 +1007,7 @@ export const chapter2Extra: Record<string, Question[]> = {
       'What is term insurance?',
       [
         {
-          text: 'A general name for whole life policies that stay in force to age 100 if the premium is paid.',
+          text: 'A general name for whole life policies that stay in force to age 121 if the premium is paid.',
           why: 'That is permanent life insurance. Term insurance is temporary protection for a specific period.',
         },
         {
@@ -1030,7 +1030,7 @@ export const chapter2Extra: Record<string, Question[]> = {
       'What does permanent life insurance provide, and how long can whole life stay in force?',
       [
         {
-          text: 'Lifetime protection and a savings element, the cash value. Whole life stays in force to age 100 if the premium is paid.',
+          text: 'Lifetime protection and a savings element, the cash value. Whole life stays in force to age 121 if the premium is paid.',
           why: 'Permanent life insurance is the general name for those whole life policies, and it provides both the lifetime protection and the cash value.',
           correct: true,
         },
@@ -1043,7 +1043,7 @@ export const chapter2Extra: Record<string, Question[]> = {
           why: 'A nonparticipating policy does not pay dividends to policyowners. Permanent insurance is defined by lifetime protection and cash value, not by dividends.',
         },
         {
-          text: 'A usual face amount of $2,000 to $10,000, with premiums collected at the home of the insured.',
+          text: 'A usual face amount of about $1,000 or less, with premiums collected at the home of the insured.',
           why: 'Those traits describe industrial, or home service, life insurance. Permanent insurance is lifetime protection plus cash value.',
         },
       ],
@@ -1066,8 +1066,8 @@ export const chapter2Extra: Record<string, Question[]> = {
           why: 'Every life policy pays a death benefit, but that benefit is not a dividend. A nonparticipating policy does not pay dividends, and term describes duration rather than dividend rights.',
         },
         {
-          text: 'Only when the face amount is $2,000 to $10,000.',
-          why: 'That face-amount range describes industrial insurance. Dividend rights depend on whether the policy participates.',
+          text: 'Only when the face amount is about $1,000 or less.',
+          why: 'A face amount of about $1,000 or less describes industrial insurance. Dividend rights depend on whether the policy participates.',
         },
       ],
     ),
@@ -1080,7 +1080,7 @@ export const chapter2Extra: Record<string, Question[]> = {
           why: 'Paid-up additions are one dividend option on a participating policy. A nonparticipating policy does not pay dividends to policyowners.',
         },
         {
-          text: 'It is another name for industrial insurance of $2,000 to $10,000.',
+          text: 'It is another name for industrial insurance of about $1,000 or less.',
           why: 'Industrial insurance is distinguished by small face amounts and frequent premium collection. Nonparticipating refers to the absence of policyowner dividends.',
         },
         {
@@ -1111,7 +1111,7 @@ export const chapter2Extra: Record<string, Question[]> = {
           why: 'That is a variable product. Industrial insurance is small individual coverage, often to help pay funeral expenses.',
         },
         {
-          text: 'Individual policies in small amounts, usually a face amount of $2,000 to $10,000, often to help pay funeral expenses, with premiums collected frequently, often at the home of the insured.',
+          text: 'Individual policies in small amounts, usually a face amount of about $1,000 or less, often to help pay funeral expenses, with premiums collected frequently, often at the home of the insured.',
           why: 'The section describes industrial, or home service, life insurance with those amounts, that purpose, and that collection pattern.',
           correct: true,
         },
@@ -1158,7 +1158,7 @@ export const chapter2Extra: Record<string, Question[]> = {
           why: 'Every life policy pays a death benefit. Group and individual differ in how many people are covered and how the life is underwritten.',
         },
         {
-          text: 'Group insurance is ordinary life written in bigger amounts, and individual insurance is industrial coverage of $2,000 to $10,000.',
+          text: 'Group insurance is ordinary life written in bigger amounts, and individual insurance is industrial coverage of about $1,000 or less.',
           why: 'Ordinary life is the larger individual policy, and industrial coverage is the small face amount. Group insurance covers many people under one contract. Individual insurance covers one life and is underwritten on that person.',
         },
       ],
@@ -1638,8 +1638,8 @@ export const chapter2Extra: Record<string, Question[]> = {
           why: 'Those are solicitation and cost-comparison tools. Underwriting sources include the application, the agent report, medical information, and the MIB.',
         },
         {
-          text: 'Dividend options, the premium mode, and the age-100 cash value.',
-          why: 'Dividend options and age 100 describe policy classes. The premium mode is how often the premium is paid. They are not the underwriting-source list.',
+          text: 'Dividend options, the premium mode, and the age-121 cash value.',
+          why: 'Dividend options and age 121 describe policy classes. The premium mode is how often the premium is paid. They are not the underwriting-source list.',
         },
         {
           text: 'The application, the agent report, an attending physician statement, an inspection report, the MIB, and medical or lab exams, including HIV tests when required.',
@@ -1749,7 +1749,7 @@ export const chapter2Extra: Record<string, Question[]> = {
       'When is an HIV test common, and what must the insurer do if it tests?',
       [
         {
-          text: 'It is required for every industrial policy of $2,000, and the results may be used in advertising.',
+          text: 'It is required for every industrial policy of about $1,000 or less, and the results may be used in advertising.',
           why: 'Industrial insurance is small coverage, often for funeral expenses. An HIV test is common for a large amount of coverage, and advertising must not be misleading. Results must be kept confidential.',
         },
         {
@@ -2004,8 +2004,8 @@ export const chapter2Extra: Record<string, Question[]> = {
       'What do mortality tables show, and what do morbidity tables do?',
       [
         {
-          text: 'Mortality tables show cash values at age 100. Morbidity tables list dividend options.',
-          why: 'Age 100 is a whole life duration, and dividend options belong to participating policies. Mortality tables project survivors, and morbidity tables address sickness and injury.',
+          text: 'Mortality tables show cash values at age 121. Morbidity tables list dividend options.',
+          why: 'Age 121 is a whole life duration, and dividend options belong to participating policies. Mortality tables project survivors, and morbidity tables address sickness and injury.',
         },
         {
           text: 'Mortality tables set the interest assumption. Morbidity tables set the loading.',

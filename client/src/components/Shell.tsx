@@ -1,6 +1,6 @@
 import { BookOpen, Bookmark, ClipboardList, LogOut, Menu, TrendingUp, X } from 'lucide-react'
-import { useState } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext.tsx'
 import { HIGHLIGHTS_NAV_LABEL } from '../study/highlights.ts'
 import { studyNoticeMessage } from '../study/studySync.ts'
@@ -16,13 +16,29 @@ const links = [
 export function Shell() {
   const { person, logout, studyNotice } = useAuth()
   const studyMessage = studyNoticeMessage(studyNotice)
+  const split = useLocation().pathname.startsWith('/study')
+  const frame = 'max-w-6xl'
   const [open, setOpen] = useState(false)
   const first = person?.fname?.trim()
 
+  useEffect(() => {
+    if (!split) return
+    const query = window.matchMedia('(min-width: 1024px)')
+    const apply = () => document.documentElement.classList.toggle('study-split', query.matches)
+    apply()
+    query.addEventListener('change', apply)
+    return () => {
+      query.removeEventListener('change', apply)
+      document.documentElement.classList.remove('study-split')
+    }
+  }, [split])
+
   return (
-    <div className="min-h-svh bg-[#f3f7fb] text-[#172033]">
-      <header className="bg-[#2a6cb5] text-white">
-        <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3">
+    <div
+      className={`bg-[#f3f7fb] text-[#172033] ${split ? 'min-h-svh lg:flex lg:h-dvh lg:max-h-dvh lg:flex-col lg:overflow-hidden' : 'min-h-svh'}`}
+    >
+      <header className="shrink-0 bg-[#2a6cb5] text-white">
+        <div className={`mx-auto flex ${frame} items-center gap-3 px-4 py-3`}>
           <NavLink to={person ? '/study' : '/login'} className="min-w-0 flex-1" onClick={() => setOpen(false)}>
             <span className="block font-['Fraunces',Georgia,serif] text-lg leading-tight font-semibold tracking-tight sm:text-xl">
               Utah Life and Health Insurance Study Contents
@@ -101,16 +117,16 @@ export function Shell() {
         ) : null}
       </header>
       {studyMessage ? (
-        <div className="bg-[#fff6e8] text-[#6a4b16]" role="status">
-          <p className="mx-auto max-w-6xl px-4 py-2 text-sm">{studyMessage}</p>
+        <div className="shrink-0 bg-[#fff6e8] text-[#6a4b16]" role="status">
+          <p className={`mx-auto ${frame} px-4 py-2 text-sm`}>{studyMessage}</p>
         </div>
       ) : null}
       {person ? <ActivityBridge /> : null}
-      <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:py-8">
+      <main className={`mx-auto w-full ${frame} px-4 py-6 sm:py-8 ${split ? 'lg:flex lg:min-h-0 lg:flex-1 lg:flex-col lg:overflow-hidden lg:py-4' : ''}`}>
         <Outlet />
       </main>
-      <footer className="border-t border-[#d5e2f0] bg-white">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-sm text-[#4d6278] sm:flex-row sm:items-center sm:justify-between">
+      <footer className={`shrink-0 border-t border-[#d5e2f0] bg-white ${split ? 'lg:hidden' : ''}`}>
+        <div className={`mx-auto flex ${frame} flex-col gap-2 px-4 py-4 text-sm text-[#4d6278] sm:flex-row sm:items-center sm:justify-between`}>
           <p>{first ? `Signed in as ${first}.` : 'A study site for Utah life insurance course material.'}</p>
         </div>
       </footer>

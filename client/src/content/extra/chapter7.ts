@@ -1042,7 +1042,7 @@ export const chapter7Extra: Record<string, Question[]> = {
         },
         {
           text: 'They are taxed only when they are smaller than the required annual amount.',
-          why: 'A shortfall from the required annual amount draws a 50% penalty. Pretax traditional IRA distributions are fully taxable.',
+          why: 'A shortfall from the required annual amount draws a penalty of 25% of the shortfall, or 10% of the shortfall if it is corrected in time. Pretax traditional IRA distributions are fully taxable.',
         },
       ],
     ),
@@ -1087,8 +1087,8 @@ export const chapter7Extra: Record<string, Question[]> = {
           correct: true,
         },
         {
-          text: 'They are subject to the 50% penalty on a shortfall.',
-          why: 'The 50% penalty applies to a shortfall from the required annual amount. Already taxed premium dollars are the cost base and are not taxed again when withdrawn.',
+          text: 'They are subject to a penalty of 25% of the shortfall, or 10% of the shortfall if it is corrected in time.',
+          why: 'The penalty on a shortfall from the required annual amount is 25% of the shortfall, or 10% of the shortfall if it is corrected in time. Already taxed premium dollars are the cost base and are not taxed again when withdrawn.',
         },
       ],
     ),
@@ -1156,8 +1156,8 @@ export const chapter7Extra: Record<string, Question[]> = {
           why: 'Deferral applies during accumulation, not to a cash surrender. A cash surrender results in immediate taxation of the interest earned.',
         },
         {
-          text: 'A 50% penalty on the cost base.',
-          why: 'The 50% penalty is on a shortfall from the required annual amount, not on the cost base at surrender. Surrender causes immediate taxation of the interest earned.',
+          text: 'A 25% penalty on the cost base.',
+          why: 'The shortfall penalty is 25% of the shortfall, or 10% of the shortfall if it is corrected in time. It is not a penalty on the cost base at surrender. Surrender causes immediate taxation of the interest earned.',
         },
       ],
     ),
@@ -1166,8 +1166,8 @@ export const chapter7Extra: Record<string, Question[]> = {
       'Besides ordinary income tax, what does the IRS impose on the annuity tax base for an early withdrawal before age 59½?',
       [
         {
-          text: 'A 50% penalty on the shortfall from the required annual amount.',
-          why: 'The 50% penalty applies when distributions at the required age are missing or too small. An early withdrawal before age 59½ draws a 10% penalty on the annuity tax base.',
+          text: 'A penalty of 25% of the shortfall from the required annual amount, or 10% of that shortfall if it is corrected in time.',
+          why: 'The penalty when distributions at the required age are missing or too small is 25% of the shortfall, or 10% of the shortfall if it is corrected in time. An early withdrawal before age 59½ draws a 10% penalty on the annuity tax base.',
         },
         {
           text: 'No penalty beyond ordinary income tax.',
@@ -1236,20 +1236,20 @@ export const chapter7Extra: Record<string, Question[]> = {
       [
         {
           text: '10% of the annuity tax base.',
-          why: 'The 10% penalty applies to early withdrawals before age 59½. A shortfall from the required annual amount is penalized at 50% of that shortfall.',
+          why: 'The 10% additional tax applies to early withdrawals before age 59½. A shortfall from the required annual amount is penalized at 25% of that shortfall, or 10% of the shortfall if it is corrected in time.',
         },
         {
           text: '50% of the shortfall from the required annual amount.',
-          why: 'If there are no distributions at the required age, or the distributions are not large enough, the penalty is 50% of the shortfall from the required annual amount.',
+          why: 'The old 50% penalty no longer applies. The penalty is 25% of the shortfall, or 10% of the shortfall if the person corrects it in time.',
+        },
+        {
+          text: '25% of the shortfall, or 10% of the shortfall if it is corrected in time.',
+          why: 'If there are no distributions at the required age, or the distributions are not large enough, the penalty is 25% of the shortfall. It is 10% of the shortfall when the person corrects it in time.',
           correct: true,
         },
         {
-          text: 'Immediate taxation of the cost base only.',
-          why: 'The cost base is not the penalty base. The penalty is 50% of the shortfall from the required annual amount.',
-        },
-        {
           text: 'Loss of the exclusion ratio for every prior year.',
-          why: 'The exclusion ratio is not forfeited for prior years by this shortfall. The penalty is 50% of the shortfall from the required annual amount.',
+          why: 'The exclusion ratio is not forfeited for prior years by this shortfall. The penalty is 25% of the shortfall, or 10% of the shortfall if it is corrected in time.',
         },
       ],
     ),

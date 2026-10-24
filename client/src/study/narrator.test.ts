@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { highlightPreview } from './highlights.ts'
 import {
+  SPEECH_CHUNK_LIMIT,
   chunkSpeech,
   groupOrder,
   highlightAnnouncement,
@@ -9,11 +10,21 @@ import {
   initialPlayerState,
   isSentenceTap,
   listNarrationStatus,
+  beginNarrationRun,
   moveGroup,
+  narrationJump,
+  narrationRunAfterEnd,
   nextNarrationRate,
   playerReducer,
+  AUTO_VOICE_ID,
+  isIosWebKitVoiceHost,
   preferEnglishVoice,
+  rankNarrationVoices,
+  readVoicePreference,
+  resolveNarrationVoice,
   sentenceParts,
+  voiceStorageId,
+  writeVoicePreference,
   sentencePieces,
   speechSynthesisAvailable,
   splitSentences,
@@ -128,6 +139,43 @@ describe('player queue', () => {
     expect(nextNarrationRate(1.25)).toBe(0.8)
   })
 
+  it('jumps to a different sentence and ignores the cancelled utterance end', () => {
+    const parts = sentenceParts(splitSentences('One ends here. Two ends here. Three ends here.'))
+    expect(narrationJump({ phase: 'idle', parts, targetGroup: '2', index: null, plainTap: true })).toEqual({
+      action: 'anchor',
+    })
+    expect(narrationJump({ phase: 'speaking', parts, targetGroup: '2', index: 0, plainTap: false })).toEqual({
+      action: 'ignore',
+    })
+    expect(narrationJump({ phase: 'speaking', parts, targetGroup: '2', index: 0, plainTap: true })).toEqual({
+      action: 'jump',
+      index: 2,
+    })
+    expect(narrationJump({ phase: 'speaking', parts, targetGroup: '0', index: 0, plainTap: true })).toEqual({
+      action: 'anchor',
+    })
+    const highlights = [
+      { group: 'h1', speak: 'Chapter 1, Alpha.' },
+      { group: 'h1', speak: 'First words.' },
+      { group: 'h2', speak: 'Chapter 2, Beta.' },
+    ]
+    expect(narrationJump({ phase: 'speaking', parts: highlights, targetGroup: 'h2', index: 1, plainTap: true })).toEqual({
+      action: 'jump',
+      index: 2,
+    })
+
+    let run = beginNarrationRun(0, 0)
+    expect(run).toEqual({ token: 1, phase: 'speaking', index: 0 })
+    const jumped = narrationJump({ phase: run.phase, parts, targetGroup: '2', index: run.index, plainTap: true })
+    expect(jumped).toEqual({ action: 'jump', index: 2 })
+    const previous = run.token
+    run = beginNarrationRun(previous, 2)
+    expect(run).toEqual({ token: 2, phase: 'speaking', index: 2 })
+    expect(narrationRunAfterEnd(run, previous, true)).toEqual(run)
+    expect(narrationRunAfterEnd(run, run.token, false)).toEqual(run)
+    expect(narrationRunAfterEnd(run, run.token, true)).toEqual({ token: 2, phase: 'idle', index: null })
+  })
+
   it('steps highlights by group, restarting the current one from its announcement', () => {
     const parts = [
       { group: 'h1', speak: 'Chapter 1, Alpha.' },
@@ -140,10 +188,11 @@ describe('player queue', () => {
     expect(moveGroup(parts, 0, -1)).toBeNull()
     expect(moveGroup(parts, 2, 1)).toBeNull()
     expect(chunkSpeech('Short line.')).toEqual(['Short line.'])
-    const long = Array.from({ length: 30 }, (_, index) => `reason ${index + 1}`).join(', ')
+    const long = Array.from({ length: 80 }, (_, index) => `reason ${index + 1}`).join(', ')
+    expect(long.length).toBeGreaterThan(SPEECH_CHUNK_LIMIT)
     const chunks = chunkSpeech(long)
     expect(chunks.length).toBeGreaterThan(1)
-    expect(chunks.every((chunk) => chunk.length <= 180)).toBe(true)
+    expect(chunks.every((chunk) => chunk.length <= SPEECH_CHUNK_LIMIT)).toBe(true)
     expect(chunks.join(' ').replace(/, /g, ',')).toBe(long.replace(/, /g, ','))
     const grouped = sentenceParts([{ start: 0, end: long.length, speak: long }])
     expect(grouped.every((part) => part.group === '0')).toBe(true)
@@ -202,6 +251,7 @@ describe('highlight narration', () => {
 
   it('announces the chapter and section, in chapter order, and skips text that is gone', () => {
     expect(highlightAnnouncement(3, 'Policy Riders.')).toBe('Chapter 3, Policy Riders.')
+    expect(highlightAnnouncement(4, 'Topic 4: Policy Riders.')).toBe('Chapter 4, Policy Riders.')
     const cues = highlightNarrationCues(
       [
         { highlightId: 'late', sectionId: 'c', startOffset: 0, endOffset: 11, text: 'Later words' },
@@ -272,15 +322,87 @@ describe('highlight narration', () => {
 })
 
 describe('voice choice', () => {
-  it('prefers an English voice and reports when speech synthesis is missing', () => {
-    const chosen = preferEnglishVoice([
-      { lang: 'es-ES', name: 'Lucia' },
-      { lang: 'en-GB', name: 'Daniel', default: true },
-      { lang: 'en-US', name: 'Samantha' },
-    ])
-    expect(chosen?.name).toBe('Samantha')
+  const voices = [
+    { lang: 'es-ES', name: 'Lucia', voiceURI: 'lucia' },
+    { lang: 'en-GB', name: 'Daniel', default: true, voiceURI: 'daniel' },
+    { lang: 'en-US', name: 'Alex', voiceURI: 'alex' },
+    { lang: 'en-US', name: 'Albert', voiceURI: 'albert' },
+    { lang: 'en-US', name: 'Bad News', voiceURI: 'bad-news' },
+    { lang: 'en-US', name: 'Fred', voiceURI: 'fred' },
+    { lang: 'en-US', name: 'Samantha (Compact)', voiceURI: 'samantha-compact' },
+    { lang: 'en-US', name: 'Samantha', voiceURI: 'samantha' },
+    { lang: 'en-US', name: 'Samantha (Enhanced)', voiceURI: 'samantha-enhanced' },
+    { lang: 'en-US', name: 'Ava (Premium)', voiceURI: 'ava-premium' },
+    { lang: 'en-US', name: 'Zoe', voiceURI: 'zoe' },
+    { lang: 'en-US', name: 'Allison', voiceURI: 'allison' },
+    { lang: 'en-US', name: 'Evan', voiceURI: 'evan' },
+    { lang: 'en-US', name: 'Nathan', voiceURI: 'nathan' },
+    { lang: 'en-US', name: 'Google US English', voiceURI: 'google-us' },
+    { lang: 'en-GB', name: 'Google UK English Female', voiceURI: 'google-uk' },
+    { lang: 'en-US', name: 'Microsoft David - English (United States)', voiceURI: 'david' },
+    { lang: 'en-US', name: 'Microsoft Aria Online (Natural)', voiceURI: 'aria' },
+    { lang: 'en-US', name: 'Microsoft Jenny Online (Natural)', voiceURI: 'jenny' },
+    { lang: 'en-US', name: 'Siri (Voice 1)', voiceURI: 'siri' },
+  ]
+
+  it('ranks natural English voices ahead of robotic, compact, and novelty voices', () => {
+    const ranked = rankNarrationVoices(voices).map((voice) => voice.name)
+    const at = (name: string) => ranked.indexOf(name)
+    expect(ranked).not.toContain('Lucia')
+    expect(at('Microsoft Aria Online (Natural)')).toBeLessThan(at('Google US English'))
+    expect(at('Microsoft Jenny Online (Natural)')).toBeLessThan(at('Google US English'))
+    expect(at('Samantha (Enhanced)')).toBeLessThan(at('Samantha'))
+    expect(at('Ava (Premium)')).toBeLessThan(at('Samantha'))
+    expect(at('Siri (Voice 1)')).toBeLessThan(at('Google US English'))
+    expect(at('Google US English')).toBeLessThan(at('Samantha'))
+    expect(at('Google US English')).toBeLessThan(at('Google UK English Female'))
+    expect(at('Samantha')).toBeLessThan(at('Alex'))
+    expect(at('Zoe')).toBeLessThan(at('Alex'))
+    expect(at('Allison')).toBeLessThan(at('Alex'))
+    expect(at('Evan')).toBeLessThan(at('Alex'))
+    expect(at('Nathan')).toBeLessThan(at('Alex'))
+    expect(at('Google UK English Female')).toBeLessThan(at('Daniel'))
+    expect(at('Alex')).toBeLessThan(at('Daniel'))
+    expect(at('Daniel')).toBeLessThan(at('Albert'))
+    expect(at('Daniel')).toBeLessThan(at('Bad News'))
+    expect(at('Daniel')).toBeLessThan(at('Fred'))
+    expect(at('Samantha')).toBeLessThan(at('Samantha (Compact)'))
+    expect(at('Microsoft David - English (United States)')).toBeLessThan(at('Albert'))
+    expect(preferEnglishVoice(voices)?.name).toBe(ranked[0])
     expect(preferEnglishVoice([{ lang: 'fr-FR', name: 'Thomas' }])).toBeNull()
     expect(speechSynthesisAvailable({})).toBe(false)
     expect(speechSynthesisAvailable({ speechSynthesis: {}, SpeechSynthesisUtterance: function Utterance() {} })).toBe(true)
+  })
+
+  it('keeps a saved voice, and falls back to auto only after the voice list is ready', () => {
+    const saved = voiceStorageId({ lang: 'en-US', name: 'Samantha', voiceURI: 'samantha' })
+    expect(resolveNarrationVoice(voices, saved, true).voice?.name).toBe('Samantha')
+    expect(resolveNarrationVoice(voices, AUTO_VOICE_ID, true).id).toBe(AUTO_VOICE_ID)
+    expect(resolveNarrationVoice(voices, AUTO_VOICE_ID, true).voice?.name).toBe('Microsoft Aria Online (Natural)')
+    expect(resolveNarrationVoice(voices, 'missing-voice', false).id).toBe('missing-voice')
+    expect(resolveNarrationVoice(voices, 'missing-voice', false).voice?.name).toBe('Microsoft Aria Online (Natural)')
+    expect(resolveNarrationVoice(voices, 'missing-voice', true)).toMatchObject({
+      id: AUTO_VOICE_ID,
+      voice: expect.objectContaining({ name: 'Microsoft Aria Online (Natural)' }),
+    })
+    const storage = new Map<string, string>()
+    const memory = {
+      getItem: (key: string) => storage.get(key) ?? null,
+      setItem: (key: string, value: string) => {
+        storage.set(key, value)
+      },
+    }
+    expect(readVoicePreference(memory)).toBe(AUTO_VOICE_ID)
+    writeVoicePreference(memory, saved)
+    expect(readVoicePreference(memory)).toBe(saved)
+    writeVoicePreference(null, saved)
+    expect(readVoicePreference(null)).toBe(AUTO_VOICE_ID)
+  })
+
+  it('treats iPhone and iPad as WebKit voice hosts', () => {
+    expect(isIosWebKitVoiceHost('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) CriOS/120.0')).toBe(true)
+    expect(isIosWebKitVoiceHost('Mozilla/5.0 (Linux; Android 14) Chrome/120.0')).toBe(false)
+    expect(isIosWebKitVoiceHost('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)', 5, 'MacIntel')).toBe(true)
+    expect(isIosWebKitVoiceHost('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)', 0, 'MacIntel')).toBe(false)
   })
 })

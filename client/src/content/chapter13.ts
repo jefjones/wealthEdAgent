@@ -3,7 +3,7 @@ import type { Chapter } from './types.ts'
 import { chapter13Extra } from './extra/chapter13.ts'
 
 /**
- * Wording follows the course OCR in content/source/chapter-13-ocr.txt.
+ * Section text is the current study wording.
  * The source pages have no practice questions. Questions are written from that text,
  * four options each, with a reason for the right answer and for each wrong one.
  */
@@ -17,27 +17,29 @@ export const chapter13: Chapter = {
     {
       id: 'c13-parts',
       title: 'Who Medicare covers',
-      body: `Medicare is a federal medical expense insurance program for people age 65 and older, even if the person continues to work. Benefits are also available, regardless of age, to anyone who has been entitled to Social Security disability income benefits for 2 years, or who has permanent kidney failure (end-stage renal disease).
+      body: `Medicare is the federal program that pays medical expenses for people age 65 and older. Working past 65 does not take that eligibility away. Two groups can qualify at any age. One is a person who has been entitled to Social Security disability income benefits for 2 years. The other is a person with permanent kidney failure, called end-stage renal disease.
 
-Persons age 65 or older who are recent green-card holders or new immigrants and who never worked in the United States may not immediately qualify. If they do not qualify for free Medicare, they can still buy it when they are 65 or older and either have recently become a U.S. citizen by naturalization without enough quarters for Social Security coverage, or are lawfully admitted aliens who have constantly lived in the United States for 5 years or longer and do not qualify for Social Security benefits.
+A recent green-card holder or a new immigrant who is 65 or older, and who never worked in the United States, may not qualify immediately. Buying Medicare is still allowed at 65 or older when free Medicare is not available, in either of two situations. The person has just become a U.S. citizen by naturalization and does not have enough quarters for Social Security coverage. Or the person is a lawfully admitted alien who has lived in the United States constantly for 5 years or longer and does not qualify for Social Security benefits.
 
-Medicare is administered by the Center for Medicare and Medicaid Services, a division of the United States Department of Health and Human Services. It has four parts:
-• Part A, hospital insurance, is financed through a portion of the payroll tax (FICA).
-• Part B, medical insurance, is financed by monthly premiums paid by insureds and by general revenues of the federal government.
-• Part C, Medicare Advantage, lets people receive all of their health care services through available provider organizations.
+Medicare is run by the Centers for Medicare & Medicaid Services (CMS), which is part of the United States Department of Health and Human Services. Coverage is split into four parts.
+
+• Part A is hospital insurance. A portion of the payroll tax, FICA, finances it.
+• Part B is medical insurance. Insureds pay monthly premiums, and general revenues of the federal government pay the rest.
+• Part C is Medicare Advantage. People receive all of their health care services through available provider organizations.
 • Part D is prescription drug coverage.
 
-Original Medicare means Part A and Part B only. It covers care from any doctor, provider, hospital, or facility that accepts Medicare patients. It usually does not cover prescription drugs. The patient does not have to choose a primary care doctor and does not need a referral to see a specialist, as long as the specialist is enrolled in Medicare.
+Original Medicare is only Part A plus Part B. Care is covered from any doctor, provider, hospital, or facility that accepts Medicare patients. Prescription drugs are usually not included. The patient does not pick a primary care doctor, and a referral is not required to see a specialist, as long as that specialist is enrolled in Medicare.
 
-Terms used with these policies:
-• Attained age — the insured’s age when the policy is issued or renewed.
-• Benefit period — a period of time during which benefits are paid.
-• Cost-sharing — sharing of expenses between the insured and the insurer through deductibles, copays, and coinsurance.
-• Enrollee — a person enrolled in a health plan, an insured. The term does not include dependents of the insured.
-• HMO — a prepaid medical service plan in which specified providers contract with the organization, with a focus on preventive care.
-• Network provider — a provider who contracts with other providers to serve the network’s subscribers.
-• Nonforfeiture benefit — a cash or insurance benefit received by a policyholder who no longer wishes to pay premiums after paying for at least the minimum period.
-• Outline of coverage — a document required in all health insurance policies that gives the applicant a full coverage disclosure.`,
+These words come up with these policies.
+
+• Attained age. How old the insured is when the policy is issued or renewed.
+• Benefit period. The stretch of time during which benefits are paid.
+• Cost-sharing. The insured and the insurer divide expenses through deductibles, copays, and coinsurance.
+• Enrollee. A person enrolled in a health plan. That person is an insured. Dependents of the insured are not included in this word.
+• HMO. A prepaid medical service plan. Specified providers contract with the organization, and the focus is preventive care.
+• Network provider. A provider who contracts with other providers to serve the network's subscribers.
+• Nonforfeiture benefit. Cash or insurance that a policyholder receives after deciding to stop paying premiums, once the minimum period has been paid.
+• Outline of coverage. A document every health insurance policy must include so the applicant gets a full disclosure of the coverage.`,
       questions: [
         question(
           'c13q01',
@@ -67,38 +69,40 @@ Terms used with these policies:
     {
       id: 'c13-parta',
       title: 'How you get Part A',
-      body: `A person is eligible for Medicare Part A, hospital coverage, by qualifying in one of these ways:
-• A citizen or legal resident of the United States, age 65 or over, who is qualified for Social Security or Railroad Retirement benefits.
-• Age 65 or over and entitled to monthly Social Security benefits based on the spouse’s work record, if the spouse is at least 62.
-• Younger than 65, but entitled to Social Security disability benefits for 24 months.
-• End-stage renal disease, meaning permanent kidney failure that requires dialysis or a transplant.
-• ALS (Lou Gehrig’s disease). The person automatically qualifies for Part A the month disability benefits begin.
+      body: `Hospital coverage under Medicare Part A is available in any one of these situations.
 
-People who are not receiving those benefits need to sign up for Part A, even if they are eligible for premium-free Part A. Monthly Part A premiums are required when a beneficiary is not fully insured under Social Security, meaning the person has not earned 40 quarters of coverage, the equivalent of 10 years of work. If the beneficiary paid Medicare taxes for fewer than 30 quarters, the standard Part A premium is $506. If Medicare taxes were paid for 30 to 39 quarters, the standard Part A premium is $278.
+• The person is a U.S. citizen or legal resident, age 65 or over, and qualified for Social Security or Railroad Retirement benefits.
+• The person is age 65 or over and entitled to monthly Social Security benefits based on a spouse's work record, and that spouse is at least 62.
+• The person is younger than 65 and has been entitled to Social Security disability benefits for 24 months.
+• The person has end-stage renal disease: permanent kidney failure that requires dialysis or a transplant.
+• The person has ALS, Lou Gehrig's disease. Part A starts automatically in the month disability benefits begin.
 
-There are three times to sign up:
-• Initial enrollment period: when the person first becomes eligible, starting 3 months before turning 65 and ending 3 months after the 65th birthday.
-• General enrollment period: between January 1 and March 31 each year.
-• Special enrollment period: at any time during the year if the person or the person’s spouse is still employed and covered under a group health plan.
+Someone who is not already receiving those benefits still has to sign up for Part A, even when premium-free Part A is available. A monthly premium is charged when the beneficiary is not fully insured under Social Security. Fully insured means 40 quarters of coverage, which is 10 years of work. In 2026, fewer than 30 quarters of Medicare taxes produces a Part A premium of $565 a month. From 30 to 39 quarters, the 2026 premium is $311 a month (CMS).
 
-People who are not eligible for premium-free Part A can buy it for a monthly premium. If they fail to sign up when first eligible, the monthly premium may go up 10%, unless the person becomes eligible for a special enrollment period.`,
+Signup happens in one of three windows.
+
+• Initial enrollment period. It opens when the person first becomes eligible: 3 months before the 65th birthday, and it closes 3 months after that birthday.
+• General enrollment period. January 1 through March 31 of each year.
+• Special enrollment period. Any time of year, if the person or the person's spouse is still employed and covered by a group health plan.
+
+A person who does not qualify for premium-free Part A can buy it. Missing the first chance to sign up can raise the monthly premium by 10%, unless a special enrollment period later applies.`,
       questions: [
         question(
           'c13q02',
           'What is the standard Part A premium when the person is not fully insured?',
           [
             {
-              text: '$506 a month if Medicare taxes were paid for fewer than 30 quarters, and $278 if they were paid for 30 to 39 quarters.',
-              why: 'Premium-free Part A requires 40 quarters of coverage, the equivalent of 10 years of work. Missing the first enrollment can raise the monthly premium 10%, unless a special enrollment period applies.',
+              text: '$565 a month if Medicare taxes were paid for fewer than 30 quarters, and $311 if they were paid for 30 to 39 quarters.',
+              why: 'In 2026, fewer than 30 quarters produces a Part A premium of $565 a month, and 30 to 39 quarters produces $311 a month. Premium-free Part A requires 40 quarters of coverage, the equivalent of 10 years of work. A late signup may raise the monthly premium 10%, unless a special enrollment period applies.',
               correct: true,
             },
             {
-              text: '$278 for fewer than 30 quarters, and no premium after 30 quarters.',
-              why: 'Fewer than 30 quarters is the $506 premium. Thirty to 39 quarters is $278. Forty quarters is the fully insured amount that brings premium-free Part A.',
+              text: '$311 for fewer than 30 quarters, and no premium after 30 quarters.',
+              why: 'Fewer than 30 quarters is the $565 premium. Thirty to 39 quarters is $311. Forty quarters is the fully insured amount that brings premium-free Part A.',
             },
             {
-              text: 'Part A is always free at age 65, and the $506 figure is the Part B deductible.',
-              why: 'Part A is premium-free only when the person is fully insured. The course states the $506 and $278 premiums for people who paid Medicare taxes for fewer quarters.',
+              text: 'Part A is always free at age 65, and the $565 figure is the Part B deductible.',
+              why: 'Part A is premium-free only when the person is fully insured. The course states the $565 and $311 premiums for people who paid Medicare taxes for fewer quarters.',
             },
             {
               text: 'A flat 1% of income for every month enrollment was delayed.',
@@ -134,19 +138,19 @@ People who are not eligible for premium-free Part A can buy it for a monthly pre
     {
       id: 'c13-hospital',
       title: 'What Part A pays for a hospital stay',
-      body: `Part A helps pay for inpatient hospital care, inpatient care in a skilled nursing facility, home health care, and hospice care.
+      body: `Part A helps with four settings: an inpatient hospital stay, inpatient care in a skilled nursing facility, home health care, and hospice.
 
-Inpatient hospital insurance helps pay for up to 90 days in a participating hospital in any benefit period, subject to a deductible. The first 60 days are covered at 100% of approved charges after the deductible is met. The next 30 days are paid with a daily copayment. Every Part A insured has a lifetime reserve of 60 days. Those days have a copayment twice that of days 61 through 90, and they are nonrenewable. After the lifetime reserve days are used, Medicare pays nothing. Sixty days of non-use of the inpatient hospital benefit starts a new benefit period and a new deductible.
+Hospital inpatient care can run as long as 90 days in a participating hospital during one benefit period. In 2026 the Part A deductible is $1,736 per benefit period (CMS). Once that deductible is met, the first 60 days are covered at 100% of approved charges. The next 30 days, days 61 through 90, are paid with a daily copayment. In 2026 that copayment is $434 a day. On top of those 90 days, every Part A insured has a lifetime reserve of 60 days. A reserve day costs twice the days 61 through 90 copayment. In 2026 that is $868 a day, and those reserve days never renew. When the reserve is used up, Medicare pays nothing. If the inpatient hospital benefit goes unused for 60 days, a new benefit period begins and a new deductible is due.
 
-Covered hospital services include a semi-private room, meals, regular nursing services, operating and recovery room costs, hospital costs for anesthesia, intensive care and coronary care, drugs, lab tests, X-rays, medical supplies, appliances, rehabilitation services, and preparatory services related to kidney transplant surgery. Blood is covered except for the first 3 pints. Part A does not include private-duty nursing, a television, or a telephone in the room, or a private room unless it is medically necessary. Inpatient mental health care in a psychiatric facility is limited to 190 days in a lifetime.
+The hospital benefit includes a semi-private room, meals, regular nursing services, operating and recovery room costs, hospital costs for anesthesia, intensive care and coronary care, drugs, lab tests, X-rays, medical supplies, appliances, rehabilitation services, and preparatory services related to kidney transplant surgery. Blood is covered except for the first 3 pints. Left out are private-duty nursing, a television, a telephone in the room, and a private room unless the private room is medically necessary. Inpatient mental health care in a psychiatric facility stops at 190 days in a lifetime.
 
-Skilled nursing facility care is covered for up to 100 days in each benefit period, following a 3-day inpatient hospital stay for a related illness. The doctor must certify that daily skilled care is necessary. Medicare pays 100% of the approved amount for the first 20 days. Days 21 through 100 are paid except for a daily deductible. Beyond 100 days, Medicare pays nothing.
+A skilled nursing facility can be covered for up to 100 days in each benefit period. The stay has to follow a 3-day inpatient hospital stay for a related illness, and the doctor must certify that daily skilled care is necessary. The first 20 days are paid at 100% of the approved amount. Days 21 through 100 are paid except for a daily coinsurance. In 2026 that coinsurance is $217 a day (CMS). Past day 100, Medicare pays nothing.
 
-For a person confined to the home and meeting the other conditions, Part A can pay the full approved cost of home health visits from a participating home health agency. There is no limit on the number of covered visits. Covered services include part-time skilled nursing care, physical therapy, and speech therapy, and also part-time home health aides, occupational therapy, medical social services, and medical supplies and equipment. For durable medical equipment, Medicare pays 80% of the approved amount, and the person pays 20%.
+Home health visits can be paid at the full approved cost when the person is confined to the home, meets the other conditions, and uses a participating home health agency. Covered visits are not capped. The list includes part-time skilled nursing care, physical therapy, and speech therapy, plus part-time home health aides, occupational therapy, medical social services, and medical supplies and equipment. Durable medical equipment is split: Medicare pays 80% of the approved amount, and the person pays 20%.
 
-Hospice care can be covered for a terminally ill insured if a Medicare-certified hospice provides it, for as long as the doctor certifies the need. Covered services include doctor and nursing services, medical appliances, supplies including outpatient drugs for pain relief, home health aide and homemaker services, therapies, medical social services, short-term inpatient care including respite care, and counseling. There is limited cost sharing for outpatient drugs and inpatient respite care.
+Hospice is available to a terminally ill insured when a Medicare-certified hospice provides it, and it lasts as long as the doctor certifies the need. Covered services are doctor and nursing services, medical appliances, supplies including outpatient drugs for pain relief, home health aide and homemaker services, therapies, medical social services, short-term inpatient care including respite care, and counseling. Outpatient drugs and inpatient respite care carry limited cost sharing.
 
-If 3 pints of blood are paid for or replaced under one part of Medicare during the calendar year, they do not have to be paid for or replaced under the other part.`,
+Blood is counted across parts. If 3 pints are paid for or replaced under one part of Medicare during the calendar year, they do not have to be paid for or replaced again under the other part.`,
       questions: [
         question(
           'c13q04',
@@ -199,33 +203,34 @@ If 3 pints of blood are paid for or replaced under one part of Medicare during t
     {
       id: 'c13-partb',
       title: 'What Part B pays',
-      body: `Part B pays for doctors’ services and a variety of other medical services and supplies that hospital insurance does not cover. Most services needed by people with permanent kidney failure are covered only by medical insurance. Part B is optional and is offered to everyone who enrolls in Part A. It is funded by monthly premiums and general federal revenues. Most people pay the standard monthly premium. If modified adjusted gross income on the IRS return is above a certain amount, the premium may be higher.
+      body: `Part B pays doctors and the other medical services and supplies that hospital insurance leaves out. Most care for permanent kidney failure is covered only by this medical insurance. Part B is optional. Everyone who enrolls in Part A is offered it. Monthly premiums and general federal revenues pay for it. Most people pay the standard monthly premium. In 2026 that standard premium is $202.90 a month, and the annual Part B deductible is $283 (CMS). A higher premium can apply when modified adjusted gross income on the IRS return is above a certain amount.
 
-When a person becomes eligible for Part A, that person is told they will get Part B and have to pay for it unless they decline it. Someone who declines and later wants Part B must wait until the next general enrollment period, January 1 through March 31.
+At the moment Part A eligibility begins, the person is told that Part B will start and must be paid for unless it is declined. Declining and later changing that decision means waiting for the next general enrollment period, January 1 through March 31.
 
-After the annual medical insurance deductible is met, Part B generally pays 80% of the approved charges for the rest of the year. There is no maximum out-of-pocket limit on the 20% coinsurance. Once the deductible amount for the year is reached, it does not apply to other covered services received for the rest of the year.
+After the annual medical insurance deductible is met, Part B generally pays 80% of approved charges for the rest of the year. The remaining 20% coinsurance has no maximum out-of-pocket limit. The deductible is once a year. After it is reached, it does not apply to other covered services received during the rest of that year.
 
-Part B covers doctor services anywhere in the United States, including surgical services, diagnostic tests and X-rays that are part of the treatment, medical supplies furnished in a doctor’s office, and the services of the office nurse. It covers outpatient hospital services for diagnosis and treatment, such as an emergency room, outpatient clinic, or a hospital. Clinical laboratory services are generally paid at 100% of the approved amount. Outpatient hospital treatment is paid based on hospital cost, and the person pays 20% of the billed amount after the deductible.
+Doctor services are covered anywhere in the United States. That includes surgical services, diagnostic tests and X-rays that are part of the treatment, medical supplies furnished in a doctor's office, and the office nurse. Outpatient hospital services for diagnosis and treatment are covered too, such as an emergency room or an outpatient clinic. Clinical laboratory services are generally paid at 100% of the approved amount. Outpatient hospital treatment is paid from hospital cost, and the person pays 20% of the billed amount after the deductible.
 
-Home health services are covered when a doctor recommends them and the person is eligible, on a part-time basis with limits on hours per day and days per week. Services Medicare does not fully cover may be covered by Medicaid. Other covered items, under limits, include ambulance transportation, home dialysis equipment and supplies, periodic support services, independent laboratory tests, oral surgery, outpatient physical therapy and speech pathology, and X-rays and radiation treatments.
+Home health services under Part B require a doctor's recommendation and eligibility. They are part-time, with limits on hours per day and days per week. Medicaid may cover services Medicare does not fully cover. Other items are covered within limits: ambulance transportation, home dialysis equipment and supplies, periodic support services, independent laboratory tests, oral surgery, outpatient physical therapy and speech pathology, and X-rays and radiation treatments.
 
-Part B drug coverage is limited to medicines administered in a hospital outpatient department under certain circumstances, such as injected drugs at a doctor’s office, some oral cancer drugs, or drugs that require durable medical equipment such as a nebulizer or an infusion pump. Otherwise the person pays 100% for most prescription drugs unless Part D covers them.
+Drugs under Part B are narrow. Coverage is limited to medicines given in a hospital outpatient department in certain circumstances, such as injected drugs at a doctor's office, some oral cancer drugs, or drugs that need durable medical equipment such as a nebulizer or an infusion pump. Most other prescription drugs are paid 100% by the person unless Part D covers them.
 
-Outpatient treatment of an approved mental condition, such as depression or anxiety, is covered in a doctor’s office, another provider’s office, or a hospital outpatient department. The enrollee generally pays 20% of the Medicare-approved amount, and the Part B deductible applies. Inpatient mental health care is covered under Part A.
+Outpatient treatment of an approved mental condition, such as depression or anxiety, can be given in a doctor's office, another provider's office, or a hospital outpatient department. The enrollee generally pays 20% of the Medicare-approved amount, and the Part B deductible applies. Inpatient mental health care is a Part A benefit.
 
-Besides a Welcome to Medicare preventive visit in the first 12 months, Part B covers an annual wellness visit to develop or update a plan for disease prevention. There is no out-of-pocket cost if the doctor or other qualified provider accepts assignment. Extra tests or services that are not part of the preventive benefit can require coinsurance, and the Part B deductible may apply. A Pap smear to screen for cervical cancer is covered once every 2 years.
+Prevention has two visits. A Welcome to Medicare preventive visit is available in the first 12 months. After that, an annual wellness visit develops or updates a plan for disease prevention. That wellness visit has no out-of-pocket cost when the doctor or other qualified provider accepts assignment. Extra tests or services outside the preventive benefit can require coinsurance, and the Part B deductible may apply. A Pap smear to screen for cervical cancer is covered once every 2 years.
 
-Part B does not cover private-duty nursing, skilled nursing home care costs over 100 days per benefit period, intermediate nursing home care, physician charges above Medicare’s approved amount, most outpatient prescription drugs, care received outside the United States, custodial care received in the home, dental care except dental expenses resulting from an accident, cosmetic surgery, eyeglasses, hearing aids, orthopedic shoes, acupuncture, or expenses from a war or an act of war.
+Part B excludes private-duty nursing, skilled nursing home care costs over 100 days per benefit period, intermediate nursing home care, physician charges above Medicare's approved amount, most outpatient prescription drugs, care received outside the United States, custodial care received in the home, dental care except dental expenses resulting from an accident, cosmetic surgery, eyeglasses, hearing aids, orthopedic shoes, acupuncture, and expenses from a war or an act of war.
 
-Claims terms:
-• Actual charge — the amount a physician or supplier bills.
-• Approved amount — the amount Medicare determines to be reasonable for a service covered under Part B.
-• Assignment — the physician or supplier agrees to accept the Medicare-approved amount as full payment.
-• Excess charge — the difference between the Medicare-approved amount and the actual charge.
-• Limiting charge — the maximum a physician may charge a Medicare beneficiary for a covered service if the physician does not accept assignment.
-• Participating doctors and suppliers agree in advance to accept assignment on all Medicare claims. Nonparticipating doctors or suppliers may choose whether to accept assignment on each claim.
-• Carriers process claims submitted by doctors and suppliers. Intermediaries process inpatient and outpatient claims from hospitals, skilled nursing facilities, home health agencies, hospices, and certain other providers.
-• Peer review organizations are groups of practicing doctors and other professionals paid by the government to review care given to Medicare patients.
+Claims use these words.
+
+• Actual charge. What a physician or supplier bills.
+• Approved amount. What Medicare decides is reasonable for a service covered under Part B.
+• Assignment. The physician or supplier agrees to take the Medicare-approved amount as full payment.
+• Excess charge. The gap between the Medicare-approved amount and the actual charge.
+• Limiting charge. The most a physician may bill a Medicare beneficiary for a covered service when the physician does not accept assignment.
+• Participating doctors and suppliers agree in advance to accept assignment on all Medicare claims. Nonparticipating doctors or suppliers may decide, claim by claim, whether to accept assignment.
+• Carriers process claims from doctors and suppliers. Intermediaries process inpatient and outpatient claims from hospitals, skilled nursing facilities, home health agencies, hospices, and certain other providers.
+• Peer review organizations are groups of practicing doctors and other professionals. The government pays them to review care given to Medicare patients.
 • Durable medical equipment includes oxygen equipment, wheelchairs, and other medically necessary equipment a doctor prescribes for use in the home.`,
       questions: [
         question(
@@ -279,15 +284,15 @@ Claims terms:
     {
       id: 'c13-advantage',
       title: 'Medicare Advantage',
-      body: `The Medicare Modernization Act of 2003 changed the name of Part C from Medicare+Choice to Medicare Advantage. These plans must cover all services covered under Original Medicare except hospice care and some care in qualifying clinical research studies. They may have lower out-of-pocket costs than Original Medicare, and they may offer extra coverage such as vision, hearing, dental, and other health and wellness programs.
+      body: `Part C was renamed by the Medicare Modernization Act of 2003. The old name, Medicare+Choice, became Medicare Advantage. An Advantage plan has to cover every service Original Medicare covers, with two exceptions: hospice care, and some care in qualifying clinical research studies. Out-of-pocket costs may be lower than under Original Medicare. Extra benefits may include vision, hearing, dental, and other health and wellness programs.
 
-To be eligible, the beneficiary must also be enrolled in Medicare Parts A and B. Medicare Advantage is Medicare provided by an approved HMO or PPO. Many HMOs and PPOs do not charge premiums beyond what Medicare pays. There may be no claim forms, almost any medical problem may be covered for a set fee so costs can be budgeted, and the plan may pay for services that Medicare or a Medicare supplement usually does not cover, such as prescriptions, eye exams, hearing aids, or dental care.
+Eligibility requires enrollment in both Part A and Part B. The coverage is Medicare delivered by an approved HMO or PPO. Many of those plans charge no premium beyond what Medicare pays. Claim forms may be absent. Almost any medical problem may be covered for a set fee, which makes costs easier to budget. The plan may pay for care that Medicare or a Medicare supplement usually leaves out, such as prescriptions, eye exams, hearing aids, or dental care.
 
-Most Medicare HMOs require that medical services be received through the plan, except in emergencies. A few allow more freedom through point-of-service plans.
+Most Medicare HMOs require care through the plan, except in an emergency. A few plans allow more freedom through a point-of-service option.
 
-A Medicare private fee-for-service plan is a Medicare Advantage plan offered by a private insurance company. Medicare pays the company a set amount every month to provide the coverage. The company decides how much enrollees pay for the services they get.
+A Medicare private fee-for-service plan is an Advantage plan from a private insurance company. Medicare pays that company a set amount each month. The company, not Medicare, decides what enrollees pay for the services they receive.
 
-Special Needs Plans provide more focused care for specific groups. That includes people who have both Medicare and Medicaid, people who live in a nursing home, and people who have certain chronic medical conditions.`,
+Special Needs Plans focus on particular groups: people who have both Medicare and Medicaid, people who live in a nursing home, and people with certain chronic medical conditions.`,
       questions: [
         question(
           'c13q08',
@@ -317,36 +322,36 @@ Special Needs Plans provide more focused care for specific groups. That includes
     {
       id: 'c13-partd',
       title: 'Part D prescription drugs',
-      body: `The Medicare Prescription Drug, Improvement, and Modernization Act of 2003, passed in November 2003, added optional Part D coverage. Private prescription drug plans contract with Medicare. To receive benefits, the person must sign up with a plan offered in the area and must be enrolled in Part A, or in Parts A and B. Where no private plan is offered, the government offers a standard plan. Medicaid recipients are enrolled automatically.
+      body: `Optional prescription drug coverage, Part D, was added by the Medicare Prescription Drug, Improvement, and Modernization Act of 2003. The act passed in November 2003. Private drug plans contract with Medicare. Benefits require signing up with a plan offered in the person's area, and the person must be enrolled in Part A, or in Parts A and B. If no private plan is offered in the area, the government offers a standard plan. People on Medicaid are enrolled automatically.
 
-If beneficiaries do not enroll when first eligible, they must pay a 1% penalty for each month they delayed enrollment. They may choose a stand-alone plan on a fee-for-service basis, or an integrated plan that groups coverages together, including PPOs and HMOs, known as Medicare Advantage.
+Delay has a price. A beneficiary who does not enroll when first eligible, and who goes without creditable drug coverage, pays a late-enrollment penalty of 1% of the national base beneficiary premium for each full uncovered month. The penalty is added to the premium for as long as the person has Part D. The person may choose a stand-alone plan on a fee-for-service basis, or an integrated plan that groups coverages together. Those integrated plans include PPOs and HMOs and are known as Medicare Advantage.
 
-Private plans must meet Medicare standards and may still personalize the plan. They must cover drugs for certain classes, but they do not have to cover every drug in each class.
+A private plan must meet Medicare standards. It may still shape the benefit its own way. Drugs in certain classes must be covered. Every drug in a class does not have to be covered.
 
-The standard plan has a monthly premium, which varies by plan, and a deductible. After the deductible, the plan covers prescription drug costs until a benefit limit is reached. Once the beneficiary and the plan spend $4,660 combined on drugs, including the deductible, the beneficiary generally pays no more than 25% of the cost until out-of-pocket spending is $7,400 for 2023. Catastrophic coverage then begins automatically and covers 95% of prescription drug costs. In most cases the beneficiary pays no more than 5% of the cost of covered drugs for the rest of the year. Additional assistance is available for people with low income, and there is no gap in coverage for those beneficiaries.
+In 2026 the standard benefit has no coverage gap. The deductible cannot be more than $615. After the deductible, the enrollee generally pays 25% of the cost of covered drugs until out-of-pocket spending on covered Part D drugs reaches $2,100. Catastrophic coverage then begins, and the enrollee pays nothing for covered Part D drugs for the rest of the year. People with low income may qualify for Extra Help, which can lower premiums and cost sharing (CMS, Final CY 2026 Part D Redesign Program Instructions; Medicare.gov, 2026).
 
-A formulary is the list of prescription drugs the plan covers, also called a drug list. Each plan files its own formulary annually. Insureds must be notified when the formulary changes. Drugs are placed in tiers, and a drug in a lower tier costs less than a drug in a higher tier. A formulary must include at least 2 drugs in each treatment category. It is not required to include all drugs.`,
+A formulary, also called a drug list, is the list of prescription drugs the plan covers. Each plan files its formulary once a year. Insureds must be told when the list changes. Drugs sit in tiers. A drug in a lower tier costs less than a drug in a higher tier. Each treatment category must contain at least 2 drugs. The formulary does not have to include every drug.`,
       questions: [
         question(
           'c13q09',
-          'Under the 2023 standard drug benefit, what happens after the beneficiary and the plan have spent $4,660 combined, and what is the late-enrollment penalty?',
+          'Under the 2026 standard drug benefit, what does the enrollee pay after the deductible, and what is the late-enrollment penalty?',
           [
             {
-              text: 'The beneficiary generally pays no more than 25% until out-of-pocket spending reaches $7,400. Catastrophic coverage then pays 95%, and the beneficiary pays no more than 5% for the rest of the year. The penalty is 1% for each month enrollment was delayed.',
-              why: 'The person must be enrolled in Part A, or in Parts A and B, and must join a plan in the area. A formulary must include at least two drugs in each treatment category, is filed annually, and uses tiers. Low-income beneficiaries can receive extra help with no gap in coverage.',
+              text: 'The deductible cannot be more than $615. After it, the enrollee generally pays 25% until out-of-pocket spending reaches $2,100. Catastrophic coverage then begins and the enrollee pays nothing. There is no coverage gap. The penalty is 1% of the national base beneficiary premium for each full uncovered month, for as long as the person has Part D.',
+              why: 'The person must be enrolled in Part A, or in Parts A and B, and must join a plan in the area. A formulary must include at least two drugs in each treatment category, is filed annually, and uses tiers. In 2026 there is no coverage gap. Low-income beneficiaries can receive Extra Help.',
               correct: true,
             },
             {
-              text: 'Medicare pays 80% after $4,660, and the penalty is a one-time 10% increase.',
-              why: 'Eighty percent is the Part B coinsurance pattern. The Part A late premium increase described in the course is 10%. The Part D penalty is 1% per delayed month, and catastrophic coverage is 95%.',
+              text: 'Medicare pays 80% after a combined $4,660, and the penalty is a one-time 10% increase.',
+              why: 'Eighty percent is the Part B coinsurance pattern. The 2026 Part D benefit has no coverage gap. After the deductible the enrollee pays 25% until out-of-pocket spending reaches $2,100, then nothing. The penalty is 1% of the national base beneficiary premium per uncovered month, not a one-time 10%.',
             },
             {
-              text: 'Coverage stops at $7,400, and the person must pay 100% after that.',
-              why: 'Reaching the out-of-pocket amount starts catastrophic coverage. The plan covers 95%, and the beneficiary pays no more than 5% for the rest of the year.',
+              text: 'Coverage stops at $2,100, and the person must pay 100% after that.',
+              why: 'Reaching $2,100 in out-of-pocket spending starts catastrophic coverage. The enrollee pays nothing for covered drugs for the rest of the year.',
             },
             {
               text: 'There is no deductible or premium, and every drug in every class must be covered.',
-              why: 'The standard plan has a premium and a deductible. Plans must cover drugs for certain classes and at least two drugs in each treatment category. They do not have to cover every drug.',
+              why: 'The standard plan has a premium, and the 2026 deductible cannot be more than $615. Plans must cover drugs for certain classes and at least two drugs in each treatment category. They do not have to cover every drug.',
             },
           ],
         ),
@@ -355,13 +360,13 @@ A formulary is the list of prescription drugs the plan covers, also called a dru
     {
       id: 'c13-primary',
       title: 'Which plan pays first',
-      body: `Federal law extends primary coverage under the employer’s plan to active older employees regardless of age. Employer plans usually remain primary, and Medicare is secondary.
+      body: `Federal law makes the employer's plan primary for active older employees no matter how old they are. In the usual case the employer plan pays first and Medicare pays second.
 
-The Omnibus Budget Reconciliation Act of 1990 requires large group health plans of 100 employees or more to provide primary coverage for disabled individuals under age 65 who are not retired.
+Large groups are treated separately for disability. The Omnibus Budget Reconciliation Act of 1990 requires a large group health plan, one with 100 employees or more, to provide primary coverage for a disabled person under age 65 who is not retired.
 
-For end-stage renal disease, that act, as amended by the Balanced Budget Act of 1997, requires the employer health plan to provide primary coverage for 30 months before Medicare becomes primary.
+End-stage renal disease has its own clock. That same act, as amended by the Balanced Budget Act of 1997, requires the employer health plan to stay primary for 30 months. Medicare becomes primary after those 30 months.
 
-An employee who is still working at 65 must be allowed to stay on the group plan and defer Medicare until retirement. The employee may reject the company plan and elect Medicare, but the company can offer no incentives for switching to Medicare. If the employee stays on the group plan and also signs up for Medicare, Medicare is primary when the group has fewer than 20 employees. In groups of 20 or more, the group coverage is primary over Medicare.`,
+A person still working at 65 must be allowed to remain on the group plan and put off Medicare until retirement. The employee may turn down the company plan and take Medicare instead. The company cannot offer an incentive to make that switch. If the employee keeps the group plan and also enrolls in Medicare, which plan pays first depends on the size of the group. Fewer than 20 employees means Medicare is primary. A group of 20 or more means the group coverage is primary over Medicare.`,
       questions: [
         question(
           'c13q10',
@@ -391,28 +396,24 @@ An employee who is still working at 65 must be allowed to stay on the group plan
     {
       id: 'c13-medigap',
       title: 'Medicare supplement plans',
-      body: `Medicare supplement plans, called Medigap, are issued by private insurers to fill some of the gaps in Medicare: deductibles, copayments, and benefit periods. They are not run through Social Security. They are sold and serviced by private insurers and HMOs. They must meet set requirements and be approved by the state department of insurance.
+      body: `A Medicare supplement, called Medigap, is a private policy that fills some of what Medicare does not pay: deductibles, copayments, and benefit periods. Social Security does not run these policies. Private insurers and HMOs sell and service them. The policy has to meet set requirements and be approved by the state department of insurance.
 
-The Omnibus Budget Reconciliation Act of 1990 authorized the NAIC to develop a standardized model. The purpose was to eliminate questionable marketing practices, give consumers protection, and standardize that protection. During open enrollment, a supplement may not be priced in a discriminatory way or denied because of health status, claims experience, receipt of health care, or medical condition. Open enrollment is the 6-month period that guarantees the right to buy Medigap once the person first signs up for Medicare Part B. The applicant generally must have both Part A and Part B.
+A standardized model came from the NAIC under authority in the Omnibus Budget Reconciliation Act of 1990. The aim was to stop questionable marketing, protect consumers, and make that protection the same from policy to policy. During open enrollment the company may not price a supplement in a discriminatory way, and it may not deny one because of health status, claims experience, receipt of health care, or medical condition. Open enrollment is a 6-month period. It guarantees the right to buy Medigap once the person first signs up for Medicare Part B. The applicant generally must already have both Part A and Part B.
 
-A Medicare supplement cannot be used to pay Medicare Advantage copayments, deductibles, or premiums. Insurers may not sell a supplement to someone already enrolled in Medicaid.
+Medigap cannot be used to pay a Medicare Advantage copayment, deductible, or premium. A company may not sell a supplement to someone who is already on Medicaid.
 
-Standard plans are lettered A through N. The core benefits in Plan A must be in all plans. Any insurer that markets Medigap must offer Plan A. The other plans are optional. During open enrollment, coverage is guaranteed issue. The company must sell the policy, cover all pre-existing conditions incurred more than 6 months from the effective date, and not charge more because of past or present health problems.
+The standard plans use the letters A through N. Plan A's core benefits have to appear in every plan. Any insurer that markets Medigap must offer Plan A. The other letters are optional. Open enrollment is guaranteed issue. The company must sell the policy, it must cover pre-existing conditions incurred more than 6 months from the effective date, and it must not charge more because of past or present health problems.
 
-Plan A, the core benefits, covers:
-• Part A coinsurance or copayment, but not the Part A deductible.
-• Part A hospital costs for up to an additional 365 days after Medicare benefits are used up.
-• Part A hospice care coinsurance or copayment.
-• Part B coinsurance or copayment.
-• The first 3 pints of blood, the blood deductible for Parts A and B.
+Plan A, the core, pays Part A coinsurance or copayment. It does not pay the Part A deductible. It pays Part A hospital costs for up to an additional 365 days after Medicare benefits are used up. It pays Part A hospice care coinsurance or copayment, Part B coinsurance or copayment, and the first 3 pints of blood. Those 3 pints are the blood deductible for Parts A and B.
 
-Insurers may not change the benefits in the standard plans or change a plan’s letter.
+An insurer may not change what a standard plan pays, and it may not change a plan's letter.
+
 • Plan B adds the Medicare Part A deductible.
 • Plan D adds the Part A deductible, skilled nursing facility coinsurance, and the foreign travel benefit.
-• Plan G adds the Part A deductible, skilled nursing facility coinsurance, 100% of Medicare Part B excess charges, and the foreign travel benefit. This plan must pay for services of activities of daily living that Medicare does not cover.
-• Plans C, E, F, H, and J are no longer available. Policies already bought stay in force.
-• Plans K and L have lower premiums and higher out-of-pocket costs. They cover hospital copayments for days 61 through 90, lifetime reserve days 91 through 150, and an additional 365 hospital days after Medicare benefits are used. Plan K pays 50% of the first 3 pints of blood, 50% of Part B coinsurance, and 50% of Part A hospice cost sharing and respite care. Plan L pays 75% of those amounts. Plan K includes 50% of the Part A deductible and 50% of skilled nursing facility coinsurance. Plan L includes 75% of each.
-• Plans M and N provide benefits similar to Plan D, but the copays and deductibles might differ.`,
+• Plan G covers Part A coinsurance and hospital costs, including up to an additional 365 days after Medicare benefits are used up, Part B coinsurance or copayment, the first 3 pints of blood, Part A hospice coinsurance or copayment, skilled nursing facility coinsurance, the Part A deductible, Part B excess charges, and foreign travel emergency care up to the plan limits. It does not cover the Part B deductible. Medigap does not cover custodial help with activities of daily living.
+• Plans C, E, F, H, and J are no longer available. A policy someone already bought stays in force.
+• Plans K and L cost less in premium and more out of pocket. They cover hospital copayments for days 61 through 90, lifetime reserve days 91 through 150, and an additional 365 hospital days after Medicare benefits are used. Plan K pays 50% of the first 3 pints of blood, 50% of Part B coinsurance, and 50% of Part A hospice cost sharing and respite care. Plan L pays 75% of those amounts. Plan K also includes 50% of the Part A deductible and 50% of skilled nursing facility coinsurance. Plan L includes 75% of each of those.
+• Plans M and N are similar to Plan D. Their copays and deductibles might differ.`,
       questions: [
         question(
           'c13q11',
@@ -465,18 +466,13 @@ Insurers may not change the benefits in the standard plans or change a plan’s 
     {
       id: 'c13-select',
       title: 'Medicare SELECT',
-      body: `A Medicare SELECT policy is a Medicare supplement with restricted network provisions. Payment of benefits, in whole or in part, depends on using network providers. SELECT plans negotiate lower rates with a network of doctors, hospitals, and specialists. It operates like an HMO. Members pay lower premiums.
+      body: `Medicare SELECT is a Medicare supplement that limits the network. Benefits, in whole or in part, are paid only when network providers are used. The plan negotiates lower rates with doctors, hospitals, and specialists. It works like an HMO, and the premium is lower.
 
-Each policy must be approved by the head of the state’s department of insurance. Issuers may not sell a new Medicare SELECT policy to someone whose primary residence is outside the issuer’s service area.
+The head of the state's department of insurance must approve each policy. A new SELECT policy cannot be sold to someone whose primary residence is outside the issuer's service area.
 
-Every Medicare SELECT policy must:
-• Pay full coverage under the policy for covered services that are not available through network providers.
-• Not restrict payment for covered services from non-network providers when the symptoms require emergency care and it is not reasonable to obtain the services through a network provider.
-• Give each applicant a full and fair written disclosure of the provisions, restrictions, and limitations.
-• On request, offer a Medicare supplement from the same issuer with comparable benefits and no restricted network. That policy must be available without evidence of insurability if the SELECT policy has been in force for 6 months.
-• Continue coverage if Medicare SELECT policies are discontinued because the program fails.
+The policy has to do five things. It pays full coverage for a covered service that the network cannot provide. It does not restrict payment for a non-network provider when symptoms require emergency care and it is not reasonable to get that care through the network. It gives every applicant a full and fair written disclosure of the provisions, restrictions, and limitations. On request, the same issuer must offer a Medicare supplement with comparable benefits and no restricted network. That unrestricted policy must be available without evidence of insurability once the SELECT policy has been in force for 6 months. If the SELECT program fails and the policies are discontinued, coverage must continue.
 
-The issuer must file proposed changes to its plan of operation with the Commissioner before using them. Changes to the list of network providers must be filed with the Commissioner within 30 days.`,
+Proposed changes to the plan of operation are filed with the Commissioner before they are used. A change to the list of network providers is filed with the Commissioner within 30 days.`,
       questions: [
         question(
           'c13q14',
@@ -506,21 +502,21 @@ The issuer must file proposed changes to its plan of operation with the Commissi
     {
       id: 'c13-gaprules',
       title: 'Utah rules for Medicare supplements',
-      body: `Marketing rules require every company to have procedures so agents’ policy comparisons are fair and accurate, guidelines so excessive insurance is not sold or issued, and a formula for whether a replacement contains benefits that are clearly and substantially greater than the policy being replaced. The first page must contain this notice: “Notice to buyer: This policy may not cover all of your medical expenses.”
+      body: `Every company needs marketing procedures that keep agents' policy comparisons fair and accurate, guidelines that stop excessive insurance from being sold or issued, and a formula that decides whether a replacement's benefits are clearly and substantially greater than the benefits being replaced. The first page must contain this notice: "Notice to buyer: This policy may not cover all of your medical expenses."
 
-The company must make a reasonable effort to learn whether the applicant already has accident and sickness insurance and the type and amounts owned. Twisting, high-pressure tactics, and misleading advertising may not be used. The words Medicare Supplement, Medigap, Medicare Wrap-Around, and similar words may not be used unless the policy fully complies with the law. Any Medicare supplement advertisement intended for use in this state, in writing, radio, electronic, or television form, must be given to the Insurance Commissioner for review or approval.
+The company has to make a reasonable effort to find out whether the applicant already owns accident and sickness insurance, and what types and amounts. Twisting, high-pressure tactics, and misleading advertising are not allowed. The words Medicare Supplement, Medigap, Medicare Wrap-Around, and similar words are reserved for a policy that fully complies with the law. Any Medicare supplement advertisement meant for use in this state, whether it is in writing, on radio, electronic, or on television, goes to the Insurance Commissioner for review or approval.
 
-An agent must make a reasonable effort to determine that a recommended purchase or replacement is appropriate. The application must include this signed statement: “I have reviewed the current health insurance coverage of the applicant and found that additional coverage of the type and amount applied for is appropriate for the applicant’s needs.” Selling a person more than one Medicare supplement policy is prohibited.
+The agent must make a reasonable effort to decide that a recommended purchase or replacement fits the applicant. The application includes this signed statement: "I have reviewed the current health insurance coverage of the applicant and found that additional coverage of the type and amount applied for is appropriate for the applicant's needs." Selling someone more than one Medicare supplement policy is prohibited.
 
-Every policy has a 30-day free-look period. The insured may return it for a full refund for any reason. The right-to-return notice must be prominent on the first page of the policy or certificate, or attached to it. The application must ask whether the applicant has another Medicare supplement or is replacing any other accident and health policy, must ask whether the applicant is eligible for Medicaid, and must say that counseling services may be available. If a replacement is involved, the Notice Regarding Replacement must be given before the policy is issued or delivered. It must tell the applicant about the 30-day free look. The company keeps a copy signed by the applicant and the agent.
+Each policy has a 30-day free look. The insured can return it for a full refund for any reason. The right-to-return notice has to be prominent on the first page of the policy or certificate, or attached to it. The application asks whether the applicant already has another Medicare supplement or is replacing any other accident and health policy. It asks whether the applicant is eligible for Medicaid. It says that counseling services may be available. When a replacement is involved, the Notice Regarding Replacement is given before the policy is issued or delivered. That notice tells the applicant about the 30-day free look. The company keeps a copy signed by both the applicant and the agent.
 
-If one supplement replaces another, the new company must waive pre-existing condition limits, waiting periods, elimination periods, and probationary periods to the extent those periods were already met. If the replaced policy has been in effect for 6 months or more, the new policy may not impose any of those time requirements for benefits similar to the original policy. Any pre-existing limitation must appear in a separate paragraph labeled Pre-existing Condition Limitations. Usually the policy must cover pre-existing conditions incurred more than 6 months from the effective date.
+Replacement changes the time limits. The new company waives pre-existing condition limits, waiting periods, elimination periods, and probationary periods to the extent the applicant already satisfied them. If the policy being replaced has been in effect for 6 months or more, the new policy may not impose any of those time requirements on benefits that are similar to the original policy. A pre-existing limitation has to sit in its own paragraph labeled Pre-existing Condition Limitations. Usually the policy must cover a pre-existing condition incurred more than 6 months from the effective date.
 
-The policyholder must be told of the 30-day return right. No later than 30 days before Medicare benefit changes take effect, the issuer must notify policyholders of modifications to their supplement. An outline of coverage must be given at application. Except for direct-response policies, the company must get a receipt. Issuers of hospital or medical expense policies, on an expense-incurred or indemnity basis, for people eligible for Medicare must give applicants the Guide to Health Insurance for People with Medicare. Almost all insurers deliver it at application. A direct-response insurer may supply it on request, but no later than policy delivery.
+The policyholder is told about the 30-day return right. When Medicare benefits change, the issuer notifies policyholders of the resulting changes to the supplement no later than 30 days before those Medicare changes take effect. An outline of coverage is delivered at application. Except on a direct-response policy, the company gets a receipt. An issuer of a hospital or medical expense policy, whether the policy pays expenses as incurred or pays an indemnity, must give the Guide to Health Insurance for People with Medicare to an applicant who is eligible for Medicare. Almost all insurers hand that guide over at application. A direct-response insurer may supply it when asked, but no later than policy delivery.
 
-Compensation includes monetary and nonmonetary pay for sale or renewal, including bonuses, gifts, prizes, awards, and finder’s fees. First-year commission may not be more than 200% of the renewal commission for servicing the policy in the second year. Commissions in renewal years must equal the second-year commission and must be paid for at least 5 renewal years. On a replacement, the agent may not receive more than the renewal compensation payable by the replacing company unless the new benefits are clearly and substantially greater.
+Pay for selling or renewing a supplement counts as compensation, whether the pay is money or not. Bonuses, gifts, prizes, awards, and finder's fees are included. First-year commission may not exceed 200% of the renewal commission paid for servicing the policy in the second year. Renewal-year commissions must equal that second-year commission, and they must be paid for at least 5 renewal years. On a replacement, the agent may not be paid more than the renewal compensation of the replacing company, unless the new benefits are clearly and substantially greater.
 
-Policies effective on or after June 1, 2010, cannot reduce, restrict, or duplicate Medicare benefits. They cannot exclude or limit a pre-existing condition loss if it occurred more than 6 months before the effective date. Losses from sickness must be treated like losses from an accident. The policy must be guaranteed renewable.`,
+A policy that takes effect on or after June 1, 2010, cannot reduce, restrict, or duplicate Medicare benefits. It cannot exclude or limit a loss from a pre-existing condition if that loss occurred more than 6 months before the effective date. A loss from sickness must be treated the same as a loss from an accident. The policy must be guaranteed renewable.`,
       questions: [
         question(
           'c13q13',
@@ -550,13 +546,13 @@ Policies effective on or after June 1, 2010, cannot reduce, restrict, or duplica
     {
       id: 'c13-mippa',
       title: 'Rules for selling to people on Medicare',
-      body: `The Medicare Improvements for Patients and Providers Act of 2008 amended the Social Security Act to extend expiring Medicare provisions, improve access to preventive and mental health services, enhance low-income benefit programs, and maintain access to care in rural areas.
+      body: `The Medicare Improvements for Patients and Providers Act of 2008 changed the Social Security Act. It extended Medicare provisions that were about to expire, widened access to preventive care and mental health care, strengthened benefits for people with low income, and kept care available in rural areas.
 
-Among its changes, it authorizes grants to increase mental health and other care for veterans of Operation Iraqi Freedom and Operation Enduring Freedom who live in rural areas. It provides incentive payments for electronic prescriptions, allows expansion of the Medicare Medical Home Demonstration Project when quality and spending conditions are met, directs programs to increase awareness of and screening for chronic kidney disease, and extends Medicare coverage to kidney-disease patient education. It revises requirements for certain non-employer Medicare Advantage private fee-for-service plans and for special-needs plans, and it limits out-of-pocket costs for dual eligibles and beneficiaries in a specialized Medicare Advantage plan for special-needs individuals.
+The act funds several specific efforts. It authorizes grants so veterans of Operation Iraqi Freedom and Operation Enduring Freedom who live in rural areas can get more mental health care and other care. It pays incentives for electronic prescriptions. It allows the Medicare Medical Home Demonstration Project to expand when quality and spending conditions are met. It directs programs that raise awareness of chronic kidney disease and screen for it, and it extends Medicare coverage to education for kidney-disease patients. It revises the rules for certain non-employer Medicare Advantage private fee-for-service plans and for special-needs plans. It limits out-of-pocket costs for dual eligibles and for beneficiaries in a specialized Medicare Advantage plan for special-needs individuals.
 
-Part D changes require prompt payment of clean claims by prescription drug plans and Medicare Advantage drug plans, with interest on late claims. A pharmacy located in, or contracting with, a long-term care facility has between 30 and 90 days to submit claims. The Secretary must identify medications for which restricted access would have major consequences and for which there is a significant clinical need for access to multiple drugs in a class.
+Part D claims have a payment rule. Prescription drug plans and Medicare Advantage drug plans must pay clean claims promptly, and interest is owed on a late claim. A pharmacy located in a long-term care facility, or contracting with one, has between 30 and 90 days to submit claims. The Secretary must identify medications for which restricted access would have major consequences, and for which there is a significant clinical need for access to multiple drugs in a class.
 
-The act also eliminates copayments for Medicare psychiatric services for a person who is not a hospital inpatient when the expenses are incurred. It prohibits certain Medicare Advantage and prescription-drug sales activities: gifts or prizes as enrollment inducements, unsolicited direct contact, cross-selling of nonhealth products such as annuities and life insurance during a Medicare Advantage sales presentation, and meals for prospective enrollees. It eliminates Medicare Part D late-enrollment penalties.`,
+Two consumer rules sit alongside those payment rules. Copayments are eliminated for Medicare psychiatric services when the person is not a hospital inpatient at the time the expenses are incurred. Certain sales tactics are prohibited for Medicare Advantage and for prescription-drug plans: gifts or prizes used to induce enrollment, unsolicited direct contact, cross-selling nonhealth products such as annuities and life insurance during a Medicare Advantage sales presentation, and meals for prospective enrollees. The act changed the rules for the Part D low-income subsidy, also called Extra Help. It did not eliminate the Part D late-enrollment penalty. That penalty remains 1% of the national base beneficiary premium for each month without creditable coverage, and it lasts as long as the person has Part D.`,
       questions: [
         question(
           'c13q16',
@@ -564,7 +560,7 @@ The act also eliminates copayments for Medicare psychiatric services for a perso
           [
             {
               text: 'Gifts or prizes as an enrollment inducement, unsolicited direct contact, cross-selling nonhealth products such as annuities or life insurance during a Medicare Advantage presentation, and meals for prospective enrollees.',
-              why: 'The act also eliminates copayments for outpatient Medicare psychiatric services and eliminates Part D late-enrollment penalties. A long-term care pharmacy has 30 to 90 days to submit drug-plan claims.',
+              why: 'The act also eliminates copayments for outpatient Medicare psychiatric services. It changed the Part D low-income subsidy, also called Extra Help. It did not eliminate the Part D late-enrollment penalty. A long-term care pharmacy has 30 to 90 days to submit drug-plan claims.',
               correct: true,
             },
             {
@@ -586,11 +582,11 @@ The act also eliminates copayments for Medicare psychiatric services for a perso
     {
       id: 'c13-medicaid',
       title: 'Medicaid',
-      body: `Medicaid is a federal and state program for people whose income and resources are not enough to pay for necessary medical care. States design and administer it, typically through the state’s Department of Public Welfare, under broad federal guidelines.
+      body: `Medicaid is paid for by the federal government and the state. It serves people whose income and resources are not enough for necessary medical care. Each state designs and runs its own program through that state's Medicaid agency, inside broad federal guidelines. In Utah, that agency is the Utah Department of Health and Human Services.
 
-A person must meet income and other eligibility requirements. After low income and low assets are established, other qualifiers can include blindness, disability, pregnancy, age over 65, or caring for children who receive welfare benefits. For many groups, income is measured as a percentage of the federal poverty level. After the Affordable Care Act, states rely primarily on data from sources such as the Social Security Administration and the Departments of Homeland Security and Labor, rather than paper from families. Individuals also must meet federal and state rules on residency, immigration status, and documentation of U.S. citizenship.
+Income and other eligibility rules both apply. Once low income and low assets are shown, other qualifiers can include blindness, disability, pregnancy, age over 65, or caring for children who receive welfare benefits. For many groups, income is measured as a percentage of the federal poverty level. After the Affordable Care Act, states look first at data from sources such as the Social Security Administration and the Departments of Homeland Security and Labor, rather than at paper collected from families. The person must also meet federal and state rules on residency, immigration status, and documentation of U.S. citizenship.
 
-States must provide at least physician services, inpatient and outpatient hospital care, skilled nursing home services, laboratory and X-ray services, home health care, rural health clinic services, periodic screening, diagnosis, and treatment, and family planning services. Medicaid also pays for prescription drugs, dental services, private-duty nursing, eyeglasses, check-ups, and medical supplies and equipment.`,
+A state must provide at least these services: physician services, inpatient and outpatient hospital care, skilled nursing home services, laboratory and X-ray services, home health care, rural health clinic services, periodic screening, diagnosis, and treatment, and family planning services. Medicaid also pays for prescription drugs, dental services, private-duty nursing, eyeglasses, check-ups, and medical supplies and equipment.`,
       questions: [
         question(
           'c13q15',
@@ -620,31 +616,32 @@ States must provide at least physician services, inpatient and outpatient hospit
     {
       id: 'c13-ltc',
       title: 'What long-term care insurance pays',
-      body: `Long-term care policies are marketed as individual policies, group policies, or riders to life insurance. They cover people who can no longer live independently and need help at home or in a nursing home. Policies differ in days of confinement, home health visits, the amount paid for nursing home care, and other terms. They must cover at least 12 consecutive months in a setting other than an acute care unit of a hospital.
+      body: `Long-term care insurance is sold three ways: as an individual policy, as a group policy, or as a rider on a life insurance policy. It is for a person who can no longer live independently and needs help at home or in a nursing home. Policies differ in days of confinement, the number of home health visits, how much is paid for nursing home care, and other terms. The minimum is 12 consecutive months of care in a setting other than an acute care unit of a hospital.
 
-Benefits normally require that the insured be unable to perform some activities of daily living: bathing, dressing, toileting, transferring positions (also called mobility), continence, and eating.
+Payment normally depends on the insured being unable to perform some activities of daily living. Those activities are bathing, dressing, toileting, transferring positions (also called mobility), continence, and eating.
 
-Policies usually have an elimination, or waiting, period like disability income policies. It may range from 0 to 365 days. A longer waiting period means a lower premium. The insured can usually choose the period. The benefit period, after the elimination period, is usually 2 to 5 years. A few policies offer lifetime coverage. A longer benefit period means a higher premium.
+An elimination period, also called a waiting period, works the way it does on disability income insurance. The range is 0 to 365 days. A longer wait means a lower premium, and the insured can usually choose the length. After that wait, the benefit period is usually 2 to 5 years. A few policies pay for life. A longer benefit period means a higher premium.
 
-The benefit is usually a fixed dollar amount per day, regardless of the actual cost of care. If the policy pays $100 a day and the facility charges $90, the insurer pays the full $100. Some policies pay the actual charge. Most policies are guaranteed renewable, but the insurer may increase the premiums.
+The daily benefit is usually a fixed dollar amount, not the bill. A policy that pays $210 a day still pays the full $210 when the memory-care wing charges $185. Some policies instead pay the actual charge. Most policies are guaranteed renewable. The insurer may still raise the premium.
 
-An individual policy must show a renewability provision on the first page. Renewal may not be less favorable than guaranteed renewable or noncancellable. The insurer may not cancel, nonrenew, or otherwise terminate coverage solely because of the insured’s age or deterioration in mental or physical health.
+On an individual policy, the renewability provision is printed on the first page. Renewal may not be less favorable than guaranteed renewable or noncancellable. The insurer may not cancel, refuse to renew, or otherwise end coverage only because the insured got older or because mental or physical health got worse.
 
-Every policy must offer the option to buy coverage that raises benefits for reasonably anticipated increases in the cost of the covered services.
+Every policy must offer a way to buy coverage that increases benefits for increases in the cost of the covered services that can reasonably be expected.
 
-Policies may exclude pre-existing conditions or diseases, mental and nervous disorders or disease except organic cognitive disorders such as Alzheimer’s disease, senile dementia, and Parkinson’s disease, alcoholism and drug addiction, illness caused by war, criminal activity, or attempted suicide, and treatment payable by the government, Medicare, workers compensation, or similar coverage.
+Exclusions may include a pre-existing condition or disease, a mental or nervous disorder or disease, alcoholism and drug addiction, illness caused by war, criminal activity, or attempted suicide, and treatment that is payable by the government, Medicare, workers compensation, or similar coverage. The mental and nervous exclusion does not apply to an organic cognitive disorder such as Alzheimer's disease, senile dementia, or Parkinson's disease.
 
-Long-term care generally covers three levels, and it may also cover home health care, adult day care, hospice, or respite care, which can be received at home.
-• Skilled care is daily nursing and rehabilitative care that only medical personnel can provide, under a physician’s direction. It is almost always given in an institution. Changing a sterile dressing and physical therapy in a skilled nursing facility are examples. Care that nonprofessional staff can give is not skilled care.
-• Intermediate care is occasional nursing or rehabilitative care for stable conditions that need daily medical assistance less often than skilled care. A physician orders it, and skilled personnel deliver or monitor it. Giving medication or changing a bandage can qualify. It may be given in a nursing home, an intermediate-care unit, or the patient’s home.
-• Custodial care meets personal needs such as eating, dressing, or bathing. Nonmedical personnel, including relatives or home health workers, can provide it, in an institution or at home. It is help with activities of daily living, not hospital or surgical care.
-• Home health care is skilled nursing or other professional service in the home, including visits by registered nurses, licensed practical nurses, licensed vocational nurses, or community organizations such as hospice. It can include physical, occupational, and speech therapy, and medical services by a social worker.
-• Adult day care is for functionally impaired adults for less than 24 hours. A recreation center or community center may provide it, including transportation, health and social activities, and usually meals.
-• Respite care relieves the family caregiver, for example someone staying in the home while the caregiver rests or goes out. Adult day care centers also provide this relief.
+Care is usually described in three levels, and a policy may also cover home health care, adult day care, hospice, or respite care. Respite care can be received at home.
 
-The Community Living Assistance Services and Support (CLASS) Act is a voluntary insurance program proposed by Congress for people and families with limited resources who need nonmedical services in communities across the United States. Services would be paid through a monthly payroll deduction. A person must be 18 or older and must have paid monthly premiums for at least 5 years. Working adults may opt out.
+• Skilled care is daily nursing and rehabilitative care that only medical personnel can give, and a physician directs it. It is almost always provided in an institution. Changing a sterile dressing, and physical therapy in a skilled nursing facility, are examples. Care that nonprofessional staff can give is not skilled care.
+• Intermediate care is occasional nursing or rehabilitative care. The condition is stable, and it needs daily medical assistance less often than skilled care. A physician orders it. Skilled personnel deliver it or monitor it. Giving medication or changing a bandage can qualify. The setting can be a nursing home, an intermediate-care unit, or the patient's home.
+• Custodial care meets personal needs such as eating, dressing, or bathing. Nonmedical personnel can provide it, including relatives or home health workers, in an institution or at home. It is help with activities of daily living. It is not hospital or surgical care.
+• Home health care is skilled nursing or another professional service in the home. Visitors can include registered nurses, licensed practical nurses, licensed vocational nurses, or a community organization such as hospice. Physical, occupational, and speech therapy can be included, as can medical services by a social worker.
+• Adult day care is for a functionally impaired adult, for less than 24 hours. A recreation center or a community center may provide it, including transportation, health and social activities, and usually meals.
+• Respite care gives the family caregiver a break. Someone might stay in the home while the caregiver rests or goes out. Adult day care centers provide this relief as well.
 
-A policy is a qualified long-term care contract only if the only protection is coverage of qualified long-term care services, it does not pay expenses reimbursable under Title XVIII of the Social Security Act, it is guaranteed renewable, premium refunds and dividends are used to reduce future premiums or to increase future benefits to offset inflation, and it meets the consumer-protection provisions on model regulation and model act provisions, disclosure, and nonforfeitability. Only products that meet the qualified definition may be marketed as partnership long-term care plans.`,
+The Community Living Assistance Services and Support (CLASS) Act is a voluntary program Congress proposed for people and families with limited resources who need nonmedical services in communities across the United States. A monthly payroll deduction would pay for the services. The person must be 18 or older and must have paid monthly premiums for at least 5 years. A working adult may opt out.
+
+A contract is a qualified long-term care contract only when all of the following are true. The only protection is coverage of qualified long-term care services. It does not pay expenses that are reimbursable under Title XVIII of the Social Security Act. It is guaranteed renewable. Premium refunds and dividends are used to reduce future premiums or to increase future benefits so inflation is offset. It meets the consumer-protection provisions on model regulation and model act provisions, disclosure, and nonforfeitability. Only a product that meets that qualified definition may be marketed as a partnership long-term care plan.`,
       questions: [
         question(
           'c13q17',
@@ -697,31 +694,33 @@ A policy is a qualified long-term care contract only if the only protection is c
     {
       id: 'c13-ltcrules',
       title: 'Utah rules for long-term care',
-      body: `Every company must have marketing procedures so policy comparisons are fair and accurate, and guidelines so excessive insurance is not sold. Prohibited acts are twisting, high-pressure tactics, cold-lead advertising, and misrepresentation. Twisting is knowingly making a misleading representation or an incomplete or fraudulent comparison to induce a person to lapse, forfeit, surrender, terminate, retain, pledge, assign, borrow on, or convert a policy, or to take a policy with another insurer. High-pressure tactics use force, fright, threat, or undue pressure. Cold-lead advertising fails to disclose conspicuously that the purpose is solicitation and that an agent or company will make contact.
+      body: `Each company must keep marketing procedures that make policy comparisons fair and accurate, and guidelines that keep excessive insurance from being sold. Four acts are prohibited: twisting, high-pressure tactics, cold-lead advertising, and misrepresentation.
 
-The insurer must give the Commissioner, on request, a copy of any long-term care advertisement intended for use in Utah, whether written, radio, or television. Advertisements must be kept at least 3 years from the date first used.
+Twisting is a knowing act. The producer makes a misleading representation, or an incomplete or fraudulent comparison, in order to induce a person to lapse, forfeit, surrender, terminate, retain, pledge, assign, borrow on, or convert a policy, or to take a policy with another insurer. High-pressure tactics use force, fright, threat, or undue pressure. Cold-lead advertising fails to disclose, conspicuously, that the purpose is solicitation and that an agent or a company will make contact.
 
-A Shopper’s Guide in the NAIC format must be given before the application is completed when a producer solicits, or together with the application for a direct-response solicitation. The outline of coverage follows the standard format, including the company, the policy number, and important features. It is a separate document, in type no smaller than 10 point, delivered before the application or enrollment form, and it cannot contain advertising.
+Any long-term care advertisement intended for Utah, whether written, radio, or television, must be given to the Commissioner when the Commissioner asks for it. The insurer keeps each advertisement at least 3 years from the date it was first used.
 
-Insurers must use suitability standards and train agents to use them. The applicant is given the Long-Term Care Insurance Personal Worksheet, including premium information, policy type, rate-increase history, and questions on income, savings, and investments. A copy is filed with the Commissioner.
+A Shopper's Guide in the NAIC format is delivered before the application is completed when a producer solicits the sale. On a direct-response solicitation, the guide goes out together with the application. The outline of coverage uses the standard format. It names the company, the policy number, and the important features. It is a separate document. Type is no smaller than 10 point. It is delivered before the application or the enrollment form, and it cannot contain advertising.
 
-Individual policyholders, and group certificate holders who contribute to the cost, may return the policy within 30 days of delivery for a premium refund if they are not satisfied for any reason. The renewability provision must be on the first page and may not be less favorable than guaranteed renewable or noncancellable. Coverage may not be ended solely for age or a decline in mental or physical health.
+Suitability standards are required, and agents are trained to use them. The applicant receives the Long-Term Care Insurance Personal Worksheet. That worksheet covers the premium, the type of policy, the history of rate increases, and questions about income, savings, and investments. A copy is filed with the Commissioner.
 
-Group long-term care issued in this state must give a basis for continuation or conversion. The insurer must provide that continuation or converted policy unless termination was for failure to pay a required premium and the coverage is replaced no later than 31 days after termination by group coverage that is effective the day after termination, provides identical or greater benefits, and calculates the premium consistently.
+An individual policyholder, and a group certificate holder who pays toward the cost, may return the policy within 30 days of delivery and get the premium back if not satisfied for any reason. Renewability is stated on the first page, and it may not be less favorable than guaranteed renewable or noncancellable. Coverage may not be ended only because of age or because mental or physical health declined.
 
-Inflation protection must be offered at purchase. The terms may not be less favorable than one of these: benefit increases compounding annually at a rate of at least 5%; a periodic increase without evidence of insurability or health status if the insured did not decline the option for the previous period; or coverage of a specified percentage of actual charges that is not subject to a maximum indemnity. The outline must include a graphic comparing increasing and level benefits for at least 20 years, and any expected premium increase for automatic or optional benefit increases.
+Group long-term care issued in this state must provide a basis for continuation or conversion. The insurer provides that continuation, or the converted policy, unless both of these are true: termination was for failure to pay a required premium, and the coverage is replaced no later than 31 days after termination. The replacement group coverage must take effect the day after termination, provide benefits that are identical or greater, and calculate the premium in a consistent way.
 
-A pre-existing condition is one for which medical advice or treatment was recommended by, or received from, a health care provider within 6 months before the effective date. That definition does not stop the insurer from asking for a complete health history. Any pre-existing limitation must be a separate paragraph labeled Pre-existing Condition Limitations.
+Inflation protection is offered when the policy is bought. The offer may not be less favorable than one of three designs. Benefits may increase by compounding annually at a rate of at least 5%. Benefits may increase periodically with no evidence of insurability or health status, if the insured did not decline the option for the previous period. Or the policy may cover a specified percentage of actual charges and not be subject to a maximum indemnity. The outline includes a graphic that compares increasing benefits with level benefits over at least 20 years, and it shows any expected premium increase tied to an automatic or optional benefit increase.
 
-Policies must disclose renewability. Riders and endorsements must be disclosed. If the policy uses usual and customary or reasonable and customary, the meaning must be disclosed. Other limits on eligibility must be disclosed. A life policy that accelerates benefits for long-term care must say that the accelerated benefits may be taxable and that the insured should ask a personal tax advisor. That statement must be prominent on the first page of the policy or rider and on related documents.
+A pre-existing condition is one for which a health care provider recommended, or the insured received, medical advice or treatment within 6 months before the effective date. Using that definition does not stop the insurer from asking for a complete health history. Any limit on a pre-existing condition is a separate paragraph labeled Pre-existing Condition Limitations.
 
-An individual policy cannot be issued until the insurer has a written designation of at least one person, besides the applicant, to receive notice of lapse or termination for nonpayment, or a signed and dated waiver of that designation. This is the secondary-addressee provision. At least once every 2 years the insurer must tell the insured of the right to change that person. If premiums are paid through a payroll or pension plan, these requirements wait until 60 days after the insured leaves that payment method. The policy cannot lapse for nonpayment unless the insurer gives 30 days’ written notice.
+The policy discloses whether it is renewable. Riders and endorsements are disclosed. If the policy uses the words usual and customary, or reasonable and customary, the meaning of those words is disclosed. Any other limit on eligibility is disclosed. A life policy that accelerates benefits for long-term care must say that those accelerated benefits may be taxable and that the insured should ask a personal tax advisor. That statement is prominent on the first page of the policy or the rider and on related documents.
 
-A policy may not be canceled or nonrenewed for age or deterioration of mental or physical health. It may not start a new waiting period when existing coverage is converted or replaced by another form in the same company, except for an increase in benefits the insured voluntarily selects. It may not cover skilled nursing care only, or provide significantly more coverage for skilled care in a facility than for lower levels of care. Eligibility may not require a prior hospitalization, require a higher level of institutional care before institutional benefits, or require prior institutionalization, except for waiver of premium, post-confinement, post-acute care, or recuperative benefits.
+An individual policy cannot be issued until one of two things is on file. The insurer has a written designation of at least one person, other than the applicant, who will receive notice of lapse or termination for nonpayment. Or the applicant has signed and dated a waiver of that designation. This is the secondary-addressee provision. At least once every 2 years, the insurer tells the insured about the right to change that person. If premiums are paid through a payroll or pension plan, these requirements wait until 60 days after the insured leaves that payment method. The policy cannot lapse for nonpayment unless the insurer has given 30 days' written notice.
 
-If a policy replaces another, the new company must waive pre-existing, waiting, and probationary periods for similar benefits to the extent those exclusions were already satisfied.
+Several contract limits follow. The policy may not be canceled or nonrenewed because of age or because mental or physical health deteriorated. It may not start a new waiting period when existing coverage is converted, or replaced by another form in the same company, except for a benefit increase the insured chooses voluntarily. It may not cover skilled nursing care only, and it may not provide significantly more coverage for skilled care in a facility than it provides for lower levels of care. Eligibility may not require a prior hospitalization, a higher level of institutional care before institutional benefits begin, or prior institutionalization. Those prior-stay requirements are allowed only for waiver of premium, post-confinement, post-acute care, or recuperative benefits.
 
-Applicants must receive a disclosure of potential rate increases at application or enrollment, or when the approved policy is delivered. If the premium can increase, the insurer must say so, explain the options if a revision occurs, show the rates in effect until an increase is requested, explain when adjustments take effect, and give the premium-increase history on that form or a similar form for the past 10 years. The applicant signs an acknowledgment. The insurer must notify the policyowner at least 45 days before a premium increase.`,
+On a replacement, the new company waives pre-existing, waiting, and probationary periods for similar benefits, to the extent the insured had already satisfied those exclusions.
+
+A disclosure of potential rate increases is given at application or enrollment, or when the approved policy is delivered. If the premium can go up, the insurer says so, explains the options if a revision happens, shows the rates that stay in effect until an increase is requested, explains when an adjustment takes effect, and gives the premium-increase history for that form, or a similar form, for the past 10 years. The applicant signs an acknowledgment. The insurer notifies the policyowner at least 45 days before a premium increase.`,
       questions: [
         question(
           'c13q19',

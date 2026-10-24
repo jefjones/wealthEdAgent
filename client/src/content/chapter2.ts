@@ -2,7 +2,7 @@ import { question } from './build.ts'
 import type { Chapter } from './types.ts'
 import { chapter2Extra } from './extra/chapter2.ts'
 
-/** Wording follows the course OCR in content/source/chapter-2-ocr.txt. */
+/** Section text is the current study wording. */
 export const chapter2: Chapter = {
   id: 'ch-basics',
   number: 2,
@@ -13,11 +13,17 @@ export const chapter2: Chapter = {
     {
       id: 'c2-interest',
       title: 'Who is allowed to buy a policy',
-      body: `To buy insurance, the policyowner must face the possibility of losing money or something of value if a loss occurs. That is insurable interest. In life insurance it must exist between the policyowner and the insured at the time of application. Once the policy is issued, the insurer must pay the benefit whether or not insurable interest still exists.
+      body: `To buy life insurance on someone, the policyowner must face a real chance of losing money or something else of value if that person dies. That stake is called insurable interest.
 
-A valid insurable interest exists when the policy insures the policyowner’s own life, the life of a family member (a spouse or a close blood relative), or the life of a business partner, a key employee, or someone who has a financial obligation to the policyowner. A debtor has a financial obligation to a creditor, so the creditor has an insurable interest in the debtor’s life.
+In life insurance, insurable interest must exist between the policyowner and the insured at the time of application. Once the policy is issued, the insurer must pay the death benefit whether or not insurable interest still exists. Insurable interest is not required after the policy is in force.
 
-Insurable interest is not required of beneficiaries. The beneficiary’s life is not the life being insured.`,
+A valid insurable interest exists in these cases.
+
+• The policy insures the policyowner's own life.
+• The policy insures a family member. A family member here means a spouse or a close blood relative.
+• The policy insures a business partner, a key employee, or someone who has a financial obligation to the policyowner. A debtor has a financial obligation to a creditor, so the creditor has an insurable interest in the debtor's life.
+
+Insurable interest is not required of the beneficiaries. The beneficiary's life is not the life being insured.`,
       questions: [
         question(
           'c2q01',
@@ -47,15 +53,17 @@ Insurable interest is not required of beneficiaries. The beneficiary’s life is
     {
       id: 'c2-personal',
       title: 'Why families buy life insurance',
-      body: `Survivor protection replaces income when a wage earner dies, and it can also protect a family when a nonearning spouse who cares for minor children dies. Planning it means looking at current assets, liabilities, and what the survivors will need.
+      body: `Families buy life insurance for several related jobs. Each one answers a different money problem.
 
-Estate creation happens the moment the first premium is paid. Earnings, savings, and investments take time. A young family can create an immediate estate, at least equal to the death benefit, at a small cost. The course states there is no other legal method that creates an immediate estate at such a small cost.
+Survivor protection replaces income when a wage earner dies. It can also protect a family when a nonearning spouse who cares for minor children dies. Planning that protection means looking at current assets, current liabilities, and what the survivors will need.
 
-Cash accumulation, in permanent policies such as whole life, builds cash value the policyowner can use while living. Liquidity means those cash values can be borrowed against for an immediate need.
+Estate creation happens the moment the first premium is paid. Earnings, savings, and investments take time to build. A young family can create an immediate estate, at least equal to the death benefit, at a small cost. No other legal method creates an immediate estate at such a small cost.
 
-Estate conservation uses the death benefit to pay estate taxes and other costs so the estate’s assets do not have to be sold. Liquidation means selling assets to raise capital. Life insurance can keep a family from having to liquidate the estate at death.
+Cash accumulation is a feature of permanent policies, such as whole life. The policy builds cash value the policyowner can use while living. Liquidity means those cash values can be borrowed against when cash is needed right away.
 
-A lump-sum payment pays the entire benefit in one sum. A minor is a person under legal age and generally cannot receive policy proceeds directly.`,
+Estate conservation uses the death benefit to pay estate taxes and other costs so the estate's assets do not have to be sold. Liquidation means selling assets to raise capital. Life insurance can keep a family from having to liquidate the estate at death.
+
+A lump-sum payment pays the entire death benefit in one sum. A minor is a person under legal age. A minor generally cannot receive policy proceeds directly.`,
       questions: [
         question(
           'c2q02',
@@ -110,9 +118,11 @@ A lump-sum payment pays the entire benefit in one sum. A minor is a person under
       title: 'How much life insurance to buy',
       body: `Two approaches help a producer and a buyer decide how much personal life insurance is appropriate.
 
-The human life value approach estimates what the family would lose if the insured died prematurely. It looks at wages, inflation, the years until retirement, and the time value of money. In the course example, a 40-year-old earns $50,000 until age 65. Of that, $40,000 a year is spent on family needs. The human life value to the family is $1,000,000: $40,000 times 25 years. Interest and inflation are then used to set a benefit that could replace that income.
+The human life value approach estimates what the family would lose in earnings if the insured died prematurely. It looks at wages, inflation, the years until retirement, and the time value of money.
 
-The needs approach starts from the predicted needs of the family after the premature death: income, debt including the mortgage, investments, and other ongoing expenses. It asks what the survivors need, rather than capitalizing the insured’s earnings.`,
+Andre is 32 and expects to work until age 67, which is 35 years. He earns $72,000 a year. His household relies on $55,000 of that income for its needs. His human life value to the family is $1,925,000, which is $55,000 times 35 years. Interest and inflation are then used to set a benefit that could replace that income.
+
+The needs approach starts from what the family is predicted to need after a premature death. Those needs include income, debt (including the mortgage), investments, and other ongoing expenses. This approach asks what the survivors need. It does not capitalize the insured's earnings.`,
       questions: [
         question(
           'c2q04',
@@ -128,7 +138,7 @@ The needs approach starts from the predicted needs of the family after the prema
               why: 'Debts, income, and ongoing expenses are factors in the needs approach, not the earnings capitalization of human life value.',
             },
             {
-              text: 'The cash value the policy is projected to build by age 100.',
+              text: 'The cash value the policy is projected to build by age 121.',
               why: 'Cash value is a feature of permanent insurance. It is not how human life value is calculated.',
             },
             {
@@ -142,13 +152,21 @@ The needs approach starts from the predicted needs of the family after the prema
     {
       id: 'c2-classes',
       title: 'Term coverage and permanent coverage',
-      body: `Every life policy pays a death benefit. The classes differ in how long coverage lasts and in who shares in company earnings.
+      body: `Every life policy pays a death benefit if the insured dies while the policy is in force. The classes differ in how long the coverage lasts, whether cash value builds, and who shares in company earnings.
 
-Term insurance is temporary protection for a specific period. It is also called pure life insurance. Permanent life insurance is a general name for whole life policies that stay in force to age 100 if the premium is paid. Permanent insurance provides lifetime protection and a savings element, the cash value.
+Term insurance is temporary protection for a specific period. It is also called pure life insurance. It pays if the insured dies during that period. It does not build cash value.
 
-A participating policy, issued by a mutual company, may distribute dividends to policyowners as cash, reduced premiums, paid-up additions, a savings program, or one-year term insurance. A nonparticipating policy does not pay dividends to policyowners.
+Permanent life insurance is a general name for whole life policies that stay in force for the insured's lifetime if the premium is paid. A policy that uses the 2017 Commissioners Standard Ordinary table is designed to mature at age 121. Older policies often matured at age 100. Permanent insurance provides lifetime protection and a savings element, called the cash value.
 
-Industrial, or home service, life insurance is written on an individual basis in small amounts, usually a face amount of $2,000 to $10,000, often to help pay funeral expenses. Premiums are collected frequently, often at the insured’s home. Ordinary life insurance is the larger individual policies written in bigger amounts. Group insurance covers many people under one contract. Individual insurance covers one life and is underwritten on that person. Fixed products offer guaranteed minimum or fixed benefits. Variable products accumulate cash value based on a portfolio of securities, without a guarantee of performance.`,
+A participating policy is issued by a mutual company. It may distribute dividends to the policyowner. The dividend choices are cash, reduced premiums, paid-up additions, a savings program, or one-year term insurance. A nonparticipating policy does not pay dividends to policyowners.
+
+Industrial life insurance, also called home service life insurance, is written on an individual basis in small face amounts, traditionally about $1,000 or less, often to help pay funeral expenses. Premiums are collected frequently, often at the insured's home.
+
+Ordinary life insurance is the name for the larger individual policies, written in bigger amounts.
+
+Group insurance covers many people under one contract. Individual insurance covers one life, and that person is underwritten separately.
+
+Fixed products offer guaranteed minimum benefits or fixed benefits. Variable products accumulate cash value based on a portfolio of securities. Variable products do not guarantee performance.`,
       questions: [
         question(
           'c2q09',
@@ -180,15 +198,27 @@ Industrial, or home service, life insurance is written on an individual basis in
       title: 'Why a business buys life insurance',
       body: `Businesses buy life insurance because it creates an immediate payment at death. The most common business use is an employee benefit. Other uses fund a business-continuation agreement, compensate executives, and protect the business if a key employee dies or becomes disabled.
 
-Key person insurance covers an employee whose knowledge, skills, or contacts the business would struggle to replace. It may be term or permanent. Whole life and universal life are used most often. The employee is the insured. The business is the applicant, the policyowner, the premium payer, and the beneficiary. The business cannot deduct the premium. The death benefit is usually received tax free. The employee must give permission. No other special contract is required, and an employer may insure more than one key person.
+Key person insurance covers an employee whose knowledge, skills, or contacts the business would struggle to replace. The policy may be term or permanent. Whole life and universal life are used most often.
 
-A buy-sell, or business continuation, agreement decides what happens to the business if an owner dies or becomes disabled. Life insurance funds the purchase.
+On a key person policy, the roles are fixed.
 
-An executive bonus is an arrangement in which the employer pays a bonus that the employee uses to pay premiums on a policy the employee owns. Deferred compensation is an employer retirement, savings, or other plan that is not a qualified plan, often informally funded with life insurance.
+• The employee is the insured.
+• The business is the applicant, the policyowner, the premium payer, and the beneficiary.
+• The business cannot deduct the premium.
+• The death benefit is usually received tax free.
+• The employee must give permission.
+• No other special contract is required.
+• An employer may insure more than one key person.
 
-A split-dollar plan is an arrangement in which the employer and the employee agree to buy and fund life insurance on the employee and to split the premium, the cash value, or the death benefit as they agree.
+A buy-sell agreement, also called a business continuation agreement, decides what happens to the business if an owner dies or becomes disabled. Life insurance funds the purchase.
 
-A change-of-insured provision, found in some business-owned policies, lets the business replace the insured life with another key employee, subject to evidence of insurability, instead of buying a new policy.`,
+An executive bonus is an arrangement in which the employer pays a bonus that the employee uses to pay premiums on a policy the employee owns.
+
+Deferred compensation is an employer retirement, savings, or other plan that is not a qualified plan. It is often funded informally with life insurance.
+
+A split-dollar plan is an arrangement in which the employer and the employee agree to buy and fund life insurance on the employee. They split the premium, the cash value, or the death benefit as they agree.
+
+A change-of-insured provision is found in some business-owned policies. It lets the business replace the insured life with another key employee, subject to evidence of insurability, instead of buying a new policy.`,
       questions: [
         question(
           'c2q07',
@@ -241,15 +271,17 @@ A change-of-insured provision, found in some business-owned policies, lets the b
     {
       id: 'c2-solicit',
       title: 'Sales talks, illustrations, and suitability',
-      body: `Solicitation is the attempt to persuade a person to buy a policy. Advertising must be accurate and must not be misleading. An illustration is a presentation or depiction of nonguaranteed elements of a policy. It must show what is guaranteed and what is not, and it may not show nonguaranteed values as guaranteed.
+      body: `Solicitation is the attempt to persuade a person to buy a policy. Advertising must be accurate and must not be misleading.
 
-A buyer’s guide is a generic consumer document that explains how to choose the amount and type of insurance and how to compare costs. A policy summary is specific to the policy being issued. It identifies the insurer, the agent, the policy, premiums, and benefits, including cash values and dividends, and it distinguishes guaranteed from nonguaranteed items.
+An illustration is a presentation or depiction of the nonguaranteed elements of a policy. It must show what is guaranteed and what is not. It may not show nonguaranteed values as if they were guaranteed.
 
-Cost comparison methods, such as traditional net cost and interest-adjusted methods, help a buyer compare policies. A comparison that ignores the time value of money can make a policy look cheaper than it is.
+A buyer's guide is a generic consumer document. It explains how to choose the amount and type of insurance and how to compare costs. A policy summary is specific to the policy being issued. It identifies the insurer, the agent, the policy, the premiums, and the benefits, including cash values and dividends. It distinguishes guaranteed items from nonguaranteed items.
 
-A guaranty association protects policyowners, up to stated limits, if a member insurer becomes insolvent. Producers may not use the existence of the association as a reason to buy, or advertise it as a selling point.
+Cost comparison methods help a buyer compare policies. Two of those methods are the traditional net cost method and the interest-adjusted method. A comparison that ignores the time value of money can make a policy look cheaper than it is.
 
-Suitability means the recommendation fits the customer’s insurance needs and financial objectives. A producer should learn the customer’s situation before recommending a policy.`,
+A guaranty association protects policyowners, up to stated limits, if a member insurer becomes insolvent. Producers may not use the existence of the association as a reason to buy. They may not advertise it as a selling point.
+
+Suitability means the recommendation fits the customer's insurance needs and financial objectives. A producer should learn the customer's situation before recommending a policy.`,
       questions: [
         question(
           'c2q10',
@@ -302,9 +334,22 @@ Suitability means the recommendation fits the customer’s insurance needs and f
     {
       id: 'c2-field',
       title: 'The application and field underwriting',
-      body: `The producer is the company’s front line and is called a field underwriter, because the producer solicited the applicant. Field underwriting includes proper solicitation, helping prevent adverse selection, completing the application, obtaining the required signatures, collecting the initial premium and issuing a receipt when one applies, and delivering the policy.
+      body: `The producer is the company's front line and is called a field underwriter, because the producer solicited the applicant. Field underwriting includes all of the following.
 
-The application is the starting point and the basic source of information for risk selection. Part 1, General Information, asks name, age, address, birth date, gender, income, marital status, and occupation. It asks about existing policies and whether the new insurance will replace them. It identifies the type and amount of coverage and usually names the beneficiary. Part 2, Medical Information, covers the proposed insured’s health history. The producer must have the required signatures. If a premium is collected with the application, the producer issues the appropriate receipt. A conditional receipt may provide coverage from the date of application or the medical exam, if the proposed insured is insurable as applied for.`,
+• Proper solicitation.
+• Helping prevent adverse selection.
+• Completing the application.
+• Obtaining the required signatures.
+• Collecting the initial premium and issuing a receipt when a receipt applies.
+• Delivering the policy.
+
+The application is the starting point and the basic source of information used in risk selection. It has two parts.
+
+Part 1 is General Information. It asks for name, age, address, birth date, gender, income, marital status, and occupation. It asks about existing policies and whether the new insurance will replace them. It identifies the type and amount of coverage, and it usually names the beneficiary.
+
+Part 2 is Medical Information. It covers the proposed insured's health history.
+
+The producer must obtain the required signatures. If a premium is collected with the application, the producer issues the appropriate receipt. A conditional receipt may provide coverage from the date of the application, or from the date of the medical exam, if the proposed insured is insurable as applied for.`,
       questions: [
         question(
           'c2q12',
@@ -334,17 +379,22 @@ The application is the starting point and the basic source of information for ri
     {
       id: 'c2-company',
       title: 'How the company accepts or rates the risk',
-      body: `The home office underwriter decides whether to accept the risk and at what rate. Sources include the application, the agent’s report, an attending physician’s statement, an inspection report, the Medical Information Bureau, and medical or lab exams, including HIV tests when required.
+      body: `The home office underwriter decides whether to accept the risk and, if so, at what rate. The underwriter uses several sources: the application, the agent's report, an attending physician's statement, an inspection report, the Medical Information Bureau, and medical or laboratory exams, including HIV tests when they are required.
 
-An inspection, or investigative consumer, report covers finances, character, work, hobbies, and habits. Companies that use these reports must follow the Fair Credit Reporting Act.
+An inspection report, also called an investigative consumer report, covers finances, character, work, hobbies, and habits. A company that uses these reports must follow the Fair Credit Reporting Act.
 
-The MIB is a nonprofit membership corporation owned by member insurers. It collects underwriting information so companies can compare what they know with what other insurers have reported. It is only an aid. An applicant cannot be refused solely because of adverse information in an MIB report.
+The MIB is a nonprofit membership corporation owned by member insurers. It collects underwriting information so a company can compare what it knows with what other insurers have reported. The MIB report is only an aid. An applicant cannot be refused solely because of adverse information in an MIB report.
 
-Medical exams are done by physicians or paramedics at the insurer’s expense. An HIV test is common for a large amount of coverage. The insurer must disclose the test, get written consent, keep results confidential, and use an approved protocol. Requiring an HIV test is not unfair discrimination if everyone in the same class is tested, coverage is not denied on the test alone, and the test is FDA approved. An insurer may ask whether the proposed insured has tested positive on an AIDS-related test.
+Medical exams are done by physicians or paramedics, at the insurer's expense. An HIV test is common when the amount of coverage is large. The insurer must disclose the test, get written consent, keep the results confidential, and use an approved protocol. Requiring an HIV test is not unfair discrimination if three conditions are met: everyone in the same class is tested, coverage is not denied on the basis of the test alone, and the test is approved by the FDA. An insurer may ask whether the proposed insured has tested positive on an AIDS-related test.
 
-An insurer may distinguish good risks from poor risks. It may not unfairly discriminate between people of the same class and equal life expectancy in rates, benefits, or terms. Unfair discrimination includes differences based solely on age or gender in a way the law forbids, physical or mental impairment, blindness or partial blindness, or genetic characteristics, and investigating sexual orientation as part of underwriting.
+An insurer may distinguish good risks from poor risks. It may not unfairly discriminate between people of the same class and equal life expectancy in the rates, the benefits, or the terms. Unfair discrimination includes a difference based solely on age or gender in a way the law forbids. It also includes a difference based on physical or mental impairment, blindness or partial blindness, or genetic characteristics. Investigating sexual orientation as part of underwriting is unfair discrimination.
 
-If the applicant is acceptable, the underwriter assigns a class. Preferred risks meet extra requirements and pay a lower premium because of superior health, lifestyle, and habits. Standard risks are the average risk and are accepted with no extra rating. Substandard, or high-exposure, risks are not acceptable at standard rates because of physical condition, history, occupation, or habits, and they pay a rated premium. Declined risks are rejected: no insurable interest, medically unacceptable, a loss potential that is not insurance, or a purpose that is illegal or against public policy.`,
+If the applicant is acceptable, the underwriter assigns a class.
+
+• Preferred risks meet extra requirements. They pay a lower premium because of superior health, lifestyle, and habits.
+• Standard risks are average risks. They are accepted with no extra rating.
+• Substandard risks, also called high-exposure risks, are not acceptable at standard rates because of physical condition, history, occupation, or habits. They pay a rated premium.
+• Declined risks are rejected. The reasons include no insurable interest, a risk that is medically unacceptable, a potential for loss that is not an insurance risk, or a purpose that is illegal or against public policy.`,
       questions: [
         question(
           'c2q13',
@@ -397,13 +447,15 @@ If the applicant is acceptable, the underwriter assigns a class. Preferred risks
     {
       id: 'c2-premium',
       title: 'How the premium is calculated',
-      body: `Once the applicant is insurable, the company sets the premium. Premiums are paid in advance. Three primary factors determine it: mortality, interest, and expense.
+      body: `Once the applicant is insurable, the company sets the premium. Premiums are paid in advance. Three primary factors determine the premium: mortality, interest, and expense.
 
-Mortality is the rate of death in a specific group over a period of time. Mortality tables show how many people in a group, such as men, women, smokers, or nonsmokers, starting at a given age, are expected to be alive at the next age. Morbidity tables do similar work for sickness and injury in health insurance.
+Mortality is the rate of death in a specific group over a period of time. A mortality table shows how many people in a group are expected to be alive at the next age. The group might be men, women, smokers, or nonsmokers, starting at a given age. Morbidity tables do similar work for sickness and injury in health insurance.
 
-Interest is what the insurer expects to earn by investing premiums before claims are paid. Expense, also called loading, covers commissions, taxes, and the cost of doing business.
+Interest is what the insurer expects to earn by investing premiums before claims are paid. Expense, also called loading, covers commissions, taxes, and the other costs of doing business.
 
-Mortality minus interest equals the net premium. Net premium plus expense equals the gross premium, which is what the policyowner pays. In the course example, if mortality and interest produce a $400 net premium and loading is $200, the gross premium is $600.
+Mortality minus interest equals the net premium. Net premium plus expense equals the gross premium. The gross premium is what the policyowner pays.
+
+If mortality and interest produce a $910 net premium and loading is $240, the gross premium is $1,150.
 
 The mode is how often the premium is paid: annually, semiannually, quarterly, or monthly. More frequent modes cost more, because the insurer loses interest and has extra collection expense. The annual mode has the lowest total outlay.`,
       questions: [
@@ -421,8 +473,8 @@ The mode is how often the premium is paid: annually, semiannually, quarterly, or
               correct: true,
             },
             {
-              text: 'The cash value scheduled at age 100.',
-              why: 'The age-100 cash value is a whole life maturity feature, not the premium formula.',
+              text: 'The cash value scheduled at age 121.',
+              why: 'The age-121 cash value is a whole life maturity feature, not the premium formula.',
             },
             {
               text: 'Interest plus the producer’s commission only.',
@@ -435,11 +487,25 @@ The mode is how often the premium is paid: annually, semiannually, quarterly, or
     {
       id: 'c2-delivery',
       title: 'Issuing and delivering the policy',
-      body: `If the applicant is acceptable, the company issues the policy. Delivery may be by mail or in person. Personal delivery lets the producer explain the contract, confirm that the insured’s health has not changed when a statement of good health is required, and collect any premium that was not paid with the application. Coverage generally begins when the premium has been paid and the policy has been delivered, unless a receipt already put coverage in force.
+      body: `If the applicant is acceptable, the company issues the policy. Delivery may be by mail or in person.
 
-Replacement is any transaction in which new life insurance or a new annuity is purchased and, as a result, existing coverage will be or has been lapsed, forfeited, surrendered, or terminated; reissued with a reduction in cash value; continued as reduced paid-up or extended term or otherwise reduced by a nonforfeiture option; amended so benefits or the term are reduced; or used in a financed purchase.
+Personal delivery lets the producer explain the contract. It also lets the producer confirm that the insured's health has not changed when a statement of good health is required, and collect any premium that was not paid with the application.
 
-The replacing insurer issues the new policy. The existing insurer is the company whose policy is being replaced. The replacing producer must present a Notice Regarding Replacement signed by the applicant and the producer, leave a copy with the applicant, list the policies being replaced, leave copies of the sales materials, and send the notice to the replacing insurer with the application. The application must include the applicant’s statement about whether replacement is involved and the producer’s statement about whether the producer knows replacement is or may be involved.`,
+Coverage generally begins when the premium has been paid and the policy has been delivered, unless a receipt already put the coverage in force.
+
+Replacement is any transaction in which new life insurance or a new annuity is purchased and, as a result, existing coverage is affected in one of these ways.
+
+• It will be, or it has been, lapsed, forfeited, surrendered, or terminated.
+• It is reissued with a reduction in cash value.
+• It is continued as reduced paid-up insurance or extended term insurance, or it is otherwise reduced by a nonforfeiture option.
+• It is amended so that the benefits are reduced or the term is reduced.
+• It is used in a financed purchase.
+
+The replacing insurer is the company that issues the new policy. The existing insurer is the company whose policy is being replaced.
+
+The replacing producer must present a Notice Regarding Replacement. The applicant and the producer both sign it. The producer leaves a copy with the applicant, lists the policies being replaced, and leaves copies of the sales materials. The producer sends the notice to the replacing insurer with the application.
+
+The application must include two statements. The applicant states whether replacement is involved. The producer states whether the producer knows that replacement is involved or may be involved.`,
       questions: [
         question(
           'c2q16',
@@ -469,13 +535,17 @@ The replacing insurer issues the new policy. The existing insurer is the company
     {
       id: 'c2-settlements',
       title: 'Selling an existing policy, and STOLI',
-      body: `A life settlement is the sale of an existing life policy to a third party for compensation, usually cash. It requires an absolute assignment of all rights from the original owner to the new owner. Owners sell because they no longer need the coverage or because the premium has grown too high. Settlements are often offered to seniors, including people with a life-threatening illness and a short life expectancy, for more than the policy’s cash surrender value.
+      body: `A life settlement is the sale of an existing life policy to a third party for compensation, usually cash. The sale requires an absolute assignment of all rights from the original owner to the new owner.
 
-In the course example, a 70-year-old owns a $1,000,000 policy with $390,000 of cash value. A settlement provider, after reviewing medical records, offers $575,000. After the transfer, the settlement company pays the premiums and collects the $1,000,000 death benefit.
+Owners sell a policy because they no longer need the coverage, or because the premium has grown too high. Settlements are often offered to seniors. That group includes people with a life-threatening illness and a short life expectancy. The offer is for more than the policy's cash surrender value.
 
-The business of life settlements is any activity that solicits or sells a life settlement contract to a third party who has no insurable interest in the insured. The owner is the person who owns the policy and seeks the settlement. The insured is the person covered. Life expectancy is a calculation of the average number of months the insured is projected to live, based on medical history and mortality factors.
+Camila is 74. She owns a $250,000 policy with $60,000 of cash value. A settlement provider reviews her medical records and offers $95,000, which is more than the cash value and less than the face amount. After the transfer, the settlement company pays the premiums and collects the $250,000 death benefit.
 
-Stranger-originated life insurance (STOLI) is an arrangement in which a person with no relationship to the insured initiates a policy for the purpose of selling it. STOLI is financed and purchased solely so it can be sold in a life settlement. It violates insurable interest. Insurers take steps to detect STOLI. A lawful life settlement of an existing policy is not STOLI. STOLI is initiated to obtain a policy that will benefit someone who has no insurable interest.`,
+The business of life settlements is any activity that solicits or sells a life settlement contract to a third party who has no insurable interest in the insured. The owner is the person who owns the policy and seeks the settlement. The insured is the person the policy covers. Life expectancy is a calculation of the average number of months the insured is projected to live, based on medical history and mortality factors.
+
+Stranger-originated life insurance, called STOLI, is an arrangement in which a person with no relationship to the insured starts a policy for the purpose of selling it. STOLI is financed and purchased solely so the policy can be sold in a life settlement. STOLI violates the requirement of insurable interest. Insurers take steps to detect it.
+
+A lawful life settlement of a policy that already exists is not STOLI. STOLI is started in order to obtain a policy that will benefit someone who has no insurable interest in the insured.`,
       questions: [
         question(
           'c2q05',

@@ -9,6 +9,7 @@ import { Card } from '../components/ui/card.tsx'
 import { Input } from '../components/ui/input.tsx'
 import { Label } from '../components/ui/label.tsx'
 import { studyPack } from '../content/pack.ts'
+import { subjectTitle } from '../content/rewrite.ts'
 import { drawQuestions } from '../study/draw.ts'
 import { reservedQuestionIds, saveDraw } from '../study/draws.ts'
 import { chapterSelectionError, questionsInChapters } from '../study/testSession.ts'
@@ -199,7 +200,7 @@ function ChapterChoices({
                 }
               />
               <span>
-                Chapter {chapter.number}. {chapter.title}
+                Chapter {chapter.number}. {subjectTitle(chapter.title)}
               </span>
             </label>
           )

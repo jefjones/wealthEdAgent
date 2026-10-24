@@ -2,7 +2,7 @@ import { question } from './build.ts'
 import type { Chapter } from './types.ts'
 import { chapter3Extra } from './extra/chapter3.ts'
 
-/** Wording follows the course OCR in content/source/chapter-3-ocr.txt. */
+/** Section text is the current study wording. */
 export const chapter3: Chapter = {
   id: 'ch-policies',
   number: 3,
@@ -13,19 +13,27 @@ export const chapter3: Chapter = {
     {
       id: 'c3-term',
       title: 'Term life: coverage for a set period',
-      body: `All life insurance is either temporary or permanent. Term insurance is temporary protection for a specific period. It is also called pure life insurance. Term provides the greatest amount of coverage for the lowest premium of any form of protection. There is usually a maximum age above which coverage will not be offered or cannot be renewed.
+      body: `All life insurance is either temporary or permanent. Term insurance is temporary protection for a specific period. It is also called pure life insurance.
 
-Term provides pure death protection. If the insured dies during the term, the policy pays the death benefit. If the policy is canceled or expires before death, nothing is payable. There is no cash value or other living benefit.
+Term provides the greatest amount of coverage for the lowest premium of any form of life protection. There is usually a maximum age above which coverage will not be offered or cannot be renewed.
 
-The premium stays level during the term. Only the death benefit may change. When the policy is sold, renewed, or converted, the premium is figured at attained age, the insured’s age at the time of that transaction.
+Term provides pure death protection. If the insured dies during the term, the policy pays the death benefit. If the policy is canceled or expires before death, nothing is payable. There is no cash value and no other living benefit.
+
+The premium stays level during the term. Only the death benefit may change. When the policy is sold, renewed, or converted, the premium is figured at attained age. Attained age is the insured's age at the time of that transaction.
 
 Level term is the most common temporary protection. The word level refers to the death benefit, which does not change.
 
-Level premium term provides both a level death benefit and a level premium during the term. A $100,000 10-year level term policy pays $100,000 if the insured dies at any time during those 10 years.
+Level premium term provides both a level death benefit and a level premium during the term. A $150,000 15-year level premium term policy pays $150,000 if the insured dies at any time during those 15 years.
 
-Annual renewable term renews each year without evidence of insurability. The premium increases at each renewal because it is based on attained age. Decreasing term has a level premium and a death benefit that drops each year. It is used when the need shrinks over time, commonly a mortgage or other debt. It is usually convertible and usually not renewable, because the death benefit is zero at the end of the term. Increasing term has a death benefit that grows by a stated amount or percentage. It is used for inflation and is often added as a rider, including cost-of-living and return-of-premium riders.
+Annual renewable term renews each year without evidence of insurability. The premium increases at each renewal because it is based on attained age.
 
-Return of premium (ROP) is an increasing term policy that pays an additional death benefit equal to the premiums paid, if the insured dies within a stated period or outlives the term. The premium is much higher than traditional term, sometimes 25% to 50% more. If the insured is alive at the end of the term, the company returns the premiums. Because the amount returned equals the amount paid in, the returned premiums are not taxable. In the course example, $380 a year for 30 years on a $250,000 policy is $11,400 returned if the insured is still alive.`,
+Decreasing term has a level premium and a death benefit that drops each year. It is used when the need shrinks over time, commonly a mortgage or other debt. Riley has a $210,000 mortgage that gets smaller each year. A decreasing term policy can drop the death benefit along with the remaining loan, while the premium stays level. Decreasing term is usually convertible. It is usually not renewable, because the death benefit is zero at the end of the term.
+
+Increasing term has a death benefit that grows by a stated amount or a stated percentage. It is used to offset inflation. It is often added as a rider. Cost-of-living riders and return-of-premium riders are increasing term.
+
+Return of premium, or ROP, is an increasing term policy. It pays an additional death benefit equal to the premiums paid if the insured dies within a stated period, or if the insured outlives the term. The premium is much higher than traditional term, sometimes 25% to 50% more. If the insured is alive at the end of the term, the company returns the premiums. The returned premiums are not taxable, because the amount returned equals the amount paid in.
+
+Sam pays $640 a year for 20 years on a $300,000 policy. If Sam is still alive at the end of the term, the company returns $12,800. That is $640 times 20.`,
       questions: [
         question(
           'c3q01',
@@ -37,8 +45,8 @@ Return of premium (ROP) is an increasing term policy that pays an additional dea
               correct: true,
             },
             {
-              text: 'It builds cash value that equals the face amount at age 100.',
-              why: 'Cash value scheduled to equal the face amount at age 100 is whole life, not term.',
+              text: 'It builds cash value that equals the face amount at age 121.',
+              why: 'Cash value scheduled to equal the face amount at age 121 is whole life, not term.',
             },
             {
               text: 'The word “level” means the premium increases every year with attained age.',
@@ -60,7 +68,7 @@ Return of premium (ROP) is an increasing term policy that pays an additional dea
               correct: true,
             },
             {
-              text: 'A permanent need that lasts to age 100.',
+              text: 'A permanent need that lasts to age 121.',
               why: 'A need that lasts for life is a permanent-insurance use. Decreasing term ends when the benefit reaches zero.',
             },
             {
@@ -84,7 +92,7 @@ Return of premium (ROP) is an increasing term policy that pays an additional dea
             },
             {
               text: 'The policy endows and pays the face amount in cash.',
-              why: 'Endowment, when cash value equals the face amount, is a whole life maturity feature, typically at age 100.',
+              why: 'Endowment, when cash value equals the face amount, is a whole life maturity feature, typically at age 121.',
             },
             {
               text: 'The death benefit jumps and the premium stays level.',
@@ -101,20 +109,23 @@ Return of premium (ROP) is an increasing term policy that pays an additional dea
     {
       id: 'c3-whole',
       title: 'Whole life: lifetime coverage with cash value',
-      body: `Whole life provides lifetime protection and accumulates cash value. Key features:
+      body: `Whole life provides lifetime protection and accumulates cash value. Four features define it.
 
-• Level premium — based on the issue age, and it stays the same for life.
-• Death benefit — guaranteed and level for life.
-• Cash value — scheduled to equal the face amount at age 100, the maturity date, and then paid to the policyowner. Cash values are credited regularly at a guaranteed interest rate. The insured and the policyowner do not have to be the same person.
-• Living benefits — the owner can borrow against the cash value or receive it on surrender. Cash value, also called the nonforfeiture value, usually does not build until the third policy year and grows tax deferred.
+The premium is level. It is based on the issue age, and it stays the same for life.
+
+The death benefit is guaranteed and level for life.
+
+On a policy priced with the 2017 Commissioners Standard Ordinary mortality table, the contract is designed to mature at age 121 (Society of Actuaries). Older policies often matured at age 100, and on those policies the cash value was scheduled to equal the face amount at that age. At maturity the cash value is paid to the policyowner. Cash values are credited regularly at a guaranteed interest rate. The insured and the policyowner do not have to be the same person.
+
+The living benefits let the owner borrow against the cash value or receive the cash value on surrender. Cash value is also called the nonforfeiture value. On many traditional policies it is small in the early years and may not be scheduled until around the third policy year. It grows tax deferred.
 
 To endow means the cash value has reached the contractual face amount.
 
-The three basic forms are straight whole life, limited-pay whole life, and single premium whole life.
+There are three basic forms.
 
-Straight life, also called ordinary life or continuous premium whole life, is the basic policy. The owner pays from issue until the insured’s death or age 100, whichever comes first. Of the common whole life forms, straight life has the lowest annual premium. Cash value builds more slowly than in a limited-pay policy.
+Straight life is also called ordinary life or continuous premium whole life. It is the basic whole life policy. The owner pays from the issue date until the insured's death or until the policy matures, whichever comes first. Of the common whole life forms, straight life has the lowest annual premium. Its cash value builds more slowly than the cash value of a limited-pay policy.
 
-Limited-pay whole life, such as 20-pay life or life paid-up at 65, compresses the premiums into a shorter period. Annual premiums are higher, and cash value builds faster. After the paying period the policy is paid up, but coverage lasts for life.
+Limited-pay whole life compresses the premiums into a shorter period. Examples are 20-pay life and life paid-up at 65. The annual premiums are higher, and the cash value builds faster. After the paying period the policy is paid up, but the coverage lasts for life.
 
 Single premium whole life is paid with one lump sum. It creates an immediate cash value.`,
       questions: [
@@ -123,8 +134,8 @@ Single premium whole life is paid with one lump sum. It creates an immediate cas
           'When does a traditional whole life policy endow?',
           [
             {
-              text: 'When the cash value equals the face amount, scheduled at age 100.',
-              why: 'Endow means the cash value has reached the contractual face amount. On a traditional whole life policy that date is age 100, and the cash value is paid to the policyowner.',
+              text: 'When the cash value equals the face amount, scheduled at age 121.',
+              why: 'Endow means the cash value has reached the contractual face amount. On a traditional whole life policy that date is age 121, and the cash value is paid to the policyowner.',
               correct: true,
             },
             {
@@ -147,7 +158,7 @@ Single premium whole life is paid with one lump sum. It creates an immediate cas
           [
             {
               text: 'Straight life, also called continuous premium or ordinary life.',
-              why: 'Premiums are payable to death or age 100, so each annual premium is lower than on a limited-pay or single-premium policy. Cash value builds more slowly.',
+              why: 'Premiums are payable to death or age 121, so each annual premium is lower than on a limited-pay or single-premium policy. Cash value builds more slowly.',
               correct: true,
             },
             {
@@ -169,9 +180,11 @@ Single premium whole life is paid with one lump sum. It creates an immediate cas
     {
       id: 'c3-adjustable',
       title: 'Adjustable life: move between term and whole life',
-      body: `Adjustable life can be term or whole life, and the policyowner can move it from one to the other as needs change. The owner can increase or decrease the premium, and can change the face amount. An increase in the death benefit requires proof of insurability. The owner may also pay more than the permanent-plan premium in order to build extra cash value or to shorten the premium-paying period.
+      body: `Adjustable life can be written as term or as whole life. The policyowner can move it from one to the other as needs change.
 
-The cash value of an adjustable life policy develops only when the premiums paid are more than the cost of the policy. Cash value earns a fixed rate and is held in the insurer’s general account. The owner can borrow against it.`,
+The owner can increase or decrease the premium, and the owner can change the face amount. An increase in the death benefit requires proof of insurability. The owner may also pay more than the permanent-plan premium. That extra premium can build extra cash value, or it can shorten the premium-paying period.
+
+Cash value develops only when the premiums paid are more than the cost of the policy. The cash value earns a fixed rate. It is held in the insurer's general account. The owner can borrow against it.`,
       questions: [
         question(
           'c3q06',
@@ -201,15 +214,17 @@ The cash value of an adjustable life policy develops only when the premiums paid
     {
       id: 'c3-universal',
       title: 'Universal life: change the premium',
-      body: `Universal life is also called flexible premium adjustable life. The owner may raise or lower the premium and may skip a premium. The policy does not lapse as long as the cash value can cover the monthly cost of insurance. If the cash value is too small, the policy expires.
+      body: `Universal life is also called flexible premium adjustable life. The owner may raise or lower the premium, and the owner may skip a premium. The policy does not lapse as long as the cash value can cover the monthly cost of insurance. If the cash value is too small to cover that cost, the policy expires.
 
-The minimum premium keeps the policy in force for the current year and makes it perform like annually renewable term. The target premium is the recommended amount that covers the cost of insurance and keeps the policy in force for life.
+The minimum premium is the amount that keeps the policy in force for the current year. At the minimum premium, the policy performs like annually renewable term. The target premium is the recommended amount. It covers the cost of insurance and is meant to keep the policy in force for life.
 
-Universal life is interest sensitive. The contract guarantees a rate, often 3% to 6%. A current rate may be higher and is not guaranteed. The policy has two parts: an insurance component, which is always annually renewable term, and a cash account.
+Universal life is interest sensitive. The contract sets a guaranteed minimum interest rate. On many policies issued in recent years that guarantee is about 0% to 2%. The insurer may credit a higher current rate, and the current rate is not guaranteed.
 
-Option A is the level death benefit. As cash value rises, the pure insurance protection shrinks so the total death benefit stays level. IRS rules for contracts issued after December 31, 1984 require a corridor, a gap between the cash value and the death benefit, so the contract still qualifies as life insurance. The corridor percentages depend on age and the amount of coverage.
+The policy has two parts. The insurance component is always annually renewable term. The other part is a cash account.
 
-Option B is the increasing death benefit. The benefit equals the face amount plus the current cash value. Pure insurance stays level, expenses are higher than under Option A, and cash value in the later years is lower, all else equal.`,
+Option A is the level death benefit. As the cash value rises, the pure insurance protection shrinks, so the total death benefit stays level. For contracts issued after December 31, 1984, IRS rules require a corridor. A corridor is a gap between the cash value and the death benefit. The gap keeps the contract qualified as life insurance. The corridor percentages depend on the insured's age and on the amount of coverage.
+
+Option B is the increasing death benefit. The death benefit equals the face amount plus the current cash value. The pure insurance stays level. Expenses are higher than under Option A. In the later years, the cash value is lower than it would be under Option A, if everything else is equal.`,
       questions: [
         question(
           'c3q07',
@@ -249,7 +264,7 @@ Option B is the increasing death benefit. The benefit equals the face amount plu
             },
             {
               text: 'It guarantees the current interest rate shown in the illustration.',
-              why: 'The current rate is not guaranteed. The contract rate, often 3% to 6%, is the guarantee. The corridor is a tax definition, not an interest guarantee.',
+              why: 'The current rate is not guaranteed. The contract rate, about 0% to 2%, is the guarantee. The corridor is a tax definition, not an interest guarantee.',
             },
             {
               text: 'It lets the owner skip premiums with no effect on cash value.',
@@ -262,15 +277,23 @@ Option B is the increasing death benefit. The benefit equals the face amount plu
     {
       id: 'c3-variable',
       title: 'Variable life: cash value follows investments',
-      body: `Fixed contracts offer guaranteed minimum or fixed benefits stated in the contract. Variable contracts accumulate cash value based on a portfolio of securities, with no guarantee of performance. The policyowner bears the investment risk.
+      body: `A fixed contract offers a guaranteed minimum benefit or a fixed benefit stated in the contract. A variable contract accumulates cash value based on a portfolio of securities. There is no guarantee of investment performance. The policyowner bears the investment risk.
 
-Variable life, sometimes called variable whole life, has a level fixed premium and a guaranteed minimum death benefit. The cash value is not guaranteed and fluctuates with the portfolio. Because the insurer is not taking the investment risk, the assets cannot sit in the general account. They are held in a separate account, which invests in stocks, bonds, and other securities. A domestic insurer that issues variable contracts must establish one or more separate accounts. Each account’s assets must at least equal the reserves and other contract liabilities. Separate-account assets cannot be commingled with general-account assets.
+Variable life, sometimes called variable whole life, has a level fixed premium and a guaranteed minimum death benefit. The cash value is not guaranteed. It fluctuates with the portfolio.
 
-Variable universal life combines a flexible premium, an adjustable death benefit, and the investment component of variable life. Like universal life, the owner can raise, lower, or skip premiums if the policy value can fund the death benefit, and can take withdrawals or loans. Unlike universal life, most of the investment choices do not guarantee a return.
+Because the insurer is not taking the investment risk, the assets cannot sit in the general account. They are held in a separate account, which invests in stocks, bonds, and other securities. A domestic insurer that issues variable contracts must establish one or more separate accounts. Each account's assets must at least equal the reserves and the other contract liabilities of that account. Separate-account assets cannot be commingled with general-account assets.
 
-Variable products are regulated both as insurance and as securities, by the state insurance department, the SEC, and FINRA. A producer who recommends the sale or termination of a variable contract must be a variable contract producer: a life insurance license plus a securities license (either Series 6 or Series 7, and Series 63). The producer must also be approved as a Utah resident producer through FINRA’s Central Registration Depository.
+Variable universal life combines three features: a flexible premium, an adjustable death benefit, and the investment component of variable life. As with universal life, the owner can raise, lower, or skip premiums if the policy value can fund the death benefit. The owner can also take withdrawals or loans. Unlike universal life, most of the investment choices do not guarantee a return.
 
-Utah variable contract law: a company may not deliver variable contracts in this state unless it is licensed to do a life insurance or annuity business here. A domestic life company may set up separate accounts for benefits payable in fixed amounts, variable amounts, or both. Amounts in a separate account are owned by the company. The company is not a trustee of those amounts.`,
+Variable products are regulated both as insurance and as securities. The regulators are the state insurance department, the SEC, and FINRA.
+
+A producer who recommends the sale or the termination of a variable contract must be a variable contract producer. That means a life insurance license, plus a securities license. The securities license is either Series 6 or Series 7, and also Series 63. The producer must also be approved as a Utah resident producer through FINRA's Central Registration Depository.
+
+Utah variable contract law adds three rules.
+
+• A company may not deliver variable contracts in this state unless it is licensed to do a life insurance or annuity business here.
+• A domestic life company may set up separate accounts for benefits payable in fixed amounts, in variable amounts, or in both.
+• Amounts in a separate account are owned by the company. The company is not a trustee of those amounts.`,
       questions: [
         question(
           'c3q09',
@@ -290,7 +313,7 @@ Utah variable contract law: a company may not deliver variable contracts in this
               why: 'FINRA regulates the securities side of the sale. It does not absorb the investment loss.',
             },
             {
-              text: 'The beneficiary, but only after the insured reaches age 100.',
+              text: 'The beneficiary, but only after the insured reaches age 121.',
               why: 'Age-100 endowment is a whole life cash-value schedule. It does not shift variable investment risk to the beneficiary.',
             },
           ],
@@ -323,9 +346,11 @@ Utah variable contract law: a company may not deliver variable contracts in this
     {
       id: 'c3-joint',
       title: 'One policy on two people',
-      body: `Joint life insures two or more lives and pays at the first death. The premium is based on a joint age and is less than the sum of two individual premiums. It fits a need that ends at the first death, such as a two-income couple’s mortgage, or a buy-sell agreement between business partners.
+      body: `Joint life insures two or more lives and pays the death benefit at the first death. The premium is based on a joint age. That premium is less than the sum of the premiums for two individual policies.
 
-Survivorship life, also called second-to-die or last survivor, also uses a joint age, but it pays on the last death. Because payment is delayed, the premium is lower than a joint life premium. Survivorship coverage is often used to pay estate tax when the second insured dies.`,
+Joint life fits a need that ends when the first person dies. Examples are a mortgage for a two-income couple, and a buy-sell agreement between business partners. Ana and Ben co-own a food truck. A joint life policy can pay when the first of them dies, which is when the survivor needs cash to buy the other half.
+
+Survivorship life is also called second-to-die or last survivor. It also uses a joint age, but it pays on the last death rather than the first. Because the payment is delayed, the premium is lower than a joint life premium. Survivorship coverage is often used to pay estate tax when the second insured dies.`,
       questions: [
         question(
           'c3q11',
@@ -341,8 +366,8 @@ Survivorship life, also called second-to-die or last survivor, also uses a joint
               why: 'Payment at the first death is joint life. After that death the joint life need is usually gone.',
             },
             {
-              text: 'When either insured reaches age 100, whichever is first.',
-              why: 'Age 100 is the maturity date of traditional whole life. It is not what distinguishes survivorship from joint life.',
+              text: 'When either insured reaches age 121, whichever is first.',
+              why: 'Age 121 is the maturity date of traditional whole life. It is not what distinguishes survivorship from joint life.',
             },
             {
               text: 'In equal shares at each death.',
@@ -355,7 +380,9 @@ Survivorship life, also called second-to-die or last survivor, also uses a joint
     {
       id: 'c3-juvenile',
       title: 'Life insurance on a child',
-      body: `Juvenile life insurance is any life insurance written on the life of a minor. A jumping juvenile policy is called that because the face amount increases at a predetermined age, often age 21. The face amount jumps. The premium stays level.`,
+      body: `Juvenile life insurance is any life insurance written on the life of a minor.
+
+A jumping juvenile policy is named for what the face amount does. The face amount increases at a predetermined age, often age 21. The face amount jumps. The premium stays level. A policy on 4-year-old Mateo can jump from $25,000 to $125,000 at age 21, while the premium his parent pays stays the same.`,
       questions: [
         question(
           'c3q12',
@@ -372,7 +399,7 @@ Survivorship life, also called second-to-die or last survivor, also uses a joint
             },
             {
               text: 'The cash value, which must equal the face amount at age 21.',
-              why: 'Endowment at age 100, not age 21, is the traditional whole life maturity. The juvenile “jump” is in the face amount.',
+              why: 'Endowment at age 121, not age 21, is the traditional whole life maturity. The juvenile “jump” is in the face amount.',
             },
             {
               text: 'The number of insureds, from one parent to both.',
@@ -385,15 +412,15 @@ Survivorship life, also called second-to-die or last survivor, also uses a joint
     {
       id: 'c3-group',
       title: 'Life insurance from a group',
-      body: `Group life is issued to a sponsoring organization and covers more than one person. It is commonly written for employer groups, and also for debtor groups, labor unions, credit unions, and associations. The group must exist for a reason other than buying insurance. It is usually written as annually renewable term.
+      body: `Group life is issued to a sponsoring organization and covers more than one person. It is commonly written for an employer group. It is also written for a debtor group, a labor union, a credit union, or an association. The group must exist for a reason other than buying insurance. Group life is usually written as annually renewable term.
 
-Evidence of insurability is usually not required, unless someone enrolls outside the normal enrollment period. Participants do not receive a policy, because they do not own or control it. Each participant gets a certificate of insurance. The master policy goes to the sponsor, often the employer, and the sponsor is the policyholder.
+Evidence of insurability is usually not required. An exception is a person who enrolls outside the normal enrollment period. Participants do not receive a policy, because they do not own or control the insurance. Each participant receives a certificate of insurance. The master policy goes to the sponsor, often the employer. The sponsor is the policyholder.
 
-Underwriting looks at the group: its purpose, its size (the law of large numbers), a steady turnover of younger lives replacing older ones, and the financial strength to pay premiums. Cost is based on the average age of the group and the ratio of men to women. A minimum number of participants is required to limit adverse selection, and that minimum depends on who pays the premium.
+Underwriting looks at the group, not at each person the way individual insurance does. The underwriter considers the group's purpose, its size (the law of large numbers), a steady turnover of younger lives replacing older ones, and the financial strength to pay the premiums. The cost is based on the average age of the group and on the ratio of men to women. A minimum number of participants is required, to limit adverse selection. That minimum depends on who pays the premium.
 
-If an employee leaves the group, the employee may convert to an individual policy without evidence of insurability, at standard rates based on attained age. Conversion is to a form the insurer issues, usually whole life, not to term. The face amount equals the group term face amount, and the premium is higher. The employee has 31 days to convert and remains covered under the group policy during that period. If the insured dies during the conversion period, the group policy pays the death benefit whether or not an individual application was completed.
+If an employee leaves the group, the employee may convert to an individual policy without evidence of insurability. The rates are standard rates based on attained age. Conversion is to a form the insurer issues, usually whole life, not term. The face amount equals the group term face amount. The premium is higher than the group premium. The employee has 31 days to convert and remains covered under the group policy during those 31 days. If the insured dies during the conversion period, the group policy pays the death benefit whether or not an individual application was completed.
 
-If the master contract ends, every person who has been on the plan for at least 5 years may convert to individual permanent insurance of the same coverage.`,
+If the master contract ends, every person who has been on the plan for at least 5 years may convert to an individual permanent policy of the same coverage.`,
       questions: [
         question(
           'c3q13',
@@ -446,9 +473,11 @@ If the master contract ends, every person who has been on the plan for at least 
     {
       id: 'c3-credit',
       title: 'Coverage that pays off a loan',
-      body: `Credit life insures the debtor and pays off the balance of a loan if the debtor dies. It is usually written as decreasing term, either as an individual policy or as a group plan. In a group plan the creditor owns the master policy and each debtor receives a certificate.
+      body: `Credit life insures the life of the debtor and pays off the balance of a loan if the debtor dies. It is usually written as decreasing term. It may be an individual policy or a group plan. In a group plan, the creditor owns the master policy and each debtor receives a certificate.
 
-The creditor is the owner and the beneficiary, although the borrower generally pays the premium. The benefit cannot be more than the balance of the debt, so there is no financial incentive for the death of the insured. A creditor may require the debtor to have life insurance. The creditor cannot require the debtor to buy that insurance from a particular insurer.`,
+The creditor is both the owner and the beneficiary. The borrower generally pays the premium. The benefit cannot be more than the balance of the debt. That limit removes a financial incentive for the death of the insured.
+
+A creditor may require the debtor to have life insurance. The creditor may not require the debtor to buy that insurance from one particular insurer.`,
       questions: [
         question(
           'c3q15',

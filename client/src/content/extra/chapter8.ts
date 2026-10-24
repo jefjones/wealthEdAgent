@@ -1096,7 +1096,7 @@ export const chapter8Extra: Record<string, Question[]> = {
       [
         {
           text: 'One exam and one pair of glasses in any 3-year period.',
-          why: 'A full-mouth x-ray may be covered once every 3 years under routine dental coverage. Most vision plans allow one exam and one pair of glasses in any 12-month period.',
+          why: 'Dental x-rays follow the plan’s schedule. Most vision plans allow one exam and one pair of glasses in any 12-month period.',
         },
         {
           text: 'One exam and one pair of glasses in any 12-month period.',
@@ -1132,7 +1132,7 @@ export const chapter8Extra: Record<string, Question[]> = {
         },
         {
           text: 'Because exams and cleaning are covered only once every 3 years.',
-          why: 'Exams and cleaning are usually included once a year, and perhaps a full-mouth x-ray once every 3 years. Preventive care omits the deductible and copayment to encourage prevention.',
+          why: 'Exams and cleaning are usually included twice a year, about every 6 months. X-rays follow the plan’s schedule. Preventive care omits the deductible and copayment to encourage prevention.',
         },
       ],
     ),
@@ -1141,20 +1141,20 @@ export const chapter8Extra: Record<string, Question[]> = {
       'How often does routine dental coverage usually include exams, cleaning, and a full-mouth x-ray?',
       [
         {
-          text: 'Exams and cleaning once every 3 years, and a full-mouth x-ray once a year.',
-          why: 'Exams and cleaning are usually included once a year, and perhaps a full-mouth x-ray once every 3 years.',
+          text: 'Exams and cleaning once every 3 years, and x-rays once a year.',
+          why: 'Exams and cleaning are usually included twice a year, about every 6 months. X-rays follow the plan’s schedule.',
         },
         {
-          text: 'Exams, cleaning, and a full-mouth x-ray with no frequency limit.',
-          why: 'Exams and cleaning are usually included once a year, and perhaps a full-mouth x-ray once every 3 years.',
+          text: 'Exams, cleaning, and x-rays with no frequency limit.',
+          why: 'Exams and cleaning are usually included twice a year, about every 6 months. X-rays follow the plan’s schedule.',
         },
         {
-          text: 'A full-mouth x-ray once a year, with exams and cleaning excluded.',
-          why: 'Routine coverage usually includes exams and cleaning once a year, and perhaps a full-mouth x-ray once every 3 years.',
+          text: 'X-rays once a year, with exams and cleaning excluded.',
+          why: 'Routine coverage usually includes an exam and a cleaning twice a year, about every 6 months. X-rays follow the plan’s schedule.',
         },
         {
-          text: 'Exams and cleaning once a year, and perhaps a full-mouth x-ray once every 3 years.',
-          why: 'Routine and preventive maintenance usually includes exams and cleaning once a year, and perhaps a full-mouth x-ray once every 3 years. That care is covered up to an annual maximum without a deductible or copayment.',
+          text: 'An exam and a cleaning twice a year, about every 6 months. X-rays follow the plan’s schedule.',
+          why: 'Routine and preventive maintenance usually includes an exam and a cleaning twice a year, about every 6 months. X-rays follow the plan’s schedule. That care is covered up to an annual maximum without a deductible or copayment.',
           correct: true,
         },
       ],
@@ -3412,11 +3412,11 @@ export const chapter8Extra: Record<string, Question[]> = {
       [
         {
           text: 'An individual policy in a state that mandates the free look.',
-          why: 'The free look is mandated for individual policies in most states. The 10-day free look does not apply to group policies, credit life insurance, replacement policies whose required free-look period is 30 days, or other classes the Commissioner determines.',
+          why: 'The free look is mandated for individual policies in most states. The 10-day free look does not apply to a group policy, to a replacement policy whose required free-look period is 30 days, or to another class the Commissioner sets aside. Credit life is life insurance, so it is not an exception on this health list.',
         },
         {
           text: 'A replacement policy whose required free-look period is 30 days.',
-          why: 'The 10-day free look does not apply to group policies, credit life insurance, replacement policies whose required free-look period is 30 days, or other classes the Commissioner determines.',
+          why: 'The 10-day free look does not apply to a group policy, to a replacement policy whose required free-look period is 30 days, or to another class the Commissioner sets aside. Credit life is life insurance, so it is not an exception on this health list.',
           correct: true,
         },
         {

@@ -3,7 +3,7 @@ import type { Chapter } from './types.ts'
 import { chapter5Extra } from './extra/chapter5.ts'
 
 /**
- * Wording follows the course OCR in content/source/chapter-5-ocr.txt.
+ * Section text is the current study wording.
  * The source pages have no practice questions. Questions are written from that text,
  * four options each, with a reason for the right answer and for each wrong one.
  */
@@ -17,22 +17,23 @@ export const chapter5: Chapter = {
     {
       id: 'c5-parties',
       title: 'What an annuity is',
-      body: `An annuity is a contract that provides income for a specified period of years, or for life. It protects a person from outliving their money. Annuities are not life insurance. They are a vehicle for the accumulation of money and the liquidation of an estate. Life insurance companies market them, and licensed life insurance agents are authorized to sell some types. An annuity does not pay a face amount when the annuitant dies. In most cases, the payments stop at the annuitant’s death. Annuities use mortality tables, but those tables reflect a longer life expectancy than the tables used for life insurance. A mortality table shows how many people in a specified group, such as males, females, smokers, or nonsmokers, starting at a certain age, are expected to be alive at a later age.
+      body: `An annuity is a contract that provides income for a specified number of years, or for life. It protects a person against outliving their money. An annuity is not life insurance. It is a way to accumulate money and then to liquidate an estate. Life insurance companies sell annuities, and a licensed life insurance agent is authorized to sell some types. An annuity does not pay a face amount when the annuitant dies. In most cases the payments stop at the annuitant's death. Annuities use mortality tables, but those tables assume a longer life expectancy than the tables used for life insurance. A mortality table shows how many people in a specified group, such as males, females, smokers, or nonsmokers, who start at a certain age, are expected to be alive at a later age.
 
-Terms used in this chapter:
-• Deferred — withheld or postponed until a specified time or event in the future.
-• IRS — Internal Revenue Service, the U.S. government agency responsible for collecting taxes and enforcing the Internal Revenue Code.
-• Life contingency — dependent upon whether or not the insured is alive.
-• Liquidation of an estate — converting a person’s net worth into a cash flow.
-• Natural person — a human being.
-• Qualified plan — a retirement plan that meets IRS guidelines for favorable tax treatment.
-• Suitability — a requirement to determine if an insurance product or an investment is appropriate for a particular customer.
+These words are used in this chapter.
 
-The owner is the purchaser of the contract, but not necessarily the person who receives the benefits. The owner has all of the rights, such as naming the beneficiary and surrendering the annuity. The owner may be a corporation, trust, or other legal entity.
+• Deferred. Withheld or postponed until a specified time, or until a specified event in the future.
+• IRS. The Internal Revenue Service, the U.S. agency that collects taxes and enforces the Internal Revenue Code.
+• Life contingency. A payment that depends on whether the person is alive.
+• Liquidation of an estate. Turning a person's net worth into a cash flow.
+• Natural person. A human being.
+• Qualified plan. A retirement plan that meets IRS guidelines for favorable tax treatment.
+• Suitability. The requirement to decide whether an insurance product or an investment fits a particular customer.
 
-The annuitant is the person who receives the benefits or payments, whose life expectancy is taken into consideration, and for whom the annuity is written. The annuitant and the owner do not have to be the same person, but most often they are. A corporation, trust, or other legal entity may own an annuity, but the annuitant must be a natural person.
+The owner is the person who buys the contract. The owner is not necessarily the person who receives the benefits. The owner has all of the rights, including naming the beneficiary and surrendering the annuity. The owner may be a corporation, a trust, or another legal entity.
 
-The beneficiary receives the annuity assets, either the amount paid into the annuity or the cash value, whichever is greater, if the annuitant dies during the accumulation period, or receives the balance of annuity benefits that is paid out.`,
+The annuitant is the person who receives the benefits or payments. The annuitant's life expectancy is used to set the contract, and the annuity is written for that person. The annuitant and the owner do not have to be the same person, but most often they are. A corporation, a trust, or another legal entity may own an annuity. The annuitant must be a natural person.
+
+The beneficiary receives the annuity assets if the annuitant dies during the accumulation period. The beneficiary receives the amount paid into the annuity or the cash value, whichever is greater. If the annuitant dies after payments have started, the beneficiary receives any balance of benefits that the contract still pays out.`,
       questions: [
         question(
           'c5q01',
@@ -85,11 +86,11 @@ The beneficiary receives the annuity assets, either the amount paid into the ann
     {
       id: 'c5-periods',
       title: 'The pay-in period and the income period',
-      body: `The accumulation period, also called the pay-in period, is the time over which the owner makes premium payments into the annuity. During that time the payments earn interest on a tax-deferred basis.
+      body: `The accumulation period, also called the pay-in period, is the time during which the owner pays premiums into the annuity. During that time the payments earn interest, and the tax on that interest is deferred.
 
-The annuity period, also called the annuitization period, liquidation period, or pay-out period, is the time when the sum accumulated is converted into a stream of income payments to the annuitant. It may last for the annuitant’s lifetime or for a specified period, which could be longer or shorter. The annuitization date is when the benefit payouts begin. It is the trigger for benefits.
+The annuity period is also called the annuitization period, the liquidation period, or the pay-out period. It is the time when the accumulated sum is turned into a stream of income payments to the annuitant. The income may last for the annuitant's lifetime or for a specified period, and that period can be longer or shorter than the annuitant's life. The annuitization date is the day the benefit payouts begin. It is the trigger for the benefits.
 
-Annuities are not life insurance, and they do not pay a face amount when the annuitant dies. In most cases the payment phase stops at death. A deferred annuity grows tax-deferred.`,
+An annuity is not life insurance, and it does not pay a face amount when the annuitant dies. In most cases the payment phase stops at death. A deferred annuity grows tax-deferred.`,
       questions: [
         question(
           'c5q03',
@@ -119,13 +120,13 @@ Annuities are not life insurance, and they do not pay a face amount when the ann
     {
       id: 'c5-funding',
       title: 'How you pay in, and when income starts',
-      body: `Annuities are classified by how premiums are paid in, how premiums are invested, and when and how benefits are paid out.
+      body: `Annuities are classified by how the premiums are paid in, by how those premiums are invested, and by when and how the benefits are paid out.
 
-Funding is either a single premium, one lump-sum payment, or periodic payments in installments over time. Periodic payment annuities are level premium, a fixed installment, or flexible premium, in which the amount and frequency of each installment vary.
+Funding is either a single premium, which is one lump-sum payment, or periodic payments, which are installments over time. A periodic-payment annuity is either level premium, meaning a fixed installment, or flexible premium, meaning the amount and the timing of each installment can vary.
 
-An immediate annuity is purchased with a single lump-sum payment and provides income that starts within one year from the date of purchase. The first payment is typically as early as 1 month from the purchase date. This is most commonly a Single Premium Immediate Annuity (SPIA).
+An immediate annuity is bought with a single lump-sum payment, and the income starts within one year from the date of purchase. The first payment is typically as early as 1 month from the purchase date. This contract is most commonly a Single Premium Immediate Annuity (SPIA).
 
-A deferred annuity begins income payments sometime after one year from the date of purchase. It can be funded with a single lump sum, a Single Premium Deferred Annuity (SPDA), or with periodic payments, a Flexible Premium Deferred Annuity (FPDA). Periodic payments can vary from year to year. The longer the annuity is deferred, the more flexibility it allows for payment of premiums.`,
+A deferred annuity begins income payments sometime after one year from the date of purchase. It can be funded with a single lump sum, which is a Single Premium Deferred Annuity (SPDA), or with periodic payments, which is a Flexible Premium Deferred Annuity (FPDA). Periodic payments can vary from year to year. The longer the annuity is deferred, the more flexibility the owner has in paying the premiums.`,
       questions: [
         question(
           'c5q04',
@@ -178,21 +179,22 @@ A deferred annuity begins income payments sometime after one year from the date 
     {
       id: 'c5-life',
       title: 'Income that can last for life',
-      body: `Annuity payment options specify how the funds are paid out. They are very similar to the settlement options in life insurance.
+      body: `Annuity payment options say how the funds are paid out. They are very similar to the settlement options in life insurance.
 
-A life annuity pays a specific amount for the rest of the annuitant’s life. Pure life, also called life-only or straight life, stops at the annuitant’s death, no matter how soon that happens in the annuitization period. It provides the highest monthly benefit for an individual annuitant. Payments are guaranteed for life, but there is no guarantee that all of the proceeds will be paid out.
+A life annuity pays a specific amount for the rest of the annuitant's life. Pure life, also called life-only or straight life, stops when the annuitant dies, no matter how soon that happens after annuitization. It provides the highest monthly benefit for an individual annuitant. The payments are guaranteed for life, but there is no guarantee that all of the proceeds will be paid out.
 
-Life with guaranteed minimum, also called refund life, pays the remainder of the principal to the beneficiary if the annuitant dies before the principal has been paid out. The entire principal will be paid.
+Life with a guaranteed minimum, also called refund life, pays the remainder of the principal to the beneficiary if the annuitant dies before the principal has been paid out. The entire principal will be paid.
 
-There are two refund life annuities:
-• Cash refund — the beneficiary receives a lump-sum refund of the principal minus benefit payments already made. This option does not guarantee to pay any interest.
-• Installment refund — the beneficiary continues to receive guaranteed installments until the entire principal has been paid out.
+There are two refund life annuities.
 
-Any unpaid annuity benefits paid to a beneficiary after the annuitant’s death are taxable when paid.
+• Cash refund. The beneficiary receives a lump-sum refund of the principal minus the benefit payments already made. This option does not guarantee that any interest will be paid.
+• Installment refund. The beneficiary keeps receiving guaranteed installments until the entire principal has been paid out.
 
-Life with period certain, also called term certain, guarantees payments for the annuitant’s lifetime and for a specified period for the beneficiary. A life income with a 20-year period certain pays the annuitant for life. If the annuitant dies shortly after payments begin, the payments continue to a beneficiary for the rest of the 20 years.
+Any unpaid annuity benefits that are paid to a beneficiary after the annuitant's death are taxable when they are paid.
 
-Single life annuities cover one life, and payments are made with reference to that one life only. Contributions can be a single premium or periodic premiums, with values accumulating until the contract is annuitized. Multiple life annuities cover two or more lives. The most common are joint life, and joint and survivor.`,
+Life with period certain, also called term certain, guarantees payments for the annuitant's lifetime and for a specified period for the beneficiary. A life income with a 20-year period certain pays the annuitant for life. If the annuitant dies shortly after payments begin, the payments continue to a beneficiary for the rest of the 20 years.
+
+A single life annuity covers one life, and the payments are figured with reference to that one life only. Contributions can be a single premium or periodic premiums, and the values accumulate until the contract is annuitized. A multiple life annuity covers two or more lives. The most common forms are joint life, and joint and survivor.`,
       questions: [
         question(
           'c5q08',
@@ -245,9 +247,11 @@ Single life annuities cover one life, and payments are made with reference to th
     {
       id: 'c5-joint',
       title: 'Income for two people',
-      body: `Joint life is a payout in which two or more annuitants receive payments until the first death among them, and then payments stop.
+      body: `Joint life is a payout arrangement in which two or more annuitants receive payments until the first death among them. After that first death, the payments stop.
 
-Joint and survivor is a modification of the life income option. It guarantees an income for two recipients that neither can outlive. The survivor may receive the same amount, but most contracts reduce the payment after the first recipient dies. The option is most commonly written as joint and ½ survivor or joint and ⅔ survivor, so the survivor receives ½ or ⅔ of what was paid while both were alive. Couples in retirement commonly select it. As with life income, there is no guarantee that all the proceeds will be paid out if both beneficiaries die shortly after the installments begin.`,
+Joint and survivor is a modification of the life income option. It guarantees an income for two recipients that neither of them can outlive. The survivor may receive the same amount, but most contracts reduce the payment after the first recipient dies. The option is most commonly written as joint and 1/2 survivor or joint and 2/3 survivor. The survivor then receives one-half, or two-thirds, of what was paid while both people were alive. Couples in retirement commonly choose it. As with life income, there is no guarantee that all the proceeds will be paid out if both beneficiaries die shortly after the installments begin.
+
+Rosa and Luis choose a joint and 1/2 survivor annuity. While both are alive, the payment is $2,000 a month. After the first of them dies, the survivor receives $1,000 a month for life.`,
       questions: [
         question(
           'c5q10',
@@ -277,11 +281,11 @@ Joint and survivor is a modification of the life income option. It guarantees an
     {
       id: 'c5-certain',
       title: 'Income for a fixed number of years',
-      body: `Annuities certain are short-term annuities. Unlike life contingency options, they limit the amounts paid to a certain fixed period or until a certain fixed amount is liquidated.
+      body: `Annuities certain are short-term annuities. Unlike life-contingency options, they limit what is paid to a fixed period, or until a fixed amount has been liquidated.
 
-Fixed period: the annuitant selects the time period for the benefits, and the insurer determines how much each payment will be, based on the value of the account and future earnings projections. This option pays for a specified amount of time only, whether or not the annuitant is living.
+Under a fixed-period option, the annuitant selects how long the benefits will last. The insurer then decides how much each payment will be, based on the value of the account and on projections of future earnings. This option pays for a specified length of time only, whether or not the annuitant is living.
 
-Fixed amount: the annuitant selects how much each payment will be, and the insurer determines how long the benefits will be paid by analyzing the value of the account and future earnings. This option pays a specific amount until the funds are exhausted, whether or not the annuitant is living.`,
+Under a fixed-amount option, the annuitant selects how much each payment will be. The insurer then decides how long the benefits will last, by looking at the value of the account and at future earnings. This option pays a specific amount until the funds are exhausted, whether or not the annuitant is living.`,
       questions: [
         question(
           'c5q11',
@@ -313,15 +317,15 @@ Fixed amount: the annuitant selects how much each payment will be, and the insur
       title: 'Fixed and indexed annuities',
       body: `Annuities are fixed or variable based on how the premium payments are invested.
 
-A fixed annuity has a guaranteed minimum rate of interest credited to the purchase payments, income payments that do not vary from one payment to the next, and a guarantee from the insurance company of the specified dollar amount of each payment and the length of the payment period, as determined by the settlement option the annuitant chose. The annuitant knows the exact amount of each payment during the annuity period. That is a level benefit payment amount. A disadvantage is that inflation may erode the purchasing power of those payments over time.
+A fixed annuity guarantees a minimum rate of interest on the purchase payments. The income payments do not change from one payment to the next. The insurance company guarantees the specified dollar amount of each payment and the length of the payment period, as the settlement option provides. The annuitant knows the exact amount of each payment during the annuity period. That is a level benefit payment. A disadvantage is that inflation may erode the purchasing power of those payments over time.
 
-Fixed annuity premiums go into the life insurance company’s general account. That account is made up mostly of conservative investments such as bonds. Those investments are secure enough for the company to guarantee a specified rate of interest and the future income payments.
+Fixed annuity premiums go into the life insurance company's general account. That account is made up mostly of conservative investments, such as bonds. Those investments are secure enough for the company to guarantee a specified rate of interest and the future income payments.
 
-In a fixed annuity the insurer bears the investment risk. The interest actually paid depends on how the general account performs, but the rate may not drop below the policy’s guaranteed minimum, typically 3%. If rates drop below that guarantee, the insurer must still pay the guaranteed rate. During accumulation, the insurer invests the principal and credits the higher of the guaranteed minimum rate specified in the annuity or the current interest rate. The minimum rate is the lowest rate the principal can contractually earn.
+In a fixed annuity, the insurer bears the investment risk. The interest that is actually paid depends on how the general account performs, but the rate may not drop below the policy's guaranteed minimum, which is typically 3%. If market rates drop below that guarantee, the insurer must still pay the guaranteed rate. During accumulation, the insurer invests the principal and credits the higher of two rates: the guaranteed minimum rate in the annuity, or the current interest rate. The minimum rate is the lowest rate the principal can contractually earn.
 
-Indexed annuities, also called equity indexed annuities, are fixed annuities that invest on a relatively aggressive basis to aim for higher returns. They have a guaranteed minimum interest rate, typically 3% or 4%. At the end of the contract term, the annuity is credited with the greater of the guaranteed minimum value or the current indexed value. The credited rate is often tied to an index such as the Standard and Poor’s 500.
+An indexed annuity, also called an equity indexed annuity, is a fixed annuity that invests on a relatively aggressive basis in order to aim for higher returns. It has a guaranteed minimum interest rate, typically 3% or 4%. At the end of the contract term, the annuity is credited with the greater of the guaranteed minimum value or the current indexed value. The credited rate is often tied to an index such as the Standard and Poor's 500.
 
-Insurers generally keep the initial returns and pay the excess to the annuitant. The company may keep the first 4% earned and credit any accumulation above 4% to the annuitant. If the interest earned is 12%, the company keeps 4% and the client’s account is credited with 8%. Equity indexed annuities are less risky than a variable annuity or a mutual fund, and they are expected to earn a higher interest rate than a fixed annuity.`,
+Insurers generally keep the initial returns and pay the excess to the annuitant. The company may keep the first 6% earned and credit any accumulation above 6% to the annuitant. If the index earns 15%, the company keeps 6% and the client's account is credited with 9%. An equity indexed annuity is less risky than a variable annuity or a mutual fund. It is expected to earn a higher interest rate than a plain fixed annuity.`,
       questions: [
         question(
           'c5q12',
@@ -374,22 +378,23 @@ Insurers generally keep the initial returns and pay the excess to the annuitant.
     {
       id: 'c5-variable',
       title: 'Variable annuities',
-      body: `A variable annuity is a hedge against inflation. The annuitant may receive different rates of return on the funds paid into the annuity. It has three main characteristics.
+      body: `A variable annuity is a hedge against inflation. The annuitant may receive different rates of return on the money paid into the annuity. It has three main characteristics.
 
-The payments are invested in the insurer’s separate account, not the general account. The separate account is not part of the company’s own investment portfolio and is not subject to the restrictions that apply to the general account.
+The payments are invested in the insurer's separate account, not the general account. The separate account is not part of the company's own investment portfolio, and it is not subject to the restrictions that apply to the general account.
 
 The issuing company does not guarantee a minimum interest rate.
 
-A variable annuity is a security. It is regulated by the Securities and Exchange Commission in addition to state insurance regulations. An agent who sells variable annuities must hold a securities license in addition to a life insurance license. Agents or companies that sell them must also be properly registered with FINRA.
+A variable annuity is a security. It is regulated by the Securities and Exchange Commission in addition to state insurance regulations. An agent who sells variable annuities must hold a securities license in addition to a life insurance license. Agents and companies that sell them must also be properly registered with FINRA.
 
-Variable premiums buy accumulation units in the fund, similar to shares in a mutual fund. Accumulation units represent ownership interest in the separate account. At annuitization, accumulation units are converted to annuity units. Income is then paid based on the value of the annuity units. The number of annuity units stays level, but the unit values fluctuate until they are paid to the annuitant.
+Variable premiums buy accumulation units in the fund, similar to shares in a mutual fund. Accumulation units represent an ownership interest in the separate account. At annuitization, accumulation units are converted to annuity units. Income is then paid based on the value of the annuity units. The number of annuity units stays level. The unit values fluctuate until they are paid to the annuitant.
 
-How a fixed annuity compares with a variable annuity:
-• Interest rate — fixed: guaranteed by the insurer. Variable: no guarantee.
-• Underlying investment — fixed: the general account, which is safe and conservative. Variable: the separate account, equities with no guarantee.
-• License needed — fixed: life insurance. Variable: life insurance plus securities.
-• Expenses — guaranteed for both.
-• Income payment — fixed: guaranteed. Variable: no guarantee.`,
+A fixed annuity and a variable annuity differ in these ways.
+
+• Interest rate. Fixed: guaranteed by the insurer. Variable: no guarantee.
+• Underlying investment. Fixed: the general account, which is safe and conservative. Variable: the separate account, which holds equities and has no guarantee.
+• License needed. Fixed: a life insurance license. Variable: a life insurance license plus a securities license.
+• Expenses. Guaranteed for both.
+• Income payment. Fixed: guaranteed. Variable: no guarantee.`,
       questions: [
         question(
           'c5q14',
@@ -419,9 +424,9 @@ How a fixed annuity compares with a variable annuity:
     {
       id: 'c5-mva',
       title: 'Market value adjusted annuities',
-      body: `A market value adjusted annuity, or market value adjustment annuity, is also called a modified guaranteed annuity. It is a single-premium deferred annuity that lets the owner lock in a guaranteed interest rate over a stated maturity period, anywhere from 3 to 10 years. If it is surrendered early, the penalty depends on current interest rates at the time of surrender.
+      body: `A market value adjusted annuity, also called a market value adjustment annuity or a modified guaranteed annuity, is a single-premium deferred annuity. It lets the owner lock in a guaranteed interest rate over a stated maturity period, anywhere from 3 to 10 years. If the annuity is surrendered early, the penalty depends on current interest rates at the time of surrender.
 
-In the course example, a client buys a 10-year 6% fixed annuity tied to the Bond Fund Index interest rate, Moody’s. The client withdraws the money in 5 years. If the current interest rate is still 6%, there is no adjustment. If the current rate is 8%, a penalty is assessed. If the current rate is 4%, the insurance company may pay a bonus. The adjustment is usually a percentage of the difference between the contracted rate in the annuity and the current rate at surrender. The company requires the annuitant to share in the market risk of changing interest rates if the annuity is surrendered early.`,
+A client buys a 7-year annuity credited at 5%. The adjustment is tied to a bond index, such as Moody's Bond Fund Index. The client withdraws the money in year 3. If the current interest rate is still 5%, there is no adjustment. If the current rate is 7%, a penalty is assessed. If the current rate is 3%, the insurance company may pay a bonus. The adjustment is usually a percentage of the difference between the contracted rate in the annuity and the current rate at surrender. The company requires the annuitant to share in the market risk of changing interest rates if the annuity is surrendered early.`,
       questions: [
         question(
           'c5q15',
@@ -451,19 +456,19 @@ In the course example, a client buys a 10-year 6% fixed annuity tied to the Bond
     {
       id: 'c5-surrender',
       title: 'Taking money out early',
-      body: `The nonforfeiture law says a deferred annuity must have a guaranteed surrender value if the owner surrenders before annuitization. An example is 100% of the premiums paid, less any prior withdrawals and related surrender charges. A 10% penalty applies to early withdrawals, prior to age 59½.
+      body: `The nonforfeiture law says a deferred annuity must have a guaranteed surrender value if the owner surrenders before annuitization. One form of that guarantee is 100% of the premiums paid, minus any prior withdrawals and the related surrender charges. A 10% penalty applies to an early withdrawal made before age 59½.
 
-A surrender charge helps compensate the company for the loss of investment value from an early surrender of a deferred annuity. It is levied against the cash value and is generally a percentage that reduces over time. A common schedule is 7% the first year, then 6%, 5%, 4%, 3%, 2%, 1%, and 0%. Surrendered in the 8th year or after, there is no further surrender charge. At surrender the owner gets the premium plus interest, the value of the annuity, minus the surrender charge.
+A surrender charge helps compensate the company for the investment value it loses when a deferred annuity is surrendered early. The charge is taken from the cash value. It is generally a percentage that gets smaller over time. A common schedule is 7% the first year, then 6%, 5%, 4%, 3%, 2%, 1%, and 0%. If the annuity is surrendered in the 8th year or later, there is no further surrender charge. At surrender, the owner receives the premium plus interest, which is the value of the annuity, minus the surrender charge.
 
-In the course example, the owner paid $700 in premium, interest of $35 accumulated, and the surrender charge is $70. The value at surrender is $665.
+An owner paid $1,200 in premium. Interest of $90 has accumulated, and the surrender charge is $96. The value at surrender is $1,194.
 
-($700 premium + $35 interest) − $70 surrender charge = $665.
+($1,200 premium + $90 interest) − $96 surrender charge = $1,194.
 
-Annuity contracts waive surrender charges if the annuitant is confined to a long-term care facility for at least 30 days.
+Annuity contracts waive the surrender charge if the annuitant is confined to a long-term care facility for at least 30 days.
 
-Some contracts have a bail-out provision. If interest rates drop a specified amount within a specified time frame, the contract holder may surrender without charge.
+Some contracts have a bail-out provision. If interest rates drop by a specified amount within a specified time, the contract holder may surrender the annuity without a charge.
 
-If the annuitant dies during the accumulation period, the insurer must return to the beneficiary either the cash value or the total premiums paid, whichever is greater. If no beneficiary is named, the death benefit is paid to the annuitant’s estate.`,
+If the annuitant dies during the accumulation period, the insurer must return to the beneficiary either the cash value or the total premiums paid, whichever is greater. If no beneficiary is named, the death benefit is paid to the annuitant's estate.`,
       questions: [
         question(
           'c5q06',
@@ -516,21 +521,21 @@ If the annuitant dies during the accumulation period, the insurer must return to
     {
       id: 'c5-uses',
       title: 'Ways people use annuities',
-      body: `The principal use of an annuity is to provide income for retirement. An annuity may also be used to accumulate cash or to liquidate an estate. Because the uses vary, an agent should always assess how well a recommended product meets the applicant’s needs and resources. That is suitability.
+      body: `The principal use of an annuity is to provide income for retirement. An annuity may also be used to accumulate cash or to liquidate an estate. Because the uses differ, an agent should always judge how well a recommended product meets the applicant's needs and resources. That judgment is suitability.
 
-Annuities can take a large lump sum, such as an inheritance, a lottery prize, damages from a lawsuit, proceeds from the sale of a business, or a lump-sum distribution from a qualified pension plan, and turn it into income. The person may buy a single premium immediate annuity, which converts the lump sum into periodic payments.
+An annuity can take a large lump sum and turn it into income. The lump sum might be an inheritance, a lottery prize, damages from a lawsuit, the proceeds from the sale of a business, or a lump-sum distribution from a qualified pension plan. The person may buy a single premium immediate annuity, which converts the lump sum into a series of payments.
 
-Annuities often fund qualified retirement plans, which meet IRS guidelines for favorable tax treatment. Qualified retirement annuities can be individual, such as individual retirement accounts, or group, such as a tax-sheltered annuity or a profit-sharing pension plan.
+Annuities often fund qualified retirement plans, which meet IRS guidelines for favorable tax treatment. A qualified retirement annuity can be individual, such as an individual retirement account, or group, such as a tax-sheltered annuity or a profit-sharing pension plan.
 
 A Guaranteed Minimum Withdrawal Benefit lets the annuitant withdraw a maximum percentage of the investment each year until the initial investment has been recovered. It protects the annuitant against investment losses.
 
-A Guaranteed Living Benefit rider, similar to that withdrawal benefit, assures that the annuitant will receive at least the amount of money invested, or a certain amount of income, usually up to the annuity purchase amount, regardless of market conditions. It is generally offered to variable annuity investors, because the account value depends on the returns of the portfolio mutual funds. The rider often can be exercised only after a stated period, for example after 10 years, and there is usually a fee of 0.25% to 1% of the contract value each year.
+A Guaranteed Living Benefit rider is similar to that withdrawal benefit. It assures that the annuitant will receive at least the amount of money invested, or a certain amount of income, usually up to the annuity purchase amount, regardless of market conditions. It is generally offered to variable annuity investors, because the account value depends on the returns of the portfolio's mutual funds. The rider often can be exercised only after a stated period, for example after 8 years, and there is usually a fee of 0.25% to 1% of the contract value each year.
 
-In the course example, an annuitant invests $100,000 and buys the rider at 0.50%, so $500 is deducted from the account each year. If the account falls to $75,000, the annuitant still receives $100,000 as agreed. If the account rises, the annuitant has paid the fee out of the account, much like automobile insurance, and the fee has lowered the account value. The rider generally does not apply if the contract is surrendered. Withdrawals are subtracted from the account value dollar for dollar. Each company’s rider works differently.
+An annuitant invests $80,000 and buys the rider at 0.40%, so $320 is deducted from the account each year. If the account falls to $52,000, the annuitant still receives $80,000 as agreed. If the account rises, the annuitant has paid the fee out of the account, much as a person pays for automobile insurance, and the fee has lowered the account value. The rider generally does not apply if the contract is surrendered. Withdrawals are subtracted from the account value dollar for dollar. Each company's rider works differently.
 
-Under the Pension Protection Act of 2006, annuitants may transfer money from an annuity to pay long-term care insurance premiums, tax free. Distributions from nonqualified annuities used to be taxed. Those distributions can now pay long-term care premiums and, in many cases, eliminate the taxes on the annuity gains. Many insurers offer a hybrid annuity with a long-term care feature. These policies provide income, long-term care, or both.
+Under the Pension Protection Act of 2006, an annuitant may transfer money from an annuity to pay long-term care insurance premiums, tax free. Distributions from nonqualified annuities used to be taxed. Those distributions can now pay long-term care premiums and, in many cases, eliminate the tax on the annuity gains. Many insurers offer a hybrid annuity with a long-term care feature. These policies provide income, long-term care, or both.
 
-Annuities can also accumulate funds for college. An annuity can provide savings on a tax-deferred basis for the education expenses of the annuitant.`,
+An annuity can also accumulate funds for college. It can provide savings on a tax-deferred basis for the annuitant's education expenses.`,
       questions: [
         question(
           'c5q16',

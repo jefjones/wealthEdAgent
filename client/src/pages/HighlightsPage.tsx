@@ -9,12 +9,14 @@ import { SlideOver } from '../components/SlideOver.tsx'
 import { StudyOutline } from '../components/StudyOutline.tsx'
 import { Button } from '../components/ui/button.tsx'
 import { flatSections } from '../content/pack.ts'
+import { subjectTitle } from '../content/rewrite.ts'
 import { cn } from '../lib/utils.ts'
 import { useStudyNav } from '../study/studyNav.ts'
 import { useHighlights } from '../study/HighlightContext.tsx'
 import { anchorHighlight, highlightPreview, orderHighlights } from '../study/highlights.ts'
 import { groupOrder, highlightNarrationCues, highlightSpeechParts, listNarrationStatus } from '../study/narrator.ts'
-import { scrollNarrationTarget, useNarration } from '../study/useNarration.ts'
+import { scrollNarrationTarget } from '../study/columnScroll.ts'
+import { useNarration } from '../study/useNarration.ts'
 
 export function HighlightsPage() {
   const { highlights, ready, error, removeHighlight } = useHighlights()
@@ -33,7 +35,7 @@ export function HighlightsPage() {
       highlights,
       flatSections().map((section) => ({
         id: section.id,
-        title: section.title,
+        title: subjectTitle(section.title),
         chapterNumber: section.chapter.number,
         body: section.body,
       })),
@@ -151,11 +153,16 @@ export function HighlightsPage() {
           onPrevious={narration.previous}
           onNext={narration.next}
           onCycleRate={narration.cycleRate}
+          voiceId={narration.voiceId}
+          voices={narration.voices}
+          showIosVoiceHint={narration.showIosVoiceHint}
+          onVoiceChange={narration.chooseVoice}
+          onPreviewVoice={narration.previewVoice}
         />
       </div>
       {filteredSection ? (
         <p className="mt-2 text-sm font-semibold text-[#1c3f66]">
-          {`Chapter ${filteredSection.chapter.number}. ${filteredSection.chapter.title} · ${filteredSection.title}`}
+          {`Chapter ${filteredSection.chapter.number}. ${subjectTitle(filteredSection.chapter.title)} · ${subjectTitle(filteredSection.title)}`}
         </p>
       ) : null}
       {error ? <p className="mt-4 rounded-xl bg-[#fdecec] px-3 py-2 text-sm text-[#8d1d1d]">{error}</p> : null}
@@ -171,7 +178,9 @@ export function HighlightsPage() {
       <ul className="mt-6 space-y-3">
         {visible.map((row) => {
           const section = sections.find((item) => item.id === row.sectionId)
-          const anchored = section ? anchorHighlight(section.body, row) : { status: 'missing' as const }
+          const anchored = section
+            ? anchorHighlight(section.body, row)
+            : { status: 'missing' as const }
           const readable = anchored.status === 'anchored'
           const target = readable ? `/study/${row.sectionId}#h-${row.highlightId}` : `/study/${row.sectionId}`
           const selected = narration.anchor === row.highlightId
@@ -198,8 +207,12 @@ export function HighlightsPage() {
                 <button
                   type="button"
                   className="block min-h-11 w-full cursor-pointer text-left font-semibold break-words text-[#1c3f66]"
-                  aria-label={`Start reading from this highlight: ${highlightPreview(row.text)}`}
-                  title="Choose this highlight as the start"
+                  aria-label={
+                    narration.phase === 'speaking'
+                      ? `Jump reading to this highlight: ${highlightPreview(row.text)}`
+                      : `Start reading from this highlight: ${highlightPreview(row.text)}`
+                  }
+                  title={narration.phase === 'speaking' ? 'Jump reading to this highlight' : 'Choose this highlight as the start'}
                   onClick={() => narration.select(row.highlightId)}
                 >
                   {highlightPreview(row.text)}
@@ -209,9 +222,9 @@ export function HighlightsPage() {
               )}
               {anchored.status === 'missing' ? <p className="mt-2 text-sm text-[#8d1d1d]">Text no longer in this section</p> : null}
               <p className="mt-2 text-sm break-words text-[#5c7288]">
-                {section ? `Chapter ${section.chapter.number}. ${section.chapter.title}` : row.chapterId}
+                {section ? `Chapter ${section.chapter.number}. ${subjectTitle(section.chapter.title)}` : row.chapterId}
                 {' · '}
-                {section?.title ?? row.sectionId}
+                {section ? subjectTitle(section.title) : row.sectionId}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <Button

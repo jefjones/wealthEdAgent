@@ -3,7 +3,7 @@ import type { Chapter } from './types.ts'
 import { chapter15Extra } from './extra/chapter15.ts'
 
 /**
- * Wording follows the course OCR in content/source/chapter-15-ocr.txt.
+ * Section text is the current study wording.
  * The source pages have no practice questions. Questions are written from that text,
  * four options each, with a reason for the right answer and for each wrong one.
  */
@@ -17,13 +17,13 @@ export const chapter15: Chapter = {
     {
       id: 'c15-commissioner',
       title: 'The Insurance Commissioner',
-      body: `The Insurance Commissioner is the chief officer of the Department of Insurance and exercises the powers given to the Department. The governor appoints the Commissioner with the consent of the Senate. If the Commissioner dies, resigns, or is removed while the Legislature is not in session, a successor may serve as acting Commissioner until the Senate can consent. The governor may also remove the Commissioner. When the office is vacant, or the Commissioner cannot perform the duties, the governor fills the position.
+      body: `The Insurance Commissioner is the chief officer of the Department of Insurance. The powers given to the Department are exercised by that office. The governor appoints the Commissioner, and the Senate must consent. If the Commissioner dies, resigns, or is removed while the Legislature is not in session, a successor may serve as acting Commissioner until the Senate can give consent. The governor may also remove the Commissioner. A vacancy, or a Commissioner who cannot perform the duties, is filled by the governor.
 
-The Commissioner regulates the Department’s internal affairs, enforces the insurance laws, and may make reasonable rules to carry out the Insurance Code. The Commissioner issues, suspends, revokes, or denies licenses and certificates of authority, examines insurers, issues orders and notices, and reviews and approves policy forms and rates. The Commissioner does not set premium rates or establish fines and penalties. Those are defined by state law.
+Inside the Department, the Commissioner regulates internal affairs, enforces the insurance laws, and may adopt reasonable rules that carry out the Insurance Code. The office issues, suspends, revokes, or denies licenses and certificates of authority. It examines insurers, issues orders and notices, and reviews and approves policy forms and rates. Premium rates are not set by the Commissioner, and neither are fines and penalties. State law defines those.
 
-Examinations of insurers’ books and records are meant to keep companies solvent and in compliance with laws on licensing, policy forms, rates, claims, and market conduct. The Commissioner may examine an authorized insurer at any time, and must examine domestic and foreign insurers at least once every 5 years. For a foreign insurer, the Commissioner may accept an examination report from another state’s insurance department, another Utah government agency, the federal government, or another state. The company being examined pays the cost.
+Exams of an insurer's books and records are how the state keeps companies solvent and checks compliance with the laws on licensing, policy forms, rates, claims, and market conduct. An authorized insurer may be examined at any time. A domestic insurer and a foreign insurer must be examined at least once every 5 years. For a foreign insurer, the Commissioner may accept an exam report prepared by another state's insurance department, another Utah government agency, the federal government, or another state. The company that is examined pays the cost.
 
-Licensees must keep separate records of every transaction, organized and available for inspection on reasonable notice. The records include each insurance contract procured or issued through the licensee, with the names of the insurers and insureds, the premium, the commissions or other compensation, and the subject of the insurance. They also include the names of other producers or brokers from whom business is accepted and of persons to whom commissions or allowances are promised or paid, and a record of consumer complaints forwarded by an insurance regulator. The records must be available during all business hours for at least the current calendar year plus 3 years.`,
+A licensee keeps a separate record of every transaction. The records are organized and available for inspection on reasonable notice. Each insurance contract the licensee procured or issued is listed, with the names of the insurers and the insureds, the premium, the commissions or other compensation, and the subject of the insurance. The file also names other producers or brokers from whom business is accepted, and people to whom commissions or allowances are promised or paid. Consumer complaints that an insurance regulator forwarded are recorded too. The records are available during all business hours for at least the current calendar year plus 3 years.`,
       questions: [
         question(
           'c15q07',
@@ -76,27 +76,28 @@ Licensees must keep separate records of every transaction, organized and availab
     {
       id: 'c15-license',
       title: 'Who must have a license',
-      body: `These rules apply only in this state. They cover the Insurance Department, licensing, and the time limits and dollar amounts in the Insurance Code.
+      body: `The rules in this chapter apply only in Utah. They cover the Insurance Department, licensing, and the time limits and dollar amounts written into the Insurance Code.
 
-Terms used in this chapter:
-• Appointment — the authority an insurer gives an agent to transact insurance or adjust claims on the insurer’s behalf.
-• Cease and desist — to stop or discontinue.
-• Commission — payment to the agent by the insurance company for placing insurance, usually a percentage of the policy premium.
-• Commissioner — the head of the State Department of Insurance.
-• Exempt — not subject to an obligation.
-• Fiduciary — a person in a position of trust, someone who handles funds in a trust capacity.
-• Inducement — an offer that attempts to influence the other party.
-• Insolvent — unable to meet financial obligations.
-• Statute — a formal written law enacted by the legislature. Insurance statutes are in the state Insurance Code.
-• Surplus lines insurance — insurance that is not available from admitted insurers.
+These words are used here.
 
-A person must be licensed for a specific line of authority to transact insurance. Licensing is meant to ensure that a producer meets the educational and ethical standards required to fulfill responsibilities to the insurer and the public. It sets the requirements, procedures, and fees for qualification, licensure, and appointment.
+• Appointment. Authority an insurer gives an agent to transact insurance, or to adjust claims, on the insurer's behalf.
+• Cease and desist. Stop, or discontinue.
+• Commission. What the insurance company pays the agent for placing insurance. It is usually a percentage of the policy premium.
+• Commissioner. The head of the State Department of Insurance.
+• Exempt. Not subject to an obligation.
+• Fiduciary. A person in a position of trust. Someone who handles funds in a trust capacity.
+• Inducement. An offer meant to influence the other party.
+• Insolvent. Unable to meet financial obligations.
+• Statute. A formal written law the legislature enacted. Insurance statutes live in the state Insurance Code.
+• Surplus lines insurance. Insurance that admitted insurers do not offer.
 
-The purpose of licensing in this state is to promote the professional competence of producers, brokers, and consultants, provide maximum freedom of marketing methods for insurance, consistent with the interests of the public, preserve and encourage competition at the consumer level, regulate marketing practices in conformity with the Insurance Code, and govern the qualifications and procedures for licensing producers.
+Transacting insurance requires a license for the specific line of authority. The point of licensing is that a producer meet the educational and ethical standards owed to the insurer and to the public. The statute sets the requirements, the procedures, and the fees for qualification, licensure, and appointment.
 
-It is illegal to act as a producer or agency without a license. A contract produced through a producer or broker who is not properly licensed is invalid.
+Utah licenses producers so that five things happen. Professional competence of producers, brokers, and consultants is promoted. Marketing methods stay as free as they can be while still serving the public. Competition at the consumer level is preserved and encouraged. Marketing practices conform to the Insurance Code. Qualifications and procedures for licensing producers are governed.
 
-The Commissioner will issue or renew a license to a natural person who wants to act as a producer, broker, or consultant if the person is at least 18, satisfies the applicable education, examination, and training requirements, pays the fees, has not committed an act that is grounds for denial, suspension, or revocation, and is competent and trustworthy.
+Acting as a producer or as an agency without a license is illegal. A contract that was produced through a producer or broker who was not properly licensed is invalid.
+
+A natural person who wants to act as a producer, broker, or consultant is issued or renewed a license when all of the following are true. The person is at least 18. The applicable education, examination, and training requirements are satisfied. The fees are paid. The person has not committed an act that is grounds for denial, suspension, or revocation. The person is competent and trustworthy.
 
 The Department may require a criminal background check. The applicant then submits a fingerprint card and consents to a fingerprint check by the Utah Bureau of Criminal Identification and the FBI.`,
       questions: [
@@ -151,21 +152,21 @@ The Department may require a criminal background check. The applicant then submi
     {
       id: 'c15-types',
       title: 'Producers, consultants, adjusters, and nonresidents',
-      body: `A producer represents at least one insurance company. Producers must keep at least one current appointment and must meet any continuing-education requirement. Life and health producers may solicit, receive, and forward applications. They generally cannot bind coverage or alter or modify it. Property and casualty producers can usually bind coverage.
+      body: `A producer represents at least one insurance company and must hold at least one current appointment. Any continuing-education requirement has to be met. A life and health producer may solicit applications, receive them, and forward them. That producer generally cannot bind coverage, and cannot alter or modify it. A property and casualty producer usually can bind coverage.
 
-A producer license can include life insurance, variable contracts, accident and health, property, casualty including surety and other bonds, title insurance, and personal lines. A limited license can include limited-line credit, travel, motor club, car-rental-related insurance, legal expense, bail bond agent, and customer service representative.
+The lines on a producer license can include life insurance, variable contracts, accident and health, property, casualty including surety and other bonds, title insurance, and personal lines. A limited license can include limited-line credit, travel, motor club, car-rental-related insurance, legal expense, bail bond agent, and customer service representative.
 
-A producer may add surplus lines after being a producer in Utah or another state, in substantially the same license class, for at least 3 of the 4 years immediately before the application, or after being regularly employed for that period by an insurer in work that would prepare the person to act as an insurance broker.
+Surplus lines can be added in either of two ways. The person was a producer in Utah or in another state, in substantially the same license class, for at least 3 of the 4 years immediately before the application. Or the person was regularly employed for that same period by an insurer, doing work that would prepare the person to act as an insurance broker.
 
-A licensee may not act as a consultant, producer, or broker without complying with the conflict-of-interest disclosure. Before consulting, the consultant must disclose to the client, prominently and in writing, any interest as a producer or broker, or any relationship to an insurer, producer, or broker, and that the recommendations should be scrutinized because of those interests. The fee must be agreed in writing before the services are performed. Any report must contain a copy of that disclosure.
+A licensee cannot act as a consultant, a producer, or a broker without the conflict-of-interest disclosure. Before any consulting begins, the consultant tells the client, prominently and in writing, about any interest as a producer or broker and about any relationship to an insurer, producer, or broker. The disclosure also says the recommendations should be scrutinized because of those interests. The fee is agreed in writing before the services are performed. Any report includes a copy of that disclosure.
 
-When a person applies through a broker, the broker must disclose in writing that the broker is not the producer of the potential insurer, and that the applicant likely does not have the benefit of an insurer being financially responsible for the broker’s conduct.
+A broker has a separate disclosure. When a person applies through a broker, the broker states in writing that the broker is not the producer of the potential insurer, and that the applicant likely does not have an insurer that is financially responsible for the broker's conduct.
 
-A person who is not a legal resident of Utah may be licensed as a nonresident producer without a written examination if the person is licensed as a resident producer in the home state when applying, applies to the Commissioner, submits the application to the home state with the uniform application and fees, and is in good standing. The home state must award nonresident licenses to residents of Utah on the same basis. That is reciprocity.
+A person who is not a legal resident of Utah can be licensed as a nonresident producer without a written examination when four conditions are met. The person is licensed as a resident producer in the home state at the time of the application. The person applies to the Commissioner. The application goes to the home state with the uniform application and the fees. The person is in good standing. Reciprocity is also required: the home state must award nonresident licenses to Utah residents on the same basis.
 
-Consultants advise the public, for a fee, about the benefits, advantages, and disadvantages of policies. The license uses the same lines of authority as a producer license. A person is eligible only after at least 3 of the 4 years before the application were spent in work that would prepare the person to be a consultant.
+A consultant advises the public, for a fee, on the benefits, advantages, and disadvantages of policies. The consultant license uses the same lines of authority as a producer license. Eligibility requires that at least 3 of the 4 years before the application were spent in work that would prepare the person to be a consultant.
 
-Insurance adjusting means directing the investigation, negotiation, or settlement of a claim. Adjusters do that work for an insurer, a policyholder, or a claimant. An independent or public adjuster license may be issued to a person who meets the education, examination, and character requirements in the Insurance Code.`,
+Insurance adjusting means directing the investigation, negotiation, or settlement of a claim. The work is done for an insurer, a policyholder, or a claimant. An independent adjuster license, or a public adjuster license, may be issued to a person who meets the education, examination, and character requirements in the Insurance Code.`,
       questions: [
         question(
           'c15q03',
@@ -218,23 +219,24 @@ Insurance adjusting means directing the investigation, negotiation, or settlemen
     {
       id: 'c15-maintain',
       title: 'Renewing a license and continuing education',
-      body: `A producer license stays in effect unless it is suspended or revoked, as long as it is properly renewed. It is renewed every 2 years. The producer submits the renewal forms, any required fees, and proof of continuing education. The renewal window opens 90 days before the license expires.
+      body: `A producer license remains in effect, unless it is suspended or revoked, for as long as it is properly renewed. Renewal is every 2 years. The producer files the renewal forms, any required fees, and proof of continuing education. The window for renewal opens 90 days before the license expires.
 
-Continuing education protects the public by keeping professional standards high and by maintaining and improving the skills of licensed producers. Producers, brokers, and adjusters must complete at least 24 hours every 2 years, before renewal:
-• At least 3 of the 24 hours must be ethics.
-• At least 12 hours, one half of the total, must be classroom courses.
-• The remaining hours may be home study, video recording, experience credit, or another approved method.
-• Hours may be earned at any time during the 2-year period.
+Continuing education exists to protect the public. It keeps professional standards high, and it maintains and improves the skills of licensed producers. Producers, brokers, and adjusters complete at least 24 hours every 2 years, and they finish those hours before renewal.
 
-Credits do not carry over from one licensing period to the next. A course may be repeated for credit, but not more than once in the same license continuation period.
+• At least 3 of the 24 hours are ethics.
+• At least 12 hours, which is one half of the total, are classroom courses.
+• The rest may be home study, a video recording, experience credit, or another method the state has approved.
+• The hours may be earned at any point in the 2-year period.
 
-A license that has lapsed or was voluntarily surrendered may be reinstated within 1 year of the day it became inactive. A license lapses if the licensee fails to pay fees when due, finish continuing education before submitting the renewal, submit a completed renewal, submit other documents required for that license type, or, for a nonresident, keep an active license in the resident state.
+Credits do not carry into the next licensing period. A course may be taken again for credit, but not more than once in the same license continuation period.
 
-If the lapse is due to military service or another extenuating circumstance, such as a long-term medical disability, the licensee may request reinstatement no later than 1 year after the lapse, and may request a waiver of fees, examination requirements, or other sanctions imposed for missing the renewal procedures.
+A license that lapsed, or that was voluntarily surrendered, may be reinstated within 1 year of the day it became inactive. A lapse happens when the licensee fails to pay fees when they are due, fails to finish continuing education before the renewal is submitted, fails to submit a completed renewal, fails to submit other documents that license type requires, or, if the licensee is a nonresident, fails to keep an active license in the resident state.
 
-A licensee who does business under a name other than the legal name must notify the Commissioner before using the assumed name. Every Utah producer or broker must notify the Commissioner in writing within 30 days of a change in residence address, business address, or telephone number.
+Military service, and other extenuating circumstances such as a long-term medical disability, are treated differently. The licensee may ask for reinstatement no later than 1 year after the lapse, and may ask the state to waive fees, examination requirements, or other sanctions that were imposed for missing the renewal procedures.
 
-Licensed producers and applicants must report any administrative action taken against them in another jurisdiction or by another regulatory agency in this state, and any criminal prosecution in any jurisdiction. The report is filed with the application, or within 30 days of the start of the action or prosecution, and it includes a copy of the complaint or other relevant legal documents.`,
+An assumed name requires notice. A licensee who does business under a name other than the legal name notifies the Commissioner before that name is used. Every Utah producer or broker also gives the Commissioner written notice within 30 days of a change in residence address, business address, or telephone number.
+
+Administrative actions and criminal cases are reported. A licensed producer, and an applicant, reports any administrative action taken in another jurisdiction or by another regulatory agency in this state, and any criminal prosecution in any jurisdiction. The report is filed with the application, or within 30 days of the start of the action or the prosecution. A copy of the complaint, or of other relevant legal documents, is included.`,
       questions: [
         question(
           'c15q05',
@@ -287,15 +289,15 @@ Licensed producers and applicants must report any administrative action taken ag
     {
       id: 'c15-company',
       title: 'Insurer rates, policy forms, and appointments',
-      body: `An insurer is solvent if it has the assets to meet its financial obligations. If it cannot, it is insolvent. The Commissioner and the Department monitor financial strength so that continued operation is not hazardous to policyholders, creditors, or the public. Domestic and foreign insurers must keep on deposit the required capital for stock insurers and the minimum permanent surplus for mutual insurers. The Commissioner will not issue or renew a certificate of authority until the insurer complies.
+      body: `An insurer is solvent when its assets are enough to meet its financial obligations. If they are not, the insurer is insolvent. The Commissioner and the Department watch financial strength so that staying open is not hazardous to policyholders, creditors, or the public. A domestic insurer and a foreign insurer must keep on deposit the required capital, if the insurer is a stock company, and the minimum permanent surplus, if the insurer is a mutual company. No certificate of authority is issued or renewed until the insurer complies.
 
-Rate regulation is meant to keep rates from being excessive, inadequate, or unfairly discriminatory, and to authorize and regulate cooperative action in rate-making. Insurers file premium rates with the Commissioner. A filing waits 30 days before it becomes effective. The filing must include the information used to set the rate. If that information is not enough, the Commissioner may ask for more. If the insurer does not provide it within 45 days of the Commissioner’s mailed notice, the filing is incomplete and unfiled, and it is returned as unavailable for use. A returned filing may not be used for a policy issued or renewed on or after 60 days from the return. An insurer may apply a higher rate than usual for a specific risk. If that rate is filed and not disapproved within 10 days, it may be used.
+Rates are regulated so they are not excessive, not inadequate, and not unfairly discriminatory. Cooperative action in rate-making is authorized and regulated. Premium rates are filed with the Commissioner. A filing waits 30 days before it takes effect. The filing includes the information that was used to set the rate. If that information is not enough, the Commissioner may ask for more. Failure to provide it within 45 days of the Commissioner's mailed notice makes the filing incomplete and unfiled. It is returned as unavailable for use. A returned filing may not be used for a policy issued or renewed on or after 60 days from the date it was returned. A higher-than-usual rate for one specific risk is allowed if it is filed and is not disapproved within 10 days.
 
-The Commissioner may prohibit a form. The form must then be discontinued within 15 days. After a form is no longer used, the insurer keeps a record of its use for 5 years from the last day it was used, or from the last day any policy issued on that form is in effect.
+The Commissioner may prohibit a form. Once prohibited, the form is discontinued within 15 days. After a form is no longer used, the insurer keeps a record of that use for 5 years measured from the last day the form was used, or from the last day any policy issued on that form is still in effect.
 
-A producer cannot act as an insurer’s agent unless that insurer appoints the producer. A producer who is not acting as an insurer’s agent does not have to be appointed. The insurer files an electronic notice of appointment, with the effective date, within 15 days of the appointment.
+Appointment is what lets a producer act as an insurer's agent. A producer who is not acting as an insurer's agent does not need an appointment. The insurer files an electronic notice of the appointment, including the effective date, within 15 days of the appointment.
 
-An insurer that terminates an appointment, employment, contract, or other insurance business relationship must electronically submit the termination to the Department within 30 days of the termination date. If the termination is for cause, the insurer also sends, by facsimile or as a PDF attached to an email, the fact that it was for cause and the specific circumstances.`,
+Ending the relationship is also filed. An insurer that terminates an appointment, employment, a contract, or another insurance business relationship electronically submits that termination to the Department within 30 days of the termination date. If the reason is for cause, the insurer also sends, by facsimile or as a PDF attached to an email, the fact that the termination was for cause and the specific circumstances.`,
       questions: [
         question(
           'c15q09',
@@ -348,15 +350,15 @@ An insurer that terminates an appointment, employment, contract, or other insura
     {
       id: 'c15-fiduciary',
       title: 'Trust accounts, controlled business, and commissions',
-      body: `Producers who collect premiums act as trustees of money received for forwarding to insurers or insureds. They hold those premiums in a fiduciary capacity and must account for them until they are sent to the proper payee. The funds cannot be commingled with the licensee’s own money or money held in any other capacity. That limit does not apply to money needed to pay bank charges, or to money that belongs to the licensee as a fee or commission.
+      body: `A producer who collects premiums is a trustee of money that will be forwarded to an insurer or to an insured. The premium is held in a fiduciary capacity, and the producer accounts for it until it reaches the proper payee. Those funds cannot be commingled with the licensee's own money, or with money the licensee holds in any other capacity. Two amounts are outside that limit: money needed to pay bank charges, and money that belongs to the licensee as a fee or a commission.
 
-Collected funds are deposited in a federally insured trust account in a depository that has an office in Utah, has federal deposit insurance, or is authorized to engage in the trust business. They may also go into another account that the Commissioner approves as comparably safe.
+The deposit goes into a federally insured trust account. The depository has an office in Utah, has federal deposit insurance, or is authorized to engage in the trust business. Another account is allowed if the Commissioner approves it as comparably safe.
 
-Licensees register the address and telephone numbers of the principal place of business. Individuals also give a residential address and telephone number. A change is reported within 30 days. Transaction records are kept at the place of business and made available to the Commissioner on request. The Commissioner need not give prior notice of an examination.
+The licensee registers the address and the telephone numbers of the principal place of business. An individual also gives a residential address and a residential telephone number. A change is reported within 30 days. Transaction records stay at the place of business and are available to the Commissioner on request. The Commissioner does not have to give notice before an examination.
 
-Controlled business is coverage written on a producer’s own life, health, or property, or on that of the producer’s immediate family or business associates. The Commissioner will not issue a license if the person’s primary purpose is to write controlled business. A producer may not be paid for controlled business unless, during the previous 12 months, aggregate premiums from general business exceed aggregate premiums from controlled business.
+Controlled business is insurance written on the producer's own life, health, or property, or on the life, health, or property of the producer's immediate family or business associates. A license is not issued if the person's main purpose is to write controlled business. Payment for controlled business is allowed only when, during the previous 12 months, the aggregate premiums from general business exceed the aggregate premiums from controlled business.
 
-Licensees and insurers may pay consideration only to licensed producers, consultants, managing general agents, or reinsurance intermediaries. A consultant may not pay or receive a commission or other compensation that results, directly or indirectly, from an insurance transaction. A consultant may share a consulting fee with another licensed consultant only to the extent that the other consultant contributed to the services.`,
+Consideration may be paid only to a licensed producer, a consultant, a managing general agent, or a reinsurance intermediary. A consultant may not pay, and may not receive, a commission or other compensation that results directly or indirectly from an insurance transaction. A consulting fee may be shared with another licensed consultant only to the extent that the other consultant contributed to the services.`,
       questions: [
         question(
           'c15q12',
@@ -386,19 +388,19 @@ Licensees and insurers may pay consideration only to licensed producers, consult
     {
       id: 'c15-unfair',
       title: 'Unfair marketing practices',
-      body: `Insurers and producers may not use a trade practice that is an unfair method of competition or an unfair or deceptive act. Knowingly committing unfair methods often enough to show a general business practice is an unfair trade practice. After a hearing, the Department may order the person to cease and desist and may impose penalties.
+      body: `An insurer or a producer may not use a trade practice that is an unfair method of competition, or an unfair or deceptive act. Knowingly committing those methods often enough to show a general business practice is itself an unfair trade practice. After a hearing, the Department may order the person to cease and desist, and it may impose penalties.
 
-Misrepresentation is issuing, publishing, or circulating any illustration or sales material, including a verbal statement, that is false, misleading, or deceptive as to policy benefits or terms, or the payment of dividends.
+Misrepresentation is issuing, publishing, or circulating an illustration or sales material that is false, misleading, or deceptive about policy benefits, policy terms, or the payment of dividends. A verbal statement counts.
 
-False advertising is an untrue, deceptive, or misleading statement about the business of insurance or anyone who conducts it, in print, on television, or on the Internet. It includes misrepresenting policy terms, benefits, conditions, or advantages, dividends to be received or already paid, the financial condition of a person or the company, or the true purpose of an assignment or loan. Representing a policy as a share of stock, or using a name or title that misstates what the policy is, is also false advertising. A person or entity cannot use a name that deceptively suggests it is an insurer.
+False advertising is an untrue, deceptive, or misleading statement about the business of insurance, or about anyone who conducts it. The statement may be in print, on television, or on the Internet. It includes a misstatement of policy terms, benefits, conditions, or advantages, of dividends that will be received or that have already been paid, of the financial condition of a person or of the company, or of the true purpose of an assignment or a loan. Calling a policy a share of stock is false advertising. So is a name or title that misstates what the policy is. A person or an entity cannot use a name that deceptively suggests it is an insurer.
 
-Rebating is any inducement offered in the sale of insurance that is not specified in the policy. Both the offer and the acceptance are illegal. Rebates include a return of premium, special favors or services, advantages in dividends or other benefits, and stocks, bonds, securities, and their dividends or profits.
+Rebating is an inducement, offered in the sale of insurance, that the policy does not specify. Offering the rebate is illegal, and accepting it is illegal. The list includes a return of premium, a special favor or service, an advantage in dividends or in other benefits, and stocks, bonds, securities, and their dividends or profits.
 
-Boycott, coercion, or intimidation intended to restrict fair trade or create a monopoly is illegal. It includes unfair behavior aimed at clients and at competing agents and brokers. Coercion is requiring, as a condition of a loan, that the applicant buy insurance from a specific insurer.
+Boycott, coercion, and intimidation are illegal when the purpose is to restrict fair trade or to create a monopoly. The rule covers unfair behavior aimed at clients and unfair behavior aimed at competing agents and brokers. One form of coercion is requiring, as a condition of a loan, that the applicant buy insurance from one specific insurer.
 
-It is illegal to make or offer an insurance contract or annuity on terms other than those in the contract, or to offer as an inducement any special favor or advantage in dividends or benefits, any stocks, bonds, securities, or accrued dividends or profits, or anything of value not specified in the contract. Under Utah law, a small gift or meal under $100 per person is not an inducement if it is a social courtesy and is not conditioned on a quote or the purchase of a particular product. A gift or meal that does not exceed $10 may be conditioned on receiving a quote. An insurer may still give promotional gifts that are generally available to the public.
+A contract or an annuity cannot be made, or offered, on terms other than the terms in the contract. It is illegal to offer, as an inducement, a special favor or advantage in dividends or benefits, any stocks, bonds, or securities, any accrued dividends or profits, or anything of value the contract does not specify. Utah draws a line for small gifts. A gift or a meal under $100 per person is not an inducement when it is a social courtesy and it is not conditioned on a quote or on the purchase of a particular product. A gift or a meal that does not exceed $10 may be conditioned on receiving a quote. An insurer may still give promotional gifts that are generally available to the public. A $25 lunch that is only a social courtesy, and that is not tied to a quote or to buying a particular product, is allowed. A $10 coffee may be offered because the person asks for a quote.
 
-Discrimination in rates, premiums, or benefits for persons in the same class or with the same life expectancy is illegal. No distinction may be based on marital status, race, national origin, gender identity, sexual orientation, creed, or ancestry unless the distinction is for a business purpose or required by law.`,
+Rates, premiums, and benefits may not discriminate between people in the same class or people with the same life expectancy. No distinction may be based on marital status, race, national origin, gender identity, sexual orientation, creed, or ancestry, unless the distinction serves a business purpose or the law requires it.`,
       questions: [
         question(
           'c15q15',
@@ -451,21 +453,22 @@ Discrimination in rates, premiums, or benefits for persons in the same class or 
     {
       id: 'c15-claims',
       title: 'Unfair claim practices',
-      body: `The following are unfair claims settlement practices if they are committed openly and in conscious disregard of the rules, or so often that they show a general business practice:
-• Misrepresenting pertinent facts or policy provisions about coverage.
-• Failing to acknowledge and act reasonably promptly on communications about claims.
-• Failing to adopt and implement reasonable standards for prompt investigation.
-• Refusing to pay claims without a reasonable investigation based on all available information.
-• Failing to affirm or deny coverage within a reasonable time after proof-of-loss statements are completed.
-• Not attempting in good faith to make prompt, fair, and equitable settlements once liability is reasonably clear.
-• Compelling insureds to sue by offering substantially less than the amounts ultimately recovered.
-• Trying to settle for less than a reasonable person would have believed was due, based on written or printed advertising that accompanied the application.
-• Settling on an application that was altered without notice to, or the knowledge or consent of, the insured.
-• Making claim payments without a statement of the coverage under which the payment is made.
-• Making known a policy of appealing arbitration awards in favor of insureds or claimants in order to force a settlement below the award.
-• Delaying investigation or payment by requiring a preliminary claim report and then a formal proof of loss that contains substantially the same information.
-• Failing to settle promptly a part of the claim where liability is reasonably clear, in order to influence settlement of other parts.
-• Failing to promptly explain the policy basis, in light of the facts or applicable law, for a denial or a compromise offer.`,
+      body: `Each of the following is an unfair claims settlement practice when it is done openly and in conscious disregard of the rules, or often enough to show a general business practice.
+
+• Misstating a pertinent fact, or a policy provision, that relates to coverage.
+• Failing to acknowledge a communication about a claim, and failing to act reasonably promptly on it.
+• Failing to adopt, and failing to implement, reasonable standards for a prompt investigation.
+• Refusing to pay a claim without first conducting a reasonable investigation of all the information that is available.
+• Failing to affirm or deny coverage within a reasonable time after the proof-of-loss statements are completed.
+• Not attempting, in good faith, to reach a prompt, fair, and equitable settlement once liability is reasonably clear.
+• Compelling an insured to sue by offering substantially less than the amount that is ultimately recovered.
+• Trying to settle for less than a reasonable person would have believed was due, based on written or printed advertising that came with the application.
+• Settling a claim on an application that was altered without notice to the insured, and without the insured's knowledge or consent.
+• Paying a claim without a statement of the coverage under which the payment is being made.
+• Making it known that the company has a policy of appealing arbitration awards in favor of insureds or claimants, in order to force a settlement below the award.
+• Delaying the investigation or the payment by requiring a preliminary claim report and then a formal proof of loss that contains substantially the same information.
+• Failing to settle promptly one part of a claim, where liability on that part is reasonably clear, in order to influence the settlement of the other parts.
+• Failing to explain promptly the policy basis, in light of the facts or the applicable law, for a denial or for a compromise offer.`,
       questions: [
         question(
           'c15q11',
@@ -495,13 +498,30 @@ Discrimination in rates, premiums, or benefits for persons in the same class or 
     {
       id: 'c15-discipline',
       title: 'License suspension, revocation, and fines',
-      body: `The Commissioner may revoke, suspend for up to 12 months, or limit a license or certificate of authority for reasons that include incorrect, misleading, incomplete, or partially untrue information on the application, violating an insurance law or an order of the Commissioner, obtaining a license by misrepresentation or fraud, misappropriating money received in the insurance business, intentionally misrepresenting a contract or application, a felony conviction, an unfair trade practice or fraud, fraudulent, coercive, or dishonest practices, or incompetence, untrustworthiness, or financial irresponsibility, a license denied, suspended, or revoked in another state, territory, or province, forging a name on an insurance document, improperly using notes on a licensing examination, knowingly accepting business from an unlicensed person, failing to comply with a child-support order, failing to pay income taxes, violating the federal Violent Crime Control and Law Enforcement Act, or a practice that endangers customers and the public.
+      body: `The Commissioner may revoke a license or a certificate of authority, suspend it for up to 12 months, or limit it. The grounds are these.
 
-An order revoking a license may set a period, not longer than 5 years, during which the former licensee may not apply for a new license. A person who knowingly and intentionally violates the licensing rules, the rules on transacting business through unauthorized insurers, or the Insurance Fraud Act is guilty of a felony as provided in the Insurance Code.
+• Information on the application was incorrect, misleading, incomplete, or only partly true.
+• An insurance law was violated, or an order of the Commissioner was violated.
+• The license was obtained by misrepresentation or by fraud.
+• Money received in the insurance business was misappropriated.
+• A contract or an application was intentionally misrepresented.
+• The person was convicted of a felony.
+• An unfair trade practice or fraud was committed, or the person used fraudulent, coercive, or dishonest practices.
+• The person showed incompetence, untrustworthiness, or financial irresponsibility.
+• A license was denied, suspended, or revoked in another state, territory, or province.
+• A name was forged on an insurance document.
+• Notes were used improperly on a licensing examination.
+• Business was knowingly accepted from a person who was not licensed.
+• A child-support order was not complied with.
+• Income taxes were not paid.
+• The federal Violent Crime Control and Law Enforcement Act was violated.
+• A practice endangered customers and the public.
 
-Where a suspension would be justified, after a formal adjudicative proceeding the Commissioner may place the licensee on probation for no longer than 24 months. The order must state reasonable conditions for keeping the license. A violation of probation is grounds for revocation.
+A revocation order may set a waiting period, not longer than 5 years, during which the former licensee may not apply for a new license. Knowingly and intentionally violating the licensing rules, the rules on transacting business through unauthorized insurers, or the Insurance Fraud Act is a felony, as the Insurance Code provides.
 
-After a hearing, the Commissioner may order, for each separate violation, a penalty of $2,500 for a producer or adjuster, or $5,000 for any other person, and may revoke or suspend the producer’s license. A managing general producer may be ordered to reimburse the insurer, or the insurer’s rehabilitator or liquidator, for losses the violation caused. Unless a specific criminal penalty is provided, the penalties that may be leveled are $10,000 for a corporation and $5,000 for an individual. The Commissioner may still impose other penalties provided by law when necessary.`,
+Probation is available where a suspension would have been justified. After a formal adjudicative proceeding, the Commissioner may place the licensee on probation for no longer than 24 months. The order states reasonable conditions for keeping the license. Violating probation is grounds for revocation.
+
+Money penalties come after a hearing, and they are assessed for each separate violation of an insurance statute or rule. The forfeiture is not more than $2,500 for an individual producer, adjuster, or the other individual licensees named in Utah Code section 31A-2-308, or not more than $5,000 for any other person. The Commissioner may also revoke or suspend the producer's license. A managing general producer may be ordered to reimburse the insurer, or the insurer's rehabilitator or liquidator, for losses the violation caused. Unless a specific criminal penalty is provided elsewhere in the title, a person who intentionally violates an insurance statute or a commissioner order may be fined not more than $10,000 if a corporation, or not more than $5,000 if a person other than a corporation (Utah Code section 31A-2-308, effective May 1, 2024). The Commissioner may still impose other penalties that the law provides when those penalties are necessary.`,
       questions: [
         question(
           'c15q13',
@@ -554,13 +574,13 @@ After a hearing, the Commissioner may order, for each separate violation, a pena
     {
       id: 'c15-fraud',
       title: 'Privacy, fraud, and contracts that are not allowed',
-      body: `Besides the federal Fair Credit Reporting Act, information practices are regulated by the Insurance Information and Privacy Protection Act, a model law developed by the National Association of Insurance Commissioners. Insurers and agents must give applicants and policyholders a notice of information practices no later than policy delivery. Notices are in writing, or electronic if the customer agrees. The notice must let the consumer opt out, meaning direct the holder not to disclose nonpublic personal financial information to a nonaffiliated third party except as the regulation permits.
+      body: `Information practices sit under two laws. One is the federal Fair Credit Reporting Act. The other is the Insurance Information and Privacy Protection Act, a model law developed by the National Association of Insurance Commissioners. Applicants and policyholders receive a notice of information practices no later than the delivery of the policy. The notice is in writing, or it is electronic if the customer agrees. It must let the consumer opt out. Opting out means directing the holder not to disclose nonpublic personal financial information to a nonaffiliated third party, except where the regulation permits that disclosure.
 
-On a written request, an authorized agency may give an insurer information relevant to suspected insurance fraud, and an insurer or a producer authorized to act for the insurer must give an authorized agency information relevant to suspected fraud. That information may be a protected record. Information given to an insurer is not subject to discovery in a civil case unless, after notice and a hearing, a court finds that disclosure will not jeopardize the public interest or an ongoing criminal investigation. An insurer must report to the department terminations based on a violation of this regulation.
+Suspected fraud can be shared. On a written request, an authorized agency may give an insurer information that is relevant to suspected insurance fraud. An insurer, and a producer who is authorized to act for the insurer, must give an authorized agency information relevant to suspected fraud. That information may be a protected record. Information given to an insurer is not subject to discovery in a civil case unless, after notice and a hearing, a court finds that disclosure will not jeopardize the public interest or an ongoing criminal investigation. When an insurer terminates someone because of a violation of this regulation, the insurer reports that termination to the department.
 
-A fraudulent insurance act includes knowingly presenting a statement that contains false, incomplete, or misleading information material to an application or renewal, doing the same in support of a claim or a civil claim for personal injury or property damage, accepting a benefit from the proceeds of a fraudulent act, assisting or conspiring with someone to commit one, or supplying false material information in a document the Department requires. An insurer or service provider is not liable for an employee’s fraudulent act committed without authority, unless the insurer or provider knew or should have known of it.
+A fraudulent insurance act includes each of these knowing acts. Presenting a statement that contains false, incomplete, or misleading information that is material to an application or a renewal. Doing the same thing in support of a claim, or of a civil claim for personal injury or property damage. Accepting a benefit from the proceeds of a fraudulent act. Assisting or conspiring with someone to commit one. Supplying false material information in a document the Department requires. An insurer or a service provider is not liable for a fraudulent act an employee committed without authority, unless the insurer or the provider knew of it or should have known of it.
 
-A contract issued by an unauthorized insurer is illegal and unenforceable by the insurer. It may still be enforced in an action brought against the insurer. If the policyowner entered the illegal contract without knowing it was illegal, the contract can be voided. A person who helped procure the illegal contract, and who knew or should have known it was illegal, is liable to the insured for the full amount of a claim or loss if the insurer does not pay it.`,
+A contract from an unauthorized insurer is illegal. The insurer cannot enforce it. The contract can still be enforced in a lawsuit brought against the insurer. If the policyowner entered that illegal contract without knowing it was illegal, the contract can be voided. A person who helped procure the illegal contract, and who knew or should have known that it was illegal, is liable to the insured for the full amount of a claim or a loss when the insurer does not pay it.`,
       questions: [
         question(
           'c15q17',
@@ -590,23 +610,23 @@ A contract issued by an unauthorized insurer is illegal and unenforceable by the
     {
       id: 'c15-federal',
       title: 'Federal credit, fraud, privacy, and telemarketing rules',
-      body: `The Fair Credit Reporting Act requires consumer-reporting agencies to keep records confidential, accurate, relevant, and properly used. Reports may be used only for a legitimate business purpose, including insurance underwriting, employment screening, and credit.
+      body: `The Fair Credit Reporting Act tells consumer-reporting agencies to keep records confidential, accurate, relevant, and properly used. A report may be used only for a legitimate business purpose. Insurance underwriting, employment screening, and credit are examples.
 
-A consumer report is written or oral information on a consumer’s credit, character, reputation, or habits, collected from employment records, credit reports, and other public sources. An investigative consumer report also covers character, reputation, and habits, but the information comes from an investigation and interviews with associates, friends, and neighbors. An investigative report cannot be made unless the consumer is told in writing, within 3 days of the date the report was requested, and told of the right to request more information. The insurer or reporting agency has 5 days to provide that additional information.
+A consumer report is written or oral information about a consumer's credit, character, reputation, or habits. It is collected from employment records, credit reports, and other public sources. An investigative consumer report covers the same subjects, character, reputation, and habits, but the information comes from an investigation and from interviews with associates, friends, and neighbors. That investigative report cannot be prepared unless the consumer is told two things in writing, within 3 days of the date the report was requested: that the report was requested, and that the consumer has a right to request more information. The insurer or the reporting agency then has 5 days to provide the additional information.
 
-A person who knowingly and willfully obtains consumer information under false pretenses may be fined, imprisoned for up to 2 years, or both. An unknowing violation makes the person liable for the consumer’s loss and reasonable attorney fees. A willful violation that amounts to a general pattern or business practice can bring a penalty of up to $2,500.
+Penalties depend on the state of mind. A person who knowingly and willfully obtains consumer information under false pretenses may be fined, imprisoned for up to 2 years, or both. An unknowing violation makes the person liable for the consumer's loss and for reasonable attorney fees. A willful violation that amounts to a general pattern or a business practice can bring a penalty of up to $2,500.
 
-If insurance is declined or modified because of a consumer or investigative report, the consumer must be told and given the name and address of the reporting agency. The consumer may learn what was in the report and who received a copy during the past year. If the consumer challenges the information, the agency must reinvestigate and amend the report if warranted. When a report is corrected, the corrected information goes to everyone who received the inaccurate information within the last 2 years.
+If coverage is declined or changed because of a consumer report or an investigative report, the consumer is told, and is given the name and address of the reporting agency. The consumer may learn what the report said and who received a copy during the past year. A challenge requires the agency to reinvestigate and, if the challenge is warranted, to amend the report. Corrected information is sent to everyone who received the inaccurate information within the last 2 years.
 
-If the report is for a life policy or a credit transaction of less than $150,000, it cannot include bankruptcies more than 10 years old, civil suits, records of arrest or convictions, or other negative information more than 7 years old. Negative information includes delinquencies, late payments, insolvency, or any other default.
+Old information is barred in two cases: a report for a life policy, and a report for a credit transaction of less than $150,000. The report cannot include a bankruptcy more than 10 years old. It cannot include a civil suit, a record of arrest, a conviction, or other negative information more than 7 years old. Negative information includes a delinquency, a late payment, insolvency, or any other default.
 
-It is unlawful insurance fraud to willfully, and with intent to deceive, make an oral or written statement that is false or that omits a material fact. That includes applications, renewals, claims, premiums paid, and an insurer’s financial condition. A person in the business of insurance whose activities affect interstate commerce, and who knowingly makes a false material statement, may be fined, imprisoned for up to 10 years, or both. If the activity jeopardized the security of the insurer, the punishment can be up to 15 years. An officer, director, agent, or other employee convicted of embezzling funds faces those fines and imprisonment. If the embezzlement was less than $5,000, prison time may be reduced to 1 year.
+Insurance fraud that affects interstate commerce is a separate federal offense. It is unlawful to willfully, and with intent to deceive, make an oral or written statement that is false or that leaves out a material fact. The statement can concern an application, a renewal, a claim, premiums that were paid, or an insurer's financial condition. A person in the business of insurance whose activities affect interstate commerce, and who knowingly makes a false material statement, may be fined, imprisoned for up to 10 years, or both. If the activity put the security of the insurer at risk, imprisonment can be up to 15 years. An officer, director, agent, or other employee who is convicted of embezzling funds faces those same fines and that imprisonment. If the amount embezzled was less than $5,000, the prison term may be reduced to 1 year.
 
-A person convicted of a crime involving dishonesty, breach of trust, or a violation of the Violent Crime Control and Law Enforcement Act of 1994 may not work in the business of insurance affecting interstate commerce without a letter of written consent from an insurance regulatory official, a 1033 waiver. The consent must say it is granted for 18 U.S.C. 1033. A person convicted of a felony involving dishonesty or breach of trust who engages in the business of insurance will be fined, imprisoned for up to 5 years, or both. Under Section 1034, the Attorney General may bring a civil action for not more than $50,000 for each violation, or the compensation the person received from the prohibited conduct, whichever is greater.
+A conviction for a crime of dishonesty, a breach of trust, or a violation of the Violent Crime Control and Law Enforcement Act of 1994 bars the person from working in the business of insurance that affects interstate commerce. The bar lifts only with a letter of written consent from an insurance regulatory official. That letter is a 1033 waiver, and the consent must say it is granted for 18 U.S.C. 1033. A person convicted of a felony involving dishonesty or breach of trust who engages in the business of insurance will be fined, imprisoned for up to 5 years, or both. Under Section 1034, the Attorney General may bring a civil action for not more than $50,000 for each violation, or for the compensation the person received from the prohibited conduct, whichever amount is greater.
 
-The Gramm-Leach-Bliley Act generally bars an insurer from disclosing nonpublic personal information to a nonaffiliated third party unless the insurer clearly and conspicuously discloses in writing that information may be disclosed, the consumer can direct, before the first disclosure, that it not be disclosed, or the consumer is told how to exercise that option. A customer, someone with an ongoing financial relationship, receives two disclosures: when the relationship is established, such as when a policy is purchased, and before protected information is disclosed. The customer also receives an annual privacy disclosure and may opt out.
+The Gramm-Leach-Bliley Act generally bars an insurer from disclosing nonpublic personal information to a nonaffiliated third party unless the insurer, clearly and conspicuously and in writing, discloses that the information may be disclosed, the consumer can direct before the first disclosure that it not be disclosed, or the consumer is told how to exercise that option. A customer is a person with an ongoing financial relationship. That customer receives two disclosures: one when the relationship is established, such as when a policy is purchased, and one before protected information is disclosed. The customer also receives a privacy disclosure every year and may opt out.
 
-In 2003 the Federal Trade Commission and the Federal Communications Commission created the National Do Not Call Registry. Telemarketers may not call a number on the national registry or on that seller’s own do-not-call list, deny someone the right to be placed on a registry, call before 8 a.m. or after 9 p.m., abandon calls, fail to transmit caller ID, threaten, intimidate, or use obscene language, or cause a phone to ring in order to annoy, abuse, or harass. Exceptions include a call from or for an organization with an established business relationship during the last 18 months after a sale or transaction, a call the consumer permitted in writing, a call that is not commercial and has no unsolicited advertisement, and a call by or for a tax-exempt nonprofit. Organizations consult the registry every 31 days and drop registered numbers from their call lists.`,
+The National Do Not Call Registry was created in 2003 by the Federal Trade Commission and the Federal Communications Commission. A telemarketer may not call a number on the national registry or on that seller's own do-not-call list. The seller may not deny someone the right to be placed on a registry. Calls are not allowed before 8 a.m. or after 9 p.m. The seller may not abandon a call, fail to transmit caller ID, threaten, intimidate, or use obscene language, or cause a phone to ring in order to annoy, abuse, or harass. Four kinds of calls are exceptions. A call from or for an organization that has an established business relationship during the last 18 months after a sale or a transaction. A call the consumer permitted in writing. A call that is not commercial and contains no unsolicited advertisement. A call by or for a tax-exempt nonprofit. An organization consults the registry every 31 days and drops registered numbers from its call lists.`,
       questions: [
         question(
           'c15q18',

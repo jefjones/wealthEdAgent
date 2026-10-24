@@ -3,7 +3,7 @@ import type { Chapter } from './types.ts'
 import { chapter6Extra } from './extra/chapter6.ts'
 
 /**
- * Wording follows the course OCR in content/source/chapter-6-ocr.txt.
+ * Section text is the current study wording.
  * The source pages have no practice questions. Questions are written from that text,
  * four options each, with a reason for the right answer and for each wrong one.
  */
@@ -17,26 +17,28 @@ export const chapter6: Chapter = {
     {
       id: 'c6-qualified',
       title: 'What makes a retirement plan qualified',
-      body: `Qualified retirement plans provide tax benefits. Nonqualified retirement plans do not. Federal rules decide which plans are qualified. This chapter explains those conditions and the plan types.
+      body: `A qualified retirement plan provides tax benefits. A nonqualified retirement plan does not. Federal rules decide which plans are qualified. This chapter explains those conditions and the common plan types.
 
-Terms used in this chapter:
-• Earned income — salary, wages, or commissions, but not income from investments, unemployment benefits, and similar sources.
-• Gross income — a person’s income before taxes or other deductions.
-• Nonprofit organization — an organization that uses its surplus to fulfill its purpose instead of distributing the surplus to its owners or members.
-• Pretax contribution — a contribution made before federal and/or state taxes are deducted from earnings.
-• Rollover — withdrawal of the money from one qualified plan and placing it into another plan.
-• Vesting — the right of a participant to retain part or all of the retirement plan benefits.
+These words are used in this chapter.
+
+• Earned income. Salary, wages, or commissions. It does not include income from investments, unemployment benefits, and similar sources.
+• Gross income. A person's income before taxes or other deductions.
+• Nonprofit organization. An organization that uses its surplus to fulfill its purpose instead of distributing the surplus to its owners or members.
+• Pretax contribution. A contribution made before federal and/or state taxes are taken out of earnings.
+• Rollover. Taking money out of one qualified plan and placing it into another plan.
+• Vesting. A participant's right to keep part or all of the retirement plan benefits.
 
 An employer-sponsored qualified retirement plan is approved by the IRS. That approval gives the employer and the employee benefits such as deductible contributions and tax-deferred growth.
 
-Qualified plans have these characteristics:
-• Designed for the exclusive benefit of the employees and their beneficiaries.
-• Formally written and communicated to the employees.
-• Use a benefit or contribution formula that does not discriminate in favor of the prohibited group: officers, stockholders, or highly paid employees.
-• Are not geared exclusively to the prohibited group.
-• Are permanent.
-• Are approved by the IRS.
-• Have a vesting requirement.`,
+A qualified plan has these characteristics.
+
+• It is designed for the exclusive benefit of the employees and their beneficiaries.
+• It is formally written and communicated to the employees.
+• It uses a benefit or contribution formula that does not discriminate in favor of the prohibited group. That group is officers, stockholders, and highly paid employees.
+• It is not geared exclusively to the prohibited group.
+• It is permanent.
+• It is approved by the IRS.
+• It has a vesting requirement.`,
       questions: [
         question(
           'c6q01',
@@ -66,14 +68,15 @@ Qualified plans have these characteristics:
     {
       id: 'c6-contrast',
       title: 'Qualified plans and nonqualified plans',
-      body: `Nonqualified plans are not subject to the participation, discrimination, and vesting requirements that apply to qualified plans. They need no government approval. An employer uses them to discriminate in favor of a valuable employee. Nonqualified plans accept after-tax contributions.
+      body: `A nonqualified plan is not subject to the participation, discrimination, and vesting requirements that apply to a qualified plan. It does not need government approval. An employer uses a nonqualified plan to favor a valuable employee. Nonqualified plans accept after-tax contributions.
 
-How the two kinds of plans differ:
-• Contributions — qualified: currently tax deductible. Nonqualified: not currently tax deductible.
-• IRS approval — qualified: the plan is approved by the IRS. Nonqualified: the plan does not need IRS approval.
-• Discrimination — qualified: the plan cannot discriminate. Nonqualified: the plan can discriminate.
-• Earnings — both grow tax deferred.
-• Withdrawals — qualified: all withdrawals are taxed. Nonqualified: the excess over the cost basis is taxed.`,
+The two kinds of plans differ in these ways.
+
+• Contributions. Qualified: currently tax deductible. Nonqualified: not currently tax deductible.
+• IRS approval. Qualified: the plan is approved by the IRS. Nonqualified: the plan does not need IRS approval.
+• Discrimination. Qualified: the plan cannot discriminate. Nonqualified: the plan can discriminate.
+• Earnings. Both grow tax deferred.
+• Withdrawals. Qualified: all withdrawals are taxed. Nonqualified: only the amount above the cost basis is taxed.`,
       questions: [
         question(
           'c6q02',
@@ -105,18 +108,18 @@ How the two kinds of plans differ:
       title: 'Traditional IRAs',
       body: `The two most common qualified individual plans are Traditional IRAs and Roth IRAs. Anybody with earned income can contribute to either plan.
 
-A Traditional IRA lets individuals with earned income make tax-deductible contributions regardless of age. Participants may contribute up to a specified dollar limit each year, or 100% of salary if that is less than the maximum. Individuals age 50 or older may make additional catch-up contributions. A married couple could contribute a specified amount that is double the individual amount, even if only one person had earned income. Each spouse must keep a separate account that does not exceed the individual limit.
+A Traditional IRA lets a person with earned income make a tax-deductible contribution regardless of age. The participant may contribute up to a specified dollar limit each year, or 100% of salary if that is less than the maximum. A person age 50 or older may make an additional catch-up contribution. A married couple could contribute a specified amount that is double the individual amount, even if only one spouse had earned income. Each spouse must keep a separate account, and neither account may exceed the individual limit.
 
-The owner may withdraw funds at any time. Withdrawals before age 59½ are early withdrawals and are subject to a 10% additional tax. Starting at age 59½, the owner may withdraw without that 10% additional tax. The owner must start receiving distributions at age 73. From that age, the owner must receive at least a minimum annual amount, the required minimum distribution (RMD).
+The owner may withdraw funds at any time. A withdrawal before age 59½ is an early withdrawal and is subject to a 10% additional tax. Starting at age 59½, the owner may withdraw without that 10% additional tax. The owner must start receiving required minimum distributions, or RMDs. Under SECURE 2.0, effective January 1, 2023, that age rose from 72 to 73. It rises to 75 for a person who reaches age 74 after December 31, 2032, so required distributions at 75 start in 2033. The penalty for failing to take an RMD is 25% of the shortfall. The penalty is 10% of the shortfall if the person corrects it in time.
 
-Effective January 1, 2023, the SECURE Act raised the required minimum distribution age from 72 to 73, and reduced the penalty for failing to take an RMD from 50% to 25%.`,
+Nora is 48 and takes $4,000 from her traditional IRA. Because she is under 59½, the 10% additional tax on that early withdrawal is $400, and the withdrawal is also subject to ordinary income tax.`,
       questions: [
         question(
           'c6q03',
           'When must a traditional IRA owner begin required minimum distributions?',
           [
             {
-              text: 'At age 73. The SECURE Act raised that age from 72 effective January 1, 2023, and cut the missed-RMD penalty from 50% to 25%.',
+              text: 'At age 73. Under SECURE 2.0, effective January 1, 2023, that age rose from 72. The penalty for failing to take an RMD is 25% of the shortfall, or 10% of the shortfall if the person corrects it in time.',
               why: 'Withdrawals before age 59½ are early and carry a 10% additional tax. At 59½ that extra tax no longer applies, but the RMD still starts at 73.',
               correct: true,
             },
@@ -162,7 +165,7 @@ Effective January 1, 2023, the SECURE Act raised the required minimum distributi
     {
       id: 'c6-roth',
       title: 'Roth IRAs',
-      body: `A Roth IRA is funded with after-tax contributions. An individual can contribute 100% of earned income up to an IRS-specified maximum, as with traditional IRAs. The dollar amounts change every year. Roth contributions can continue regardless of the account owner’s age. Unlike a traditional IRA, distributions do not have to begin at a specified age. A Roth IRA grows tax free as long as the account is open for at least 5 years.`,
+      body: `A Roth IRA is funded with after-tax contributions. A person can contribute 100% of earned income up to an IRS-specified maximum, the same kind of limit that applies to a traditional IRA. The dollar amounts change every year. Roth contributions can continue no matter how old the account owner is. Unlike a traditional IRA, distributions do not have to begin at a specified age. A Roth IRA grows tax free as long as the account is open for at least 5 years.`,
       questions: [
         question(
           'c6q05',
@@ -192,13 +195,13 @@ Effective January 1, 2023, the SECURE Act raised the required minimum distributi
     {
       id: 'c6-keogh',
       title: 'Keogh plans for self-employed people',
-      body: `HR-10 or Keogh plans let self-employed persons be covered under an IRS qualified retirement plan. They fund retirement with pre-tax dollars as if under a corporate retirement or pension plan. To be covered, the person must be self-employed, or a partner working part time or full time who owns at least 10% of the business.
+      body: `An HR-10 plan, also called a Keogh plan, lets a self-employed person be covered under an IRS qualified retirement plan. The person funds retirement with pre-tax dollars, as if the person were under a corporate retirement or pension plan. To be covered, the person must be self-employed, or a partner working part time or full time who owns at least 10% of the business.
 
-The contribution limit is the lesser of an established dollar limit or 100% of total earned income. The contribution is tax deductible and accumulates tax deferred until withdrawal.
+The contribution limit is the lesser of an established dollar limit or 100% of total earned income. The contribution is tax deductible, and it accumulates tax deferred until it is withdrawn.
 
-If a participant dies, payouts can be available immediately. If a participant becomes disabled, benefits may be collected immediately or the funds may be left to accumulate. At retirement, distribution must occur no earlier than age 59½ and no later than age 73. Before January 2023, the latest age was 72. Withdrawal before 59½ brings a 10% penalty. Payments may be discontinued at any time with no penalty, and the funds can be left to accumulate.
+If a participant dies, the payout can be available immediately. If a participant becomes disabled, the benefits may be collected immediately, or the funds may be left to accumulate. At retirement, the distribution must occur no earlier than age 59½ and no later than the required beginning age. That age is 73 under SECURE 2.0. It is 75 for a person who reaches age 74 after December 31, 2032. Before January 2023, the latest age was 72. A withdrawal before age 59½ brings a 10% penalty. Payments may be stopped at any time with no penalty, and the funds can be left to accumulate.
 
-Any individual who is at least 21, has worked for a self-employed person for one year or more, and worked at least 1,000 hours per year must be included in the Keogh plan. The employer must contribute the same percentage of funds into the employee’s retirement account as into the employer’s own account.`,
+Any person who is at least 21, has worked for a self-employed person for one year or more, and worked at least 1,000 hours per year must be included in the Keogh plan. The employer must contribute the same percentage of funds into the employee's retirement account as the employer contributes into the employer's own account.`,
       questions: [
         question(
           'c6q06',
@@ -251,9 +254,11 @@ Any individual who is at least 21, has worked for a self-employed person for one
     {
       id: 'c6-sep-simple',
       title: 'SEP and SIMPLE plans',
-      body: `A Simplified Employee Pension (SEP) suits a small employer or a self-employed person. The employee establishes and maintains an individual retirement account, and the employer contributes to it. Employer contributions are not included in the employee’s gross income. The main difference from an IRA is the much larger amount that can be contributed to a SEP each year: an IRS annual dollar limit, or 25% of the employee’s compensation, whichever is less.
+      body: `A Simplified Employee Pension, or SEP, suits a small employer or a self-employed person. The employee sets up and maintains an individual retirement account, and the employer contributes to it. The employer's contributions are not included in the employee's gross income. The main difference from an IRA is the much larger amount that can be contributed to a SEP each year. The limit is an IRS annual dollar limit, or 25% of the employee's compensation, whichever is less.
 
-A SIMPLE plan (Savings Incentive Match Plan for Employees) is available to small businesses that employ no more than 100 employees who received at least $5,000 in compensation from the employer during the previous year. The employer must not already have a qualified plan. Employees who participate may defer up to a specified amount each year, and the employer then matches dollar for dollar, up to 3% of the employee’s annual compensation. Taxation is deferred on both contributions and earnings until the funds are withdrawn.`,
+A SIMPLE plan, the Savings Incentive Match Plan for Employees, is available to a small business that employs no more than 100 employees who received at least $5,000 in compensation from the employer during the previous year. The employer must not already have a qualified plan. An employee who participates may defer up to a specified amount each year. The employer then matches the employee's contribution dollar for dollar, up to 3% of the employee's annual compensation. Tax is deferred on both the contributions and the earnings until the funds are withdrawn.
+
+A landscaping company with 40 employees, each of whom earned at least $5,000 from the company last year, and with no other qualified plan in place, can offer a SIMPLE plan. If an employee defers part of pay, the company matches that deferral dollar for dollar up to 3% of the employee's annual compensation.`,
       questions: [
         question(
           'c6q08',
@@ -306,13 +311,13 @@ A SIMPLE plan (Savings Incentive Match Plan for Employees) is available to small
     {
       id: 'c6-401k',
       title: 'Profit-sharing and 401(k) plans',
-      body: `Profit-sharing plans are qualified plans in which a portion of the company’s profit is contributed to the plan and shared with employees. If the plan does not provide a definite formula for figuring the profits to be shared, employer contributions must be systematic and substantial.
+      body: `A profit-sharing plan is a qualified plan in which a portion of the company's profit is contributed to the plan and shared with the employees. If the plan does not provide a definite formula for figuring the profits to be shared, the employer's contributions must be systematic and substantial.
 
-A 401(k) lets employees take a reduction in their current salaries by deferring amounts into a retirement plan. The company can also match the employee’s contribution, either dollar for dollar or on a percentage basis. A participant may choose to receive taxable cash compensation, or to have the money contributed into the 401(k) in a cash or deferred arrangement (CODA). Contributions are excluded from the employee’s gross income up to a specified dollar amount. That ceiling is adjusted annually for inflation. Participants age 50 or over may make additional catch-up contributions, up to a limit, at the end of the calendar year.
+A 401(k) lets an employee take a reduction in current salary by deferring that amount into a retirement plan. The company can also match the employee's contribution, either dollar for dollar or on a percentage basis. A participant may choose to receive taxable cash compensation, or to have the money contributed into the 401(k). That choice is a cash or deferred arrangement, or CODA. Contributions are excluded from the employee's gross income up to a specified dollar amount. That ceiling is adjusted every year for inflation. A participant age 50 or over may make an additional catch-up contribution, up to a limit, at the end of the calendar year.
 
-A 401(k) may be arranged as a pure salary reduction plan, a bonus plan, or a thrift plan. Under a bonus or thrift plan, the employer contributes a certain amount or percentage for each dollar the employee contributes. Employee contributions are not always required.
+A 401(k) may be arranged as a pure salary reduction plan, a bonus plan, or a thrift plan. Under a bonus plan or a thrift plan, the employer contributes an amount or a percentage for each dollar the employee contributes. Employee contributions are not always required.
 
-Plans permit early withdrawal for specified hardship reasons, such as death or disability. Loans are also permitted in certain instances, up to 50% of the participant’s vested accrued benefit or the annual IRS-established dollar amount.`,
+The plan may permit an early withdrawal for a specified hardship, such as death or disability. Loans are also permitted in certain cases, up to 50% of the participant's vested accrued benefit or up to the annual IRS-established dollar amount.`,
       questions: [
         question(
           'c6q10',
@@ -365,14 +370,15 @@ Plans permit early withdrawal for specified hardship reasons, such as death or d
     {
       id: 'c6-403b',
       title: '403(b) plans for schools and charities',
-      body: `A 403(b) plan, or tax-sheltered annuity (TSA), is a qualified plan for employees of certain nonprofit organizations under Section 501(c)(3) of the Internal Revenue Code, and for employees of public school systems. Contributions can be made by the employer or by the employee through salary reduction, and they are excluded from the employee’s current income. As with other qualified plans, a 403(b) limits employee contributions to a maximum that changes annually and is adjusted for inflation. The same catch-up provisions apply.
+      body: `A 403(b) plan, also called a tax-sheltered annuity or TSA, is a qualified plan for employees of certain nonprofit organizations under Section 501(c)(3) of the Internal Revenue Code, and for employees of public school systems. Contributions can be made by the employer or by the employee through a salary reduction. They are excluded from the employee's current income. As with other qualified plans, a 403(b) limits the employee's contributions to a maximum that changes every year and is adjusted for inflation. The same catch-up provisions apply.
 
-The course summarizes eligibility and who contributes:
-• HR-10 (Keogh) — self-employed. The employer matches the employee’s contribution.
-• SEP — a small employer or a self-employed person. The employer only contributes.
-• SIMPLE — small employers with no more than 100 employees. The employer matches the employee’s contribution.
-• 401(k) — any employer. The employer matches the employee’s contribution.
-• 403(b) TSA — nonprofits and public school systems. The employer and the employee contribute.`,
+Who is eligible, and who puts the money in, can be summarized this way.
+
+• HR-10 (Keogh). Self-employed people. The employer matches the employee's contribution.
+• SEP. A small employer or a self-employed person. The employer is the only contributor.
+• SIMPLE. A small employer with no more than 100 employees. The employer matches the employee's contribution.
+• 401(k). Any employer. The employer matches the employee's contribution.
+• 403(b) TSA. Nonprofit organizations and public school systems. The employer and the employee both contribute.`,
       questions: [
         question(
           'c6q12',
@@ -425,20 +431,22 @@ The course summarizes eligibility and who contributes:
     {
       id: 'c6-tax',
       title: 'Taxes when the money comes out',
-      body: `If a plan meets the general requirements for qualified plans, these tax advantages apply:
-• Employer contributions are tax deductible to the employer and are not taxed as income to the employee.
+      body: `If a plan meets the general requirements for a qualified plan, these tax advantages apply.
+
+• Employer contributions are tax deductible to the employer, and they are not taxed as income to the employee.
 • Earnings in the plan accumulate tax deferred.
-• Lump-sum distributions to employees are eligible for favorable tax treatment.
+• A lump-sum distribution to an employee is eligible for favorable tax treatment.
 
-Benefits are taxable to the participant when they are received during retirement, when the retired person is likely to be in a much lower tax bracket. Distributions before age 59½ impose a 10% penalty, unless they fall under an exception.
+The benefits are taxable to the participant when they are received during retirement, which is when the retired person is likely to be in a much lower tax bracket. A distribution before age 59½ imposes a 10% penalty, unless it falls under an exception.
 
-These distributions are exceptions to the early distribution rule and are not subject to the 10% early withdrawal penalty:
+These distributions are exceptions to the early distribution rule. They are not subject to the 10% early withdrawal penalty.
+
 • Death of the participant.
-• The participant’s disability.
-• A divorce decree requiring a distribution to a spouse as part of the settlement.
-• A series of equal payments, at least annually, over the participant’s life expectancy.
+• The participant's disability.
+• A divorce decree that requires a distribution to a spouse as part of the settlement.
+• A series of equal payments, at least once a year, over the participant's life expectancy.
 • A loan from the plan.
-• As part of a qualified rollover.`,
+• A distribution that is part of a qualified rollover.`,
       questions: [
         question(
           'c6q14',

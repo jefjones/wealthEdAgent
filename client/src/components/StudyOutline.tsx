@@ -2,6 +2,7 @@ import { Check, ChevronRight } from 'lucide-react'
 import type { MouseEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { studyPack } from '../content/pack.ts'
+import { subjectTitle } from '../content/rewrite.ts'
 import { percent } from '../lib/utils.ts'
 
 export function StudyOutline({
@@ -61,7 +62,7 @@ export function StudyOutline({
                     <span className="overflow-visible text-[calc(1em+4px)] leading-none font-[700] text-[#000]">{chapter.number}</span>
                     <span>{` · ${chapterDone}/${chapter.sections.length}`}</span>
                   </span>
-                  <span className="block text-sm font-semibold text-[#14375f]">{chapter.title}</span>
+                  <span className="block text-sm font-semibold text-[#14375f]">{subjectTitle(chapter.title)}</span>
                 </span>
               </button>
               {open ? (
@@ -72,6 +73,7 @@ export function StudyOutline({
                       <li key={section.id}>
                         <Link
                           to={`/study/${section.id}`}
+                          aria-current={active ? 'page' : undefined}
                           onClick={(event) => onPick?.(section.id, event)}
                           className={`flex min-h-11 items-center gap-2 rounded-lg px-2 py-2 text-sm ${active ? 'bg-white font-semibold text-[#1f5a9a]' : 'text-[#24364a] hover:bg-[#f4f8fc]'}`}
                         >
@@ -82,7 +84,7 @@ export function StudyOutline({
                               </span>
                             ) : null}
                           </span>
-                          <span>{section.title}</span>
+                          <span>{subjectTitle(section.title)}</span>
                         </Link>
                       </li>
                     )

@@ -3,7 +3,7 @@ import type { Chapter } from './types.ts'
 import { chapter12Extra } from './extra/chapter12.ts'
 
 /**
- * Wording follows the course OCR in content/source/chapter-12-ocr.txt.
+ * Section text is the current study wording.
  * The source pages have no practice questions. Questions are written from that text,
  * four options each, with a reason for the right answer and for each wrong one.
  */
@@ -17,19 +17,20 @@ export const chapter12: Chapter = {
     {
       id: 'c12-plans',
       title: 'Scheduled plans and nonscheduled plans',
-      body: `There are two major categories of dental insurance: indemnity plans and employer group dental expense insurance. Indemnity plans are the focus here.
+      body: `Dental insurance falls into two major categories: indemnity plans and employer group dental expense insurance. Indemnity plans are the focus here.
 
-Terms used with these plans:
-• First-dollar benefits — benefits paid without any deductibles or copays to satisfy.
-• Indemnity — a principle which states that an insured cannot profit from reimbursement for a loss.
-• Nonscheduled plan — also known as comprehensive. Benefits are paid on a reasonable and customary basis and are subject to deductibles and coinsurance.
-• Scheduled plan — also known as basic. It pays benefits from a list of procedures up to the amount shown in the schedule.
+These words are used with these plans.
 
-Some dental plans limit the insured’s choices of providers. Others simply limit the benefits payable to any qualified practitioner.
+• First-dollar benefits. Benefits paid without a deductible or a copay that must be satisfied first.
+• Indemnity. The principle that an insured cannot profit from reimbursement for a loss.
+• Nonscheduled plan. Also called comprehensive. Benefits are paid on a reasonable and customary basis and are subject to deductibles and coinsurance.
+• Scheduled plan. Also called basic. It pays benefits from a list of procedures, up to the amount shown in the schedule.
 
-Basic or scheduled plans pay benefits from a list of procedures up to the amount shown in the schedule. Most plans provide first-dollar benefits without coinsurance or deductibles. Maximum benefits are often lower than the usual and customary charges of dentists, forcing the insured to bear a portion of the cost.
+Some dental plans limit which providers the insured may use. Others simply limit the benefits payable to any qualified practitioner.
 
-With nonscheduled plans, benefits are paid on a reasonable and customary basis and are subject to deductibles and coinsurance. Services are usually divided into three broad benefit categories: diagnostic and preventive services, basic services, and major services.`,
+A basic, or scheduled, plan pays benefits from a list of procedures up to the amount shown on the schedule. Most of these plans provide first-dollar benefits, with no coinsurance and no deductible. The maximum benefits are often lower than the usual and customary charges of dentists, so the insured bears part of the cost.
+
+On a nonscheduled plan, benefits are paid on a reasonable and customary basis and are subject to deductibles and coinsurance. Services are usually divided into three broad categories: diagnostic and preventive services, basic services, and major services.`,
       questions: [
         question(
           'c12q01',
@@ -82,16 +83,17 @@ With nonscheduled plans, benefits are paid on a reasonable and customary basis a
     {
       id: 'c12-treatment',
       title: 'Diagnostic, preventive, and restorative care',
-      body: `An important feature of a dental insurance plan, which is typically not found in a medical expense insurance plan, is diagnostic and preventive care. Most dental plans cover routine preventive procedures such as periodic teeth cleaning and fluoride treatments. An increasing number of dental plans require periodic examinations as a condition for continued coverage.
+      body: `An important feature of a dental plan, which is typically not found in a medical expense plan, is diagnostic and preventive care. Most dental plans cover routine preventive procedures such as periodic teeth cleaning and fluoride treatments. An increasing number of dental plans require periodic examinations as a condition of continued coverage.
 
-The categories of dental treatment are:
-• Diagnostic and preventive — routine preventive care, including periodic cleaning and fluoride treatments.
-• Restorative care — treatments that restore functional use to natural teeth, such as fillings or crowns.
-• Oral surgery — operative treatment of the mouth, such as extractions of teeth and related surgical treatment.
-• Endodontics — treatment of the dental pulp within natural teeth, such as a root canal.
-• Periodontics — treatment of the surrounding and supporting tissue of the teeth, such as treatment for gum disease.
-• Prosthodontics — replacement of missing teeth with artificial devices like bridgework or dentures.
-• Orthodontics — treatment of natural teeth to prevent or correct dental anomalies with braces or appliances.`,
+Dental treatment is grouped this way.
+
+• Diagnostic and preventive. Routine preventive care, including periodic cleaning and fluoride treatments.
+• Restorative care. Treatment that restores functional use to natural teeth, such as fillings or crowns.
+• Oral surgery. Operative treatment of the mouth, such as an extraction and the related surgical treatment.
+• Endodontics. Treatment of the dental pulp inside a natural tooth, such as a root canal.
+• Periodontics. Treatment of the tissue around and supporting the teeth, such as treatment for gum disease.
+• Prosthodontics. Replacement of missing teeth with an artificial device, such as bridgework or dentures.
+• Orthodontics. Treatment of natural teeth to prevent or correct a dental anomaly, using braces or appliances.`,
       questions: [
         question(
           'c12q03',
@@ -144,13 +146,15 @@ The categories of dental treatment are:
     {
       id: 'c12-benefits',
       title: 'Preventive, basic, and major services',
-      body: `Dental insurance plans typically cover these types of treatment.
+      body: `A dental plan typically covers these kinds of treatment.
 
-Diagnostic and preventive services generally are not subject to coinsurance or deductibles.
+Diagnostic and preventive services generally are not subject to coinsurance or to a deductible.
 
 Basic services, such as fillings, oral surgery, periodontics, and endodontics, may require the insured to pay a deductible or 20% of the balance. The insurer would pay the other 80%.
 
-Major services, such as inlays, crowns, dentures, and orthodontics, could either have large deductibles or pay around 50% for services provided.`,
+Major services, such as inlays, crowns, dentures, and orthodontics, could have a large deductible, or the plan could pay around 50% of the services provided.
+
+A $900 filling is a basic service on an 80/20 plan, and the deductible for the year has already been met. The insurer pays $720. The insured pays the other $180.`,
       questions: [
         question(
           'c12q05',
@@ -180,9 +184,9 @@ Major services, such as inlays, crowns, dentures, and orthodontics, could either
     {
       id: 'c12-deductible',
       title: 'Deductibles and combination plans',
-      body: `Most dental plans have a deductible, such as $25, $50, or $100, which must be met each calendar year. Generally the deductible does not apply to preventive care such as cleaning and routine examinations.
+      body: `Most dental plans have a deductible, such as $25, $50, or $100, which must be met each calendar year. Generally the deductible does not apply to preventive care such as cleaning and a routine examination.
 
-Combination plans combine features of both the basic and comprehensive plans. They generally cover diagnostic and preventive services on a usual and customary basis, but still use a fee schedule for other dental services.`,
+A combination plan combines features of both the basic plan and the comprehensive plan. It generally covers diagnostic and preventive services on a usual and customary basis, but it still uses a fee schedule for the other dental services.`,
       questions: [
         question(
           'c12q06',
@@ -235,11 +239,11 @@ Combination plans combine features of both the basic and comprehensive plans. Th
     {
       id: 'c12-limits',
       title: 'Exclusions and predetermination',
-      body: `Dental plans typically exclude cosmetic services, unless required by an accident, replacement of lost dentures, duplicate dentures, oral hygiene instruction, occupational injuries covered by workers compensation, and services provided by government agencies.
+      body: `A dental plan typically excludes cosmetic services, unless an accident requires them. It also typically excludes replacement of lost dentures, duplicate dentures, oral hygiene instruction, an occupational injury covered by workers compensation, and a service provided by a government agency.
 
-To help keep costs down, dental plans provide more limitations than deductibles and copayments. Most plans provide for calendar-year maximum benefits and lifetime maximum benefits. Routine exams and cleaning are generally limited to once every 6 months, full-mouth x-rays to once every 2 to 3 years, and replacement of dentures to once every 5 years.
+To help keep costs down, dental plans use more limitations than deductibles and copayments. Most plans set a calendar-year maximum and a lifetime maximum. A routine exam and a cleaning are generally limited to once every 6 months, which is typically twice a year. X-rays are covered on the plan's schedule. Replacement of dentures is generally limited to once every 5 years.
 
-The predetermination of benefits clause, also called precertification or prior authorization, is found in most dental plans. This service, although generally not mandatory, lets the insured and the dentist know in advance what benefits will be paid.`,
+The predetermination of benefits clause, also called precertification or prior authorization, is found in most dental plans. The service is generally not mandatory. It lets the insured and the dentist know in advance what benefits will be paid.`,
       questions: [
         question(
           'c12q08',
@@ -266,16 +270,16 @@ The predetermination of benefits clause, also called precertification or prior a
         ),
         question(
           'c12q09',
-          'How often do most dental plans allow routine exams, full-mouth x-rays, and replacement of dentures?',
+          'How often do most dental plans allow routine exams, x-rays, and replacement of dentures?',
           [
             {
-              text: 'Exams and cleaning once every 6 months, full-mouth x-rays once every 2 to 3 years, and replacement of dentures once every 5 years.',
+              text: 'Exams and cleaning once every 6 months, which is typically twice a year. X-rays follow the plan’s schedule. Dentures are replaced once every 5 years.',
               why: 'Plans also use calendar-year maximums and lifetime maximums. These frequency limits, more than deductibles and copayments, are how the plans keep costs down.',
               correct: true,
             },
             {
-              text: 'Exams every 2 to 3 years, x-rays every 6 months, and dentures every year.',
-              why: 'The 6-month limit is for routine exams and cleaning. The 2-to-3-year limit is for full-mouth x-rays. Denture replacement is once every 5 years.',
+              text: 'Exams every 5 years, x-rays whenever the dentist asks, and dentures every 6 months.',
+              why: 'The 6-month limit is for routine exams and cleaning. X-rays follow the plan’s schedule. Denture replacement is once every 5 years.',
             },
             {
               text: 'Each service once per lifetime, with no calendar-year maximum.',
@@ -315,11 +319,11 @@ The predetermination of benefits clause, also called precertification or prior a
     {
       id: 'c12-group',
       title: 'Dental coverage from an employer',
-      body: `Dental plans are written as individual plans or as group plans provided through the employer. An employer group dental plan generally includes preventive care for up to two visits per year. It will not cover cosmetic treatment, and it may limit procedures such as braces or other appliances.
+      body: `A dental plan may be written as an individual plan or as a group plan provided through the employer. An employer group dental plan generally includes preventive care for up to two visits a year. It will not cover cosmetic treatment, and it may limit a procedure such as braces or another appliance.
 
-Dental expense may be packaged, or integrated, with other health insurance benefits such as major medical. The integrated plan may have a common deductible. Some integrated plans instead keep separate deductibles for the medical and dental portions of the contract. Other dental coverage is written as a stand-alone plan.
+Dental expense may be packaged, or integrated, with other health insurance benefits such as major medical. The integrated plan may have a common deductible. Some integrated plans instead keep a separate deductible for the medical portion and the dental portion. Other dental coverage is written as a stand-alone plan.
 
-Dental plans try to minimize adverse selection with probationary periods. Insureds who had no prior dental coverage are likely to have a large number of untreated dental problems. Benefits for late enrollees may be reduced for the first year. Even though dental coverage is regulated by COBRA continuation rules, it is seldom convertible like individual health insurance.`,
+Dental plans try to limit adverse selection with probationary periods. A person who had no prior dental coverage is likely to have a large number of untreated dental problems. Benefits for a late enrollee may be reduced for the first year. Dental coverage is regulated by the COBRA continuation rules, but it is seldom convertible the way individual health insurance is.`,
       questions: [
         question(
           'c12q11',
@@ -372,11 +376,12 @@ Dental plans try to minimize adverse selection with probationary periods. Insure
     {
       id: 'c12-pediatric',
       title: 'Dental coverage for children',
-      body: `Pediatric dental coverage is an essential health benefit under the Affordable Care Act. It must be available as part of a health plan or as a stand-alone plan for children 18 or younger. Insurers do not have to offer adult dental coverage.
+      body: `Pediatric dental coverage is an essential health benefit under the Affordable Care Act. It must be available as part of a health plan, or as a stand-alone plan, for a child who is 18 or younger. An insurer does not have to offer adult dental coverage.
 
-Depending on the state, pediatric dental benefits may be offered through:
+Depending on the state, pediatric dental benefits may be offered in these ways.
+
 • A qualified health plan that includes dental coverage.
-• A stand-alone dental plan purchased in conjunction with a qualified health plan.
+• A stand-alone dental plan bought together with a qualified health plan.
 • A contracted or bundled plan.`,
       questions: [
         question(

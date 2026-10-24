@@ -811,8 +811,8 @@ export const chapter12Extra: Record<string, Question[]> = {
           why: 'Precertification or prior authorization is another name for predetermination of benefits. Typical exclusions include replacement of lost dentures, duplicate dentures, oral hygiene instruction, occupational injuries covered by workers compensation, and services provided by government agencies.',
         },
         {
-          text: 'Routine exams and cleaning once every 6 months, full-mouth x-rays once every 2 to 3 years, and replacement of dentures once every 5 years.',
-          why: 'Those are frequency limitations. Routine exams and cleaning are generally limited to once every 6 months, full-mouth x-rays to once every 2 to 3 years, and replacement of dentures to once every 5 years.',
+          text: 'Routine exams and cleaning once every 6 months, x-rays on the plan’s schedule, and replacement of dentures once every 5 years.',
+          why: 'Those are frequency limitations, not exclusions. Routine exams and cleaning are generally limited to once every 6 months. X-rays follow the plan’s schedule. Denture replacement is generally once every 5 years.',
         },
       ],
     ),

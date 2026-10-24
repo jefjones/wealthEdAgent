@@ -3,7 +3,7 @@ import type { Chapter } from './types.ts'
 import { chapter9Extra } from './extra/chapter9.ts'
 
 /**
- * Wording follows the course OCR in content/source/chapter-9-ocr.txt.
+ * Section text is the current study wording.
  * The source pages have no practice questions. Questions are written from that text,
  * four options each, with a reason for the right answer and for each wrong one.
  */
@@ -17,22 +17,23 @@ export const chapter9: Chapter = {
     {
       id: 'c9-qualify',
       title: 'What disability income insurance does',
-      body: `Disability income insurance replaces lost income. The key is which injuries qualify, how much is paid, and how long payments last. There is a 30% chance that a 25-year-old will be disabled for more than 90 days before age 65. A premature death before 65 is far less likely. For most people, employment income stops after a brief time away from work, and savings then have to cover food, rent, and utilities. Coverage may be bought individually or through an employer.
+      body: `Disability income insurance replaces lost income. The key questions are which injuries qualify, how much is paid, and how long the payments last. There is a 30% chance that a 25-year-old will be disabled for more than 90 days before age 65. A premature death before age 65 is far less likely. For most people, employment income stops after a brief time away from work, and savings then have to cover food, rent, and utilities. Coverage may be bought individually or through an employer.
 
-Benefits are limited to a percentage of earned income so the claimant has a financial incentive to return to work. Earned income is salary, wages, or commissions, not investment income, unemployment benefits, or similar sources. A person becomes eligible when the sickness or injury meets the company’s definition of disability. That definition varies, and the applicant and the producer need to know the benefit trigger.
+Benefits are limited to a percentage of earned income so the claimant has a financial incentive to return to work. Earned income is salary, wages, or commissions. It is not investment income, unemployment benefits, or a similar source. A person becomes eligible when the sickness or injury meets the company's definition of disability. That definition varies. The applicant and the producer need to know what triggers the benefit.
 
-An own-occupation policy pays when the insured cannot perform any duties of the insured’s own occupation because of sickness or accident. That definition is usually limited to the first 24 months after a loss. The insured can receive benefits even if income could be earned in a different occupation. After 24 months, if the insured still cannot perform the duties of the insured’s own occupation, disability narrows to the inability to perform any occupation for which the insured is reasonably suited by education, training, or experience. That sharply reduces the insurer’s liability, because a claimant can often find some work. Own occupation is generally used for highly trained occupations such as surgeons and trial attorneys.
+An own-occupation policy pays when the insured cannot perform any duties of the insured's own occupation because of sickness or accident. That definition is usually limited to the first 24 months after a loss. The insured can receive benefits even if income could be earned in a different occupation. After 24 months, if the insured still cannot perform the duties of the insured's own occupation, the definition narrows. Disability then means the inability to perform any occupation for which the insured is reasonably suited by education, training, or experience. That change sharply reduces the insurer's liability, because a claimant can often find some work. Own occupation is generally used for a highly trained occupation, such as a surgeon or a trial attorney.
 
 An any-occupation provision pays only when the insured cannot perform any duties of an occupation for which the insured is suited by education, training, or experience. Own occupation is the more liberal definition and the better benefit. Some companies still combine both definitions. From an underwriting standpoint, any occupation is easier for the company to justify.
 
-Terms used in this chapter:
-• Benefit period — the time during which benefits are paid.
-• Capital sum — a portion of the principal sum, paid for accidental dismemberment or loss of sight in one eye.
-• Overinsurance — insurance that exceeds the actual value of the person or property, or more insurance than the insured can afford.
-• Principal sum — the amount paid for an accidental death under a health policy.
-• Tax deductible — a qualified expense that may reduce income subject to taxation.
-• Total disability — inability to perform any occupation for which the person is reasonably suited by education, training, or experience.
-• Waiver — relinquishment of a right or interest.`,
+These words are used in this chapter.
+
+• Benefit period. The time during which benefits are paid.
+• Capital sum. A portion of the principal sum, paid for accidental dismemberment or for loss of sight in one eye.
+• Overinsurance. Insurance that exceeds the actual value of the person or the property, or more insurance than the insured can afford.
+• Principal sum. The amount paid for an accidental death under a health policy.
+• Tax deductible. A qualified expense that may reduce the income subject to tax.
+• Total disability. The inability to perform any occupation for which the person is reasonably suited by education, training, or experience.
+• Waiver. Giving up a right or an interest.`,
       questions: [
         question(
           'c9q01',
@@ -62,13 +63,13 @@ Terms used in this chapter:
     {
       id: 'c9-income',
       title: 'Total disability and replacing income',
-      body: `Income replacement contracts replace a percentage of income lost because of a covered accident or sickness, without first requiring total disability. Premiums are lower than traditional disability policies because the contract counts other income, including part-time work, other disability policies, and workers compensation. In the course example, an ophthalmologist has a detached retina, returns to seeing patients, and can no longer perform surgery. Income falls 60%. A traditional disability policy would pay nothing because the doctor was never fully disabled. A loss-of-income policy pays because income fell from a qualified accident or illness. These contracts are typically written on an any-occupation definition. Insurers use them to limit overinsurance and malingering that come with a traditional noncancellable own-occupation-to-age-65 policy.
+      body: `An income replacement contract replaces a percentage of the income lost because of a covered accident or sickness, without first requiring total disability. The premium is lower than a traditional disability policy because the contract counts other income, including part-time work, other disability policies, and workers compensation. A pediatric dentist develops a tremor, returns to doing exams, and can no longer perform procedures. Income falls 45%. A traditional disability policy would pay nothing, because the dentist was never fully disabled. A loss-of-income policy pays, because income fell because of a qualified accident or illness. These contracts are typically written on an any-occupation definition. Insurers use them to limit the overinsurance and malingering that come with a traditional noncancellable own-occupation-to-age-65 policy.
 
-Total disability is defined differently from policy to policy. A strict version, similar to Social Security, uses any occupation: the insured cannot perform any occupation for which the insured is reasonably suited by education, training, or experience. A more liberal version is the inability to perform the duties of one’s own occupation. The liberal definition makes it easier to qualify.
+Total disability is defined differently from policy to policy. A strict version, similar to Social Security, uses any occupation. The insured cannot perform any occupation for which the insured is reasonably suited by education, training, or experience. A more liberal version is the inability to perform the duties of one's own occupation. The liberal definition makes it easier to qualify.
 
-In Utah, a person is totally disabled if the person is not employed in a job for which the person is qualified through education, training, or experience, and is unable to perform all the material duties of the person’s regular occupation.
+In Utah, a person is totally disabled if the person is not employed in a job for which the person is qualified through education, training, or experience, and is unable to perform all the material duties of the person's regular occupation.
 
-Presumptive disability, found in most disability income policies, names conditions that automatically qualify the insured for full benefits, regardless of ability to work. The benefit covers dismemberment, meaning loss of use of any two limbs, total and permanent blindness, or loss of speech or hearing. Some policies require actual severance of the limbs rather than loss of use.`,
+Presumptive disability is found in most disability income policies. It names conditions that automatically qualify the insured for full benefits, regardless of the ability to work. The benefit covers dismemberment, meaning loss of use of any two limbs, total and permanent blindness, or loss of speech or hearing. Some policies require the actual severance of the limbs rather than the loss of use.`,
       questions: [
         question(
           'c9q02',
@@ -121,11 +122,11 @@ Presumptive disability, found in most disability income policies, names conditio
     {
       id: 'c9-partial',
       title: 'Partial and residual disability',
-      body: `Partial disability is often the inability to perform one or more of the regular duties of one’s own occupation, or the inability to work full time, which reduces income. The benefit covers a partial loss of income when the insured can report to work but cannot perform all the regular duties. It is typically 50% of the total disability benefit and is limited to a period stated in the policy. Partial benefits are paid as a flat amount or a residual amount.
+      body: `Partial disability is often the inability to perform one or more of the regular duties of one's own occupation, or the inability to work full time, which reduces income. The benefit covers a partial loss of income when the insured can report to work but cannot perform all the regular duties. It is typically 50% of the total disability benefit, and it is limited to a period stated in the policy. Partial benefits are paid as a flat amount or as a residual amount.
 
-Residual disability pays for loss of income when a person returns to work after a total disability but still cannot work as long, or at the same level, as before. Many companies have replaced partial disability with residual disability. If the person can work only part time or in a lower-paying position, residual disability makes up the difference between present earnings and earnings before the disability.
+Residual disability pays for a loss of income when a person returns to work after a total disability but still cannot work as long, or at the same level, as before. Many companies have replaced partial disability with residual disability. If the person can work only part time, or only in a lower-paying position, residual disability makes up the difference between present earnings and earnings before the disability.
 
-Disability income policies generally do not cover losses from war, military service, intentionally self-inflicted injuries, overseas residence, or injuries suffered while committing or attempting a felony.`,
+A disability income policy generally does not cover a loss from war, military service, an intentionally self-inflicted injury, overseas residence, or an injury suffered while committing or attempting a felony.`,
       questions: [
         question(
           'c9q09',
@@ -155,15 +156,15 @@ Disability income policies generally do not cover losses from war, military serv
     {
       id: 'c9-periods',
       title: 'The waiting period and the benefit period',
-      body: `An individual disability income policy is applied for and paid for by the individual, not through the employer. Premiums are paid with after-tax dollars, and benefits are not income taxable. A total disability plan protects the family or the individual against the economic loss of the wage earner’s total disability.
+      body: `An individual disability income policy is applied for and paid for by the individual, not through the employer. Premiums are paid with after-tax dollars, and the benefits are not taxable as income. A total disability plan protects the family, or the individual, against the economic loss that comes from the wage earner's total disability.
 
-Benefits are most often paid monthly, sometimes weekly. The amount is stated in the policy and is usually limited to a percentage of income at application, to prevent overinsurance.
+Benefits are most often paid monthly, and sometimes weekly. The amount is stated in the policy. It is usually limited to a percentage of income at the time of application, to prevent overinsurance.
 
-The elimination period is a waiting period from the onset of disability until benefits begin. It is a deductible measured in days rather than dollars. It removes coverage for short disabilities. Most policies use 30 to 180 days. A longer elimination period means a lower premium, just as a higher medical deductible lowers a medical premium. Benefits are paid in arrears. If the insured selects 90 days, the insured is eligible on the 91st day, but payments do not begin until the 121st day. The insured has to decide how long to go without payments.
+The elimination period is a waiting period from the start of the disability until benefits begin. It is a deductible measured in days rather than in dollars. It removes coverage for a short disability. Most policies use 30 to 180 days. A longer elimination period means a lower premium, just as a higher medical deductible lowers a medical premium. Benefits are paid in arrears. If the insured selects 60 days, the insured is eligible on the 61st day, but a monthly payment does not begin until the 91st day. The insured has to decide how long to go without payments.
 
-The benefit period is how long monthly payments last for each disability after the elimination period is satisfied. Most policies offer 1 year, 2 years, 5 years, and to age 65. Some offer lifetime benefits. A longer benefit period means a higher premium.
+The benefit period is how long the monthly payments last for each disability after the elimination period is satisfied. Most policies offer 1 year, 2 years, 5 years, and to age 65. Some offer lifetime benefits. A longer benefit period means a higher premium.
 
-A probationary period is an extra waiting period, often 10 to 30 days from issue, during which illness-related disabilities are not paid. It applies only to sickness, not to accident or injury. It reduces adverse selection by people who would buy a policy just after developing a condition that needs immediate care.`,
+A probationary period is an extra waiting period, often 10 to 30 days from issue, during which an illness-related disability is not paid. It applies only to sickness, not to an accident or an injury. It reduces adverse selection by people who would buy a policy just after developing a condition that needs immediate care.`,
       questions: [
         question(
           'c9q04',
@@ -216,13 +217,13 @@ A probationary period is an extra waiting period, often 10 to 30 days from issue
     {
       id: 'c9-features',
       title: 'Injury, sickness, and waiver of premium',
-      body: `Injury uses either accidental bodily injury or accidental means. Accidental bodily injury means the damage to the body is unexpected and unintended. Accidental means requires that the cause of the accident be unexpected and unintended. Accidental bodily injury is the broader coverage.
+      body: `Injury is defined as either accidental bodily injury or accidental means. Accidental bodily injury means the damage to the body was unexpected and unintended. Accidental means requires that the cause of the accident was unexpected and unintended. Accidental bodily injury is the broader coverage.
 
-Sickness or illness is a sickness or disease contracted after the policy has been in force at least 30 days, or a sickness or disease that first manifests itself after the policy is in force. Companies often allow different benefit periods. An insured might take 5 years for sickness and to age 65 for accident.
+Sickness, or illness, is a sickness or disease contracted after the policy has been in force at least 30 days, or a sickness or disease that first manifests itself after the policy is in force. Companies often allow different benefit periods. An insured might take 5 years for sickness and to age 65 for accident.
 
-Recurrent disability sets a period, usually 3 to 6 months, during which a recurrence of an injury or illness is a continuation of the prior disability. The insured does not have to satisfy another elimination period.
+A recurrent disability provision sets a period, usually 3 to 6 months, during which a recurrence of an injury or an illness is a continuation of the prior disability. The insured does not have to satisfy another elimination period.
 
-Waiver of premium is usually included. Once the insured qualifies for benefits, premiums may be discontinued. Premiums paid during the elimination period are usually refunded once benefits begin.`,
+Waiver of premium is usually included. Once the insured qualifies for benefits, the premiums may be discontinued. Premiums paid during the elimination period are usually refunded once benefits begin.`,
       questions: [
         question(
           'c9q06',
@@ -252,19 +253,19 @@ Waiver of premium is usually included. Once the insured qualifies for benefits, 
     {
       id: 'c9-riders',
       title: 'Extra benefits and refund riders',
-      body: `An accidental death and dismemberment rider pays for accidental losses only. It is a pure form of accident insurance. The principal sum is paid for accidental death or loss of both hands, both feet, or both eyes. That amount is usually equal to the face amount. Loss of one hand, one foot, or sight in one eye pays a percentage of the principal sum, the capital sum, which varies with the severity of the injury. The full principal sum is usually paid for sight in both eyes or two or more limbs. One hand or one foot may pay 50%. Some policies pay double or triple indemnity for accidental death. Most pay if the death is caused by the accident and occurs within a stated time, such as 60 to 90 days.
+      body: `An accidental death and dismemberment rider pays for accidental losses only. It is a pure form of accident insurance. The principal sum is paid for accidental death, or for the loss of both hands, both feet, or both eyes. That amount is usually equal to the face amount. The loss of one hand, one foot, or sight in one eye pays a percentage of the principal sum. That percentage is the capital sum, and it varies with the severity of the injury. The full principal sum is usually paid for sight in both eyes or for two or more limbs. One hand or one foot may pay 50%. Some policies pay double or triple indemnity for accidental death. Most pay if the death is caused by the accident and occurs within a stated time, such as 60 to 90 days.
 
-The rehabilitation benefit covers part of the cost of a formal retraining program so a totally disabled insured can return to the old occupation or another one. It usually offers a specified sum, several times the monthly indemnity, for costs other insurance does not pay.
+The rehabilitation benefit covers part of the cost of a formal retraining program so a totally disabled insured can return to the old occupation or to another one. It usually offers a specified sum, several times the monthly indemnity, for costs that other insurance does not pay.
 
 The medical reimbursement benefit for a nondisabling injury pays medical expenses from an accidental bodily injury when the insured is not disabled.
 
-The return of premium rider refunds a percentage of premiums at stated times. At the end of the tenth year, the company may refund 80% of the excess of premiums paid over claims. The cash surrender rider creates a cash value of around 70% of the premiums paid in excess of claims. That value is often available only when the contract ends.
+The return of premium rider refunds a percentage of the premiums at stated times. At the end of the tenth year, the company may refund 80% of the excess of premiums paid over claims. The cash surrender rider creates a cash value of around 70% of the premiums paid in excess of claims. That value is often available only when the contract ends.
 
-A cost of living adjustment rider protects benefits from inflation. Once claim payments have begun, the monthly benefit increases automatically. The first increase is generally at the end of one year, then annually for as long as the insured remains on claim. Some riders use compound interest and some use simple interest.
+A cost of living adjustment rider protects the benefits from inflation. Once claim payments have begun, the monthly benefit increases automatically. The first increase is generally at the end of one year, and then annually for as long as the insured remains on the claim. Some riders use compound interest, and some use simple interest.
 
-The guaranteed insurability rider, also called the future increase option, lets the insured raise the benefit to a predetermined amount at certain times or events without proof of insurability. The usual ages are 25, 28, 31, 34, 37, and 40. An increase may also be taken at marriage or the birth of a child. The insured must still qualify from an income standpoint, so the increase does not create overinsurance.
+The guaranteed insurability rider, also called the future increase option, lets the insured raise the benefit to a predetermined amount at certain times or events without proof of insurability. The usual ages are 25, 28, 31, 34, 37, and 40. An increase may also be taken at marriage or at the birth of a child. The insured must still qualify from an income standpoint, so the increase does not create overinsurance.
 
-The relation of earnings to insurance provision limits benefits to the insured’s average income over the last 24 months. If the total monthly loss-of-time benefits promised under all valid coverages exceed the insured’s monthly earnings at the time of disability, or the average monthly earnings for the previous 2 years, whichever is greater, the insurer pays only a proportionate amount. If necessary, benefits are reduced pro rata.`,
+The relation of earnings to insurance provision limits benefits to the insured's average income over the last 24 months. If the total monthly loss-of-time benefits promised under all valid coverages exceed the insured's monthly earnings at the time of disability, or the average monthly earnings for the previous 2 years, whichever is greater, the insurer pays only a proportionate amount. If necessary, the benefits are reduced pro rata.`,
       questions: [
         question(
           'c9q07',
@@ -319,9 +320,9 @@ The relation of earnings to insurance provision limits benefits to the insured�
       title: 'Coordinating with Social Security',
       body: `To avoid overinsurance, insurers coordinate with Social Security. An additional monthly benefit rider pays about what Social Security would pay, but only for one year. The expectation is that Social Security will start at the end of that year.
 
-A social insurance supplement is a rider, not a separate plan. It pays about what Social Security would pay, and if Social Security does pay, the supplement is reduced dollar for dollar. It is used in three situations: the insured is eligible for Social Security but benefits have not started, usually after a 5-month wait with payment beginning in the 6th month; Social Security has denied the claim, which happens to roughly 75% of applicants because of its strict total-disability definition; or Social Security pays less than the rider, in which case only the difference is paid. The rider can also supplement or replace workers compensation and other social insurance.
+A social insurance supplement is a rider, not a separate plan. It pays about what Social Security would pay. If Social Security does pay, the supplement is reduced dollar for dollar. It is used in three situations. The insured is eligible for Social Security, but the benefits have not started. That is usually after a 5-month wait, with payment beginning in the 6th month. Social Security has denied the claim, which happens to roughly 75% of applicants because of its strict definition of total disability. Or Social Security pays less than the rider, in which case only the difference is paid. The rider can also supplement or replace workers compensation and other social insurance.
 
-Occupational coverage pays for illness, injury, or disability from accidents or sicknesses on or off the job. Nonoccupational coverage pays only for accidents or sicknesses off the job. Many individual policies are written either way. Most group plans are nonoccupational only, because the job is assumed to be covered by workers compensation.`,
+Occupational coverage pays for an illness, an injury, or a disability from an accident or a sickness on or off the job. Nonoccupational coverage pays only for an accident or a sickness off the job. Many individual policies are written either way. Most group plans are nonoccupational only, because the job is assumed to be covered by workers compensation.`,
       questions: [
         question(
           'c9q10',
@@ -351,9 +352,9 @@ Occupational coverage pays for illness, injury, or disability from accidents or 
     {
       id: 'c9-underwrite',
       title: 'How an individual policy is underwritten',
-      body: `Occupation is critical. The more hazardous the occupation, the higher the premium. Attorneys and doctors pay the lowest premiums and receive the better definitions of disability. Construction workers pay more and receive poorer definitions because the risk of disability is greater.
+      body: `Occupation is critical. The more hazardous the occupation, the higher the premium. Attorneys and doctors pay the lowest premiums and receive the better definitions of disability. Construction workers pay more and receive poorer definitions, because the risk of disability is greater.
 
-Disability income policies are valued, or stated-amount, contracts. The benefit the company will issue is based on net earned income. Most companies set a maximum percentage, such as 65% for higher incomes or 85% for lower incomes, to prevent malingering and overuse. Others use a flat amount. Two principles apply: the benefit must be large enough to let the insured keep a lifestyle similar to the one before disability, and it may not exceed what the insured earned before disability.
+A disability income policy is a valued contract, also called a stated-amount contract. The benefit the company will issue is based on net earned income. Most companies set a maximum percentage, such as 65% for a higher income or 85% for a lower income, to prevent malingering and overuse. Others use a flat amount. Two principles apply. The benefit must be large enough to let the insured keep a lifestyle similar to the one before the disability. It may not exceed what the insured earned before the disability.
 
 If the risk is too great, the applicant can be declined. If the risk is more than standard but not a decline, the underwriter can rate up the policy, which increases the premium, or add an exclusion rider. A loss related to that exclusion is not covered.`,
       questions: [
@@ -385,11 +386,11 @@ If the risk is too great, the applicant can be declined. If the risk is more tha
     {
       id: 'c9-group',
       title: 'Disability coverage from an employer',
-      body: `Employers also offer disability income in group benefit packages. Benefit payments that come from employee contributions are not taxable. Benefit payments that come from employer contributions are taxable to the employee. The premium is deductible for the employer.
+      body: `Employers also offer disability income in a group benefit package. A benefit payment that comes from an employee contribution is not taxable. A benefit payment that comes from an employer contribution is taxable to the employee. The premium is deductible for the employer.
 
-Group plans usually set benefits as a percentage of the worker’s income. Individual policies usually specify a flat amount. Short-term group plans usually pay for a maximum of 13 to 52 weeks, with 26 weeks the most common, at 50% to 100% of income. Individual short-term plans run from 6 months to 2 years. Short-term plans are not renewable. Group long-term plans pay for more than 2 years, and the monthly benefit is usually limited to 60% of income. Group plans usually require 30 to 90 days of work before the employee is eligible. Group benefits are usually supplemental to workers compensation. Some group plans cover only nonoccupational disabilities.
+A group plan usually sets the benefit as a percentage of the worker's income. An individual policy usually specifies a flat amount. A short-term group plan usually pays for a maximum of 13 to 52 weeks. 26 weeks is the most common. The benefit is 50% to 100% of income. An individual short-term plan runs from 6 months to 2 years. A short-term plan is not renewable. A group long-term plan pays for more than 2 years, and the monthly benefit is usually limited to 60% of income. A group plan usually requires 30 to 90 days of work before the employee is eligible. Group benefits are usually supplemental to workers compensation. Some group plans cover only nonoccupational disabilities.
 
-Short-term disability from an employer can have an elimination period as short as 0 days. The benefit period is not longer than 2 years, and it may be 6 months or 1 year. Group long-term disability is often reserved for management. Its elimination period usually matches the short-term plan’s benefit period. The benefit period may run to age 65. Lower-wage employees are usually limited to 66⅔% of monthly wage. Higher-wage employees are usually limited to 50%.`,
+Short-term disability from an employer can have an elimination period as short as 0 days. The benefit period is not longer than 2 years, and it may be 6 months or 1 year. Group long-term disability is often reserved for management. Its elimination period usually matches the short-term plan's benefit period. The benefit period may run to age 65. A lower-wage employee is usually limited to 66⅔% of monthly wage. A higher-wage employee is usually limited to 50%.`,
       questions: [
         question(
           'c9q12',
@@ -442,9 +443,9 @@ Short-term disability from an employer can have an elimination period as short a
     {
       id: 'c9-business',
       title: 'Disability coverage a business buys',
-      body: `A business buys disability insurance on key employees to protect itself when that employee becomes disabled. Key person disability is bought by the employer on the life of a key employee. The economic value is the potential loss of business income plus the cost of hiring and training a replacement. The business owns the contract, pays the premium, and is the beneficiary. The key person is the insured and must consent in writing.
+      body: `A business buys disability insurance on a key employee to protect itself when that employee becomes disabled. Key person disability is bought by the employer on the life of a key employee. The economic value is the potential loss of business income, plus the cost of hiring and training a replacement. The business owns the contract, pays the premium, and is the beneficiary. The key person is the insured and must consent in writing.
 
-A buy-sell agreement is a legal agreement prepared by an attorney. It states how the business will pass between owners when one owner dies or becomes disabled. The business often buys insurance to fund the buyout. Policies that fund a disability buy-sell generally have a very long elimination period, possibly one or two years, and they pay a large lump sum to buy out the business rather than monthly benefits.`,
+A buy-sell agreement is a legal agreement prepared by an attorney. It states how the business will pass between owners when one owner dies or becomes disabled. The business often buys insurance to fund the buyout. A policy that funds a disability buy-sell generally has a very long elimination period, possibly one or two years. It pays a large lump sum to buy out the business rather than monthly benefits.`,
       questions: [
         question(
           'c9q14',
@@ -474,15 +475,19 @@ A buy-sell agreement is a legal agreement prepared by an attorney. It states how
     {
       id: 'c9-social',
       title: 'Social Security disability',
-      body: `Social Security, also called Old Age Survivors Disability Insurance, is a federal program enacted in 1935. It protects eligible workers and their dependents against financial loss from old age, disability, or death. With few exceptions, almost everyone is covered. It matters when measuring a person’s need for life insurance.
+      body: `Social Security, also called Old Age Survivors Disability Insurance, is a federal program enacted in 1935. It protects eligible workers and their dependents against financial loss from old age, disability, or death. With few exceptions, almost everyone is covered. It matters when measuring a person's need for life insurance.
 
-The Quarter of Coverage system decides whether a worker qualifies. The type and amount of benefits depend on credits earned. A worker in covered employment, or a self-employed person, may earn up to 4 credits for each year of work. Fully insured means 40 quarters of coverage, the equivalent of 10 years of work. That status brings Social Security retirement, premium-free Medicare Part A, and survivor benefits. A person entitled to premium-free Part A is automatically eligible for Part B but must pay a monthly premium.
+The Quarter of Coverage system decides whether a worker qualifies. The type and the amount of benefits depend on the credits earned. A worker in covered employment, or a self-employed person, may earn up to 4 credits for each year of work. Fully insured means 40 quarters of coverage, the equivalent of 10 years of work. That status brings Social Security retirement, premium-free Medicare Part A, and survivor benefits. A person entitled to premium-free Part A is automatically eligible for Part B, but must pay a monthly premium.
 
-Currently insured, or partially insured, status requires 6 credits during the 13-quarter period ending with the quarter in which the person dies, becomes entitled to disability benefits, or becomes entitled to old-age benefits. For younger workers, the quarters required for benefits differ by age under a Social Security table.
+Currently insured status, also called partially insured status, requires 6 credits during the 13-quarter period ending with the quarter in which the person dies, becomes entitled to disability benefits, or becomes entitled to old-age benefits. For a younger worker, the quarters required for benefits differ by age under a Social Security table.
 
 Social Security disability is the inability to engage in any substantially gainful activity because of a medically determinable physical or mental impairment that has lasted, or is expected to last, 12 months, or to result in an early death. That definition is stricter than most definitions sold by insurance companies.
 
-The waiting period is 5 months. Benefits begin at the start of the 6th month and are not retroactive to the start of the disability. The amount is based on the worker’s Primary Insurance Amount, calculated from Average Indexed Monthly Earnings over the highest 35 years. The lowest 5 years of income may be dropped. If the person returns to work making more than $1,050 a month, disability benefits continue for 3 months. That is an incentive to return to work.`,
+The waiting period is 5 months. Benefits begin at the start of the 6th month, and they are not retroactive to the start of the disability. The amount is based on the worker's Primary Insurance Amount, calculated from Average Indexed Monthly Earnings over the highest 35 years. The lowest 5 years of income may be dropped.
+
+A person who returns to work can use a trial work period. In 2026, a month counts toward that trial when earnings are over $1,210 (SSA). Disability benefits are not cut off just because of earnings during the trial. After the trial, substantial gainful activity for a person who is not blind is $1,690 a month in 2026. When benefits stop because of work, Social Security still pays the month disability ceases and the next two months.
+
+Retirement benefits have a separate earnings test. In 2026, a person who is under full retirement age for the whole year can earn $24,480 and still receive a full benefit. One dollar of benefits is withheld for every two dollars earned above that annual limit. In the first year, a full benefit can be paid for any month in which earnings are $2,040 or less and the person did not perform substantial services in self-employment. That $2,040 is one-twelfth of the annual limit (SSA, 2026).`,
       questions: [
         question(
           'c9q15',
@@ -509,24 +514,24 @@ The waiting period is 5 months. Benefits begin at the start of the 6th month and
         ),
         question(
           'c9q16',
-          'A worker returns to work earning more than $1,050 a month. What happens to Social Security disability benefits?',
+          'In 2026, a worker returns to work. What happens to Social Security disability benefits?',
           [
             {
-              text: 'They continue for 3 months. That continuation is an incentive to return to work.',
-              why: 'The benefit amount comes from the primary insurance amount, based on average indexed monthly earnings over the highest 35 years. The lowest 5 years may be deleted. A person with premium-free Medicare Part A is eligible for Part B but pays the Part B premium.',
+              text: 'A month with earnings over $1,210 counts toward a trial work period, and benefits are not cut off just because of earnings during the trial. After the trial, substantial gainful activity for a person who is not blind is $1,690 a month. When benefits stop because of work, Social Security pays the cessation month and the next two months.',
+              why: 'In 2026 a trial-work month is earnings over $1,210, and benefits continue during that trial. After the trial, substantial gainful activity for a person who is not blind is $1,690 a month. When benefits stop because of work, Social Security pays the month disability ceases and the next two months.',
               correct: true,
             },
             {
               text: 'They stop on the first day of work, and any benefits already paid must be returned.',
-              why: 'Benefits continue for 3 months when earnings exceed $1,050 a month. The course does not describe a repayment of benefits already paid.',
+              why: 'Benefits are not cut off on the first day of work, and the course does not describe a repayment of benefits already paid. During the trial work period, earnings over $1,210 do not by themselves stop benefits.',
             },
             {
               text: 'They double for 3 months, then convert to a private residual benefit.',
-              why: 'The 3-month period continues the existing Social Security benefit. It does not double it or convert it into a private residual disability benefit.',
+              why: 'Returning to work does not double the Social Security benefit or convert it into a private residual disability benefit. During the 2026 trial work period, earnings over $1,210 do not by themselves stop benefits.',
             },
             {
               text: 'They are replaced immediately by a key person disability benefit.',
-              why: 'Key person disability is a business-owned policy. It is not what Social Security pays a worker who returns to work.',
+              why: 'Key person disability is a business-owned policy. It is not what Social Security pays a worker who returns to work. When benefits later stop because of work, Social Security pays the cessation month and the next two months.',
             },
           ],
         ),

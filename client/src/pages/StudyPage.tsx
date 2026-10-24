@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { useEffect, useMemo, useRef, useState, type MouseEvent, type PointerEvent } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type MouseEvent, type PointerEvent } from 'react'
 import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { errorText, getProgress, onStudyFeatureReady, saveProgress, type SectionProgress } from '../api/client.ts'
 import { useAuth } from '../auth/AuthContext.tsx'
@@ -12,11 +12,13 @@ import { StudyOutline } from '../components/StudyOutline.tsx'
 import { NarrationBar } from '../components/NarrationBar.tsx'
 import { Button } from '../components/ui/button.tsx'
 import { flatSections } from '../content/pack.ts'
+import { subjectTitle } from '../content/rewrite.ts'
+import { COLUMN_SCROLL, isColumnScroller, scrollChildIntoView, scrollNarrationTarget } from '../study/columnScroll.ts'
 import { loadResume, saveResume } from '../study/draws.ts'
 import { useStudyNav } from '../study/studyNav.ts'
 import { useHighlights } from '../study/HighlightContext.tsx'
 import { groupOrder, listNarrationStatus, sentenceParts, splitSentences } from '../study/narrator.ts'
-import { scrollNarrationTarget, useNarration } from '../study/useNarration.ts'
+import { useNarration } from '../study/useNarration.ts'
 import {
   HIGHLIGHT_NOTICE_MS,
   HIGHLIGHT_TEXT_MAX,
@@ -62,6 +64,9 @@ export function StudyPage() {
   const [deleteError, setDeleteError] = useState('')
   const deletingRef = useRef(false)
   const proseRef = useRef<HTMLDivElement>(null)
+  const tocRef = useRef<HTMLElement>(null)
+  const contentRef = useRef<HTMLElement>(null)
+  const [desktop, setDesktop] = useState(() => window.matchMedia('(min-width: 1024px)').matches)
   const draftRef = useRef<Offer | null>(null)
   const pinned = useRef<Offer | null>(null)
   const holdingOffer = useRef(false)
@@ -91,9 +96,30 @@ export function StudyPage() {
   const selectedSentence = narration.anchor != null && Number.isInteger(Number(narration.anchor)) ? Number(narration.anchor) : null
 
   useEffect(() => {
+    const query = window.matchMedia('(min-width: 1024px)')
+    const apply = () => setDesktop(query.matches)
+    apply()
+    query.addEventListener('change', apply)
+    return () => query.removeEventListener('change', apply)
+  }, [])
+
+  useEffect(() => {
     if (narration.phase !== 'speaking' || narration.activeGroup == null) return
     scrollNarrationTarget(proseRef.current?.querySelector(`[data-sentence="${narration.activeGroup}"]`) ?? null)
   }, [narration.phase, narration.activeGroup])
+
+  useLayoutEffect(() => {
+    if (location.hash) return
+    const column = contentRef.current
+    if (column && isColumnScroller(column)) column.scrollTo({ top: 0 })
+  }, [sectionId, location.hash])
+
+  useLayoutEffect(() => {
+    const column = tocRef.current
+    const active = column?.querySelector<HTMLElement>('[aria-current="page"]')
+    if (!column || !active) return
+    scrollChildIntoView(column, active, 'nearest')
+  }, [sectionId, navOpen])
 
   useEffect(() => {
     let cancel = false
@@ -167,7 +193,7 @@ export function StudyPage() {
   useEffect(() => {
     const root = proseRef.current
     if (!root || !current) return
-    const body = current.body
+    const body = sectionBody
     const ranges = highlights.flatMap((row) => {
       if (row.sectionId !== current.id) return []
       const anchored = anchorHighlight(body, row)
@@ -258,12 +284,12 @@ export function StudyPage() {
       window.removeEventListener('resize', readSelection)
       document.removeEventListener('scroll', readSelection, true)
     }
-  }, [current, highlights])
+  }, [current, highlights, sectionBody])
 
   useEffect(() => {
     const id = location.hash.replace(/^#/, '')
     if (!id) return
-    document.getElementById(id)?.scrollIntoView({ block: 'center' })
+    scrollNarrationTarget(document.getElementById(id), 'center')
   }, [sectionId, highlights, location.hash])
 
   if (!current) {
@@ -292,7 +318,7 @@ export function StudyPage() {
           {
             highlightId: row.highlightId,
             sectionId: row.sectionId,
-            sectionTitle: section.title,
+            sectionTitle: subjectTitle(section.title),
             sectionIndex: sections.findIndex((item) => item.id === row.sectionId),
             startOffset: anchored.startOffset,
           },
@@ -301,6 +327,32 @@ export function StudyPage() {
       sections.map((section) => ({ id: section.id, chapterNumber: section.chapter.number })),
     ),
   )
+  const paintedHighlights = highlights.flatMap((row) => {
+    if (row.sectionId !== current.id) return []
+    const anchored = anchorHighlight(sectionBody, row)
+    if (anchored.status !== 'anchored') return []
+    return [{ highlightId: row.highlightId, startOffset: anchored.startOffset, endOffset: anchored.endOffset }]
+  })
+
+  function studyProse() {
+    return (
+      <Prose
+        text={sectionBody}
+        sentences={sentences}
+        selectedSentence={selectedSentence}
+        activeSentence={narration.phase === 'speaking' ? activeSentence : null}
+        onSentenceTap={narration.supported ? (index) => narration.select(String(index)) : undefined}
+        highlights={paintedHighlights}
+        jumps={jumpControls}
+        onJump={(href) => navigate(href)}
+        onDelete={(highlightId) => {
+          const row = highlights.find((item) => item.highlightId === highlightId)
+          setDeleteError('')
+          setPendingDelete({ id: highlightId, text: row?.text ?? '' })
+        }}
+      />
+    )
+  }
 
   function pinDraft(event: PointerEvent<HTMLElement> | MouseEvent<HTMLElement>) {
     event.preventDefault()
@@ -384,8 +436,27 @@ export function StudyPage() {
     }
   }
 
+  function onColumnKeyDown(event: ReactKeyboardEvent<HTMLElement>) {
+    if (event.target !== event.currentTarget) return
+    const column = event.currentTarget
+    const line = 48
+    const page = Math.max(column.clientHeight - line, line)
+    let next = column.scrollTop
+    if (event.key === 'ArrowDown') next += line
+    else if (event.key === 'ArrowUp') next -= line
+    else if (event.key === 'PageDown' || (event.key === ' ' && !event.shiftKey)) next += page
+    else if (event.key === 'PageUp' || (event.key === ' ' && event.shiftKey)) next -= page
+    else if (event.key === 'Home') next = 0
+    else if (event.key === 'End') next = column.scrollHeight
+    else return
+    event.preventDefault()
+    column.scrollTo({ top: next })
+  }
+
+  const columnProps = desktop ? { tabIndex: 0 as const, onKeyDown: onColumnKeyDown } : {}
+
   return (
-    <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
+    <div className="grid gap-6 lg:h-full lg:min-h-0 lg:flex-1 lg:grid-cols-[280px_minmax(0,1fr)] lg:grid-rows-1 lg:gap-4 lg:overflow-hidden">
       <ContentsButton pressed={contentsOpen} onClick={() => setContentsOpen(true)} />
       <SlideOver open={contentsOpen} title="Contents" onClose={() => setContentsOpen(false)}>
         <StudyOutline
@@ -398,26 +469,36 @@ export function StudyPage() {
           onPick={() => setContentsOpen(false)}
         />
       </SlideOver>
-      <aside className="hidden lg:sticky lg:top-4 lg:block lg:self-start">
-        <div className="rounded-2xl border border-[#d5e2f0] bg-white p-4">
-          <StudyOutline
-            idPrefix="desktop"
-            navOpen={navOpen}
-            onToggle={toggleChapter}
-            done={done}
-            loading={loading}
-            currentSectionId={current.id}
-          />
-        </div>
+      <aside
+        ref={tocRef}
+        {...{ [COLUMN_SCROLL]: '' }}
+        {...columnProps}
+        aria-label="Table of contents"
+        className="column-scroll hidden rounded-2xl border border-[#d5e2f0] bg-white p-4 focus-visible:ring-2 focus-visible:ring-[#2a6cb5] focus-visible:outline-none focus-visible:ring-inset lg:block lg:h-full lg:min-h-0 lg:overflow-y-auto lg:overscroll-contain"
+      >
+        <StudyOutline
+          idPrefix="desktop"
+          navOpen={navOpen}
+          onToggle={toggleChapter}
+          done={done}
+          loading={loading}
+          currentSectionId={current.id}
+        />
       </aside>
-      <article className="min-w-0 rounded-2xl border border-[#d5e2f0] bg-white p-5 sm:p-8">
+      <article
+        ref={contentRef}
+        {...{ [COLUMN_SCROLL]: '' }}
+        {...columnProps}
+        aria-label={subjectTitle(current.title)}
+        className="column-scroll min-w-0 rounded-2xl border border-[#d5e2f0] bg-white p-5 focus-visible:ring-2 focus-visible:ring-[#2a6cb5] focus-visible:outline-none focus-visible:ring-inset sm:p-8 lg:h-full lg:min-h-0 lg:overflow-y-auto lg:overscroll-contain lg:scroll-pt-16"
+      >
         <p className="text-sm font-semibold text-[#2a6cb5]">
-          Chapter {current.chapter.number} · {current.chapter.title}
+          Chapter {current.chapter.number} · {subjectTitle(current.chapter.title)}
         </p>
-        <h1 className="mt-1 font-['Fraunces',Georgia,serif] text-3xl font-semibold text-[#14375f]">{current.title}</h1>
+        <h1 className="mt-1 font-['Fraunces',Georgia,serif] text-3xl font-semibold text-[#14375f]">{subjectTitle(current.title)}</h1>
         {marked ? <p className="mt-2 text-sm text-[#5c7288]">Marked complete</p> : null}
         {error ? <p className="mt-4 rounded-xl bg-[#fdecec] px-3 py-2 text-sm text-[#8d1d1d]">{error}</p> : null}
-        <div className="mt-4">
+        <div className="mt-4 lg:sticky lg:top-0 lg:z-10 lg:border-b lg:border-[#e4eef7] lg:bg-white lg:py-3">
           <NarrationBar
             supported={narration.supported}
             phase={narration.phase}
@@ -432,29 +513,15 @@ export function StudyPage() {
             onPrevious={narration.previous}
             onNext={narration.next}
             onCycleRate={narration.cycleRate}
+            voiceId={narration.voiceId}
+            voices={narration.voices}
+            showIosVoiceHint={narration.showIosVoiceHint}
+            onVoiceChange={narration.chooseVoice}
+            onPreviewVoice={narration.previewVoice}
           />
         </div>
         <div ref={proseRef} className="mt-6 select-text" style={{ WebkitUserSelect: 'text', userSelect: 'text' }}>
-          <Prose
-            text={current.body}
-            sentences={sentences}
-            selectedSentence={selectedSentence}
-            activeSentence={narration.phase === 'speaking' ? activeSentence : null}
-            onSentenceTap={narration.supported ? (index) => narration.select(String(index)) : undefined}
-            highlights={highlights.flatMap((row) => {
-              if (row.sectionId !== current.id) return []
-              const anchored = anchorHighlight(current.body, row)
-              if (anchored.status !== 'anchored') return []
-              return [{ highlightId: row.highlightId, startOffset: anchored.startOffset, endOffset: anchored.endOffset }]
-            })}
-            jumps={jumpControls}
-            onJump={(href) => navigate(href)}
-            onDelete={(highlightId) => {
-              const row = highlights.find((item) => item.highlightId === highlightId)
-              setDeleteError('')
-              setPendingDelete({ id: highlightId, text: row?.text ?? '' })
-            }}
-          />
+          {studyProse()}
         </div>
         {draft ? (
           <HighlightOffer

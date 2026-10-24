@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
+import { captureScroll } from '../study/columnScroll.ts'
 import { highlightDeletePreview } from '../study/highlights.ts'
 import { Button } from './ui/button.tsx'
 
@@ -15,11 +16,10 @@ export function DeleteHighlightDialog({ text, busy, error = '', onConfirm, onCan
   const dialogRef = useRef<HTMLDivElement>(null)
 
   useLayoutEffect(() => {
-    const x = window.scrollX
-    const y = window.scrollY
+    const restoreScroll = captureScroll()
     const previous = document.activeElement instanceof HTMLElement ? document.activeElement : null
     dialogRef.current?.querySelector<HTMLButtonElement>('[data-cancel]')?.focus({ preventScroll: true })
-    window.scrollTo(x, y)
+    restoreScroll()
     return () => {
       if (previous && document.contains(previous)) previous.focus({ preventScroll: true })
     }

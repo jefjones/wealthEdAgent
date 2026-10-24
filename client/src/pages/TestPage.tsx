@@ -12,6 +12,7 @@ import {
 import { useAuth } from '../auth/AuthContext.tsx'
 import { Button } from '../components/ui/button.tsx'
 import { correctOptionId, findQuestion } from '../content/pack.ts'
+import { subjectTitle } from '../content/rewrite.ts'
 import { formatLocal, formatPercent } from '../lib/utils.ts'
 import { loadDraw, saveDraw, type Draw } from '../study/draws.ts'
 import {
@@ -220,7 +221,7 @@ export function TestPage() {
       <p className="text-sm font-semibold text-[#2a6cb5]">
         Question {index + 1} of {draw.questionIds.length}
       </p>
-      <h1 className="mt-2 font-['Fraunces',Georgia,serif] text-2xl font-semibold text-[#14375f] sm:text-3xl">{question.stem}</h1>
+      <h1 className="mt-2 font-['Fraunces',Georgia,serif] text-2xl font-semibold text-[#14375f] sm:text-3xl">{subjectTitle(question.stem)}</h1>
       {revealed && error ? <p className="mt-4 rounded-xl bg-[#fdecec] px-3 py-2 text-sm text-[#8d1d1d]">{error}</p> : null}
       {revealed ? (
         <AnsweredChoices
@@ -400,7 +401,7 @@ function Summary({
         <p className="mt-3 text-sm font-semibold text-[#2a6cb5]">
           Question {reviewIndex + 1} of {draw.questionIds.length}
         </p>
-        <h1 className="mt-2 font-['Fraunces',Georgia,serif] text-2xl font-semibold text-[#14375f]">{question.stem}</h1>
+        <h1 className="mt-2 font-['Fraunces',Georgia,serif] text-2xl font-semibold text-[#14375f]">{subjectTitle(question.stem)}</h1>
         <AnsweredChoices
           options={options}
           chosenOptionId={answer.chosenOptionId}
@@ -442,7 +443,7 @@ function Summary({
           const answer = answers.find((row) => row.questionId === id)
           const correct = answer?.isCorrect
           const seconds = questionSeconds(answer?.seconds, draw.secondsByQuestion?.[id])
-          const stem = findQuestion(id)?.stem
+          const stem = subjectTitle(findQuestion(id)?.stem ?? '')
           const mark = correct ? 'correct' : answer ? 'incorrect' : 'unanswered'
           return (
             <li key={id}>

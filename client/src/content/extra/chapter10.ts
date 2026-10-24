@@ -1406,8 +1406,8 @@ export const chapter10Extra: Record<string, Question[]> = {
           why: 'The 20% penalty applies to money used for a nonhealth expense. Employer contributions are not included in the individual’s taxable income.',
         },
         {
-          text: 'They are capped at the 2023 single minimum deductible of $1,500 and then taxed.',
-          why: 'In 2023 the qualified plan’s minimum deductible is $1,500 for singles. Employer contributions are not included in the individual’s taxable income.',
+          text: 'They are capped at the 2026 self-only minimum deductible of $1,700 and then taxed.',
+          why: 'In 2026 the qualified plan’s minimum deductible is $1,700 for self-only coverage. Employer contributions are not included in the individual’s taxable income.',
         },
         {
           text: 'They are not included in the individual’s taxable income.',
@@ -1441,24 +1441,24 @@ export const chapter10Extra: Record<string, Question[]> = {
     ),
     question(
       'c10q82',
-      'In 2023, what is the qualified plan’s minimum deductible?',
+      'In 2026, what is the qualified plan’s minimum deductible?',
       [
         {
-          text: '$3,850 for singles and $7,750 for families.',
-          why: 'Those amounts are the contribution limits. In 2023 the minimum deductible is $1,500 for singles and $3,000 for families.',
+          text: '$4,400 for self-only coverage and $8,750 for family coverage.',
+          why: 'Those amounts are the contribution limits. In 2026 the minimum deductible is $1,700 for self-only coverage and $3,400 for family coverage. The out-of-pocket maximum, not counting premiums, cannot exceed $8,500 or $17,000.',
         },
         {
-          text: '$1,500 for singles and $3,000 for families.',
-          why: 'In 2023 the qualified plan’s minimum deductible is $1,500 for singles and $3,000 for families.',
+          text: '$1,700 for self-only coverage and $3,400 for family coverage.',
+          why: 'In 2026 the minimum deductible is $1,700 for self-only coverage and $3,400 for family coverage. The out-of-pocket maximum, not counting premiums, cannot exceed $8,500 or $17,000.',
           correct: true,
         },
         {
           text: '$1,000 for each covered person and no separate family figure.',
-          why: 'Taxpayers age 55 and older may contribute an extra amount, up to $1,000. The 2023 minimum deductible is $1,500 for singles and $3,000 for families.',
+          why: 'Taxpayers age 55 and older may contribute an extra amount, up to $1,000. The 2026 minimum deductible is $1,700 for self-only coverage and $3,400 for family coverage.',
         },
         {
           text: 'No minimum, because the contribution limit replaces the deductible.',
-          why: 'The account is linked to high deductible insurance. In 2023 the minimum deductible is $1,500 for singles and $3,000 for families.',
+          why: 'The account is linked to high deductible insurance. In 2026 the minimum deductible is $1,700 for self-only coverage and $3,400 for family coverage. The out-of-pocket maximum, not counting premiums, cannot exceed $8,500 or $17,000.',
         },
       ],
     ),
@@ -1467,21 +1467,21 @@ export const chapter10Extra: Record<string, Question[]> = {
       'What contribution limit may eligible people or their employers reach, regardless of the plan deductible?',
       [
         {
-          text: '$1,500 for singles and $3,000 for families.',
-          why: 'Those are the 2023 minimum deductibles. Eligible people, or their employers, may save up to $3,850 for singles and $7,750 for families.',
+          text: '$1,700 for self-only coverage and $3,400 for family coverage.',
+          why: 'Those are the 2026 minimum deductibles. Eligible people, or their employers, may save up to $4,400 for self-only coverage and $8,750 for family coverage.',
         },
         {
           text: 'Only an extra $1,000, and only before age 55.',
-          why: 'Taxpayers age 55 and older may contribute an extra amount, up to $1,000. The contribution limit is $3,850 for singles and $7,750 for families, regardless of the plan deductible.',
+          why: 'Taxpayers age 55 and older may contribute an extra amount, up to $1,000. The contribution limit is $4,400 for self-only coverage and $8,750 for family coverage, regardless of the plan deductible.',
         },
         {
-          text: '$3,850 for singles and $7,750 for families.',
-          why: 'Eligible people, or their employers, may save up to the contribution limit regardless of the plan deductible: $3,850 for singles and $7,750 for families.',
+          text: '$4,400 for self-only coverage and $8,750 for family coverage.',
+          why: 'Eligible people, or their employers, may save up to the contribution limit regardless of the plan deductible: $4,400 for self-only coverage and $8,750 for family coverage.',
           correct: true,
         },
         {
           text: 'An unlimited amount, because employer contributions are left out of taxable income.',
-          why: 'Employer contributions are not included in the individual’s taxable income, but savings are still capped at $3,850 for singles and $7,750 for families.',
+          why: 'Employer contributions are not included in the individual’s taxable income, but savings are still capped at $4,400 for self-only coverage and $8,750 for family coverage.',
         },
       ],
     ),
