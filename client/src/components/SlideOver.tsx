@@ -84,7 +84,7 @@ export function SlideOver({
 
   return createPortal(
     <div className="fixed inset-0 z-50 lg:hidden">
-      <button type="button" className="absolute inset-0 bg-[#172033]/40" aria-label="Close contents" onClick={onClose} />
+      <button type="button" className="absolute inset-0 bg-[#172033]/40" aria-label={`Close ${title.toLowerCase()}`} onClick={onClose} />
       <div
         ref={panelRef}
         role="dialog"

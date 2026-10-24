@@ -6,12 +6,12 @@
  * overwrite a server timestamp for the same state.
  */
 
-export type StudyFeature = 'progress' | 'seen' | 'attempts' | 'highlights' | 'activity'
+export type StudyFeature = 'progress' | 'seen' | 'attempts' | 'highlights' | 'searchHistory' | 'activity'
 
 /** How long a feature stays on its browser backup before the client asks the server again. */
 export const REPROBE_MS = 60_000
 
-const BANNER_FEATURES: readonly StudyFeature[] = ['progress', 'seen', 'attempts', 'highlights']
+const BANNER_FEATURES: readonly StudyFeature[] = ['progress', 'seen', 'attempts', 'highlights', 'searchHistory']
 
 export type SyncProgress = {
   chapterId: string
@@ -177,14 +177,14 @@ export function classifyStudyFailure(input: {
 }
 
 /**
- * A 404 counts as "this route is not deployed" for highlights and activity, including an empty body.
+ * A 404 counts as "this route is not deployed" for highlights, search history, and activity, including an empty body.
  * Progress, seen questions, and attempts only treat the exact study-unavailable message that way.
  * The result names one feature. It never implies the others failed.
  */
 export function classifyFeatureFailure(
   feature: StudyFeature,
   input: { network?: boolean; status?: number; studyUnavailable?: boolean },
-  missingRouteFallsBack = feature === 'highlights' || feature === 'activity',
+  missingRouteFallsBack = feature === 'highlights' || feature === 'searchHistory' || feature === 'activity',
 ): 'undeployed' | 'unreachable' | null {
   return classifyStudyFailure({ ...input, missingRouteFallsBack })
 }
@@ -198,6 +198,7 @@ export function studyNoticeMessage(down: readonly StudyFeature[]) {
   return noticeFeatures(down)
     .map((feature) => {
       if (feature === 'highlights') return 'Highlights are saved in this browser only for now.'
+      if (feature === 'searchHistory') return 'Subject searches are saved in this browser only for now.'
       if (feature === 'progress') return 'Reading progress is saved in this browser only for now.'
       if (feature === 'attempts') return 'Test scores are saved in this browser only for now.'
       return 'Seen questions are saved in this browser only for now.'

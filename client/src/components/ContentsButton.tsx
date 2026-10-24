@@ -3,7 +3,15 @@ import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 /** Puts a Contents control in the top bar, beside the existing menu button. */
-export function ContentsButton({ pressed, onClick }: { pressed: boolean; onClick: () => void }) {
+export function ContentsButton({
+  pressed,
+  onClick,
+  label = 'Contents',
+}: {
+  pressed: boolean
+  onClick: () => void
+  label?: string
+}) {
   const [slot, setSlot] = useState<HTMLElement | null>(null)
 
   useEffect(() => {
@@ -21,7 +29,7 @@ export function ContentsButton({ pressed, onClick }: { pressed: boolean; onClick
       onClick={onClick}
     >
       <List size={18} aria-hidden />
-      Contents
+      {label}
     </button>,
     slot,
   )

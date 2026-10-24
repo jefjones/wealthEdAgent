@@ -12,6 +12,13 @@ import type { ActivityEvent } from '../study/activity.ts'
 import { copyDraw } from '../study/draws.ts'
 import { highlightInputError } from '../study/highlights.ts'
 import {
+  applySearchHistory,
+  cleanSearchText,
+  mergeSearchHistory,
+  searchHistoryKey,
+  type SearchHistoryEntry,
+} from '../study/searchHistory.ts'
+import {
   classifyFeatureFailure,
   featuresDueForReprobe,
   highlightContentKey,
@@ -139,6 +146,9 @@ type StudyDb = {
   attempts: AttemptRecord[]
   highlights?: Highlight[]
   deletedHighlightIds?: string[]
+  searchHistory?: SearchHistoryEntry[]
+  deletedSearchIds?: string[]
+  searchHistoryCleared?: boolean
   attemptUploads?: Record<string, AttemptUploadState>
 }
 
@@ -689,6 +699,53 @@ function localCreateHighlight(input: HighlightInput) {
   })
 }
 
+function copySearchEntries(entries: readonly SearchHistoryEntry[]) {
+  return entries.map((entry) => ({ ...entry }))
+}
+
+function localListSearchHistory() {
+  return withDb((db) => ({ entries: copySearchEntries(db.searchHistory ?? []) }))
+}
+
+function localRecordSearchHistory(text: string) {
+  const cleaned = cleanSearchText(text)
+  if (!cleaned) fail(400, 'Enter a subject to search for.')
+  return withDb((db) => {
+    const existing = (db.searchHistory ?? []).find((entry) => searchHistoryKey(entry.text) === searchHistoryKey(cleaned))
+    const entry: SearchHistoryEntry = {
+      entryId: existing?.entryId ?? crypto.randomUUID(),
+      text: cleaned,
+      searchedAt: nowIso(),
+    }
+    db.searchHistory = applySearchHistory(db.searchHistory ?? [], { type: 'add', entry })
+    return { entries: copySearchEntries(db.searchHistory) }
+  })
+}
+
+function localDeleteSearchHistory(entryId: string) {
+  assertId(entryId, 'entryId')
+  return withDb((db) => {
+    const entries = db.searchHistory ?? []
+    if (!entries.some((entry) => entry.entryId === entryId)) fail(404, 'Search not found.')
+    db.searchHistory = applySearchHistory(entries, { type: 'delete', entryId })
+    const ids = new Set(db.deletedSearchIds ?? [])
+    ids.add(entryId)
+    db.deletedSearchIds = [...ids]
+    return { deleted: true as const }
+  })
+}
+
+function localClearSearchHistory() {
+  return withDb((db) => {
+    const ids = new Set(db.deletedSearchIds ?? [])
+    for (const entry of db.searchHistory ?? []) ids.add(entry.entryId)
+    db.searchHistory = []
+    db.deletedSearchIds = [...ids]
+    db.searchHistoryCleared = true
+    return { deleted: true as const }
+  })
+}
+
 function localDeleteHighlight(highlightId: string) {
   assertId(highlightId, 'highlightId')
   return withDb((db) => {
@@ -1063,6 +1120,62 @@ async function migrateHighlights() {
   markFeatureUp('highlights')
 }
 
+async function migrateSearchHistory() {
+  const personId = requirePerson().personId
+  if (isMigrated(personId, 'searchHistory')) return
+  let body: { entries: SearchHistoryEntry[] }
+  try {
+    body = await realApi<{ entries: SearchHistoryEntry[] }>('api/wealthEdAgent/study/search-history')
+  } catch (error) {
+    if (noteFeatureFailure('searchHistory', error)) return
+    throw error
+  }
+  const plan = mergeSearchHistory(
+    body.entries,
+    peekDb().searchHistory ?? [],
+    peekDb().deletedSearchIds ?? [],
+    peekDb().searchHistoryCleared === true,
+  )
+  for (const entryId of plan.deleteIds) {
+    try {
+      await realApi(`api/wealthEdAgent/study/search-history/${encodeURIComponent(entryId)}`, { method: 'DELETE' })
+    } catch (error) {
+      if (error instanceof ApiError && error.status === 404) {
+        /* The row is already gone. A missing search is not a missing route. */
+      } else if (noteFeatureFailure('searchHistory', error)) {
+        return
+      } else {
+        throw error
+      }
+    }
+    updateDb((db) => {
+      db.deletedSearchIds = (db.deletedSearchIds ?? []).filter((id) => id !== entryId)
+    })
+  }
+  for (const row of plan.upload) {
+    try {
+      const saved = await realApi<{ entry: SearchHistoryEntry }>('api/wealthEdAgent/study/search-history', {
+        method: 'POST',
+        body: JSON.stringify({ text: row.text }),
+      })
+      updateDb((db) => {
+        db.searchHistory = applySearchHistory(db.searchHistory ?? [], { type: 'add', entry: saved.entry })
+      })
+    } catch (error) {
+      if (noteFeatureFailure('searchHistory', error)) return
+      if (error instanceof ApiError && error.status === 400) continue
+      throw error
+    }
+  }
+  updateDb((db) => {
+    db.searchHistory = mergeSearchHistory(body.entries, db.searchHistory ?? [], plan.deleteIds).merged
+    db.searchHistoryCleared = false
+    db.deletedSearchIds = []
+  })
+  setMigrated(personId, 'searchHistory', true)
+  markFeatureUp('searchHistory')
+}
+
 async function ensureMigrated(feature: MigratableFeature) {
   const personId = requirePerson().personId
   if (isMigrated(personId, feature)) return
@@ -1075,7 +1188,9 @@ async function ensureMigrated(feature: MigratableFeature) {
         ? migrateSeen()
         : feature === 'attempts'
           ? migrateAttempts()
-          : migrateHighlights()
+          : feature === 'searchHistory'
+            ? migrateSearchHistory()
+            : migrateHighlights()
   ).finally(() => {
     migrateFlights.delete(feature)
   })
@@ -1130,7 +1245,8 @@ async function reprobeStudyFeatures(focus: boolean) {
       if (feature === 'progress') await getProgress()
       else if (feature === 'seen') await getSeen()
       else if (feature === 'attempts') await listAttempts()
-      else await listHighlights()
+      else if (feature === 'highlights') await listHighlights()
+      else if (feature === 'searchHistory') await listSearchHistory()
     } catch {
       /* The call records its own failure. */
     }
@@ -1387,6 +1503,80 @@ export function getAttempt(attemptId: string) {
       mirrorAttempt(result.attempt, result.answers)
       return result
     },
+  )
+}
+
+export function listSearchHistory() {
+  return withFeature(
+    'searchHistory',
+    localListSearchHistory,
+    async () => {
+      const body = await realApi<{ entries: SearchHistoryEntry[] }>('api/wealthEdAgent/study/search-history')
+      const db = peekDb()
+      return {
+        entries: mergeSearchHistory(body.entries, db.searchHistory ?? [], db.deletedSearchIds ?? [], db.searchHistoryCleared === true)
+          .merged,
+      }
+    },
+    { missingRoute: true },
+  )
+}
+
+export function recordSearchHistory(text: string) {
+  const cleaned = cleanSearchText(text)
+  if (!cleaned) fail(400, 'Enter a subject to search for.')
+  return withFeature(
+    'searchHistory',
+    () => localRecordSearchHistory(cleaned),
+    async () => {
+      const result = await realApi<{ entry: SearchHistoryEntry }>('api/wealthEdAgent/study/search-history', {
+        method: 'POST',
+        body: JSON.stringify({ text: cleaned }),
+      })
+      updateDb((db) => {
+        db.searchHistory = applySearchHistory(db.searchHistory ?? [], { type: 'add', entry: result.entry })
+        db.deletedSearchIds = (db.deletedSearchIds ?? []).filter((id) => id !== result.entry.entryId)
+        db.searchHistoryCleared = false
+      })
+      return { entries: copySearchEntries(peekDb().searchHistory ?? []) }
+    },
+    { write: true, missingRoute: true },
+  )
+}
+
+export function deleteSearchHistory(entryId: string) {
+  return withFeature(
+    'searchHistory',
+    () => localDeleteSearchHistory(entryId),
+    async () => {
+      const result = await realApi<{ deleted: true }>(
+        `api/wealthEdAgent/study/search-history/${encodeURIComponent(entryId)}`,
+        { method: 'DELETE' },
+      )
+      updateDb((db) => {
+        db.searchHistory = (db.searchHistory ?? []).filter((entry) => entry.entryId !== entryId)
+        db.deletedSearchIds = (db.deletedSearchIds ?? []).filter((id) => id !== entryId)
+      })
+      return result
+    },
+    { write: true, missingRoute: false },
+  )
+}
+
+export function clearSearchHistory() {
+  return withFeature(
+    'searchHistory',
+    localClearSearchHistory,
+    async () => {
+      const result = await realApi<{ deleted: true }>('api/wealthEdAgent/study/search-history', { method: 'DELETE' })
+      updateDb((db) => {
+        db.searchHistory = []
+        db.deletedSearchIds = []
+        db.searchHistoryCleared = false
+      })
+      return result
+    },
+    { write: true, missingRoute: true },
   )
 }
 

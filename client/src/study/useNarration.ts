@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import {
   AUTO_VOICE_ID,
+  END_OF_COURSE_ANNOUNCEMENT,
   NARRATION_PITCH,
   VOICE_PREVIEW_TEXT,
   initialPlayerState,
@@ -8,6 +9,7 @@ import {
   nextNarrationRate,
   playerReducer,
   rankNarrationVoices,
+  readAutoContinue,
   readVoicePreference,
   resolveNarrationVoice,
   speechSynthesisAvailable,
@@ -15,6 +17,7 @@ import {
   startPartIndex,
   stepDestination,
   voiceStorageId,
+  writeAutoContinue,
   writeVoicePreference,
   type NarrationRate,
   type SpeechPart,
@@ -24,9 +27,36 @@ import {
 /**
  * One speechSynthesis queue shared by section reading and highlight reading.
  * Utterances are queued inside the click that starts them so iOS keeps the
- * user gesture. The queue is cancelled on stop, scope change, unmount,
- * pagehide, and when the page is hidden.
+ * user gesture. Auto-continue queues the next section from the last
+ * utterance's onend and does not call cancel() between sections, so Safari
+ * and Chrome on iPhone keep the gesture. The queue is cancelled on stop, a
+ * manual scope change, unmount, pagehide, and when the page is hidden.
  */
+
+export type NarrationAdvance = {
+  action: 'advance'
+  /** Scope value the screen will pass on the next render. Must match useNarration's scope. */
+  scope: string
+  announcement: string
+  parts: readonly SpeechPart[]
+  /** Navigate only after the next utterances are already queued. */
+  commit: () => void
+}
+
+export type NarrationContinuation = { action: 'stop' } | { action: 'end'; announcement: string } | NarrationAdvance
+
+type Spoken = {
+  text: string
+  /** Part index in the section. Null speaks without moving the sentence highlight. */
+  index: number | null
+}
+
+function spokenParts(parts: readonly SpeechPart[], startIndex: number): Spoken[] {
+  return parts.slice(startIndex).map((part, offset) => ({
+    text: part.speak,
+    index: startIndex + offset,
+  }))
+}
 function choiceFrom(voice: SpeechSynthesisVoice): VoiceChoice {
   return { lang: voice.lang, name: voice.name, default: voice.default, voiceURI: voice.voiceURI }
 }
@@ -38,12 +68,19 @@ function nativeVoice(catalog: readonly SpeechSynthesisVoice[], savedId: string, 
   return catalog.find((voice) => voiceStorageId(choiceFrom(voice)) === id) ?? null
 }
 
-export function useNarration(scope: string, parts: readonly SpeechPart[]) {
+export function useNarration(
+  scope: string,
+  parts: readonly SpeechPart[],
+  follow?: { afterSection: () => NarrationContinuation },
+) {
   const [state, dispatch] = useReducer(playerReducer, undefined, initialPlayerState)
   const supported =
     typeof window !== 'undefined' && speechSynthesisAvailable(window as Window & typeof globalThis)
   const [savedVoiceId, setSavedVoiceId] = useState(() =>
     typeof window === 'undefined' ? AUTO_VOICE_ID : readVoicePreference(window.localStorage),
+  )
+  const [autoContinue, setAutoContinueState] = useState(() =>
+    typeof window === 'undefined' ? true : readAutoContinue(window.localStorage),
   )
   const [catalog, setCatalog] = useState<SpeechSynthesisVoice[]>([])
   const [voicesReady, setVoicesReady] = useState(false)
@@ -52,6 +89,15 @@ export function useNarration(scope: string, parts: readonly SpeechPart[]) {
   stateRef.current = state
   const partsRef = useRef(parts)
   partsRef.current = parts
+  const followRef = useRef(follow)
+  followRef.current = follow
+  const autoContinueRef = useRef(autoContinue)
+  autoContinueRef.current = autoContinue
+  /** Set to the destination scope before navigating so that change does not cancel speech. */
+  const handoffScopeRef = useRef<string | null>(null)
+  /** The next parts update belongs to a section we already started speaking. */
+  const adoptPartsRef = useRef(false)
+  const chainingRef = useRef(false)
   const voiceRef = useRef<SpeechSynthesisVoice | null>(null)
   const appliedVoiceRef = useRef<string | null>(null)
   const catalogRef = useRef(catalog)
@@ -59,34 +105,23 @@ export function useNarration(scope: string, parts: readonly SpeechPart[]) {
   const readyRef = useRef(voicesReady)
   readyRef.current = voicesReady
 
-  const speakFrom = useCallback((index: number, rate: NarrationRate) => {
+  const enqueue = useCallback((token: number, items: readonly Spoken[], rate: NarrationRate, onDone: () => void) => {
     const synth = window.speechSynthesis
-    const list = partsRef.current
-    if (!synth || index < 0 || index >= list.length) {
-      dispatch({ type: 'finish' })
-      return
-    }
-    // Bump the run token before cancel(). iOS and Chrome fire onend for the
-    // utterance cancel() just dropped, and that stale end must not finish this run.
-    const token = tokenRef.current + 1
-    tokenRef.current = token
-    if (synth.speaking || synth.pending) synth.cancel()
+    if (!synth || items.length === 0) return false
     const voice = voiceRef.current
-    const pending = list.slice(index)
-    pending.forEach((part, offset) => {
-      const utter = new SpeechSynthesisUtterance(part.speak)
+    items.forEach((item, offset) => {
+      const utter = new SpeechSynthesisUtterance(item.text)
       utter.rate = rate
       utter.pitch = NARRATION_PITCH
       utter.lang = voice?.lang || 'en-US'
       if (voice) utter.voice = voice
-      const partIndex = index + offset
       utter.onstart = () => {
         if (tokenRef.current !== token) return
-        dispatch({ type: 'tick', index: partIndex })
+        if (item.index != null) dispatch({ type: 'tick', index: item.index })
       }
       utter.onend = () => {
         if (tokenRef.current !== token) return
-        if (offset === pending.length - 1) dispatch({ type: 'finish' })
+        if (offset === items.length - 1) onDone()
       }
       utter.onerror = (event) => {
         if (tokenRef.current !== token) return
@@ -96,7 +131,80 @@ export function useNarration(scope: string, parts: readonly SpeechPart[]) {
       synth.speak(utter)
     })
     synth.resume()
+    return true
   }, [])
+
+  const continueAfterSection = useCallback(
+    (token: number) => {
+      if (tokenRef.current !== token || chainingRef.current) return
+      const followUp = followRef.current
+      if (!autoContinueRef.current || !followUp) {
+        dispatch({ type: 'finish' })
+        return
+      }
+      const decision = followUp.afterSection()
+      const rate = stateRef.current.rate
+      if (decision.action === 'stop') {
+        dispatch({ type: 'finish' })
+        return
+      }
+      if (decision.action === 'end') {
+        const queued = enqueue(
+          token,
+          [{ text: decision.announcement || END_OF_COURSE_ANNOUNCEMENT, index: null }],
+          rate,
+          () => {
+            if (tokenRef.current !== token) return
+            dispatch({ type: 'finish' })
+          },
+        )
+        if (!queued) dispatch({ type: 'finish' })
+        return
+      }
+      const items: Spoken[] = [
+        { text: decision.announcement, index: null },
+        ...spokenParts(decision.parts, 0),
+      ].filter((item) => item.text.trim().length > 0)
+      if (items.length === 0) {
+        dispatch({ type: 'finish' })
+        return
+      }
+      // Queue from this onend before navigation. cancel() or a timer here drops
+      // the iOS user-activation chain, and the next section would stay silent.
+      chainingRef.current = true
+      handoffScopeRef.current = decision.scope
+      adoptPartsRef.current = true
+      dispatch({ type: 'bridge' })
+      const queued = enqueue(token, items, rate, () => continueAfterSection(token))
+      chainingRef.current = false
+      if (!queued) {
+        handoffScopeRef.current = null
+        adoptPartsRef.current = false
+        dispatch({ type: 'finish' })
+        return
+      }
+      decision.commit()
+    },
+    [enqueue],
+  )
+
+  const speakFrom = useCallback(
+    (index: number, rate: NarrationRate) => {
+      const synth = window.speechSynthesis
+      const list = partsRef.current
+      if (!synth || index < 0 || index >= list.length) {
+        dispatch({ type: 'finish' })
+        return
+      }
+      // Bump the run token before cancel(). iOS and Chrome fire onend for the
+      // utterance cancel() just dropped, and that stale end must not finish this run.
+      const token = tokenRef.current + 1
+      tokenRef.current = token
+      if (synth.speaking || synth.pending) synth.cancel()
+      enqueue(token, spokenParts(list, index), rate, () => continueAfterSection(token))
+    },
+    [continueAfterSection, enqueue],
+  )
 
   useEffect(() => {
     const synth = window.speechSynthesis
@@ -138,10 +246,20 @@ export function useNarration(scope: string, parts: readonly SpeechPart[]) {
   }, [catalog, savedVoiceId, voicesReady, speakFrom])
 
   useEffect(() => {
+    if (handoffScopeRef.current === scope) {
+      handoffScopeRef.current = null
+      return () => {
+        if (handoffScopeRef.current) return
+        tokenRef.current += 1
+        window.speechSynthesis?.cancel()
+      }
+    }
+    handoffScopeRef.current = null
     tokenRef.current += 1
     window.speechSynthesis?.cancel()
     dispatch({ type: 'reset' })
     return () => {
+      if (handoffScopeRef.current) return
       tokenRef.current += 1
       window.speechSynthesis?.cancel()
     }
@@ -168,13 +286,15 @@ export function useNarration(scope: string, parts: readonly SpeechPart[]) {
   const signature = parts.map((part) => `${part.group}\u0000${part.speak}`).join('\u0001')
   const signatureRef = useRef<string | null>(null)
   useEffect(() => {
+    const adopt = adoptPartsRef.current
+    adoptPartsRef.current = false
     if (signatureRef.current == null) {
       signatureRef.current = signature
       return
     }
     if (signatureRef.current === signature) return
     signatureRef.current = signature
-    if (stateRef.current.phase !== 'speaking') return
+    if (adopt || stateRef.current.phase !== 'speaking') return
     tokenRef.current += 1
     window.speechSynthesis?.cancel()
     dispatch({ type: 'stop' })
@@ -247,6 +367,12 @@ export function useNarration(scope: string, parts: readonly SpeechPart[]) {
     }
   }, [speakFrom])
 
+  const setAutoContinue = useCallback((enabled: boolean) => {
+    autoContinueRef.current = enabled
+    if (typeof window !== 'undefined') writeAutoContinue(window.localStorage, enabled)
+    setAutoContinueState(enabled)
+  }, [])
+
   const chooseVoice = useCallback((id: string) => {
     const next = id || AUTO_VOICE_ID
     if (typeof window !== 'undefined') writeVoicePreference(window.localStorage, next)
@@ -305,6 +431,8 @@ export function useNarration(scope: string, parts: readonly SpeechPart[]) {
     cycleRate,
     chooseVoice,
     previewVoice,
+    autoContinue,
+    setAutoContinue,
   }
 }
 

@@ -4,6 +4,8 @@ import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-route
 import { errorText, getProgress, onStudyFeatureReady, saveProgress, type SectionProgress } from '../api/client.ts'
 import { useAuth } from '../auth/AuthContext.tsx'
 import { ContentsButton } from '../components/ContentsButton.tsx'
+import { SearchPanel } from '../components/SearchPanel.tsx'
+import { SideTabs } from '../components/SideTabs.tsx'
 import { DeleteHighlightDialog } from '../components/DeleteHighlightDialog.tsx'
 import { HighlightOffer, HighlightSavedNotice } from '../components/HighlightOffer.tsx'
 import { Prose } from '../components/Prose.tsx'
@@ -17,8 +19,9 @@ import { COLUMN_SCROLL, isColumnScroller, scrollChildIntoView, scrollNarrationTa
 import { loadResume, saveResume } from '../study/draws.ts'
 import { useStudyNav } from '../study/studyNav.ts'
 import { useHighlights } from '../study/HighlightContext.tsx'
-import { groupOrder, listNarrationStatus, sentenceParts, splitSentences } from '../study/narrator.ts'
-import { useNarration } from '../study/useNarration.ts'
+import { useSearch } from '../study/SearchContext.tsx'
+import { continuationAfterSection, groupOrder, listNarrationStatus, sentenceParts, splitSentences } from '../study/narrator.ts'
+import { useNarration, type NarrationContinuation } from '../study/useNarration.ts'
 import {
   HIGHLIGHT_NOTICE_MS,
   HIGHLIGHT_TEXT_MAX,
@@ -64,7 +67,7 @@ export function StudyPage() {
   const [deleteError, setDeleteError] = useState('')
   const deletingRef = useRef(false)
   const proseRef = useRef<HTMLDivElement>(null)
-  const tocRef = useRef<HTMLElement>(null)
+  const tocRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLElement>(null)
   const [desktop, setDesktop] = useState(() => window.matchMedia('(min-width: 1024px)').matches)
   const draftRef = useRef<Offer | null>(null)
@@ -73,13 +76,51 @@ export function StudyPage() {
   const addingRef = useRef(false)
   draftRef.current = draft
   const { highlights, addHighlight, removeHighlight } = useHighlights()
+  const search = useSearch()
   const chapterId = current?.chapter.id ?? ''
   const { navOpen, toggleChapter } = useStudyNav(chapterId)
   const [contentsOpen, setContentsOpen] = useState(false)
   const sectionBody = current?.body ?? ''
   const sentences = useMemo(() => splitSentences(sectionBody), [sectionBody])
   const speechParts = useMemo(() => sentenceParts(sentences), [sentences])
-  const narration = useNarration(sectionId, speechParts)
+  const sectionsRef = useRef(sections)
+  sectionsRef.current = sections
+  const sectionIdRef = useRef(sectionId)
+  sectionIdRef.current = sectionId
+  const navigateRef = useRef(navigate)
+  navigateRef.current = navigate
+  const narrationFollow = useMemo(
+    () => ({
+      afterSection: (): NarrationContinuation => {
+        const list = sectionsRef.current
+        const decision = continuationAfterSection({
+          autoContinue: true,
+          currentId: sectionIdRef.current,
+          sections: list.map((section) => ({
+            id: section.id,
+            title: section.title,
+            chapterNumber: section.chapter.number,
+            chapterTitle: section.chapter.title,
+          })),
+        })
+        if (decision.action !== 'advance') return decision
+        const section = list.find((item) => item.id === decision.sectionId)
+        if (!section) return { action: 'stop' }
+        return {
+          action: 'advance',
+          scope: section.id,
+          announcement: decision.announcement,
+          parts: sentenceParts(splitSentences(section.body)),
+          commit: () => {
+            sectionIdRef.current = section.id
+            navigateRef.current(`/study/${section.id}`)
+          },
+        }
+      },
+    }),
+    [],
+  )
+  const narration = useNarration(sectionId, speechParts, narrationFollow)
   const speechGroups = useMemo(() => groupOrder(speechParts), [speechParts])
   const narrationStatus = listNarrationStatus({
     supported: narration.supported,
@@ -111,8 +152,21 @@ export function StudyPage() {
   useLayoutEffect(() => {
     if (location.hash) return
     const column = contentRef.current
-    if (column && isColumnScroller(column)) column.scrollTo({ top: 0 })
+    if (column && isColumnScroller(column)) {
+      column.scrollTo({ top: 0 })
+      return
+    }
+    window.scrollTo({ top: 0 })
   }, [sectionId, location.hash])
+
+  const searchFocus = search.focus?.sectionId === current?.id ? search.focus : null
+  useLayoutEffect(() => {
+    if (!searchFocus) return
+    const target =
+      proseRef.current?.querySelector<HTMLElement>('[data-search-hit]') ??
+      contentRef.current?.querySelector<HTMLElement>('[data-search-heading]')
+    scrollNarrationTarget(target ?? null, 'center')
+  }, [searchFocus])
 
   useLayoutEffect(() => {
     const column = tocRef.current
@@ -343,6 +397,12 @@ export function StudyPage() {
         activeSentence={narration.phase === 'speaking' ? activeSentence : null}
         onSentenceTap={narration.supported ? (index) => narration.select(String(index)) : undefined}
         highlights={paintedHighlights}
+        searchHit={
+          searchFocus && searchFocus.start != null && searchFocus.end != null
+            ? { start: searchFocus.start, end: searchFocus.end }
+            : null
+        }
+        searchToken={searchFocus?.token ?? 0}
         jumps={jumpControls}
         onJump={(href) => navigate(href)}
         onDelete={(highlightId) => {
@@ -457,33 +517,57 @@ export function StudyPage() {
 
   return (
     <div className="grid gap-6 lg:h-full lg:min-h-0 lg:flex-1 lg:grid-cols-[280px_minmax(0,1fr)] lg:grid-rows-1 lg:gap-4 lg:overflow-hidden">
-      <ContentsButton pressed={contentsOpen} onClick={() => setContentsOpen(true)} />
-      <SlideOver open={contentsOpen} title="Contents" onClose={() => setContentsOpen(false)}>
-        <StudyOutline
-          idPrefix="mobile"
-          navOpen={navOpen}
-          onToggle={toggleChapter}
-          done={done}
-          loading={loading}
-          currentSectionId={current.id}
-          onPick={() => setContentsOpen(false)}
-        />
+      <ContentsButton
+        pressed={contentsOpen}
+        label={search.tab === 'search' ? 'Search' : 'Contents'}
+        onClick={() => setContentsOpen(true)}
+      />
+      <SlideOver
+        open={contentsOpen}
+        title={search.tab === 'search' ? 'Search' : 'Contents'}
+        onClose={() => setContentsOpen(false)}
+      >
+        <div className="sticky top-0 z-10 -mx-3 bg-white px-3 pb-3">
+          <SideTabs tab={search.tab} onChange={search.setTab} />
+        </div>
+        {search.tab === 'search' ? (
+          <SearchPanel idPrefix="mobile" onNavigate={() => setContentsOpen(false)} />
+        ) : (
+          <StudyOutline
+            idPrefix="mobile"
+            navOpen={navOpen}
+            onToggle={toggleChapter}
+            done={done}
+            loading={loading}
+            currentSectionId={current.id}
+            onPick={() => setContentsOpen(false)}
+          />
+        )}
       </SlideOver>
       <aside
-        ref={tocRef}
-        {...{ [COLUMN_SCROLL]: '' }}
-        {...columnProps}
-        aria-label="Table of contents"
-        className="column-scroll hidden rounded-2xl border border-[#d5e2f0] bg-white p-4 focus-visible:ring-2 focus-visible:ring-[#2a6cb5] focus-visible:outline-none focus-visible:ring-inset lg:block lg:h-full lg:min-h-0 lg:overflow-y-auto lg:overscroll-contain"
+        aria-label={search.tab === 'search' ? 'Subject search' : 'Table of contents'}
+        className="hidden rounded-2xl border border-[#d5e2f0] bg-white p-4 lg:flex lg:h-full lg:min-h-0 lg:flex-col lg:overflow-hidden"
       >
-        <StudyOutline
-          idPrefix="desktop"
-          navOpen={navOpen}
-          onToggle={toggleChapter}
-          done={done}
-          loading={loading}
-          currentSectionId={current.id}
-        />
+        <SideTabs tab={search.tab} onChange={search.setTab} />
+        <div
+          ref={tocRef}
+          {...{ [COLUMN_SCROLL]: '' }}
+          {...columnProps}
+          className="column-scroll mt-3 min-h-0 flex-1 overflow-y-auto overscroll-contain focus-visible:ring-2 focus-visible:ring-[#2a6cb5] focus-visible:outline-none focus-visible:ring-inset"
+        >
+          {search.tab === 'search' ? (
+            <SearchPanel idPrefix="desktop" />
+          ) : (
+            <StudyOutline
+              idPrefix="desktop"
+              navOpen={navOpen}
+              onToggle={toggleChapter}
+              done={done}
+              loading={loading}
+              currentSectionId={current.id}
+            />
+          )}
+        </div>
       </aside>
       <article
         ref={contentRef}
@@ -495,7 +579,15 @@ export function StudyPage() {
         <p className="text-sm font-semibold text-[#2a6cb5]">
           Chapter {current.chapter.number} · {subjectTitle(current.chapter.title)}
         </p>
-        <h1 className="mt-1 font-['Fraunces',Georgia,serif] text-3xl font-semibold text-[#14375f]">{subjectTitle(current.title)}</h1>
+        <h1 className="mt-1 font-['Fraunces',Georgia,serif] text-3xl font-semibold text-[#14375f]">
+          {searchFocus && searchFocus.start == null ? (
+            <mark key={searchFocus.token} data-search-heading="" className="search-hit">
+              {subjectTitle(current.title)}
+            </mark>
+          ) : (
+            subjectTitle(current.title)
+          )}
+        </h1>
         {marked ? <p className="mt-2 text-sm text-[#5c7288]">Marked complete</p> : null}
         {error ? <p className="mt-4 rounded-xl bg-[#fdecec] px-3 py-2 text-sm text-[#8d1d1d]">{error}</p> : null}
         <div className="mt-4 lg:sticky lg:top-0 lg:z-10 lg:border-b lg:border-[#e4eef7] lg:bg-white lg:py-3">
@@ -518,6 +610,8 @@ export function StudyPage() {
             showIosVoiceHint={narration.showIosVoiceHint}
             onVoiceChange={narration.chooseVoice}
             onPreviewVoice={narration.previewVoice}
+            autoContinue={narration.autoContinue}
+            onAutoContinueChange={narration.setAutoContinue}
           />
         </div>
         <div ref={proseRef} className="mt-6 select-text" style={{ WebkitUserSelect: 'text', userSelect: 'text' }}>

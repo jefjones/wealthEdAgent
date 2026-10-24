@@ -9,9 +9,11 @@ import { PracticePage } from './pages/PracticePage.tsx'
 import { ProgressPage } from './pages/ProgressPage.tsx'
 import { RegisterPage } from './pages/RegisterPage.tsx'
 import { ResetPage } from './pages/ResetPage.tsx'
+import { SearchPage } from './pages/SearchPage.tsx'
 import { StudyIndex, StudyPage } from './pages/StudyPage.tsx'
 import { TestPage } from './pages/TestPage.tsx'
 import { HighlightProvider } from './study/HighlightContext.tsx'
+import { SearchProvider } from './study/SearchContext.tsx'
 
 function RequireAuth({ children }: { children: ReactNode }) {
   const { ready, person } = useAuth()
@@ -27,6 +29,7 @@ function RequireAuth({ children }: { children: ReactNode }) {
 export default function App() {
   return (
     <HighlightProvider>
+    <SearchProvider>
     <Routes>
       <Route element={<Shell />}>
         <Route path="/login" element={<LoginPage />} />
@@ -46,6 +49,14 @@ export default function App() {
           element={
             <RequireAuth>
               <StudyPage />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/search"
+          element={
+            <RequireAuth>
+              <SearchPage />
             </RequireAuth>
           }
         />
@@ -85,6 +96,7 @@ export default function App() {
         <Route path="*" element={<Navigate to="/study" replace />} />
       </Route>
     </Routes>
+    </SearchProvider>
     </HighlightProvider>
   )
 }

@@ -14,7 +14,7 @@ A signed-out `401` on a study route has an **empty body**. The client reads the 
 
 `percent` may be `50` or `50.0`. The client formats it. A whole number stays a whole number. Any other value is shown to one decimal place.
 
-Each study feature is checked on its own. A `404` on highlights, including an empty body, keeps highlights in this browser and does not stop progress, seen questions, or attempts from using the server. A `404` whose message is exactly `Study progress is not available yet.` means that one route is not deployed. The banner names only the feature that failed, for example `Highlights are saved in this browser only for now.` The client asks again on the next page load, when the window regains focus, and about once a minute. When a route responds, that feature's browser copy is uploaded once for the signed-in person and marked so it is not repeated: newer progress wins, and highlights and attempts are a union by id. Older local rows do not replace newer server rows.
+Each study feature is checked on its own. A `404` on highlights or search history, including an empty body, keeps that feature in this browser and does not stop progress, seen questions, or attempts from using the server. A `404` whose message is exactly `Study progress is not available yet.` means that one route is not deployed. The banner names only the feature that failed, for example `Highlights are saved in this browser only for now.` The client asks again on the next page load, when the window regains focus, and about once a minute. When a route responds, that feature's browser copy is uploaded once for the signed-in person and marked so it is not repeated: newer progress wins, and highlights and attempts are a union by id. Older local rows do not replace newer server rows.
 
 `400`, `409`, and `429` bodies are `{ "message": "..." }`. The UI shows `message` verbatim. Problem details (`errors`, `title`, `detail`) are also accepted.
 
@@ -137,6 +137,28 @@ A `404` on `GET` or `POST highlights`, including an empty body, before those rou
 The client sends one `login` event after a successful sign-in (register or login), not on a restored session and not on token refresh. While a study section is open, the tab is visible, and the reader has scrolled, clicked, pressed a key, touched, or moved the pointer within the last 2 minutes, it counts active seconds for that chapter. It posts a `study` event when the chapter changes, every 5 minutes, when the tab is hidden, on sign-out, and on `pagehide`. `occurredAtUtc` is when that stretch started. A study stretch of 0 seconds is not sent. A login event is sent with `seconds` 0. Each event is capped at 7200 seconds. The client does not send `test` events; question time is already stored on attempt answers.
 
 Unsent events wait in `localStorage` under `wealthEdAgent.activity.v1` and are tried again on the next flush. A `404` or any other `4xx` drops that batch after one attempt. The page does not show an error and does not switch on the “kept in this browser” banner. Network failures and `5xx` stay queued. Mock mode does not send. Sign-out and `pagehide` use `fetch` with `keepalive` and the bearer header, and they do not block navigation.
+
+### `GET search-history`
+
+`{ "entries": [{ "entryId", "text", "searchedAt" }] }`
+
+Newest first. At most 50 entries. `text` is 1 to 200 characters. `searchedAt` is a UTC timestamp.
+
+There is no net8 route for this yet. A `404` on `GET` or `POST`, including an empty body, keeps subject searches in this browser. The banner says subject searches are saved in this browser only for now. Other study features keep using the server.
+
+### `POST search-history`
+
+`{ "text" }`
+
+The server trims the text, matches an existing row for this person by a case-insensitive and diacritic-insensitive key, and updates `searchedAt` when the words were already saved. Otherwise it inserts a row. The response is `{ "entry": { "entryId", "text", "searchedAt" } }`. After the write, the person has at most 50 rows; older ones are deleted. `400` when the text is empty or longer than 200 characters.
+
+### `DELETE search-history/{entryId}`
+
+`200` `{ "deleted": true }`. `404` when that entry is not on this account. That `404` does not switch search history into the browser backup.
+
+### `DELETE search-history`
+
+Deletes every saved search for this person. `200` `{ "deleted": true }`.
 
 ## Network failures
 

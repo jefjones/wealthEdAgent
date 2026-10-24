@@ -4,7 +4,10 @@ import {
   SPEECH_CHUNK_LIMIT,
   chunkSpeech,
   groupOrder,
+  continuationAfterSection,
   highlightAnnouncement,
+  nextSectionInCourse,
+  sectionTransitionAnnouncement,
   highlightNarrationCues,
   highlightSpeechParts,
   initialPlayerState,
@@ -239,6 +242,47 @@ describe('player queue', () => {
         fromStart: 'top',
       }),
     ).toBe('Read aloud is not available in this browser.')
+  })
+})
+
+describe('continuous reading', () => {
+  const course = [
+    { id: 'whole-life', title: 'Whole life', chapterNumber: 3, chapterTitle: 'Kinds of Life Insurance' },
+    { id: 'fixed', title: 'Topic 1: Fixed annuities.', chapterNumber: 4, chapterTitle: 'Annuities' },
+    { id: 'variable', title: 'Variable annuities', chapterNumber: 4, chapterTitle: 'Annuities' },
+  ]
+
+  it('crosses a chapter boundary and speaks the next chapter and section', () => {
+    expect(nextSectionInCourse(course, 'whole-life')).toMatchObject({ id: 'fixed', chapterNumber: 4 })
+    expect(sectionTransitionAnnouncement(4, 'Annuities', 'Topic 1: Fixed annuities.')).toBe(
+      'Chapter 4, Annuities. Section: Fixed annuities.',
+    )
+    expect(continuationAfterSection({ autoContinue: true, sections: course, currentId: 'whole-life' })).toEqual({
+      action: 'advance',
+      sectionId: 'fixed',
+      announcement: 'Chapter 4, Annuities. Section: Fixed annuities.',
+    })
+  })
+
+  it('continues to the next section inside the same chapter', () => {
+    expect(continuationAfterSection({ autoContinue: true, sections: course, currentId: 'fixed' })).toEqual({
+      action: 'advance',
+      sectionId: 'variable',
+      announcement: 'Chapter 4, Annuities. Section: Variable annuities.',
+    })
+  })
+
+  it('says the course is over on the last section and stays put when auto-continue is off', () => {
+    expect(continuationAfterSection({ autoContinue: true, sections: course, currentId: 'variable' })).toEqual({
+      action: 'end',
+      announcement: 'End of the course.',
+    })
+    expect(continuationAfterSection({ autoContinue: false, sections: course, currentId: 'whole-life' })).toEqual({
+      action: 'stop',
+    })
+    expect(continuationAfterSection({ autoContinue: true, sections: course, currentId: 'missing' })).toEqual({
+      action: 'stop',
+    })
   })
 })
 

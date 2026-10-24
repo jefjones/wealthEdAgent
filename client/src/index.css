@@ -40,3 +40,25 @@ html.study-split #root {
   height: 100%;
   overflow: hidden;
 }
+
+.search-hit {
+  border-radius: 0.125rem;
+  background-color: #ffe08a;
+  animation: search-hit-fade 2.4s ease forwards;
+}
+
+@keyframes search-hit-fade {
+  0%,
+  55% {
+    background-color: #ffe08a;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-hit {
+    animation: none;
+  }
+}

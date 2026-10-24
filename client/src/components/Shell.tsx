@@ -1,4 +1,4 @@
-import { BookOpen, Bookmark, ClipboardList, LogOut, Menu, TrendingUp, X } from 'lucide-react'
+import { BookOpen, Bookmark, ClipboardList, LogOut, Menu, Search, TrendingUp, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext.tsx'
@@ -8,6 +8,7 @@ import { ActivityBridge } from './ActivityBridge.tsx'
 
 const links = [
   { to: '/study', label: 'Study', icon: BookOpen },
+  { to: '/search', label: 'Search', icon: Search },
   { to: '/practice', label: 'Practice Test', icon: ClipboardList },
   { to: '/progress', label: 'Progress', icon: TrendingUp },
   { to: '/highlights', label: HIGHLIGHTS_NAV_LABEL, icon: Bookmark },
@@ -16,7 +17,8 @@ const links = [
 export function Shell() {
   const { person, logout, studyNotice } = useAuth()
   const studyMessage = studyNoticeMessage(studyNotice)
-  const split = useLocation().pathname.startsWith('/study')
+  const path = useLocation().pathname
+  const split = path.startsWith('/study') || path.startsWith('/search')
   const frame = 'max-w-6xl'
   const [open, setOpen] = useState(false)
   const first = person?.fname?.trim()

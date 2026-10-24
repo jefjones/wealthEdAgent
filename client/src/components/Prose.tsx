@@ -18,6 +18,9 @@ type Props = {
   selectedSentence?: number | null
   activeSentence?: number | null
   onSentenceTap?: (index: number) => void
+  /** Brief mark on the first keyword hit. Offsets are indexes into `text`. */
+  searchHit?: { start: number; end: number } | null
+  searchToken?: number
 }
 
 export function Prose({
@@ -30,6 +33,8 @@ export function Prose({
   selectedSentence = null,
   activeSentence = null,
   onSentenceTap,
+  searchHit = null,
+  searchToken = 0,
 }: Props) {
   const blocks = sourceBlocks(text)
   const press = useRef<{ id: number; x: number; y: number; t: number; sentence: string | null; chrome: boolean } | null>(null)
@@ -95,6 +100,8 @@ export function Prose({
                     sentences={sentences}
                     selectedSentence={selectedSentence}
                     activeSentence={activeSentence}
+                    searchHit={searchHit}
+                    searchToken={searchToken}
                     onDelete={onDelete}
                     onJump={onJump}
                   />
@@ -112,6 +119,8 @@ export function Prose({
               sentences={sentences}
               selectedSentence={selectedSentence}
               activeSentence={activeSentence}
+              searchHit={searchHit}
+              searchToken={searchToken}
               onDelete={onDelete}
               onJump={onJump}
             />
@@ -119,6 +128,32 @@ export function Prose({
         )
       })}
     </div>
+  )
+}
+
+function SearchPieces({
+  text,
+  absStart,
+  hit,
+  token,
+}: {
+  text: string
+  absStart: number
+  hit: { start: number; end: number } | null
+  token: number
+}) {
+  if (!hit) return text
+  const from = Math.max(0, hit.start - absStart)
+  const to = Math.min(text.length, hit.end - absStart)
+  if (to <= from) return text
+  return (
+    <>
+      {from > 0 ? text.slice(0, from) : null}
+      <mark key={token} data-search-hit="" className="search-hit">
+        {text.slice(from, to)}
+      </mark>
+      {to < text.length ? text.slice(to) : null}
+    </>
   )
 }
 
@@ -137,6 +172,8 @@ function MarkedRun({
   sentences,
   selectedSentence,
   activeSentence,
+  searchHit,
+  searchToken,
   onDelete,
   onJump,
 }: {
@@ -146,6 +183,8 @@ function MarkedRun({
   sentences?: readonly SentenceRange[]
   selectedSentence: number | null
   activeSentence: number | null
+  searchHit: { start: number; end: number } | null
+  searchToken: number
   onDelete?: (highlightId: string) => void
   onJump?: (href: string) => void
 }) {
@@ -177,10 +216,10 @@ function MarkedRun({
                     id={piece.start === slice.start && startsHere ? `h-${slice.highlightId}` : undefined}
                     className="rounded-sm bg-[#ffe08a] px-0.5 text-[#3a2a00]"
                   >
-                    {piece.text}
+                    <SearchPieces text={piece.text} absStart={piece.start} hit={searchHit} token={searchToken} />
                   </mark>
                 ) : (
-                  piece.text
+                  <SearchPieces text={piece.text} absStart={piece.start} hit={searchHit} token={searchToken} />
                 )}
               </span>
             ))}

@@ -28,6 +28,8 @@ type Props = {
   onCycleRate: () => void
   onVoiceChange: (id: string) => void
   onPreviewVoice: () => void
+  autoContinue?: boolean
+  onAutoContinueChange?: (enabled: boolean) => void
 }
 
 function rateLabel(rate: NarrationRate) {
@@ -98,6 +100,8 @@ function NarrationControls({
   onCycleRate,
   onVoiceChange,
   onPreviewVoice,
+  autoContinue = true,
+  onAutoContinueChange,
   placement,
   mobileBarHeight,
 }: Props & { placement: 'up' | 'down'; mobileBarHeight: number }) {
@@ -160,6 +164,20 @@ function NarrationControls({
           onVoiceChange={onVoiceChange}
           onPreviewVoice={onPreviewVoice}
         />
+        {onAutoContinueChange ? (
+          <label
+            className="flex min-h-11 cursor-pointer items-center gap-2 px-1 text-sm font-semibold text-[#1c3f66]"
+            title="When a section ends, read the next one"
+          >
+            <input
+              type="checkbox"
+              className="size-4 accent-[#2a6cb5]"
+              checked={autoContinue}
+              onChange={(event) => onAutoContinueChange(event.target.checked)}
+            />
+            Auto-continue
+          </label>
+        ) : null}
       </div>
       <p aria-live="polite" className="min-h-5 text-sm text-[#5c7288]">
         {status}

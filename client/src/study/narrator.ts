@@ -33,6 +33,8 @@ export const NARRATION_PITCH = 1
 
 export const AUTO_VOICE_ID = 'auto'
 export const NARRATION_VOICE_STORAGE_KEY = 'study-narration-voice'
+export const AUTO_CONTINUE_STORAGE_KEY = 'study-narration-auto-continue'
+export const END_OF_COURSE_ANNOUNCEMENT = 'End of the course.'
 export const VOICE_PREVIEW_TEXT = 'This is a preview of the voice that will read the lesson.'
 
 export const IOS_VOICE_HINT =
@@ -58,6 +60,8 @@ export type PlayerAction =
   | { type: 'select'; group: string }
   | { type: 'start'; index: number }
   | { type: 'tick'; index: number }
+  /** Keep speaking, but drop the previous section's sentence so the next one can start at the top. */
+  | { type: 'bridge' }
   | { type: 'stop' }
   | { type: 'finish' }
   | { type: 'rate'; rate: NarrationRate }
@@ -139,6 +143,9 @@ export function playerReducer(state: PlayerState, action: PlayerAction): PlayerS
       if (state.phase !== 'speaking') return state
       if (!Number.isInteger(action.index) || action.index < 0) return state
       return { ...state, index: action.index }
+    case 'bridge':
+      if (state.phase !== 'speaking') return state
+      return { ...state, index: null, anchor: null }
     case 'stop':
     case 'finish':
       return { ...state, phase: 'idle', index: null }
@@ -295,8 +302,57 @@ export function isSentenceTap(input: {
 }
 
 export function highlightAnnouncement(chapterNumber: number, sectionTitle: string): string {
-  const title = subjectTitle(sectionTitle).replace(/\s+/g, ' ').trim().replace(/[.!?]+$/u, '')
+  const title = spokenTitle(sectionTitle)
   return `Chapter ${chapterNumber}, ${title}.`
+}
+
+export type ContinuationSection = {
+  id: string
+  title: string
+  chapterNumber: number
+  chapterTitle: string
+}
+
+/** The section after this one in course order, including the first section of the next chapter. */
+export function nextSectionInCourse<T extends { id: string }>(sections: readonly T[], currentId: string): T | null {
+  const index = sections.findIndex((section) => section.id === currentId)
+  if (index < 0 || index + 1 >= sections.length) return null
+  return sections[index + 1] ?? null
+}
+
+function spokenTitle(title: string) {
+  return subjectTitle(title).replace(/\s+/g, ' ').trim().replace(/[.!?]+$/u, '')
+}
+
+/** Spoken once when reading continues into a section. "Chapter 4, Annuities. Section: Fixed annuities." */
+export function sectionTransitionAnnouncement(chapterNumber: number, chapterTitle: string, sectionTitle: string): string {
+  return `Chapter ${chapterNumber}, ${spokenTitle(chapterTitle)}. Section: ${spokenTitle(sectionTitle)}.`
+}
+
+export type SectionContinuation =
+  | { action: 'stop' }
+  | { action: 'end'; announcement: string }
+  | { action: 'advance'; sectionId: string; announcement: string }
+
+/**
+ * What to do when the last sentence of a section has been spoken.
+ * Auto-continue moves to the next section, across chapters. The last section ends the course.
+ */
+export function continuationAfterSection(input: {
+  autoContinue: boolean
+  sections: readonly ContinuationSection[]
+  currentId: string
+}): SectionContinuation {
+  if (!input.autoContinue) return { action: 'stop' }
+  const index = input.sections.findIndex((section) => section.id === input.currentId)
+  if (index < 0) return { action: 'stop' }
+  const next = input.sections[index + 1]
+  if (!next) return { action: 'end', announcement: END_OF_COURSE_ANNOUNCEMENT }
+  return {
+    action: 'advance',
+    sectionId: next.id,
+    announcement: sectionTransitionAnnouncement(next.chapterNumber, next.chapterTitle, next.title),
+  }
 }
 
 /** Highlights whose saved words are still in the section, in display order. */
@@ -550,6 +606,23 @@ export function readVoicePreference(storage: { getItem(key: string): string | nu
 export function writeVoicePreference(storage: { setItem(key: string, value: string): void } | null, id: string) {
   try {
     storage?.setItem(NARRATION_VOICE_STORAGE_KEY, id || AUTO_VOICE_ID)
+  } catch {
+    // Private mode can reject storage. The in-memory choice still applies.
+  }
+}
+
+/** Missing key means on. Only an explicit "off" disables auto-continue. */
+export function readAutoContinue(storage: { getItem(key: string): string | null } | null): boolean {
+  try {
+    return storage?.getItem(AUTO_CONTINUE_STORAGE_KEY) !== 'off'
+  } catch {
+    return true
+  }
+}
+
+export function writeAutoContinue(storage: { setItem(key: string, value: string): void } | null, enabled: boolean) {
+  try {
+    storage?.setItem(AUTO_CONTINUE_STORAGE_KEY, enabled ? 'on' : 'off')
   } catch {
     // Private mode can reject storage. The in-memory choice still applies.
   }
