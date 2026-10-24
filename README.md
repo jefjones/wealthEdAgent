@@ -1,6 +1,6 @@
-# Utah Life and Health Insurance Study Contents
+# Life/Health and Securities Licenses Test Content Study
 
-A frontend study site for the Utah life insurance course. Reading is stored in the app. Sign-in, reading progress, seen questions, and practice-test scores use the shared wealthEdAgent API.
+A frontend study site for the Utah life and health course and the Securities Industry Essentials exam. Reading is stored in the app. Sign-in, reading progress, seen questions, and practice-test scores use the shared wealthEdAgent API.
 
 The pages are medium blue and the site stands on its own.
 

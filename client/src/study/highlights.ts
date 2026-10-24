@@ -359,14 +359,17 @@ export function highlightArrowControls<
     sectionIndex: number
     startOffset: number
   },
->(ordered: readonly T[]): Record<string, { previous: { href: string; label: string } | null; next: { href: string; label: string } | null }> {
+>(
+  ordered: readonly T[],
+  toHref: (sectionId: string, highlightId: string) => string = (sectionId, highlightId) => `/study/${sectionId}#h-${highlightId}`,
+): Record<string, { previous: { href: string; label: string } | null; next: { href: string; label: string } | null }> {
   const controls: Record<string, { previous: { href: string; label: string } | null; next: { href: string; label: string } | null }> = {}
   for (const row of ordered) {
     const neighbors = adjacentHighlights(ordered, { kind: 'highlight', highlightId: row.highlightId })
     const link = (side: 'previous' | 'next', target: T | null) => {
       if (!target) return null
       return {
-        href: `/study/${target.sectionId}#h-${target.highlightId}`,
+        href: toHref(target.sectionId, target.highlightId),
         label: highlightArrowLabel(side, target, row.sectionId),
       }
     }

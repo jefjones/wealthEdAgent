@@ -1,7 +1,25 @@
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { SearchPanel } from '../components/SearchPanel.tsx'
 import { COLUMN_SCROLL } from '../study/columnScroll.ts'
+import { isFreshSearchSignal, useSearch } from '../study/SearchContext.tsx'
 
 export function SearchPage() {
+  const location = useLocation()
+  const navigate = useNavigate()
+  const { startFresh } = useSearch()
+  const [freshToken, setFreshToken] = useState(0)
+
+  // The Search nav item sends router state { freshSearch: true }. Use it once, then drop it from history,
+  // so Back, refresh, and reopening the results slide-out keep the current search.
+  useEffect(() => {
+    if (!isFreshSearchSignal(location.state)) return
+    startFresh()
+    window.scrollTo({ top: 0 })
+    setFreshToken((token) => token + 1)
+    navigate(`${location.pathname}${location.search}${location.hash}`, { replace: true, state: null })
+  }, [location.key, location.state, location.pathname, location.search, location.hash, navigate, startFresh])
+
   return (
     <div className="grid gap-6 lg:h-full lg:min-h-0 lg:flex-1 lg:grid-cols-[320px_minmax(0,1fr)] lg:grid-rows-1 lg:gap-4 lg:overflow-hidden">
       <aside
@@ -9,7 +27,7 @@ export function SearchPage() {
         aria-label="Subject search"
         className="column-scroll rounded-2xl border border-[#d5e2f0] bg-white p-4 lg:h-full lg:min-h-0 lg:overflow-y-auto lg:overscroll-contain"
       >
-        <SearchPanel idPrefix="page" autoFocus />
+        <SearchPanel idPrefix="page" autoFocus freshToken={freshToken} />
       </aside>
       <article
         {...{ [COLUMN_SCROLL]: '' }}

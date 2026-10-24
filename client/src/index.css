@@ -44,21 +44,11 @@ html.study-split #root {
 .search-hit {
   border-radius: 0.125rem;
   background-color: #ffe08a;
-  animation: search-hit-fade 2.4s ease forwards;
+  box-shadow: 0 0 0 2px #e0a800;
 }
 
-@keyframes search-hit-fade {
-  0%,
-  55% {
-    background-color: #ffe08a;
-  }
-  100% {
-    background-color: transparent;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .search-hit {
-    animation: none;
-  }
+/* Other places the searched words appear. They stay lit until the search changes or is cleared. */
+.search-match {
+  border-radius: 0.125rem;
+  background-color: #fff1c2;
 }

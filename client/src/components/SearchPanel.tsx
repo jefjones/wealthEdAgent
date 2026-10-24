@@ -1,6 +1,9 @@
+import { useEffect, useLayoutEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { subjectTitle } from '../content/rewrite.ts'
 import { useSearch } from '../study/SearchContext.tsx'
+import { studyPath } from '../study/paths.ts'
+import { useTest } from '../study/TestContext.tsx'
 import type { SearchSnippet } from '../study/search.ts'
 import type { SearchHistoryEntry } from '../study/searchHistory.ts'
 import { Button } from './ui/button.tsx'
@@ -64,16 +67,42 @@ export function SearchPanel({
   idPrefix,
   autoFocus = false,
   onNavigate,
+  freshToken = 0,
 }: {
   idPrefix: string
   autoFocus?: boolean
   onNavigate?: () => void
+  /** Changes when the Search nav item starts a fresh search. */
+  freshToken?: number
 }) {
   const search = useSearch()
+  const test = useTest()
   const fieldId = `${idPrefix}-subject-search`
   const query = search.query.trim()
+  const rootRef = useRef<HTMLDivElement>(null)
+  const { savedScroll, rememberScroll } = search
+
+  // Keep the results list where the reader left it, even after the slide-out closes and reopens.
+  useLayoutEffect(() => {
+    const scroller = rootRef.current?.closest<HTMLElement>('.overflow-y-auto, .lg\\:overflow-y-auto')
+    if (!scroller) return
+    const top = savedScroll(idPrefix)
+    if (top > 0) scroller.scrollTop = top
+    const onScroll = () => rememberScroll(idPrefix, scroller.scrollTop)
+    scroller.addEventListener('scroll', onScroll, { passive: true })
+    return () => scroller.removeEventListener('scroll', onScroll)
+  }, [idPrefix, savedScroll, rememberScroll])
+
+  const inputRef = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    if (!freshToken) return
+    const scroller = rootRef.current?.closest<HTMLElement>('.overflow-y-auto, .lg\\:overflow-y-auto')
+    if (scroller) scroller.scrollTop = 0
+    inputRef.current?.focus({ preventScroll: true })
+  }, [freshToken])
+
   return (
-    <div>
+    <div ref={rootRef}>
       <form
         className="space-y-2"
         onSubmit={(event) => {
@@ -86,6 +115,7 @@ export function SearchPanel({
         </label>
         <input
           id={fieldId}
+          ref={inputRef}
           value={search.query}
           autoFocus={autoFocus}
           maxLength={200}
@@ -116,21 +146,34 @@ export function SearchPanel({
               Chapter {group.chapterNumber} · {subjectTitle(group.chapterTitle)}
             </h3>
             <ul className="mt-1 space-y-1">
-              {group.hits.map((hit) => (
+              {group.hits.map((hit) => {
+                const picked = hit.sectionId === search.selectedHit
+                return (
                 <li key={hit.sectionId}>
                   <Link
-                    to={`/study/${hit.sectionId}`}
-                    onClick={() => {
+                    aria-current={picked ? 'true' : undefined}
+                    data-picked={picked ? '' : undefined}
+                    to={studyPath(test.id, hit.sectionId)}
+                    onClick={(event) => {
+                      const scroller = rootRef.current?.closest<HTMLElement>('.overflow-y-auto, .lg\\:overflow-y-auto')
+                      if (scroller) rememberScroll(idPrefix, scroller.scrollTop)
+                      void event
                       search.openHit(hit)
                       onNavigate?.()
                     }}
-                    className="block rounded-xl px-2 py-2 hover:bg-[#f4f8fc]"
+                    className={
+                      picked
+                        ? 'block rounded-xl border-l-4 border-[#2a6cb5] bg-[#e7f0fa] px-2 py-2 hover:bg-[#dbe8f6]'
+                        : 'block rounded-xl border-l-4 border-transparent px-2 py-2 hover:bg-[#f4f8fc]'
+                    }
                   >
+                    {picked ? <span className="sr-only">Last opened: </span> : null}
                     <span className="block text-sm font-semibold text-[#1f5a9a]">{hit.sectionTitle}</span>
                     <SnippetText snippet={hit.snippet} />
                   </Link>
                 </li>
-              ))}
+                )
+              })}
             </ul>
           </section>
         ))}

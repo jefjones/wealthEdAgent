@@ -11,7 +11,10 @@ import {
 } from '../api/client.ts'
 import { useAuth } from '../auth/AuthContext.tsx'
 import { Button } from '../components/ui/button.tsx'
-import { correctOptionId, findQuestion } from '../content/pack.ts'
+import { correctOptionId } from '../content/pack.ts'
+import { findCourseQuestion } from '../content/catalog.ts'
+import { progressPath } from '../study/paths.ts'
+import { useTest } from '../study/TestContext.tsx'
 import { subjectTitle } from '../content/rewrite.ts'
 import { formatLocal, formatPercent } from '../lib/utils.ts'
 import { loadDraw, saveDraw, type Draw } from '../study/draws.ts'
@@ -27,6 +30,7 @@ import {
 type View = 'loading' | 'question' | 'feedback' | 'finish' | 'summary' | 'review'
 
 export function TestPage() {
+  const test = useTest()
   const { attemptId = '' } = useParams()
   const { person } = useAuth()
   const [attempt, setAttempt] = useState<Attempt | null>(null)
@@ -83,8 +87,8 @@ export function TestPage() {
 
   const question = useMemo(() => {
     const id = draw?.questionIds[index]
-    return id ? findQuestion(id) : null
-  }, [draw, index])
+    return id ? findCourseQuestion(test.id, id) : null
+  }, [draw, index, test.id])
 
   const orderedOptions = useMemo(() => {
     if (!question || !draw) return []
@@ -174,7 +178,7 @@ export function TestPage() {
         <p className="mt-4 text-sm text-[#3d5166]">
           The question list for this attempt is stored in the browser that started it, so the answer review is not available here.
         </p>
-        <Link className="mt-4 inline-block font-semibold text-[#2a6cb5]" to="/progress">
+        <Link className="mt-4 inline-block font-semibold text-[#2a6cb5]" to={progressPath(test.id)}>
           Back to progress
         </Link>
       </div>
@@ -197,6 +201,7 @@ export function TestPage() {
   if (view === 'summary' || view === 'review') {
     return (
       <Summary
+        testId={test.id}
         attempt={attempt}
         answers={answers}
         draw={draw}
@@ -360,6 +365,7 @@ function Stat({ label, value }: { label: string; value: string }) {
 }
 
 function Summary({
+  testId,
   attempt,
   answers,
   draw,
@@ -368,6 +374,7 @@ function Summary({
   onOpen,
   onBack,
 }: {
+  testId: string
   attempt: Attempt
   answers: Answer[]
   draw: Draw
@@ -378,7 +385,7 @@ function Summary({
 }) {
   if (reviewIndex !== null) {
     const id = draw.questionIds[reviewIndex]
-    const question = id ? findQuestion(id) : null
+    const question = id ? findCourseQuestion(testId, id) : null
     const answer = answers.find((row) => row.questionId === id)
     if (!question || !answer) {
       return <p>That answer is not on this attempt.</p>
@@ -443,7 +450,7 @@ function Summary({
           const answer = answers.find((row) => row.questionId === id)
           const correct = answer?.isCorrect
           const seconds = questionSeconds(answer?.seconds, draw.secondsByQuestion?.[id])
-          const stem = subjectTitle(findQuestion(id)?.stem ?? '')
+          const stem = subjectTitle(findCourseQuestion(testId, id)?.stem ?? '')
           const mark = correct ? 'correct' : answer ? 'incorrect' : 'unanswered'
           return (
             <li key={id}>
@@ -485,7 +492,7 @@ function Summary({
         </span>
       </div>
       <p className="mt-3 text-sm text-[#5c7288]">Select a question to open it and the explanation.</p>
-      <Link className="mt-6 inline-block font-semibold text-[#2a6cb5]" to="/progress">
+      <Link className="mt-6 inline-block font-semibold text-[#2a6cb5]" to={progressPath(testId)}>
         All attempts
       </Link>
     </div>

@@ -6,10 +6,14 @@ import { SlideOver } from '../components/SlideOver.tsx'
 import { StudyOutline } from '../components/StudyOutline.tsx'
 import { Button } from '../components/ui/button.tsx'
 import { useStudyNav } from '../study/studyNav.ts'
-import { allQuestions } from '../content/pack.ts'
+import { courseQuestions, courseSections } from '../content/catalog.ts'
+import { attemptPath, practicePath } from '../study/paths.ts'
+import { useTest } from '../study/TestContext.tsx'
+import { attemptBelongsToTest } from '../study/testSummary.ts'
 import { formatLocal, formatPercent } from '../lib/utils.ts'
 
 export function ProgressPage() {
+  const test = useTest()
   const [attempts, setAttempts] = useState<Attempt[]>([])
   const [seen, setSeen] = useState(0)
   const [sections, setSections] = useState<SectionProgress[]>([])
@@ -17,8 +21,14 @@ export function ProgressPage() {
   const [error, setError] = useState('')
   const [contentsOpen, setContentsOpen] = useState(false)
   const { navOpen, toggleChapter } = useStudyNav()
-  const bank = allQuestions().length
-  const done = useMemo(() => new Set(sections.filter((row) => row.completed).map((row) => row.sectionId)), [sections])
+  const questionIds = useMemo(() => new Set(courseQuestions(test.id).map((question) => question.id)), [test.id])
+  const sectionIds = useMemo(() => new Set(courseSections(test.id).map((section) => section.id)), [test.id])
+  const bank = questionIds.size
+  const testAttempts = useMemo(() => attempts.filter((attempt) => attemptBelongsToTest(attempt, test.id)), [attempts, test.id])
+  const done = useMemo(
+    () => new Set(sections.filter((row) => row.completed && sectionIds.has(row.sectionId)).map((row) => row.sectionId)),
+    [sections, sectionIds],
+  )
 
   function load() {
     setLoading(true)
@@ -26,7 +36,8 @@ export function ProgressPage() {
     Promise.all([listAttempts(), getSeen()])
       .then(([attemptResult, seenResult]) => {
         setAttempts(attemptResult.attempts)
-        setSeen(seenResult.questionIds.length)
+        const ids = new Set(courseQuestions(test.id).map((question) => question.id))
+        setSeen(seenResult.questionIds.filter((id) => ids.has(id)).length)
       })
       .catch((cause: unknown) => setError(errorText(cause, 'Could not load progress.')))
       .finally(() => setLoading(false))
@@ -45,7 +56,7 @@ export function ProgressPage() {
     return () => {
       cancel = true
     }
-  }, [])
+  }, [test.id])
 
   useEffect(
     () =>
@@ -59,10 +70,10 @@ export function ProgressPage() {
             })
         }
       }),
-    [],
+    [test.id],
   )
 
-  const finished = attempts.filter((attempt) => attempt.completedAt)
+  const finished = testAttempts.filter((attempt) => attempt.completedAt)
   const average =
     finished.length > 0 ? finished.reduce((sum, attempt) => sum + Number(attempt.percent), 0) / finished.length : 0
   const chart = [...finished].sort((a, b) => (a.startedAt < b.startedAt ? -1 : 1))
@@ -93,16 +104,16 @@ export function ProgressPage() {
       {!loading && !error ? (
         <>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            <Tile label="Attempts" value={String(attempts.length)} />
+            <Tile label="Attempts" value={String(testAttempts.length)} />
             <Tile label="Average score" value={finished.length ? `${formatPercent(average)}%` : '—'} />
             <Tile label="Questions seen" value={`${seen} of ${bank}`} />
           </div>
           <Trend attempts={chart} />
-          {attempts.length === 0 ? (
+          {testAttempts.length === 0 ? (
             <div className="mt-8 rounded-2xl border border-dashed border-[#b7d0ea] bg-white p-6">
               <p className="font-semibold text-[#14375f]">No practice tests yet.</p>
               <p className="mt-1 text-sm text-[#3d5166]">Start one from Practice Test. The score will show up here.</p>
-              <Link className="mt-4 inline-block" to="/practice">
+              <Link className="mt-4 inline-block" to={practicePath(test.id)}>
                 <Button type="button">Go to Practice Test</Button>
               </Link>
             </div>
@@ -118,10 +129,10 @@ export function ProgressPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {attempts.map((attempt) => (
+                  {testAttempts.map((attempt) => (
                     <tr key={attempt.attemptId} className="border-t border-[#e4eef7]">
                       <td className="px-4 py-3">
-                        <Link className="font-semibold text-[#2a6cb5] hover:underline" to={`/test/${attempt.attemptId}`}>
+                        <Link className="font-semibold text-[#2a6cb5] hover:underline" to={attemptPath(test.id, attempt.attemptId)}>
                           {formatLocal(attempt.completedAt ?? attempt.startedAt)}
                         </Link>
                         <p className="text-xs text-[#5c7288]">

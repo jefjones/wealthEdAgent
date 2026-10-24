@@ -13,13 +13,17 @@ import { SlideOver } from '../components/SlideOver.tsx'
 import { StudyOutline } from '../components/StudyOutline.tsx'
 import { NarrationBar } from '../components/NarrationBar.tsx'
 import { Button } from '../components/ui/button.tsx'
-import { flatSections } from '../content/pack.ts'
+import { courseSections } from '../content/catalog.ts'
 import { subjectTitle } from '../content/rewrite.ts'
 import { COLUMN_SCROLL, isColumnScroller, scrollChildIntoView, scrollNarrationTarget } from '../study/columnScroll.ts'
 import { loadResume, saveResume } from '../study/draws.ts'
+import { peekStudyState, updateStudyState, useStudyState } from '../study/stateSync.ts'
+import { studyPath } from '../study/paths.ts'
+import { useTest } from '../study/TestContext.tsx'
 import { useStudyNav } from '../study/studyNav.ts'
 import { useHighlights } from '../study/HighlightContext.tsx'
 import { useSearch } from '../study/SearchContext.tsx'
+import { bodyMatches } from '../study/search.ts'
 import { continuationAfterSection, groupOrder, listNarrationStatus, sentenceParts, splitSentences } from '../study/narrator.ts'
 import { useNarration, type NarrationContinuation } from '../study/useNarration.ts'
 import {
@@ -37,21 +41,26 @@ import {
 type Offer = { start: number; end: number; text: string; rect: ViewportRect }
 
 export function StudyIndex() {
+  const test = useTest()
   const { person } = useAuth()
-  const sections = flatSections()
+  const sections = courseSections(test.id)
+  const { state, ready } = useStudyState(test.id)
   if (!person) return null
-  const saved = loadResume(person.personId)
+  if (!ready) return <p className="px-4 py-8 text-[#3d5166]">Opening where you left off…</p>
+  const serverSpot = state.lastPosition?.sectionId ?? null
+  const saved = sections.some((section) => section.id === serverSpot) ? serverSpot : loadResume(person.personId, test.id)
   const target = sections.some((section) => section.id === saved) ? saved : sections[0]?.id
   if (!target) return <p>No study sections are loaded.</p>
-  return <Navigate to={`/study/${target}`} replace />
+  return <Navigate to={studyPath(test.id, target)} replace />
 }
 
 export function StudyPage() {
+  const test = useTest()
   const { sectionId = '' } = useParams()
   const location = useLocation()
   const { person } = useAuth()
   const navigate = useNavigate()
-  const sections = flatSections()
+  const sections = courseSections(test.id)
   const current = sections.find((section) => section.id === sectionId) ?? null
   const index = sections.findIndex((section) => section.id === sectionId)
   const [rows, setRows] = useState<SectionProgress[]>([])
@@ -89,6 +98,8 @@ export function StudyPage() {
   sectionIdRef.current = sectionId
   const navigateRef = useRef(navigate)
   navigateRef.current = navigate
+  const testIdRef = useRef(test.id)
+  testIdRef.current = test.id
   const narrationFollow = useMemo(
     () => ({
       afterSection: (): NarrationContinuation => {
@@ -113,7 +124,7 @@ export function StudyPage() {
           parts: sentenceParts(splitSentences(section.body)),
           commit: () => {
             sectionIdRef.current = section.id
-            navigateRef.current(`/study/${section.id}`)
+            navigateRef.current(studyPath(testIdRef.current, section.id))
           },
         }
       },
@@ -160,6 +171,10 @@ export function StudyPage() {
   }, [sectionId, location.hash])
 
   const searchFocus = search.focus?.sectionId === current?.id ? search.focus : null
+  const searchMatches = useMemo(
+    () => (searchFocus && search.query.trim() ? bodyMatches(sectionBody, search.query) : []),
+    [searchFocus, search.query, sectionBody],
+  )
   useLayoutEffect(() => {
     if (!searchFocus) return
     const target =
@@ -208,8 +223,13 @@ export function StudyPage() {
   )
 
   useEffect(() => {
-    if (person && current) saveResume(person.personId, current.id)
-  }, [current, person])
+    if (!person || !current) return
+    saveResume(person.personId, current.id, test.id)
+    if (peekStudyState(test.id).lastPosition?.sectionId === current.id) return
+    updateStudyState(test.id, {
+      lastPosition: { chapterId: current.chapter.id, sectionId: current.id, savedAt: new Date().toISOString() },
+    })
+  }, [current, person, test.id])
 
   useEffect(() => {
     setDraft(null)
@@ -350,7 +370,7 @@ export function StudyPage() {
     return (
       <div className="rounded-2xl bg-white p-6">
         <p>That section is not in the course.</p>
-        <Link className="mt-3 inline-block font-semibold text-[#2a6cb5]" to="/study">
+        <Link className="mt-3 inline-block font-semibold text-[#2a6cb5]" to={studyPath(test.id)}>
           Back to the first section
         </Link>
       </div>
@@ -380,6 +400,7 @@ export function StudyPage() {
       }),
       sections.map((section) => ({ id: section.id, chapterNumber: section.chapter.number })),
     ),
+    (sectionId, highlightId) => studyPath(test.id, sectionId, `h-${highlightId}`),
   )
   const paintedHighlights = highlights.flatMap((row) => {
     if (row.sectionId !== current.id) return []
@@ -403,6 +424,7 @@ export function StudyPage() {
             : null
         }
         searchToken={searchFocus?.token ?? 0}
+        searchMatches={searchMatches}
         jumps={jumpControls}
         onJump={(href) => navigate(href)}
         onDelete={(highlightId) => {
@@ -471,7 +493,7 @@ export function StudyPage() {
       window.getSelection()?.removeAllRanges()
       setNoticeTick((tick) => tick + 1)
       setNotice(true)
-      navigate(`/study/${current.id}#h-${created.highlightId}`, { replace: true })
+      navigate(studyPath(test.id, current.id, `h-${created.highlightId}`), { replace: true })
     } catch (cause) {
       setError(errorText(cause, 'Could not save that highlight.'))
     } finally {
@@ -528,6 +550,7 @@ export function StudyPage() {
         onClose={() => setContentsOpen(false)}
       >
         <div className="sticky top-0 z-10 -mx-3 bg-white px-3 pb-3">
+          <p className="mb-3 text-sm font-semibold leading-snug text-[#1b2a4a]" data-testid="side-test-name">{test.title}</p>
           <SideTabs tab={search.tab} onChange={search.setTab} />
         </div>
         {search.tab === 'search' ? (
@@ -548,6 +571,7 @@ export function StudyPage() {
         aria-label={search.tab === 'search' ? 'Subject search' : 'Table of contents'}
         className="hidden rounded-2xl border border-[#d5e2f0] bg-white p-4 lg:flex lg:h-full lg:min-h-0 lg:flex-col lg:overflow-hidden"
       >
+        <p className="mb-3 text-sm font-semibold leading-snug text-[#1b2a4a]" data-testid="side-test-name">{test.title}</p>
         <SideTabs tab={search.tab} onChange={search.setTab} />
         <div
           ref={tocRef}
@@ -650,12 +674,12 @@ export function StudyPage() {
               type="button"
               variant="outline"
               disabled={!previous}
-              onClick={() => previous && navigate(`/study/${previous.id}`)}
+              onClick={() => previous && navigate(studyPath(test.id, previous.id))}
             >
               <ChevronLeft size={16} />
               Previous
             </Button>
-            <Button type="button" variant="outline" disabled={!next} onClick={() => next && navigate(`/study/${next.id}`)}>
+            <Button type="button" variant="outline" disabled={!next} onClick={() => next && navigate(studyPath(test.id, next.id))}>
               Next
               <ChevronRight size={16} />
             </Button>

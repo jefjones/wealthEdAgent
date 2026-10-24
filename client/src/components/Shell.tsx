@@ -1,24 +1,36 @@
-import { BookOpen, Bookmark, ClipboardList, LogOut, Menu, Search, TrendingUp, X } from 'lucide-react'
+import { BookOpen, Bookmark, ClipboardList, LayoutGrid, LogOut, Menu, Search, TrendingUp, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext.tsx'
+import { SITE_TITLE } from '../content/catalog.ts'
 import { HIGHLIGHTS_NAV_LABEL } from '../study/highlights.ts'
+import { highlightsPath, practicePath, progressPath, searchPath, studyPath, testsHomePath } from '../study/paths.ts'
 import { studyNoticeMessage } from '../study/studySync.ts'
 import { ActivityBridge } from './ActivityBridge.tsx'
+import { StateBridge } from './StateBridge.tsx'
 
-const links = [
-  { to: '/study', label: 'Study', icon: BookOpen },
-  { to: '/search', label: 'Search', icon: Search },
-  { to: '/practice', label: 'Practice Test', icon: ClipboardList },
-  { to: '/progress', label: 'Progress', icon: TrendingUp },
-  { to: '/highlights', label: HIGHLIGHTS_NAV_LABEL, icon: Bookmark },
-]
+type NavItem = { to: string; label: string; icon: typeof LayoutGrid; state?: { freshSearch: true } }
+
+function navLinks(testId: string | null): NavItem[] {
+  if (!testId) return [{ to: testsHomePath(), label: 'Tests', icon: LayoutGrid }]
+  return [
+    { to: testsHomePath(), label: 'Tests', icon: LayoutGrid },
+    { to: studyPath(testId), label: 'Study', icon: BookOpen },
+    { to: searchPath(testId), label: 'Search', icon: Search, state: { freshSearch: true } },
+    { to: practicePath(testId), label: 'Practice Test', icon: ClipboardList },
+    { to: progressPath(testId), label: 'Progress', icon: TrendingUp },
+    { to: highlightsPath(testId), label: HIGHLIGHTS_NAV_LABEL, icon: Bookmark },
+  ]
+}
 
 export function Shell() {
   const { person, logout, studyNotice } = useAuth()
   const studyMessage = studyNoticeMessage(studyNotice)
   const path = useLocation().pathname
-  const split = path.startsWith('/study') || path.startsWith('/search')
+  const testMatch = /^\/tests\/([^/]+)/.exec(path)
+  const testId = testMatch?.[1] ?? null
+  const links = navLinks(testId)
+  const split = testId != null && (/\/study(\/|$)/.test(path) || /\/search(\/|$)/.test(path))
   const frame = 'max-w-6xl'
   const [open, setOpen] = useState(false)
   const first = person?.fname?.trim()
@@ -41,9 +53,9 @@ export function Shell() {
     >
       <header className="shrink-0 bg-[#2a6cb5] text-white">
         <div className={`mx-auto flex ${frame} items-center gap-3 px-4 py-3`}>
-          <NavLink to={person ? '/study' : '/login'} className="min-w-0 flex-1" onClick={() => setOpen(false)}>
-            <span className="block font-['Fraunces',Georgia,serif] text-lg leading-tight font-semibold tracking-tight sm:text-xl">
-              Utah Life and Health Insurance Study Contents
+          <NavLink to={person ? testsHomePath() : '/login'} className="min-w-0 flex-1" onClick={() => setOpen(false)}>
+            <span className="block font-['Fraunces',Georgia,serif] text-base leading-tight font-semibold tracking-tight sm:text-lg">
+              {SITE_TITLE}
             </span>
           </NavLink>
           {person ? <div id="mobile-contents-slot" className="lg:hidden" /> : null}
@@ -63,6 +75,8 @@ export function Shell() {
                   <NavLink
                     key={link.to}
                     to={link.to}
+                    state={link.state}
+                    end={link.to === '/'}
                     className={({ isActive }) =>
                       `rounded-full px-3 py-2 text-sm font-semibold ${isActive ? 'bg-white text-[#1f5a9a]' : 'text-white hover:bg-white/10'}`
                     }
@@ -94,6 +108,8 @@ export function Shell() {
                 <NavLink
                   key={link.to}
                   to={link.to}
+                  state={link.state}
+                  end={link.to === '/'}
                   onClick={() => setOpen(false)}
                   className={({ isActive }) =>
                     `flex items-center gap-2 rounded-xl px-3 py-3 text-base font-semibold ${isActive ? 'bg-white text-[#1f5a9a]' : 'hover:bg-white/10'}`
@@ -124,12 +140,13 @@ export function Shell() {
         </div>
       ) : null}
       {person ? <ActivityBridge /> : null}
+      {person ? <StateBridge /> : null}
       <main className={`mx-auto w-full ${frame} px-4 py-6 sm:py-8 ${split ? 'lg:flex lg:min-h-0 lg:flex-1 lg:flex-col lg:overflow-hidden lg:py-4' : ''}`}>
         <Outlet />
       </main>
       <footer className={`shrink-0 border-t border-[#d5e2f0] bg-white ${split ? 'lg:hidden' : ''}`}>
         <div className={`mx-auto flex ${frame} flex-col gap-2 px-4 py-4 text-sm text-[#4d6278] sm:flex-row sm:items-center sm:justify-between`}>
-          <p>{first ? `Signed in as ${first}.` : 'A study site for Utah life insurance course material.'}</p>
+          <p>{first ? `Signed in as ${first}.` : 'Study for a life and health license or the Securities Industry Essentials exam.'}</p>
         </div>
       </footer>
     </div>

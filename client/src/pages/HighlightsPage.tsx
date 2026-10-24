@@ -8,10 +8,12 @@ import { NarrationBar } from '../components/NarrationBar.tsx'
 import { SlideOver } from '../components/SlideOver.tsx'
 import { StudyOutline } from '../components/StudyOutline.tsx'
 import { Button } from '../components/ui/button.tsx'
-import { flatSections } from '../content/pack.ts'
+import { courseSections } from '../content/catalog.ts'
 import { subjectTitle } from '../content/rewrite.ts'
 import { cn } from '../lib/utils.ts'
 import { useStudyNav } from '../study/studyNav.ts'
+import { studyPath } from '../study/paths.ts'
+import { useTest } from '../study/TestContext.tsx'
 import { useHighlights } from '../study/HighlightContext.tsx'
 import { anchorHighlight, highlightPreview, orderHighlights } from '../study/highlights.ts'
 import { groupOrder, highlightNarrationCues, highlightSpeechParts, listNarrationStatus } from '../study/narrator.ts'
@@ -19,6 +21,7 @@ import { scrollNarrationTarget } from '../study/columnScroll.ts'
 import { useNarration } from '../study/useNarration.ts'
 
 export function HighlightsPage() {
+  const test = useTest()
   const { highlights, ready, error, removeHighlight } = useHighlights()
   const [pendingDelete, setPendingDelete] = useState<{ id: string; text: string } | null>(null)
   const [deleting, setDeleting] = useState(false)
@@ -28,19 +31,24 @@ export function HighlightsPage() {
   const [progress, setProgress] = useState<SectionProgress[]>([])
   const deletingRef = useRef(false)
   const { navOpen, toggleChapter } = useStudyNav()
-  const sections = flatSections()
+  const sections = useMemo(() => courseSections(test.id), [test.id])
+  const sectionIds = useMemo(() => new Set(sections.map((section) => section.id)), [sections])
+  const visibleHighlights = useMemo(
+    () => highlights.filter((row) => sectionIds.has(row.sectionId)),
+    [highlights, sectionIds],
+  )
   const done = useMemo(() => new Set(progress.filter((row) => row.completed).map((row) => row.sectionId)), [progress])
   const cues = useMemo(() => {
     return highlightNarrationCues(
-      highlights,
-      flatSections().map((section) => ({
+      visibleHighlights,
+      sections.map((section) => ({
         id: section.id,
         title: subjectTitle(section.title),
         chapterNumber: section.chapter.number,
         body: section.body,
       })),
     )
-  }, [highlights])
+  }, [visibleHighlights, sections])
   const speechParts = useMemo(() => highlightSpeechParts(cues), [cues])
   const narration = useNarration('highlights', speechParts)
   const speechGroups = useMemo(() => groupOrder(speechParts), [speechParts])
@@ -74,9 +82,9 @@ export function HighlightsPage() {
 
   useEffect(() => {
     if (narration.phase !== 'speaking' || !narration.activeGroup || !sectionFilter) return
-    const row = highlights.find((item) => item.highlightId === narration.activeGroup)
+    const row = visibleHighlights.find((item) => item.highlightId === narration.activeGroup)
     if (row && row.sectionId !== sectionFilter) setSectionFilter(null)
-  }, [narration.phase, narration.activeGroup, highlights, sectionFilter])
+  }, [narration.phase, narration.activeGroup, visibleHighlights, sectionFilter])
 
   useEffect(() => {
     if (narration.phase !== 'speaking' || !narration.activeGroup) return
@@ -84,7 +92,7 @@ export function HighlightsPage() {
   }, [narration.phase, narration.activeGroup, sectionFilter])
 
   const ordered = orderHighlights(
-    highlights,
+    visibleHighlights,
     sections.map((section) => ({ id: section.id, chapterNumber: section.chapter.number })),
   )
   const visible = sectionFilter ? ordered.filter((row) => row.sectionId === sectionFilter) : ordered
@@ -182,7 +190,7 @@ export function HighlightsPage() {
             ? anchorHighlight(section.body, row)
             : { status: 'missing' as const }
           const readable = anchored.status === 'anchored'
-          const target = readable ? `/study/${row.sectionId}#h-${row.highlightId}` : `/study/${row.sectionId}`
+          const target = readable ? studyPath(test.id, row.sectionId, `h-${row.highlightId}`) : studyPath(test.id, row.sectionId)
           const selected = narration.anchor === row.highlightId
           const active = narration.phase === 'speaking' && narration.activeGroup === row.highlightId
           return (

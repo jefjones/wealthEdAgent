@@ -1,5 +1,5 @@
 import { X } from 'lucide-react'
-import { useRef, type PointerEvent as ReactPointerEvent } from 'react'
+import { useRef, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react'
 import { highlightArrowLabel, paintRun, sourceBlocks, type HighlightRange, type SourceRun } from '../study/highlights.ts'
 import { isSentenceTap, sentencePieces } from '../study/narrator.ts'
 
@@ -21,6 +21,8 @@ type Props = {
   /** Brief mark on the first keyword hit. Offsets are indexes into `text`. */
   searchHit?: { start: number; end: number } | null
   searchToken?: number
+  /** Every match of the current search in this text; stays lit with no fade. */
+  searchMatches?: readonly { start: number; end: number }[]
 }
 
 export function Prose({
@@ -35,6 +37,7 @@ export function Prose({
   onSentenceTap,
   searchHit = null,
   searchToken = 0,
+  searchMatches = NO_MATCHES,
 }: Props) {
   const blocks = sourceBlocks(text)
   const press = useRef<{ id: number; x: number; y: number; t: number; sentence: string | null; chrome: boolean } | null>(null)
@@ -102,6 +105,7 @@ export function Prose({
                     activeSentence={activeSentence}
                     searchHit={searchHit}
                     searchToken={searchToken}
+              searchMatches={searchMatches}
                     onDelete={onDelete}
                     onJump={onJump}
                   />
@@ -121,6 +125,7 @@ export function Prose({
               activeSentence={activeSentence}
               searchHit={searchHit}
               searchToken={searchToken}
+              searchMatches={searchMatches}
               onDelete={onDelete}
               onJump={onJump}
             />
@@ -131,30 +136,53 @@ export function Prose({
   )
 }
 
+const NO_MATCHES: readonly { start: number; end: number }[] = []
+
 function SearchPieces({
   text,
   absStart,
   hit,
+  matches,
   token,
 }: {
   text: string
   absStart: number
   hit: { start: number; end: number } | null
+  matches: readonly { start: number; end: number }[]
   token: number
 }) {
-  if (!hit) return text
-  const from = Math.max(0, hit.start - absStart)
-  const to = Math.min(text.length, hit.end - absStart)
-  if (to <= from) return text
-  return (
-    <>
-      {from > 0 ? text.slice(0, from) : null}
-      <mark key={token} data-search-hit="" className="search-hit">
-        {text.slice(from, to)}
-      </mark>
-      {to < text.length ? text.slice(to) : null}
-    </>
-  )
+  const absEnd = absStart + text.length
+  const ranges: { start: number; end: number; focus: boolean }[] = []
+  if (hit && hit.end > absStart && hit.start < absEnd) ranges.push({ ...hit, focus: true })
+  for (const match of matches) {
+    if (match.end <= absStart || match.start >= absEnd) continue
+    if (hit && match.start < hit.end && match.end > hit.start) continue
+    ranges.push({ ...match, focus: false })
+  }
+  if (ranges.length === 0) return text
+  ranges.sort((left, right) => left.start - right.start)
+  const out: ReactNode[] = []
+  let cursor = 0
+  for (const range of ranges) {
+    const from = Math.max(cursor, range.start - absStart)
+    const to = Math.min(text.length, range.end - absStart)
+    if (to <= from) continue
+    if (from > cursor) out.push(text.slice(cursor, from))
+    out.push(
+      range.focus ? (
+        <mark key={`f-${token}`} data-search-hit="" className="search-hit">
+          {text.slice(from, to)}
+        </mark>
+      ) : (
+        <mark key={`m-${absStart + from}`} className="search-match">
+          {text.slice(from, to)}
+        </mark>
+      ),
+    )
+    cursor = to
+  }
+  if (cursor < text.length) out.push(text.slice(cursor))
+  return <>{out}</>
 }
 
 function sentenceClass(index: number | null, selected: number | null, active: number | null) {
@@ -174,6 +202,7 @@ function MarkedRun({
   activeSentence,
   searchHit,
   searchToken,
+  searchMatches,
   onDelete,
   onJump,
 }: {
@@ -185,6 +214,7 @@ function MarkedRun({
   activeSentence: number | null
   searchHit: { start: number; end: number } | null
   searchToken: number
+  searchMatches: readonly { start: number; end: number }[]
   onDelete?: (highlightId: string) => void
   onJump?: (href: string) => void
 }) {
@@ -216,10 +246,10 @@ function MarkedRun({
                     id={piece.start === slice.start && startsHere ? `h-${slice.highlightId}` : undefined}
                     className="rounded-sm bg-[#ffe08a] px-0.5 text-[#3a2a00]"
                   >
-                    <SearchPieces text={piece.text} absStart={piece.start} hit={searchHit} token={searchToken} />
+                    <SearchPieces text={piece.text} absStart={piece.start} hit={searchHit} matches={searchMatches} token={searchToken} />
                   </mark>
                 ) : (
-                  <SearchPieces text={piece.text} absStart={piece.start} hit={searchHit} token={searchToken} />
+                  <SearchPieces text={piece.text} absStart={piece.start} hit={searchHit} matches={searchMatches} token={searchToken} />
                 )}
               </span>
             ))}

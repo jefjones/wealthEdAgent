@@ -23,6 +23,20 @@ import {
   type SpeechPart,
   type VoiceChoice,
 } from './narrator.ts'
+import { NARRATION_RATES } from './narrator.ts'
+import { updateStudyState, useStudyState } from './stateSync.ts'
+import { GLOBAL_STATE_ID, matchVoice, voicePickFrom, type VoicePick } from './studyState.ts'
+
+/**
+ * The voice id to use on this device. A voice saved on the server (from any device) is matched
+ * to the closest voice here; otherwise this device's own pick. Never written back.
+ */
+function effectiveVoiceId(catalog: readonly VoiceChoice[], saved: VoicePick | null | undefined, localId: string) {
+  if (saved === null) return AUTO_VOICE_ID
+  if (!saved) return localId
+  const match = matchVoice(rankNarrationVoices(catalog), saved)
+  return match ? voiceStorageId(match) : AUTO_VOICE_ID
+}
 
 /**
  * One speechSynthesis queue shared by section reading and highlight reading.
@@ -84,6 +98,9 @@ export function useNarration(
   )
   const [catalog, setCatalog] = useState<SpeechSynthesisVoice[]>([])
   const [voicesReady, setVoicesReady] = useState(false)
+  const { state: globalState, ready: globalReady } = useStudyState(GLOBAL_STATE_ID)
+  const voiceId = effectiveVoiceId(catalog.map(choiceFrom), globalState.voice, savedVoiceId)
+  const appliedGlobal = useRef(false)
   const tokenRef = useRef(0)
   const stateRef = useRef(state)
   stateRef.current = state
@@ -222,17 +239,22 @@ export function useNarration(
     return () => synth.removeEventListener('voiceschanged', onChange)
   }, [supported])
 
+  // Rate and auto-continue saved on another device apply here once they load.
   useEffect(() => {
-    if (!voicesReady) return
-    if (!savedVoiceId || savedVoiceId === AUTO_VOICE_ID) return
-    const stillThere = rankNarrationVoices(catalog.map(choiceFrom)).some((voice) => voiceStorageId(voice) === savedVoiceId)
-    if (stillThere) return
-    writeVoicePreference(window.localStorage, AUTO_VOICE_ID)
-    setSavedVoiceId(AUTO_VOICE_ID)
-  }, [voicesReady, catalog, savedVoiceId])
+    if (!globalReady || appliedGlobal.current) return
+    appliedGlobal.current = true
+    const rate = globalState.rate
+    if (typeof rate === 'number' && (NARRATION_RATES as readonly number[]).includes(rate)) {
+      dispatch({ type: 'rate', rate: rate as NarrationRate })
+    }
+    if (typeof globalState.autoContinue === 'boolean') {
+      autoContinueRef.current = globalState.autoContinue
+      setAutoContinueState(globalState.autoContinue)
+    }
+  }, [globalReady, globalState.rate, globalState.autoContinue])
 
   useEffect(() => {
-    const voice = nativeVoice(catalog, savedVoiceId, voicesReady)
+    const voice = nativeVoice(catalog, voiceId, voicesReady)
     voiceRef.current = voice
     const marker = voice ? voiceStorageId(choiceFrom(voice)) : ''
     if (appliedVoiceRef.current == null) {
@@ -243,7 +265,7 @@ export function useNarration(
     appliedVoiceRef.current = marker
     const current = stateRef.current
     if (current.phase === 'speaking' && current.index != null) speakFrom(current.index, current.rate)
-  }, [catalog, savedVoiceId, voicesReady, speakFrom])
+  }, [catalog, voiceId, voicesReady, speakFrom])
 
   useEffect(() => {
     if (handoffScopeRef.current === scope) {
@@ -361,6 +383,7 @@ export function useNarration(
   const cycleRate = useCallback(() => {
     const nextRate = nextNarrationRate(stateRef.current.rate)
     dispatch({ type: 'rate', rate: nextRate })
+    updateStudyState(GLOBAL_STATE_ID, { rate: nextRate })
     if (stateRef.current.phase === 'speaking' && stateRef.current.index != null) {
       dispatch({ type: 'start', index: stateRef.current.index })
       speakFrom(stateRef.current.index, nextRate)
@@ -370,12 +393,16 @@ export function useNarration(
   const setAutoContinue = useCallback((enabled: boolean) => {
     autoContinueRef.current = enabled
     if (typeof window !== 'undefined') writeAutoContinue(window.localStorage, enabled)
+    updateStudyState(GLOBAL_STATE_ID, { autoContinue: enabled })
     setAutoContinueState(enabled)
   }, [])
 
   const chooseVoice = useCallback((id: string) => {
     const next = id || AUTO_VOICE_ID
     if (typeof window !== 'undefined') writeVoicePreference(window.localStorage, next)
+    // Only an explicit pick is saved for other devices. A matched fallback never is.
+    const picked = next === AUTO_VOICE_ID ? null : catalogRef.current.find((voice) => voiceStorageId(choiceFrom(voice)) === next)
+    updateStudyState(GLOBAL_STATE_ID, { voice: picked ? voicePickFrom(picked) : null })
     voiceRef.current = nativeVoice(catalogRef.current, next, readyRef.current)
     setSavedVoiceId(next)
   }, [])
@@ -406,7 +433,7 @@ export function useNarration(
       })),
     [catalog],
   )
-  const voiceSelection = resolveNarrationVoice(catalog.map(choiceFrom), savedVoiceId, voicesReady).id
+  const voiceSelection = resolveNarrationVoice(catalog.map(choiceFrom), voiceId, voicesReady).id
   const showIosVoiceHint =
     typeof navigator !== 'undefined' &&
     isIosWebKitVoiceHost(navigator.userAgent, navigator.maxTouchPoints, navigator.platform)

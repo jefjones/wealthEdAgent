@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { findSection } from '../content/pack.ts'
+import { findSectionAnywhere } from '../content/catalog.ts'
 import { FLUSH_INTERVAL_MS } from '../study/activity.ts'
 import { flushActivity, noteActivity, showActivity, syncActivityChapter } from '../study/activityTracker.ts'
 
 function chapterIdFromPath(pathname: string): string | null {
-  const match = /^\/study\/([^/]+)/.exec(pathname)
+  const match = /^\/tests\/[^/]+\/study\/([^/]+)/.exec(pathname)
   if (!match?.[1]) return null
-  return findSection(decodeURIComponent(match[1]))?.chapter.id ?? null
+  return findSectionAnywhere(decodeURIComponent(match[1]))?.chapter.id ?? null
 }
 
 /** Counts visible, active study time and asks the tracker to report it. Renders nothing. */

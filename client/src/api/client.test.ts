@@ -24,6 +24,9 @@ import {
   setStudyNoticeHandler,
   submitAnswer,
   type StudyFeature,
+  listSearchHistory,
+  recordSearchHistory,
+  clearSearchHistory,
 } from './client.ts'
 import { formatPercent } from '../lib/utils.ts'
 
@@ -453,6 +456,36 @@ describe('server study sync', () => {
     await reprobeStudyFeaturesNow()
     expect(highlightCalls().length).toBeGreaterThan(1)
     expect(progressCalls()).toHaveLength(progressBefore)
+    vi.unstubAllGlobals()
+    vi.unstubAllEnvs()
+  })
+})
+
+describe('search history test id', () => {
+  it('sends testId on list, record and clear for every test', async () => {
+    vi.stubEnv('VITE_API_BASE_URL', 'https://api.test/')
+    setMockOverride(false)
+    setSession(
+      { personId: 'p1', username: 'u', fname: 'A', lname: 'B', emailAddress: 'a@b.c', phone: null, agentId: null, agentSlug: null },
+      'x.eyJleHAiOjk5OTk5OTk5OTl9.y',
+    )
+    localStorage.setItem('wealthEdAgent.studyMigrated.v1', JSON.stringify({ p1: { searchHistory: true } }))
+    const calls: { url: string; init?: RequestInit }[] = []
+    vi.stubGlobal('fetch', async (url: string, init?: RequestInit) => {
+      calls.push({ url, init })
+      if (init?.method === 'POST') {
+        return new Response(JSON.stringify({ entry: { entryId: 'e1', testId: 'sie', text: 'margin', searchedAt: '2026-10-24T00:00:00.000Z' } }))
+      }
+      if (init?.method === 'DELETE') return new Response(JSON.stringify({ deleted: true }))
+      return new Response(JSON.stringify({ entries: [] }))
+    })
+    await listSearchHistory('sie')
+    await recordSearchHistory('margin', 'sie')
+    await clearSearchHistory('sie')
+    expect(calls[0].url).toBe('https://api.test/api/wealthEdAgent/study/search-history?testId=sie')
+    expect(JSON.parse(String(calls[1].init?.body))).toEqual({ text: 'margin', testId: 'sie' })
+    expect(calls[2].url).toBe('https://api.test/api/wealthEdAgent/study/search-history?testId=sie')
+    expect(calls[2].init?.method).toBe('DELETE')
     vi.unstubAllGlobals()
     vi.unstubAllEnvs()
   })

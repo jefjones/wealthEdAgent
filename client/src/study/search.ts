@@ -1,3 +1,4 @@
+import { courseSections } from '../content/catalog.ts'
 import { flatSections } from '../content/pack.ts'
 import { subjectTitle } from '../content/rewrite.ts'
 
@@ -218,9 +219,26 @@ export function searchSections(sections: readonly SearchSection[], query: string
   return groups
 }
 
-export function searchCourse(query: string): SearchGroup[] {
+/** Every place the query's words appear in a section body, merged, so the reading can keep them all lit. */
+export function bodyMatches(body: string, query: string): { start: number; end: number }[] {
+  const terms = searchTerms(query)
+  if (terms.length === 0 || !body) return []
+  const fold = foldText(body)
+  const marks = terms.flatMap((term) => findAll(fold.folded, fold.map, term))
+  marks.sort((left, right) => left.start - right.start || left.end - right.end)
+  const merged: { start: number; end: number }[] = []
+  for (const mark of marks) {
+    const previous = merged[merged.length - 1]
+    if (previous && mark.start <= previous.end) previous.end = Math.max(previous.end, mark.end)
+    else merged.push({ ...mark })
+  }
+  return merged
+}
+
+export function searchCourse(query: string, testId = 'life-health'): SearchGroup[] {
+  const sections = testId === 'life-health' ? flatSections() : courseSections(testId)
   return searchSections(
-    flatSections().map((section) => ({
+    sections.map((section) => ({
       id: section.id,
       title: section.title,
       body: section.body,

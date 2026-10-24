@@ -8,7 +8,7 @@ import { Input } from '../components/ui/input.tsx'
 import { Label } from '../components/ui/label.tsx'
 
 export function safeNext(value: string | null) {
-  if (!value || !value.startsWith('/') || value.startsWith('//') || value.startsWith('/login')) return '/study'
+  if (!value || !value.startsWith('/') || value.startsWith('//') || value.startsWith('/login')) return '/'
   return value
 }
 
@@ -45,7 +45,7 @@ export function LoginPage() {
   return (
     <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
       <div>
-        <p className="text-sm font-semibold tracking-wide text-[#2a6cb5] uppercase">Life insurance study</p>
+        <p className="text-sm font-semibold tracking-wide text-[#2a6cb5] uppercase">License study</p>
         <h1 className="mt-2 font-['Fraunces',Georgia,serif] text-4xl leading-tight font-semibold text-[#14375f] sm:text-5xl">
           Read the course. Then prove it on a practice test.
         </h1>
@@ -54,7 +54,7 @@ export function LoginPage() {
           Practice tests are a great way to keep learning. Take as many as you can to fine-tune your understanding. Pass the test the first time by being ready for anything! You need to pass with 70%. We do not have the actual test answers. We can only create our own to help you refine your understanding. Don't get lazy. If you can pass these tests at 80%, you should be good to go. But don't be lazy. Know everything you can.
         </p>
         <p className="mt-4 max-w-xl text-lg text-[#3d5166]">
-          The Utah life and health course, from Insurance Basics through Utah Insurance Rules. Your reading progress and scores stay with your account.
+          Utah Life and Health, and the Securities Industry Essentials exam. Pick a test after you sign in. Your reading progress and scores stay with your account.
         </p>
       </div>
       <Card className="p-6 sm:p-8">

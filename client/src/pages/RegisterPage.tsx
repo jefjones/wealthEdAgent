@@ -33,7 +33,7 @@ export function RegisterPage() {
     setConflict(false)
     try {
       await register(form)
-      navigate('/study', { replace: true })
+      navigate('/', { replace: true })
     } catch (cause) {
       setConflict(cause instanceof ApiError && cause.status === 409)
       setError(errorText(cause, 'Could not create the account.'))

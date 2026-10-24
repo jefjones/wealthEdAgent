@@ -62,6 +62,10 @@ The public page is `/reset-password/:token`. The client checks that the two pass
 
 All of these require auth. Prefix: `api/wealthEdAgent/study/`.
 
+The site now has two tests, Utah Life and Health (`life-health`) and SIE (`sie`). The same routes store both. Life and Health section, question, and chapter ids are unchanged. SIE ids start with `sie-`. Progress, highlights, seen questions, and attempts stay apart because those ids do not overlap. An attempt saved before this split has no test id and belongs to Life and Health. Activity events use the chapter id already stored on progress. SIE chapter ids are `sie-ch-stocks`, `sie-ch-bonds`, `sie-ch-bond-risks`, `sie-ch-gov-bonds`, `sie-ch-muni`, `sie-ch-funds`, `sie-ch-options`, `sie-ch-new-issues`, `sie-ch-trading`, `sie-ch-settlement`, `sie-ch-accounts`, `sie-ch-other-accounts`, `sie-ch-retirement`, `sie-ch-economy`, `sie-ch-federal`, and `sie-ch-rules`. If the activity route only accepts the Life and Health chapter ids, those SIE events need to be allowed too.
+
+Search history is kept per test in the browser. The search-history routes below do not take a test id yet, so only Life and Health is uploaded. SIE searches stay in this browser until the route accepts `testId`.
+
 ### `GET progress`
 
 `{ "sections": [{ "chapterId", "sectionId", "completed", "completedAt" }] }`

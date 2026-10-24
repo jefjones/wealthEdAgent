@@ -53,21 +53,38 @@ export function reservedQuestionIds(personId: string) {
 
 const RESUME = 'wealthEdAgent.resume.v1'
 
-export function saveResume(personId: string, sectionId: string) {
+type ResumeValue = string | Record<string, string>
+
+export function saveResume(personId: string, sectionId: string, testId = 'life-health') {
   const all = readResumeMap()
-  all[personId] = sectionId
+  const current = all[personId]
+  const record: Record<string, string> =
+    current && typeof current === 'object' ? { ...current } : typeof current === 'string' ? { 'life-health': current } : {}
+  record[testId] = sectionId
+  all[personId] = record
   localStorage.setItem(RESUME, JSON.stringify(all))
 }
 
-export function loadResume(personId: string) {
-  return readResumeMap()[personId] ?? null
+export function loadResume(personId: string, testId = 'life-health') {
+  const value = readResumeMap()[personId]
+  if (!value) return null
+  if (typeof value === 'string') return testId === 'life-health' ? value : null
+  return value[testId] ?? null
 }
 
 function readResumeMap() {
   try {
     const raw = localStorage.getItem(RESUME)
-    return raw ? (JSON.parse(raw) as Record<string, string>) : {}
+    return raw ? (JSON.parse(raw) as Record<string, ResumeValue>) : {}
   } catch {
     return {}
   }
+}
+
+/** testId -> sectionId from the old browser-only resume key. */
+export function resumeEntries(personId: string): Record<string, string> {
+  const value = readResumeMap()[personId]
+  if (!value) return {}
+  if (typeof value === 'string') return { 'life-health': value }
+  return { ...value }
 }

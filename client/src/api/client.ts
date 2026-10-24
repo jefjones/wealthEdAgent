@@ -8,8 +8,9 @@
  * A later successful load merges that browser copy onto the server once.
  */
 
+import { LIFE_HEALTH_ID } from '../content/catalog.ts'
 import type { ActivityEvent } from '../study/activity.ts'
-import { copyDraw } from '../study/draws.ts'
+import { copyDraw, loadDraw, saveDraw } from '../study/draws.ts'
 import { highlightInputError } from '../study/highlights.ts'
 import {
   applySearchHistory,
@@ -94,7 +95,13 @@ export type Attempt = {
   answeredCount: number
   correctCount: number
   percent: number
+  /** Set in this browser. Older records omit it and count as Life and Health. */
+  testId?: string
+  /** Questions and answer order, stored on the server so another device can show the results. */
+  draw?: AttemptDraw | null
 }
+
+export type AttemptDraw = { questionIds: string[]; optionOrder?: Record<string, string[]> }
 
 export type Answer = {
   questionId: string
@@ -104,6 +111,8 @@ export type Answer = {
   answeredAt: string
   /** Seconds from question display to answer. Absent on results stored before timing. */
   seconds?: number
+  /** Server name for seconds. Read into seconds. */
+  secondsSpent?: number | null
 }
 
 export type Highlight = {
@@ -149,6 +158,8 @@ type StudyDb = {
   searchHistory?: SearchHistoryEntry[]
   deletedSearchIds?: string[]
   searchHistoryCleared?: boolean
+  /** Searches for tests other than Life and Health. The server list has no test id yet. */
+  searchHistoryByTest?: Record<string, SearchHistoryEntry[]>
   attemptUploads?: Record<string, AttemptUploadState>
 }
 
@@ -554,7 +565,7 @@ function localSeen() {
   }))
 }
 
-function localCreateAttempt(mode: AttemptMode, questionCount: number) {
+function localCreateAttempt(mode: AttemptMode, questionCount: number, testId = LIFE_HEALTH_ID) {
   if (!Number.isInteger(questionCount) || questionCount < 1 || questionCount > 500) {
     fail(400, 'questionCount must be from 1 to 500.')
   }
@@ -569,6 +580,7 @@ function localCreateAttempt(mode: AttemptMode, questionCount: number) {
       answeredCount: 0,
       correctCount: 0,
       percent: 0,
+      testId: testId || LIFE_HEALTH_ID,
       answers: [],
     }
     db.attempts.unshift(attempt)
@@ -586,12 +598,48 @@ function publicAttempt(attempt: AttemptRecord): Attempt {
     answeredCount: attempt.answeredCount,
     correctCount: attempt.correctCount,
     percent: attempt.percent,
+    ...(attempt.testId ? { testId: attempt.testId } : {}),
   }
 }
 
 function storedSeconds(seconds: number | undefined) {
   if (typeof seconds !== 'number' || !Number.isFinite(seconds) || seconds < 0) return undefined
   return Math.round(seconds)
+}
+
+/** The server sends secondsSpent; screens read seconds. */
+export function normalizeAnswer(answer: Answer): Answer {
+  const out = { ...answer }
+  const fromServer = storedSeconds(answer.secondsSpent ?? undefined)
+  if (out.seconds === undefined && fromServer !== undefined) out.seconds = Math.min(fromServer, 86400)
+  delete out.secondsSpent
+  return out
+}
+
+function secondsBody(seconds: number | undefined) {
+  return seconds !== undefined ? { secondsSpent: Math.min(Math.max(0, Math.round(seconds)), 86400) } : {}
+}
+
+function drawBody(draw: AttemptDraw | null | undefined) {
+  if (!draw || draw.questionIds.length === 0) return {}
+  return { draw: { questionIds: draw.questionIds.slice(0, 500), ...(draw.optionOrder ? { optionOrder: draw.optionOrder } : {}) } }
+}
+
+/** Keep a server draw in this browser so the results report and no-repeat draws work here too. */
+function mirrorServerDraw(attempt: Attempt, answers?: Answer[]) {
+  if (!attempt.draw?.questionIds?.length) return
+  const personId = requirePerson().personId
+  const existing = loadDraw(personId, attempt.attemptId)
+  const secondsByQuestion: Record<string, number> = { ...(existing?.secondsByQuestion ?? {}) }
+  answers?.forEach((answer) => {
+    if (answer.seconds !== undefined && secondsByQuestion[answer.questionId] === undefined) secondsByQuestion[answer.questionId] = answer.seconds
+  })
+  if (existing && Object.keys(secondsByQuestion).length === Object.keys(existing.secondsByQuestion ?? {}).length) return
+  saveDraw(personId, attempt.attemptId, {
+    questionIds: existing?.questionIds ?? attempt.draw.questionIds,
+    optionOrder: existing?.optionOrder ?? attempt.draw.optionOrder ?? {},
+    ...(Object.keys(secondsByQuestion).length > 0 ? { secondsByQuestion } : {}),
+  })
 }
 
 function localAnswer(
@@ -703,45 +751,67 @@ function copySearchEntries(entries: readonly SearchHistoryEntry[]) {
   return entries.map((entry) => ({ ...entry }))
 }
 
-function localListSearchHistory() {
-  return withDb((db) => ({ entries: copySearchEntries(db.searchHistory ?? []) }))
+function readSearchEntries(db: StudyDb, testId: string) {
+  if (testId === LIFE_HEALTH_ID) return db.searchHistory ?? []
+  return db.searchHistoryByTest?.[testId] ?? []
 }
 
-function localRecordSearchHistory(text: string) {
+function writeSearchEntries(db: StudyDb, testId: string, entries: SearchHistoryEntry[]) {
+  if (testId === LIFE_HEALTH_ID) {
+    db.searchHistory = entries
+    return
+  }
+  db.searchHistoryByTest = { ...(db.searchHistoryByTest ?? {}), [testId]: entries }
+}
+
+function localListSearchHistory(testId = LIFE_HEALTH_ID) {
+  return withDb((db) => ({ entries: copySearchEntries(readSearchEntries(db, testId)) }))
+}
+
+function localRecordSearchHistory(text: string, testId = LIFE_HEALTH_ID) {
   const cleaned = cleanSearchText(text)
   if (!cleaned) fail(400, 'Enter a subject to search for.')
   return withDb((db) => {
-    const existing = (db.searchHistory ?? []).find((entry) => searchHistoryKey(entry.text) === searchHistoryKey(cleaned))
+    const current = readSearchEntries(db, testId)
+    const existing = current.find((entry) => searchHistoryKey(entry.text) === searchHistoryKey(cleaned))
     const entry: SearchHistoryEntry = {
       entryId: existing?.entryId ?? crypto.randomUUID(),
       text: cleaned,
       searchedAt: nowIso(),
     }
-    db.searchHistory = applySearchHistory(db.searchHistory ?? [], { type: 'add', entry })
-    return { entries: copySearchEntries(db.searchHistory) }
+    const next = applySearchHistory(current, { type: 'add', entry })
+    writeSearchEntries(db, testId, next)
+    return { entries: copySearchEntries(next) }
   })
 }
 
-function localDeleteSearchHistory(entryId: string) {
+function localDeleteSearchHistory(entryId: string, testId = LIFE_HEALTH_ID) {
   assertId(entryId, 'entryId')
   return withDb((db) => {
-    const entries = db.searchHistory ?? []
+    const entries = readSearchEntries(db, testId)
     if (!entries.some((entry) => entry.entryId === entryId)) fail(404, 'Search not found.')
-    db.searchHistory = applySearchHistory(entries, { type: 'delete', entryId })
-    const ids = new Set(db.deletedSearchIds ?? [])
-    ids.add(entryId)
-    db.deletedSearchIds = [...ids]
+    const next = applySearchHistory(entries, { type: 'delete', entryId })
+    writeSearchEntries(db, testId, next)
+    if (testId === LIFE_HEALTH_ID) {
+      const ids = new Set(db.deletedSearchIds ?? [])
+      ids.add(entryId)
+      db.deletedSearchIds = [...ids]
+    }
     return { deleted: true as const }
   })
 }
 
-function localClearSearchHistory() {
+function localClearSearchHistory(testId = LIFE_HEALTH_ID) {
   return withDb((db) => {
-    const ids = new Set(db.deletedSearchIds ?? [])
-    for (const entry of db.searchHistory ?? []) ids.add(entry.entryId)
-    db.searchHistory = []
-    db.deletedSearchIds = [...ids]
-    db.searchHistoryCleared = true
+    if (testId === LIFE_HEALTH_ID) {
+      const ids = new Set(db.deletedSearchIds ?? [])
+      for (const entry of db.searchHistory ?? []) ids.add(entry.entryId)
+      db.searchHistory = []
+      db.deletedSearchIds = [...ids]
+      db.searchHistoryCleared = true
+    } else {
+      writeSearchEntries(db, testId, [])
+    }
     return { deleted: true as const }
   })
 }
@@ -930,7 +1000,11 @@ async function pushLocalAttempt(local: AttemptRecord) {
     try {
       created = await realApi<{ attempt: Attempt }>('api/wealthEdAgent/study/attempts', {
         method: 'POST',
-        body: JSON.stringify({ mode: local.mode, questionCount: local.questionCount }),
+        body: JSON.stringify({
+          mode: local.mode,
+          questionCount: local.questionCount,
+          ...drawBody(loadDraw(requirePerson().personId, local.attemptId)),
+        }),
       })
     } catch (error) {
       if (noteFeatureFailure('attempts', error)) return
@@ -955,7 +1029,7 @@ async function pushLocalAttempt(local: AttemptRecord) {
           body: JSON.stringify({
             chosenOptionId: answer.chosenOptionId,
             correctOptionId: answer.correctOptionId,
-            ...(answer.seconds !== undefined ? { seconds: answer.seconds } : {}),
+            ...secondsBody(answer.seconds),
           }),
         },
       )
@@ -1408,17 +1482,18 @@ export function getSeen() {
   })
 }
 
-export function createAttempt(input: { mode: AttemptMode; questionCount: number }) {
+export function createAttempt(input: { mode: AttemptMode; questionCount: number; testId?: string; draw?: AttemptDraw | null }) {
+  const testId = input.testId || LIFE_HEALTH_ID
   return withFeature(
     'attempts',
-    () => localCreateAttempt(input.mode, input.questionCount),
+    () => localCreateAttempt(input.mode, input.questionCount, testId),
     async () => {
       const result = await realApi<{ attempt: Attempt }>('api/wealthEdAgent/study/attempts', {
         method: 'POST',
-        body: JSON.stringify({ mode: input.mode, questionCount: input.questionCount }),
+        body: JSON.stringify({ mode: input.mode, questionCount: input.questionCount, ...drawBody(input.draw) }),
       })
-      mirrorAttempt(result.attempt, [])
-      return result
+      mirrorAttempt({ ...result.attempt, testId }, [])
+      return { attempt: { ...result.attempt, testId } }
     },
     { write: true },
   )
@@ -1435,17 +1510,18 @@ export function submitAnswer(
     'attempts',
     () => localAnswer(id(), questionId, input.chosenOptionId, input.correctOptionId, seconds),
     async () => {
-      const result = await realApi<{ answer: Answer; attempt: Attempt }>(
+      const raw = await realApi<{ answer: Answer; attempt: Attempt }>(
         `api/wealthEdAgent/study/attempts/${encodeURIComponent(id())}/answers/${encodeURIComponent(questionId)}`,
         {
           method: 'PUT',
           body: JSON.stringify({
             chosenOptionId: input.chosenOptionId,
             correctOptionId: input.correctOptionId,
-            ...(seconds !== undefined ? { seconds } : {}),
+            ...secondsBody(seconds),
           }),
         },
       )
+      const result = { ...raw, answer: normalizeAnswer(raw.answer) }
       updateDb((db) => {
         touchSeen(db, questionId)
         const attempt = db.attempts.find((row) => row.attemptId === result.attempt.attemptId)
@@ -1484,7 +1560,10 @@ export function completeAttempt(attemptId: string) {
 export function listAttempts() {
   return withFeature('attempts', localList, async () => {
     const body = await realApi<{ attempts: Attempt[] }>('api/wealthEdAgent/study/attempts')
-    body.attempts.forEach((summary) => mirrorAttempt(summary))
+    body.attempts.forEach((summary) => {
+      mirrorAttempt(summary)
+      mirrorServerDraw(summary)
+    })
     const db = peekDb()
     const extras = mergeAttempts(body.attempts, db.attempts, finishedUploadIds(db)).upload.map(publicAttempt)
     return { attempts: unionAttempts(body.attempts, extras) }
@@ -1497,42 +1576,75 @@ export function getAttempt(attemptId: string) {
     'attempts',
     () => localGet(id()),
     async () => {
-      const result = await realApi<{ attempt: Attempt; answers: Answer[] }>(
+      const raw = await realApi<{ attempt: Attempt; answers: Answer[] }>(
         `api/wealthEdAgent/study/attempts/${encodeURIComponent(id())}`,
       )
+      const result = { ...raw, answers: raw.answers.map(normalizeAnswer) }
       mirrorAttempt(result.attempt, result.answers)
+      mirrorServerDraw(result.attempt, result.answers)
       return result
     },
   )
 }
 
-export function listSearchHistory() {
+function searchQuery(testId: string) {
+  return `?testId=${encodeURIComponent(testId)}`
+}
+
+/** Browser copy of one test's searches, kept current so the fallback shows the same list. */
+function mirrorSearchEntries(testId: string, entries: SearchHistoryEntry[]) {
+  if (testId === LIFE_HEALTH_ID) return
+  updateDb((db) => writeSearchEntries(db, testId, copySearchEntries(entries)))
+}
+
+export function listSearchHistory(testId = LIFE_HEALTH_ID) {
   return withFeature(
     'searchHistory',
-    localListSearchHistory,
+    () => localListSearchHistory(testId),
     async () => {
-      const body = await realApi<{ entries: SearchHistoryEntry[] }>('api/wealthEdAgent/study/search-history')
+      const body = await realApi<{ entries: SearchHistoryEntry[] }>(`api/wealthEdAgent/study/search-history${searchQuery(testId)}`)
       const db = peekDb()
-      return {
-        entries: mergeSearchHistory(body.entries, db.searchHistory ?? [], db.deletedSearchIds ?? [], db.searchHistoryCleared === true)
-          .merged,
+      if (testId === LIFE_HEALTH_ID) {
+        return {
+          entries: mergeSearchHistory(body.entries, db.searchHistory ?? [], db.deletedSearchIds ?? [], db.searchHistoryCleared === true)
+            .merged,
+        }
       }
+      // Until the one-time upload has run, keep showing searches that are still only in this browser.
+      if (!stateMigrated(requirePerson().personId)) {
+        return { entries: mergeSearchHistory(body.entries, readSearchEntries(db, testId)).merged }
+      }
+      mirrorSearchEntries(testId, body.entries)
+      return { entries: copySearchEntries(body.entries) }
     },
     { missingRoute: true },
   )
 }
 
-export function recordSearchHistory(text: string) {
+/** Post one search for a test. Used by the one-time upload of browser-only searches. */
+export async function postSearchHistoryEntry(text: string, testId: string) {
+  return realApi<{ entry: SearchHistoryEntry }>('api/wealthEdAgent/study/search-history', {
+    method: 'POST',
+    body: JSON.stringify({ text, testId }),
+  })
+}
+
+export function recordSearchHistory(text: string, testId = LIFE_HEALTH_ID) {
   const cleaned = cleanSearchText(text)
   if (!cleaned) fail(400, 'Enter a subject to search for.')
   return withFeature(
     'searchHistory',
-    () => localRecordSearchHistory(cleaned),
+    () => localRecordSearchHistory(cleaned, testId),
     async () => {
-      const result = await realApi<{ entry: SearchHistoryEntry }>('api/wealthEdAgent/study/search-history', {
-        method: 'POST',
-        body: JSON.stringify({ text: cleaned }),
-      })
+      const result = await postSearchHistoryEntry(cleaned, testId)
+      if (testId !== LIFE_HEALTH_ID) {
+        let entries: SearchHistoryEntry[] = []
+        updateDb((db) => {
+          entries = applySearchHistory(readSearchEntries(db, testId), { type: 'add', entry: result.entry })
+          writeSearchEntries(db, testId, entries)
+        })
+        return { entries: copySearchEntries(entries) }
+      }
       updateDb((db) => {
         db.searchHistory = applySearchHistory(db.searchHistory ?? [], { type: 'add', entry: result.entry })
         db.deletedSearchIds = (db.deletedSearchIds ?? []).filter((id) => id !== result.entry.entryId)
@@ -1544,18 +1656,18 @@ export function recordSearchHistory(text: string) {
   )
 }
 
-export function deleteSearchHistory(entryId: string) {
+export function deleteSearchHistory(entryId: string, testId = LIFE_HEALTH_ID) {
   return withFeature(
     'searchHistory',
-    () => localDeleteSearchHistory(entryId),
+    () => localDeleteSearchHistory(entryId, testId),
     async () => {
       const result = await realApi<{ deleted: true }>(
         `api/wealthEdAgent/study/search-history/${encodeURIComponent(entryId)}`,
         { method: 'DELETE' },
       )
       updateDb((db) => {
-        db.searchHistory = (db.searchHistory ?? []).filter((entry) => entry.entryId !== entryId)
-        db.deletedSearchIds = (db.deletedSearchIds ?? []).filter((id) => id !== entryId)
+        writeSearchEntries(db, testId, readSearchEntries(db, testId).filter((entry) => entry.entryId !== entryId))
+        if (testId === LIFE_HEALTH_ID) db.deletedSearchIds = (db.deletedSearchIds ?? []).filter((id) => id !== entryId)
       })
       return result
     },
@@ -1563,21 +1675,79 @@ export function deleteSearchHistory(entryId: string) {
   )
 }
 
-export function clearSearchHistory() {
+export function clearSearchHistory(testId = LIFE_HEALTH_ID) {
   return withFeature(
     'searchHistory',
-    localClearSearchHistory,
+    () => localClearSearchHistory(testId),
     async () => {
-      const result = await realApi<{ deleted: true }>('api/wealthEdAgent/study/search-history', { method: 'DELETE' })
+      const result = await realApi<{ deleted: true }>(`api/wealthEdAgent/study/search-history${searchQuery(testId)}`, {
+        method: 'DELETE',
+      })
       updateDb((db) => {
-        db.searchHistory = []
-        db.deletedSearchIds = []
-        db.searchHistoryCleared = false
+        writeSearchEntries(db, testId, [])
+        if (testId === LIFE_HEALTH_ID) {
+          db.deletedSearchIds = []
+          db.searchHistoryCleared = false
+        }
       })
       return result
     },
     { write: true, missingRoute: true },
   )
+}
+
+/* ---------- Cross-device study state (api/wealthEdAgent/study/state/{testId}) ---------- */
+
+const STATE_MIGRATED_PREFIX = 'wealthEdAgent.stateMigrated.v1:'
+
+export function stateMigrated(personId: string) {
+  try {
+    return localStorage.getItem(`${STATE_MIGRATED_PREFIX}${personId}`) === '1'
+  } catch {
+    return false
+  }
+}
+
+export function markStateMigrated(personId: string) {
+  try {
+    localStorage.setItem(`${STATE_MIGRATED_PREFIX}${personId}`, '1')
+  } catch {
+    /* ignore */
+  }
+}
+
+export type ServerState = { testId: string; state: Record<string, unknown> | null; updatedAt: string | null }
+
+/** Searches that were kept only in this browser, per test other than Life and Health. */
+export function browserOnlySearches(): Record<string, SearchHistoryEntry[]> {
+  const byTest = peekDb().searchHistoryByTest ?? {}
+  const out: Record<string, SearchHistoryEntry[]> = {}
+  for (const [testId, entries] of Object.entries(byTest)) {
+    if (testId !== LIFE_HEALTH_ID && entries.length > 0) out[testId] = copySearchEntries(entries)
+  }
+  return out
+}
+
+export function studyStateRemote() {
+  return !mockApiEnabled()
+}
+
+export async function getStudyState(testId: string) {
+  return realApi<ServerState>(`api/wealthEdAgent/study/state/${encodeURIComponent(testId)}`)
+}
+
+/** baseUpdatedAt undefined is sent as omitted (always wins); null means "expect no row". */
+export async function putStudyState(
+  testId: string,
+  state: Record<string, unknown>,
+  baseUpdatedAt: string | null | undefined,
+  keepalive = false,
+) {
+  return realApi<ServerState>(`api/wealthEdAgent/study/state/${encodeURIComponent(testId)}`, {
+    method: 'PUT',
+    keepalive,
+    body: JSON.stringify(baseUpdatedAt === undefined ? { state } : { state, baseUpdatedAt }),
+  })
 }
 
 export function listHighlights() {

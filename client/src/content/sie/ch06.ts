@@ -1,0 +1,1590 @@
+import { question } from '../build.ts'
+import type { Chapter, Question } from '../types.ts'
+import { section } from './section.ts'
+
+function sourced(
+  id: string,
+  sectionId: string,
+  stem: string,
+  options: [
+    { text: string; why: string; correct?: boolean },
+    { text: string; why: string; correct?: boolean },
+    { text: string; why: string; correct?: boolean },
+    { text: string; why: string; correct?: boolean },
+  ],
+): Question {
+  return { ...question(id, stem, options), sectionId } as Question
+}
+
+export const fundsChapter: Chapter = {
+  id: 'sie-ch-funds',
+  number: 6,
+  title: 'Funds and Other Packages of Investments',
+  summary: 'Mutual funds, closed-end funds, ETFs, and the other packages in this chapter.',
+  sections: [
+    section(
+      'sie-c6-types',
+      'Investment Company Basics',
+      'An investment company invests shareholder funds into a portfolio of stocks and/or bonds and then sells shares or units of that portfolio as securities. Because the investor is purchasing a share of a pool of securities, investment company securities provide diversification to an investor. Investors can choose from several types of investment companies to match their investment objectives.\n\nInvestment company securities are a type of packaged security.',
+      [
+        sourced(
+          'sie06q0001',
+          'sie-c6-types',
+          'An investor buys shares of a portfolio of stocks and bonds instead of picking each security. What does that packaged security mainly give the buyer?',
+          [
+            { text: 'Diversification through ownership of a pooled portfolio', why: 'Investment company securities sell an interest in a pool of stocks and/or bonds, so one purchase spreads the investor across that portfolio.', correct: true },
+            { text: 'A claim on a single bond the company keeps in its vault', why: 'The buyer receives shares or units of a whole portfolio, not one underlying certificate.' },
+            { text: 'Day-to-day authority to trade the pool', why: 'The company invests the shareholder funds. The investor is buying a packaged security, not the manager\'s job.' },
+            { text: 'A fixed cash value promised on a set date', why: 'The product is a share of a securities portfolio chosen to fit an objective, not a promised cash maturity.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-what-is-an-investment-company',
+      'What Is an Investment Company?',
+      'An investment company issues securities and uses the proceeds to purchase other securities that are consistent with the company\'s investment goals (objectives). Individual investors will buy shares of an investment company that best matches their own investment goals. The most common type of investment company is a mutual fund.\n\nInvestment companies are required to register with the Securities and Exchange Commission (SEC) under the Investment Company Act of 1940. The act defines three types of investment companies:\n\n• Face-amount certificate company e Management company • Unit investment trust Face-Amount Certificate Company\n• Face-amount certificate company\n• Management company\n• Unit investment trust\n\nFace-Amount Certificate Company\n\nFace-amount certificates are an obsolete product. For the test, you only need to know that they are a type of investment company.',
+      [
+        sourced(
+          'sie06q0002',
+          'sie-c6-what-is-an-investment-company',
+          'A firm issues its own securities and invests the cash in other securities that match a stated objective. Under which statute must that firm register with the SEC?',
+          [
+            { text: 'Only an exchange listing rule that applies after shares start trading', why: 'Registration is required of the investment company itself, not merely of shares that later list.' },
+            { text: 'The Investment Company Act of 1940', why: 'Investment companies register with the SEC under the Investment Company Act of 1940, which also names the three types.', correct: true },
+            { text: 'No federal registration, because the common form is a private pool', why: 'A mutual fund is the most common investment company, and these companies must register.' },
+            { text: 'A rule that dropped one category and left only management companies', why: 'The Act defines three types: face-amount certificate companies, management companies, and unit investment trusts.' },
+          ],
+        ),
+        sourced(
+          'sie06q0003',
+          'sie-c6-what-is-an-investment-company',
+          'Which investment-company category is obsolete, so the exam point is simply that it still counts as one of the types?',
+          [
+            { text: 'The mutual fund', why: 'A mutual fund is the most common investment company, not the obsolete product.' },
+            { text: 'The face-amount certificate company', why: 'Face-amount certificates are obsolete. The tested point is only that they remain a type of investment company.', correct: true },
+            { text: 'The management company', why: 'Management companies are one of the three defined types and are not described as obsolete.' },
+            { text: 'The unit investment trust', why: 'A unit investment trust is a current category under the Act.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-open',
+      'Management Companies',
+      'A management company pools money from investors to create a portfolio of securities (a fund). An investment adviser (fund manager) is hired by the fund to make investment decisions based on the fund\'s investment objective. There are two types of management companies: open end and closed end.\n\nOpen-End Management Companies (Mutual Funds)\n\nOpen-End Management Companies (Mutual Funds) Open-end management companies are commonly known as mutual funds.\n\nOpen-end management companies are commonly known as mutual funds. Mutual funds can only issue common shares. The number of shares that can be issued is unlimited (which is where the term "open end" comes from).\n\nAs investors buy shares from the fund, new shares are issued, but unlike shares of common stock, these shares are nonnegotiable. This means they cannot be traded. Instead, investors sell their shares back to the fund, and the fund redeems (expires) them.\n\nClosed-End Management Company (Closed-End Funds)\n\nClosed-End Management Company (Closed-End Funds) A closed-end fund has a one-time issuance of stock.\n\nA closed-end fund has a one-time issuance of stock. These securities are not redeemable. Instead, they trade like any other negotiable securities, usually on an exchange.\n\nUnlike open-end funds, closed-end funds may raise money to run their business by issuing common stock, preferred stock, or debt. Note: Don\'t confuse the capitalization of a fund (the raising of money to invest) with the fund\'s portfolio of investments.',
+      [
+        sourced(
+          'sie06q0004',
+          'sie-c6-open',
+          'What kind of shares can a mutual fund issue, and is there a cap on the number?',
+          [
+            { text: 'A single offering of common, preferred, or debt', why: 'Common stock, preferred stock, or debt is how a closed-end fund may raise money to run the business.' },
+            { text: 'Common shares only, with no limit on how many', why: 'Open-end funds issue only common shares, and the count is unlimited. That unlimited issuance is why they are called open-end.', correct: true },
+            { text: 'Preferred shares that investors trade on an exchange', why: 'Preferred stock is a closed-end capitalization choice. Open-end shares are common shares and are not traded.' },
+            { text: 'Redeemable units that stay frozen after one bond portfolio is chosen', why: 'A portfolio that never changes is a fixed trust. A mutual fund keeps issuing common shares as investors buy.' },
+          ],
+        ),
+        sourced(
+          'sie06q0005',
+          'sie-c6-open',
+          'A mutual fund shareholder wants cash. How do those shares leave the market?',
+          [
+            { text: 'A broker matches the seller with another investor', why: 'Open-end shares are nonnegotiable, so they are not traded between investors.' },
+            { text: 'They convert into preferred stock of the same fund', why: 'Preferred stock is a way closed-end funds raise capital, not the way mutual fund shares are cashed out.' },
+            { text: 'The fund redeems them after the shareholder sells them back', why: 'Because the shares cannot be traded, the investor sells them back to the fund and the fund redeems them.', correct: true },
+            { text: 'They move to an exchange and keep trading as negotiable stock', why: 'Negotiable exchange trading describes closed-end shares. Mutual fund shares cannot be traded.' },
+          ],
+        ),
+        sourced(
+          'sie06q0006',
+          'sie-c6-open',
+          'A closed-end fund raises money once. What is true of those shares afterward?',
+          [
+            { text: 'The sponsor must redeem them whenever the holder asks', why: 'Continuous redemption is the open-end pattern. Closed-end shares are not redeemable.' },
+            { text: 'New common shares are created for every buyer with no ceiling', why: 'Unlimited issuance of common shares is what makes a fund open-end.' },
+            { text: 'The portfolio is locked, so the fund never hires an adviser', why: 'Management companies, open-end and closed-end, hire an adviser. A locked, unmanaged portfolio is a fixed trust.' },
+            { text: 'They are issued once and are not redeemed by the fund', why: 'A closed-end fund has a one-time stock issuance. The shares are not redeemable and instead trade like other negotiable securities, usually on an exchange.', correct: true },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-unit-investment-trusts-uits',
+      'Unit Investment Trusts (UITs)',
+      'A unit investment trust issues shares of beneficial interest representing an undivided interest in a unit of the trust\'s portfolio. There are two types of UlTs-fixed trusts and non-fixed trusts. There are two types of UITs-fixed trusts and non-fixed trusts.\n\nFixed UIT\n\nA fixed trust selects a portfolio of securities (usually bonds). Once the portfolio is selected, it is not changed: no buying or selling takes place in the trust. There is no management of the trust and therefore no management fee.\n\nThe trust then sells units to investors. As interest payments are made on the bonds, they are passed to the unit holders. As bonds mature, the principal is repaid to the unit holders.\n\nWhen all the bonds have matured, the trust selfliquidates.\n\nNon-Fixed UIT\n\nNon-Fixed UIT Non-fixed trusts do not invest directly in stocks or bonds but instead invest in mutual fund shares.\n\nNon-fixed trusts do not invest directly in stocks or bonds but instead invest in mutual fund shares. Non-fixed trusts are used within insurance company products such as variable annuities or variable life insurance contracts.\n\nVariable Annuity\n\nVariable annuities are not considered to be investment companies, but they do use investment companies to provide investment options to their customers. Annuities are generally used as retirement planning products. Individuals purchase units in a separate account (often a UIT) to fund their future retirement needs.',
+      [
+        sourced(
+          'sie06q0007',
+          'sie-c6-unit-investment-trusts-uits',
+          'A fixed unit investment trust has finished choosing its bond portfolio. What should unit holders expect next?',
+          [
+            { text: 'The adviser keeps trading bonds and bills a management fee', why: 'A fixed trust is not managed after selection, so there is no buying, selling, or management fee.' },
+            { text: 'The bonds are swapped for mutual fund shares inside an annuity', why: 'Holding mutual fund shares, often inside variable insurance products, is what a non-fixed trust does.' },
+            { text: 'The portfolio stays as chosen, with no further buying or selling', why: 'A fixed trust selects a portfolio, usually bonds, and then does not change it. Interest is passed through, principal is repaid as bonds mature, and the trust eventually liquidates itself.', correct: true },
+            { text: 'Units are listed and the sponsor may issue preferred stock', why: 'Exchange listing and preferred stock belong to closed-end capitalization, not to an unmanaged fixed trust.' },
+          ],
+        ),
+        sourced(
+          'sie06q0008',
+          'sie-c6-unit-investment-trusts-uits',
+          'Where does a non-fixed unit investment trust put its money, and in what products is that structure used?',
+          [
+            { text: 'Directly in a frozen bond ladder that liquidates itself', why: 'A bond portfolio that is never changed is a fixed UIT, and it charges no management fee.' },
+            { text: 'In unlimited common shares that the trust itself lists on an exchange', why: 'Unlimited common shares are the open-end mutual fund. A non-fixed UIT invests in mutual fund shares rather than becoming that fund.' },
+            { text: 'In face-amount certificates held to a stated maturity value', why: 'Face-amount certificates are a separate, obsolete investment-company type.' },
+            { text: 'In mutual fund shares, commonly inside variable annuities or variable life', why: 'Non-fixed trusts do not buy stocks or bonds directly. They hold mutual fund shares and are used in variable annuities and variable life contracts.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0009',
+          'sie-c6-unit-investment-trusts-uits',
+          'A saver buys units in a separate account to fund a variable annuity. How is the annuity itself classified?',
+          [
+            { text: 'As an open-end management company', why: 'The annuity uses an investment company for its options. The annuity itself is not an investment company.' },
+            { text: 'As a closed-end fund with a one-time share issuance', why: 'Variable annuities are retirement products that use a separate account, often a UIT, not a one-time stock offering.' },
+            { text: 'Not as an investment company, though it uses one for the investment choices', why: 'Variable annuities are not investment companies. Customers still buy units in a separate account, often a UIT, so the annuity can offer investment options.', correct: true },
+            { text: 'As a fixed trust that must liquidate when the last bond matures', why: 'Self-liquidation describes a fixed UIT. The annuity is a retirement product, not that trust.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-management-company-basics',
+      'Management Company Basics',
+      'The most common type of investment company is a mutual fund. Since mutual funds (open-end management companies) are emphasized on the test, the remainder of this chapter will focus primarily on mutual funds.',
+      [
+        sourced(
+          'sie06q0010',
+          'sie-c6-management-company-basics',
+          'Which investment company is the most common, and which management-company form is it?',
+          [
+            { text: 'A closed-end fund that trades after a single offering', why: 'Closed-end funds are a management-company type, but they are not identified as the most common.' },
+            { text: 'A face-amount certificate company', why: 'Face-amount certificates are an obsolete type, not the common one.' },
+            { text: 'A non-fixed unit investment trust used inside an annuity', why: 'UITs are a separate category. The common, emphasized company is the open-end mutual fund.' },
+            { text: 'A mutual fund, meaning an open-end management company', why: 'A mutual fund is the most common investment company, and open-end funds are the form the rest of the chapter emphasizes.', correct: true },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-people',
+      'Fund Structure',
+      'Board of Directors\n\nLike most companies, management companies will have a board of directors that is responsible for overseeing the management of the company. The board of directors is elected by the shareholders of the fund and sets the fund\'s investment objective.\n\nForty percent of the board of directors must be non-interested: The Investment Company Act of 1940 requires that no more than 60% of the board can be interested persons. Interested persons would be employees of the fund, the investment adviser, or other affiliated companies. Having at least 40% of the board consisting of independent (noninterested) directors helps ensure that the fund is being managed for the benefit of the shareholders and not for the benefit of the fund company.\n\nFund Sponsor\n\nFund Sponsor The fund is established by the fund sponsor or underwriter.\n\nThe fund is established by the fund sponsor or underwriter. The sponsor can be a large investment firm or a firm that specializes only in offering funds. The sponsor must register the fund with the Securities and Exchange Commission (SEC) before the fund\'s shares can be sold.\n\nMany sponsors offer a variety of different funds with different investment objectives. This is often referred to as a family of funds.\n\nFund Distributor\n\nThe sponsor may hire a separate company to sell shares to the public, called a distributor. The distributor may be an affiliate of the sponsor or may be a third party. The distributor is compensated through sales charges.\n\nSelling Group\n\nThe selling group acts as an Selling group members are also compensated using 12b-1 fees.\n\nThe underwriter can hire several firms, called a selling group, to help sell the fund. The selling group acts as an agent, selling the fund for the sponsor. For this, the sponsor gives up part of the sales charge as a selling concession.\n\nSelling group members are also compensated using 12b-1 fees. Remember that an unlimited number of shares of a mutual fund can be sold, so the selling group is selling shares continuously to the public.\n\nInvestment Adviser\n\nInvestment Adviser The fund hires a separate company to act as the investment adviser and manage the fund (also called the fund manager or portfolio manager).\n\nThe fund hires a separate company to act as the investment adviser and manage the fund (also called the fund manager or portfolio manager). The investment adviser chooses which securities will be bought and sold within the fund. The adviser earns a management fee, based on a percentage of all assets under management.\n\nThe adviser\'s contract is initially set for two years and is subject to shareholder approval every year thereafter.\n\nCustodian Bank\n\nThe fund will hire a custodian bank to safeguard the assets of the fund. The custodian bank may also act as the transfer agent as well as the paying agent, canceling old shares, issuing new shares, and maintaining a list of shareholders for mailings of reports, proxies, and distributions. For these functions, the bank earns a custodial fee.\n\nShareholder Rights\n\nShareholders in a management company have the right to:\n\n• Vote for the board of directors • Vote for changes in investment objective e Vote annually on the investment adviser e Vote on 12b-1 fees • Receive annual and semiannual reports',
+      [
+        sourced(
+          'sie06q0011',
+          'sie-c6-people',
+          'Who chooses a fund\'s board, and what does that board establish?',
+          [
+            { text: 'The investment adviser appoints the board and sets the objective alone', why: 'The adviser manages the portfolio under a contract. Election of the board and the objective belong to shareholders and the board.' },
+            { text: 'Shareholders elect the board, and the board sets the investment objective', why: 'The board oversees the company. Shareholders elect it, and it sets the fund\'s objective.', correct: true },
+            { text: 'The custodian bank elects the board while it safeguards the assets', why: 'The custodian holds the assets. It does not elect the board.' },
+            { text: 'The selling group elects the board in exchange for a concession', why: 'The selling group sells shares as agent. Shareholders are the ones who elect directors.' },
+          ],
+        ),
+        sourced(
+          'sie06q0012',
+          'sie-c6-people',
+          'Under the Investment Company Act of 1940, what is the largest share of a fund\'s board that interested persons may hold?',
+          [
+            { text: '100 percent, if they all work for the adviser', why: 'The Act caps interested persons so the fund is not run solely for the fund company.' },
+            { text: '40 percent', why: 'Forty percent is the minimum that must be non-interested, not the ceiling on interested directors.' },
+            { text: 'A majority of the selling group', why: 'The selling group distributes shares. The percentage limit applies to the board.' },
+            { text: '60 percent', why: 'No more than 60 percent of the board may be interested persons, which means at least 40 percent must be independent.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0013',
+          'sie-c6-people',
+          'Which person would be treated as an interested director?',
+          [
+            { text: 'A shareholder who only votes for directors and has no tie to the adviser', why: 'Shareholders elect the board. Share ownership alone is not what makes a director interested.' },
+            { text: 'An employee of the fund\'s investment adviser', why: 'Interested persons include employees of the fund, the investment adviser, and other affiliated companies.', correct: true },
+            { text: 'An outside director with no role at the fund, the adviser, or an affiliate', why: 'That director is the non-interested, independent type the Act wants on the board.' },
+            { text: 'Someone who only receives the fund\'s semiannual report', why: 'Reports go to shareholders. Receiving them does not create interested-person status.' },
+          ],
+        ),
+        sourced(
+          'sie06q0014',
+          'sie-c6-people',
+          'A sponsor has organized a new fund. What must happen before its shares can be sold?',
+          [
+            { text: 'The selling group must renew the adviser\'s contract', why: 'Shareholders approve the adviser contract. The sponsor\'s gate is SEC registration.' },
+            { text: 'The sponsor registers the fund with the SEC', why: 'The sponsor, also called the underwriter, establishes the fund and must register it before shares are sold.', correct: true },
+            { text: 'The custodian lists the shares for secondary trading', why: 'The custodian safeguards assets and may keep the shareholder list. Listing is not the step required before the sale.' },
+            { text: 'At least 40 percent of buyers must be affiliates of the sponsor', why: 'The 40 percent figure is the minimum of non-interested directors. Affiliates are on the interested side of that rule.' },
+          ],
+        ),
+        sourced(
+          'sie06q0015',
+          'sie-c6-people',
+          'Which matters are put to a vote of mutual fund shareholders?',
+          [
+            { text: 'A change in the objective, the adviser each year, and 12b-1 fees', why: 'Shareholders vote for the board, for changes in the objective, annually on the investment adviser, and on 12b-1 fees. They also receive annual and semiannual reports.', correct: true },
+            { text: 'The daily net asset value and the securities the adviser buys that day', why: 'NAV is computed from the portfolio, and security selection is the adviser\'s job. Shareholders do not vote on either.' },
+            { text: 'Whether the custodian may hold the cash and securities', why: 'The custodian is hired to safeguard assets. That hiring is not the shareholder vote described here.' },
+            { text: 'Which selling-group firm keeps the concession', why: 'The concession is the sponsor\'s split of the sales charge with the selling group, not a shareholder ballot item.' },
+          ],
+        ),
+        sourced(
+          'sie06q0016',
+          'sie-c6-people',
+          'The underwriter hires firms to help sell the fund. In what capacity do they sell, and what piece of the sales charge do they receive?',
+          [
+            { text: 'As principal, keeping the adviser\'s management fee', why: 'The management fee is the adviser\'s pay, based on assets. The selling group does not earn it.' },
+            { text: 'As agent, with part of the sales charge paid as a selling concession', why: 'The selling group sells for the sponsor as agent. The sponsor gives up part of the sales charge as a selling concession. Members may also be paid with 12b-1 fees.', correct: true },
+            { text: 'As custodian, for a fee that covers safeguarding the portfolio', why: 'The custodial fee pays the bank that holds the assets and may act as transfer agent.' },
+            { text: 'As independent directors, paid only if 40 percent of the board is outside', why: 'Board independence is a governance rule, not selling-group compensation.' },
+          ],
+        ),
+        sourced(
+          'sie06q0017',
+          'sie-c6-people',
+          'How does a fund pay the company that chooses which securities to buy and sell?',
+          [
+            { text: 'A selling concession taken from the sales charge', why: 'The selling concession is the share of the sales charge the sponsor gives the selling group.' },
+            { text: 'A custodial fee for canceling old shares and issuing new ones', why: 'Canceling and issuing shares is transfer-agent work the custodian may perform, paid by a custodial fee.' },
+            { text: 'With a management fee equal to a percentage of assets under management', why: 'The investment adviser, also called the fund or portfolio manager, earns a management fee based on a percentage of all assets under management.', correct: true },
+            { text: 'A one-time charge collected only when the fund is registered', why: 'Registration is the sponsor\'s duty before shares are sold. It is not the adviser\'s fee.' },
+          ],
+        ),
+        sourced(
+          'sie06q0018',
+          'sie-c6-people',
+          'After a fund hires its investment adviser, how long does that first contract run, and who approves it later?',
+          [
+            { text: 'One year, then the custodian renews it', why: 'The custodian safeguards assets. The initial adviser contract is two years, and shareholders vote after that.' },
+            { text: 'Two years at first, then a shareholder vote every year', why: 'The adviser\'s contract starts at two years. After that, shareholders must approve it annually.', correct: true },
+            { text: 'For the life of the fund, unless the selling group objects', why: 'The selling group distributes shares. The contract is not permanent; shareholders approve it each year after the opening term.' },
+            { text: 'Ninety days, the same window used to look back at an earlier purchase', why: 'A 90-day lookback is a letter-of-intent feature in the sales-charge rules, not the adviser contract.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-benefits-of-mutual-funds',
+      'Benefits of Mutual Funds',
+      'Investment companies offer several advantages over individual security ownership. The two primary benefits are access to professional money management and diversification.\n\nProfessional Money Management\n\nProfessional Money Management Funds offer professional selection of investments, and, in most cases, ongoing management of the portfolio.\n\nFunds offer professional selection of investments, and, in most cases, ongoing management of the portfolio. This is done by the investment company\'s investment adviser, also called the fund\'s portfolio manager.\n\nActive Management: Some funds engage in active management. This involves actively trading securities to maximize shareholder returns. Active management typically results in higher management fees to investors and increased taxable events as portfolio positions are bought and sold.\n\nPassive Management: Passive managers do not actively trade securities in the portfolio. Instead, these funds track a benchmark (index) such as the Standard and Poor\'s 500 (S&P 500) or Wilshire 5000. Passive management tends to result in much lower portfolio turnover (buying and selling).\n\nThis makes running the fund both cheaper and more tax efficient for the investor Diversification Diversification is a way to reduce overall risk by investing in a broad range of stocks or bonds. This makes running the fund both cheaper and more tax efficient for the investor\n\nDiversification\n\nDiversification is a way to reduce overall risk by investing in a broad range of stocks or bonds. Because investment companies have a large amount of money to invest, they can afford to invest in a broad range of securities. Mutual funds typically have low minimum investment requirements.\n\nThis enables small investors to gain diversification that they might not otherwise be able to afford.\n\nThere are many ways to diversify a portfolio. A fund can invest in different industries, or a mix of large and small companies. Funds can also diversify across asset classes such as stocks, bonds, and money market instruments.\n\nDiversified Fund 75-5-10 Rule A fund can be set up either as a diversified fund or a nondiversified fund. To be considered diversified, a fund must meet the following qualifications:\n\n• Atleast 75% of its assets must be invested in securities.\n• A maximum of 5% of its assets can be invested in any one issuer.\n• A fund can own a maximum of 10% of the voting securities of any one issuer.\n\nNondiversified Most funds are diversified to help reduce investment risk, specifically nonsystematic risk, which is the risk that an individual security performs poorly. This is especially true of broad-based equity funds. A fund that does not meet this definition is a nondiversified fund.\n\nAn example would be a fund that only invests in U.S. Treasury securities.',
+      [
+        sourced(
+          'sie06q0019',
+          'sie-c6-benefits-of-mutual-funds',
+          'Compared with owning individual securities, what two advantages do investment companies emphasize?',
+          [
+            { text: 'Professional money management and diversification', why: 'The two primary benefits versus owning securities one by one are professional management and diversification.', correct: true },
+            { text: 'Exchange trading all day and a sales-charge breakpoint', why: 'Intraday trading and breakpoints are features of particular products or purchases, not the two primary benefits.' },
+            { text: 'A fixed maturity and pass-through of tax credits', why: 'Maturity and tax credits show up in other packaged products. They are not the two primary benefits named here.' },
+            { text: 'A guaranteed share price of one dollar and no taxable events', why: 'A stable one-dollar value is a money-market goal. Active management, by contrast, can increase taxable events.' },
+          ],
+        ),
+        sourced(
+          'sie06q0020',
+          'sie-c6-benefits-of-mutual-funds',
+          'A fund trades frequently, trying to maximize shareholder returns. What two consequences does that active style tend to produce?',
+          [
+            { text: 'Higher management fees and more taxable events', why: 'Active trading raises the management fee and creates more taxable events as positions are bought and sold.', correct: true },
+            { text: 'The low turnover of a portfolio that simply tracks an index', why: 'Tracking a benchmark such as the S&P 500 or Wilshire 5000 is passive management, which lowers turnover.' },
+            { text: 'No management fee, because the portfolio is never changed', why: 'A portfolio with no management and no management fee is a fixed trust, not an actively managed fund.' },
+            { text: 'A requirement that 75 percent of assets sit in one Treasury issue', why: 'A Treasury-only fund is the example of a nondiversified fund, not the result of active trading.' },
+          ],
+        ),
+        sourced(
+          'sie06q0021',
+          'sie-c6-benefits-of-mutual-funds',
+          'Why is a fund that tracks the S&P 500 or the Wilshire 5000 often cheaper and more tax efficient to operate?',
+          [
+            { text: 'The manager trades all day to beat the benchmark', why: 'Active trading raises fees and taxable events. Passive funds do not trade to beat the index.' },
+            { text: 'Portfolio turnover stays low because the manager is not actively trading', why: 'Passive managers track an index instead of trading. Lower turnover makes the fund cheaper and more tax efficient to run.', correct: true },
+            { text: 'The fund must concentrate in a single issuer to cut costs', why: 'Putting too much in one issuer fails the diversification test. Passive funds track a broad benchmark.' },
+            { text: 'Shareholders pay a sales charge on every rebalancing trade', why: 'The efficiency comes from doing less buying and selling, not from charging investors on each trade.' },
+          ],
+        ),
+        sourced(
+          'sie06q0022',
+          'sie-c6-benefits-of-mutual-funds',
+          'How can a small investor afford the kind of broad portfolio a fund holds?',
+          [
+            { text: 'By meeting an institutional minimum before the first purchase', why: 'The text stresses low minimums, which let small investors in, not an institutional hurdle.' },
+            { text: 'Through a low minimum investment in a large pooled portfolio', why: 'Funds have a large pool to invest and typically low minimums, so a small investor can get diversification that would otherwise be unaffordable.', correct: true },
+            { text: 'By owning at least 10 percent of one company\'s voting stock', why: 'Ten percent is the diversified-fund cap on voting securities of any one issuer, not an investor\'s minimum.' },
+            { text: 'By putting the whole account into one industry', why: 'A single industry is narrower than the broad mix diversification uses.' },
+          ],
+        ),
+        sourced(
+          'sie06q0023',
+          'sie-c6-benefits-of-mutual-funds',
+          'Under the test for a diversified fund, what is the most that may be invested in any one issuer?',
+          [
+            { text: '10 percent of the fund\'s assets', why: 'Ten percent is the cap on how much of an issuer\'s voting securities the fund may own, not the cap on the fund\'s assets.' },
+            { text: '75 percent of the fund\'s assets', why: 'At least 75 percent of assets must be invested in securities overall. That is a floor for the portfolio, not a per-issuer maximum.' },
+            { text: '100 percent, if the issuer is the U.S. Treasury', why: 'A fund that invests only in Treasuries is the example of a nondiversified fund.' },
+            { text: '5 percent of the fund\'s assets', why: 'A diversified fund may invest no more than 5 percent of its assets in any one issuer.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0024',
+          'sie-c6-benefits-of-mutual-funds',
+          'A diversified fund is buying voting stock of one company. What ownership limit applies?',
+          [
+            { text: 'No more than 10 percent of that company\'s voting securities', why: 'A diversified fund may own at most 10 percent of the voting securities of any one issuer.', correct: true },
+            { text: 'No more than 5 percent of that company\'s voting securities', why: 'Five percent limits how much of the fund\'s own assets may go into one issuer.' },
+            { text: 'At least 75 percent of that company\'s voting securities', why: 'Seventy-five percent is the share of fund assets that must be in securities, not an ownership target in one company.' },
+            { text: 'Any amount, as long as the position is a money market instrument', why: 'Money market instruments are one way to diversify across asset classes. They do not remove the voting-securities cap.' },
+          ],
+        ),
+        sourced(
+          'sie06q0025',
+          'sie-c6-benefits-of-mutual-funds',
+          'Which portfolio is given as an example of a nondiversified fund?',
+          [
+            { text: 'A broad equity fund that meets the 75-5-10 tests', why: 'Meeting those asset and ownership tests is what makes a fund diversified. Most funds diversify to reduce nonsystematic risk.' },
+            { text: 'A fund that mixes stocks, bonds, and money market instruments', why: 'Spreading across those asset classes is a way to diversify, not the nondiversified example.' },
+            { text: 'A fund that invests only in U.S. Treasury securities', why: 'A fund that does not meet the diversification definition is nondiversified. A Treasury-only fund is the example.', correct: true },
+            { text: 'A fund that tracks a wide benchmark such as the S&P 500', why: 'Index tracking is passive management of a broad benchmark, and broad equity funds are described as especially likely to be diversified.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-types-of-mutual-funds',
+      'Types of Mutual Funds',
+      'There are thousands of mutual funds available. Investors select funds based on their investment objective. The following are some of the more popular types of funds based on investment objectives.\n\nGrowth funds: Invest primarily in equity securities of rapidly growing companies to achieve capital gains based on increases in the securities\' market value. Growth and income funds: Invest in established blue chip companies (e.g., IBM or Clorox) that provide both dividend income and growth potential. Income funds: Invest in fixed income securities such as preferred stock and bonds.\n\nIncome funds may specialize in one type of fixed income security. These types of income funds include:\n\n• U.S. government securities funds-provide safety e Municipal bond funds-provide tax-free income e Corporate bond funds-typically provide higher rates of interest • Money market funds-provide liquidity for short-term investors; money market funds strive to maintain a\n• U.S. government securities funds-provide safety\n\nMunicipal bond funds-provide tax-free income\n\n• Corporate bond funds-typically provide higher rates of interest\n• Money market funds-provide liquidity for short-term investors; money market funds strive to maintain a\n\nstable net asset value (NAV) of $1.00 per share\n\nBalanced funds: Invest in different types of securities- maintaining a "balance" of equities and fixed income securities. These funds provide both income and capital gains potential.\n\nIndex funds: Seek to track the performance of an index such as the Standard and Poor\'s 500.\n\nSpecialized funds (sector funds): Invest in a particular industry or geographic area, e.g., energy or emerging market funds. They offer less diversification, but potentially higher growth.\n\nTarget date (life-cycle) funds: Popular with investors who are saving for retirement. The fund is offered with a specific "target date" such as the year 2050. Initially the fund will use a more aggressive asset allocation (mostly stocks) and then move to a safer asset mix (more bonds) as the target date approaches.\n\nValue funds: Invest in out-of-favor companies with low price-to-earnings ratios.',
+      [
+        sourced(
+          'sie06q0026',
+          'sie-c6-types-of-mutual-funds',
+          'A client wants capital gains from companies that are growing quickly, not dividends from established firms. Which objective fits?',
+          [
+            { text: 'Growth and income', why: 'Growth and income funds buy established blue chips, such as IBM or Clorox, for dividends and growth together.' },
+            { text: 'Income', why: 'Income funds invest in fixed-income securities such as preferred stock and bonds.' },
+            { text: 'Growth', why: 'Growth funds buy equities of rapidly growing companies to seek capital gains from rising market value.', correct: true },
+            { text: 'Money market', why: 'Money market funds emphasize liquidity for short-term investors and a stable one-dollar net asset value.' },
+          ],
+        ),
+        sourced(
+          'sie06q0027',
+          'sie-c6-types-of-mutual-funds',
+          'An investor in a high tax bracket wants bond-fund income that is tax-free. Which income fund matches?',
+          [
+            { text: 'A U.S. government securities fund', why: 'U.S. government securities funds are described as providing safety, not tax-free income.' },
+            { text: 'A corporate bond fund', why: 'Corporate bond funds typically provide higher interest rates, not tax-free income.' },
+            { text: 'A municipal bond fund', why: 'Municipal bond funds are the income funds that provide tax-free income.', correct: true },
+            { text: 'A value fund', why: 'Value funds buy out-of-favor companies with low price-to-earnings ratios. They are equity funds, not tax-free bond funds.' },
+          ],
+        ),
+        sourced(
+          'sie06q0028',
+          'sie-c6-types-of-mutual-funds',
+          'Money market funds serve short-term investors who want liquidity. What share price do they try to maintain?',
+          [
+            { text: 'The public offering price of a front-end load fund', why: 'The public offering price includes a sales charge. Money market funds are described by a stable net asset value.' },
+            { text: 'A stable net asset value of $1.00', why: 'Money market funds strive to keep a stable net asset value of $1.00 per share while providing liquidity.', correct: true },
+            { text: 'Whatever the S&P 500 closes at that day', why: 'Index funds seek to track a benchmark such as the S&P 500. They do not peg each share at one dollar.' },
+            { text: 'A price that glides from stocks into bonds as a retirement year approaches', why: 'That glide path is a target-date, or life-cycle, fund, not a money market fund.' },
+          ],
+        ),
+        sourced(
+          'sie06q0029',
+          'sie-c6-types-of-mutual-funds',
+          'Someone saving for retirement buys a fund with a 2050 target date. How should the mix change as that year gets closer?',
+          [
+            { text: 'It stays in out-of-favor stocks with low price-to-earnings ratios', why: 'Out-of-favor, low price-to-earnings stocks are the value-fund approach.' },
+            { text: 'It shifts from a bond core into one industry, such as energy', why: 'A sector fund stays in a particular industry or region and offers less diversification.' },
+            { text: 'It holds only dividend-paying blue chips for the entire life of the fund', why: 'Established dividend payers such as IBM or Clorox describe a growth-and-income fund.' },
+            { text: 'It starts mostly in stocks and moves toward bonds', why: 'A target-date fund begins with an aggressive, mostly stock allocation and shifts to a safer, more bond-heavy mix as the target date approaches.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0030',
+          'sie-c6-types-of-mutual-funds',
+          'Which fund gives up broad diversification for a shot at higher growth in one industry or region?',
+          [
+            { text: 'An index fund tracking the S&P 500', why: 'An index fund seeks to track a broad benchmark rather than one industry or country.' },
+            { text: 'A balanced fund', why: 'Balanced funds keep a mix of equities and fixed-income securities for both income and capital gains.' },
+            { text: 'A specialized sector fund', why: 'Sector funds invest in one industry or geographic area, such as energy or emerging markets. They diversify less and may grow more.', correct: true },
+            { text: 'A U.S. government securities fund', why: 'Those income funds are described as providing safety, not concentrated growth.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-buying-and-selling-fund-shares',
+      'Buying and Selling Fund Shares',
+      'Shares of management company funds can be sold in a variety of ways. This section will focus primarily on openend management companies (mutual funds) but will also discuss closed-end funds and how they differ.',
+      [
+        sourced(
+          'sie06q0031',
+          'sie-c6-buying-and-selling-fund-shares',
+          'When the topic is how management-company shares are purchased and sold, which funds are the main subject?',
+          [
+            { text: 'Only fixed unit investment trusts that liquidate at maturity', why: 'Fixed trusts are a different investment-company type and are not the focus of this share-transaction discussion.' },
+            { text: 'Only face-amount certificates', why: 'Face-amount certificates are the obsolete category, not the funds being bought and sold here.' },
+            { text: 'Open-end mutual funds, with closed-end funds covered as the contrast', why: 'Buying and selling is covered mainly for open-end mutual funds, along with how closed-end funds differ.', correct: true },
+            { text: 'Hedge funds limited to wealthy investors', why: 'Hedge funds are outside the management-company share discussion.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-issuing-fund-shares',
+      'Issuing Fund Shares',
+      'Closed-End Fund: One-Time Issuance\n\nClosed-end funds are issued like any regular corporate stock offering. There is an initial public offering of the fund\'s shares, and then the shares are listed and traded on an exchange.\n\nOpen-End Shares (Mutual Funds): Continuously Issued\n\nOpen-end investment company shares are continuously issued by the sponsor of the fund and are redeemable at any time by the sponsor of the fund. Unlike closed-end shares, they do not trade in the secondary market. They are nonnegotiable securities.\n\nFund Prospectus\n\nFund Prospectus Both openand closed-end management companies must file a registration statement to register their funds with the Securities and Exchange Commission (SEC).\n\nBoth open- and closed-end management companies must file a registration statement to register their funds with the Securities and Exchange Commission (SEC). Much of the registration statement filed by the sponsor becomes the fund\'s prospectus. Fund prospectuses must contain current information.\n\nThe SEC does not permit prospectuses that are in use for more than nine months to have financial information in them that is more than 16 months old.\n\nProspectus Delivery\n\nProspectus Delivery The prospectus is a disclosure document that gives complete information about the fund, including its objectives, its management, its charges, and its fees.\n\nThe prospectus is a disclosure document that gives complete information about the fund, including its objectives, its management, its charges, and its fees. Mutual funds are continuous primary offerings, which means every share issued is a new share. Because the shares are always being purchased directly from the issuer, the buyer must\n\nSemiannual Financial Statement Sent to Shareholders\n\nUnder the Investment Company Act of 1940, management companies must send financial statements to shareholders semiannually. The financial statements include an income statement for the fund, a balance sheet, and a listing of all holdings in the portfolio.',
+      [
+        sourced(
+          'sie06q0032',
+          'sie-c6-issuing-fund-shares',
+          'How does a closed-end fund come to market, and where do the shares change hands after that?',
+          [
+            { text: 'Through an initial public offering, after which the shares trade on an exchange', why: 'Closed-end funds are offered like corporate stock: an IPO, then listing and exchange trading.', correct: true },
+            { text: 'The sponsor issues new shares every day and redeems them on request', why: 'Continuous issuance and redemption describe open-end shares, which do not trade in the secondary market.' },
+            { text: 'As nonnegotiable units the holder can sell only back to the sponsor', why: 'Nonnegotiable shares that are redeemed by the sponsor are open-end mutual fund shares.' },
+            { text: 'Only when the semiannual report is mailed', why: 'Semiannual financial statements are a disclosure duty. They are not how closed-end shares are issued.' },
+          ],
+        ),
+        sourced(
+          'sie06q0033',
+          'sie-c6-issuing-fund-shares',
+          'Why is a purchase of mutual fund shares treated as a new share bought from the issuer?',
+          [
+            { text: 'The fund sold a fixed block of shares in an IPO and then listed them', why: 'A one-time offering followed by exchange trading is the closed-end pattern.' },
+            { text: 'The fund is a continuous primary offering, so every share is newly issued', why: 'Open-end shares are continuously issued and are always purchased from the issuer. They are nonnegotiable and do not trade in the secondary market.', correct: true },
+            { text: 'Buyers must wait for the semiannual holdings list before the share exists', why: 'The semiannual package reports the income statement, balance sheet, and holdings. It does not create the share.' },
+            { text: 'The shares become negotiable once the prospectus is nine months old', why: 'Nine months is a limit on how long prospectus financials may stay in use. Open-end shares stay nonnegotiable.' },
+          ],
+        ),
+        sourced(
+          'sie06q0034',
+          'sie-c6-issuing-fund-shares',
+          'A fund prospectus has already been in use for more than nine months. How old may the financial information in it be?',
+          [
+            { text: 'No older than nine months', why: 'Nine months is how long a prospectus may remain in use before this age limit on the financials applies. The financials themselves may be up to 16 months old.' },
+            { text: 'Up to two years, the same span as the first adviser contract', why: 'Two years is the opening term of the adviser\'s contract, not a prospectus rule.' },
+            { text: 'Current only on the day of a closed-end IPO', why: 'Both open-end and closed-end funds register, and the freshness rule is an age limit on financial information, not a one-day IPO rule.' },
+            { text: 'No older than 16 months', why: 'The SEC will not allow a prospectus used for more than nine months to contain financial information older than 16 months. Prospectuses must stay current.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0035',
+          'sie-c6-issuing-fund-shares',
+          'What does the fund prospectus give a prospective buyer?',
+          [
+            { text: 'That day\'s net asset value per share', why: 'Net asset value is the pricing figure computed from the portfolio. The prospectus is the disclosure document.' },
+            { text: 'The fund\'s objectives, management, charges, and fees', why: 'The prospectus is the disclosure document covering objectives, management, charges, and fees. Much of the SEC registration statement becomes that prospectus.', correct: true },
+            { text: 'A substitute for the semiannual financial statements', why: 'Shareholders still receive financial statements twice a year, including an income statement, a balance sheet, and a holdings list.' },
+            { text: 'Disclosure required only after a closed-end fund lists on an exchange', why: 'Both open-end and closed-end management companies file a registration statement with the SEC.' },
+          ],
+        ),
+        sourced(
+          'sie06q0036',
+          'sie-c6-issuing-fund-shares',
+          'How often must a management company send financial statements to shareholders, and what do those statements include?',
+          [
+            { text: 'Semiannually, with an income statement, a balance sheet, and all portfolio holdings', why: 'Under the 1940 Act, management companies send financial statements twice a year, including the income statement, the balance sheet, and a list of all holdings.', correct: true },
+            { text: 'Annually, and only a roster of the board', why: 'The statute requires semiannual financial statements, not a yearly board list.' },
+            { text: 'Monthly, limited to the sales-charge table', why: 'The package is semiannual and includes the income statement, balance sheet, and every holding.' },
+            { text: 'Only at the initial public offering', why: 'The IPO is how closed-end shares are first sold. Ongoing statements go out twice a year.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-fund-pricing',
+      'Fund Pricing',
+      'Net Asset Value Is Computed Daily\n\nNet asset value (NAV) is used to determine the price of a mutual fund share. Every day, a mutual fund computes its NAV per common share. To do this, all securities held by the fund are marked to market to find the total market value of all the fund\'s assets.\n\nThen fees are deducted such as those charged by investment managers, custodians, etc., on a pro-rated basis. What remains is the net asset value, the value of the portfolio minus a pro-rated amount of the fees paid by the fund. The NAV is then divided by the number of shares outstanding to determine the NAV per share.\n\nMutual Funds Use Forward Pricing\n\nMutual Funds Use Forward Pricing When a customer places an order to buy a mutual fund, the customer does not know the exact price they will pay.\n\nWhen a customer places an order to buy a mutual fund, the customer does not know the exact price they will pay. That\'s because the purchase price is based on that day\'s closing NAV. Similarly, if a customer wishes to redeem a mutual fund, they receive that day\'s closing NAV.\n\nPublic Offering Price\n\nPublic Offering Price The test will focus primarily on load funds.\n\nThe test will focus primarily on load funds. These are mutual funds that have a sales charge. There are two different types of load funds, front-end load (Class A shares) and back-end load (Class B shares).\n\nWe will first cover frontend load funds.\n\nThe basic formula to determine the price an investor will pay for a front-end load fund is: Net Asset Value + Sales Charge = Public Of fering Price (POP) The POP is what an investor will pay when buying mutual fund shares. The basic formula to determine the price an investor will pay for a front-end load fund is:\n\nNet Asset Value + Sales Charge = Public Of fering Price (POP) The POP is what an investor will pay when buying mutual fund shares. When shares are redeemed, the seller will receive the NAV (less any redemption fees that might apply).\n\nMaximum Sales Charge Is 8.5% of POP is 8.5% of the POP. Maximum Sales Charge Is 8.5% of POP FINRA regulates the sale of mutual funds. Under FINRA rules, the maximum sales charge for a mutual fund purchase is 8.5% of the POP.\n\nHere is an example:\n\n• Net Asset Value = $9.15 • Public Offering Price = $10.00\n\nThe POP includes the sales charge. In this example, the sales charge is $.85 (POP - NAV). The sales charge as a percentage of POP ($10) is 8.5%-the FINRA maximum.\n\nTo find the sales charge percentage on the XYZ Bond Fund, the formula is: Sales Charge Percentage = POF-NAV - bigs Slot. ae = ay = 8.5% Here is the sales charge percentage formula for the Pacific Basin Fund: Sales Charge Percentage = POF-NAV - Te Be = ae = 4.75% To find the sales charge percentage on the XYZ Bond Fund, the formula is:\n\n• POP-NAV _ $16.12-$14.75 _ $1.37, _\n\nSales Charge Percentage = POP-NAV - S16.2-$14.75 _ SIS _ 8.5% Here is the sales charge percentage formula for the Pacific Basin Fund: Sales Charge Percentage = FOF-RAV - Siose-Sasl _ Site = 4.75%',
+      [
+        sourced(
+          'sie06q0037',
+          'sie-c6-fund-pricing',
+          'How does a mutual fund get to net asset value per share each day?',
+          [
+            { text: 'Add the sales charge to yesterday\'s public offering price', why: 'The public offering price is what a front-end buyer pays. NAV is the portfolio value after a pro-rated share of fees.' },
+            { text: 'Use the last trade on the exchange', why: 'Mutual fund shares are priced from the fund\'s assets, not from secondary-market prints.' },
+            { text: 'Mark the holdings to market, subtract pro-rated fees, and divide by shares outstanding', why: 'Securities are marked to market, a pro-rated slice of fees is deducted, and that net asset value is divided by shares outstanding.', correct: true },
+            { text: 'Lock the price at one dollar for every fund', why: 'A stable one-dollar value is a money-market objective, not the daily computation for funds in general.' },
+          ],
+        ),
+        sourced(
+          'sie06q0038',
+          'sie-c6-fund-pricing',
+          'A customer enters a mutual fund buy order at 11 a.m. Why is the exact price still unknown?',
+          [
+            { text: 'The order will be filled at the prior day\'s closing NAV, which the customer already has', why: 'Forward pricing uses that day\'s close, so the price is not known when the order is entered.' },
+            { text: 'The customer negotiates the price with another shareholder', why: 'Mutual fund purchases are not secondary trades between shareholders.' },
+            { text: 'The price will be that day\'s closing net asset value', why: 'The customer does not know the exact price at order time because the purchase is priced at that day\'s closing NAV. A redemption uses that same closing NAV.', correct: true },
+            { text: 'The price is whatever the prospectus printed when it was first used', why: 'The prospectus discloses the fund. The purchase price is the day\'s closing NAV, plus a sales charge if the fund is a load fund.' },
+          ],
+        ),
+        sourced(
+          'sie06q0039',
+          'sie-c6-fund-pricing',
+          'Before any redemption fee, what does a shareholder receive when mutual fund shares are redeemed?',
+          [
+            { text: 'The public offering price, which already includes the sales charge', why: 'The public offering price is what a buyer of a front-end load fund pays. A seller receives NAV.' },
+            { text: 'The original purchase price plus a guaranteed spread', why: 'Redemption is based on that day\'s closing NAV, not a markup over the buyer\'s cost.' },
+            { text: 'The next morning\'s opening quote on the exchange', why: 'Mutual fund redemptions use the closing NAV, not an exchange opening price.' },
+            { text: 'That day\'s closing net asset value', why: 'A redeeming shareholder receives that day\'s closing NAV. Any redemption fee would come off that amount.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0040',
+          'sie-c6-fund-pricing',
+          'Which formula is the price a buyer pays for a front-end load fund?',
+          [
+            { text: 'Net asset value plus the sales charge', why: 'For a front-end load fund, NAV plus the sales charge equals the public offering price, which is what the buyer pays.', correct: true },
+            { text: 'Net asset value minus the sales charge', why: 'The sales charge is added to NAV. Subtracting it would not produce the public offering price.' },
+            { text: 'The sales charge divided by net asset value', why: 'The sales-charge percentage compares the charge with the public offering price. The dollar price the buyer pays is the POP.' },
+            { text: 'Portfolio value divided by shares, with no sales charge added', why: 'Dividing by shares outstanding produces NAV per share. The front-end purchase price then adds the sales charge.' },
+          ],
+        ),
+        sourced(
+          'sie06q0041',
+          'sie-c6-fund-pricing',
+          'FINRA\'s ceiling on a mutual fund sales charge is 8.5 percent of which amount?',
+          [
+            { text: 'The net asset value', why: 'The percentage is measured against the public offering price, which already includes the sales charge.' },
+            { text: 'The redemption check only', why: 'On a redemption the seller receives NAV less any redemption fee. The 8.5 percent figure is the purchase-charge cap as a percent of POP.' },
+            { text: 'Average annual net assets of the fund', why: 'A cap measured against average net assets is the 12b-1 fee limit, not this sales-charge maximum.' },
+            { text: 'The public offering price', why: 'FINRA caps the sales charge on a mutual fund purchase at 8.5 percent of the POP.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0042',
+          'sie-c6-fund-pricing',
+          'A load fund shows a net asset value of $9.15 and a public offering price of $10.00. What is the sales charge?',
+          [
+            { text: '$0.85, equal to 8.5 percent of the $9.15 net asset value', why: 'The dollar charge is POP minus NAV, but the percentage in the example is taken against the $10 POP, not against NAV.' },
+            { text: '$1.37, the dollar gap on the XYZ Bond Fund example', why: 'The XYZ example uses a $16.12 POP and a $14.75 NAV, a $1.37 difference that is also 8.5 percent of that POP.' },
+            { text: '$0.85, equal to 8.5 percent of the $10 public offering price', why: 'POP minus NAV is $0.85. On the $10 POP, that charge is 8.5 percent, the FINRA maximum.', correct: true },
+            { text: '4.75 percent, the Pacific Basin Fund example', why: '4.75 percent is the Pacific Basin sales-charge result, not the $9.15 and $10.00 case.' },
+          ],
+        ),
+        sourced(
+          'sie06q0043',
+          'sie-c6-fund-pricing',
+          'Load funds come in two forms. Which share class is the front-end load, and which is the back-end load?',
+          [
+            { text: 'Class B is the front-end load and Class A is the back-end load', why: 'The labels run the other way: Class A is the front-end load and Class B is the back-end load.' },
+            { text: 'Both classes charge the load only when the prospectus is more than 16 months old', why: 'Sixteen months is the age limit on financial information in a prospectus, not a share-class rule.' },
+            { text: 'Class A is the front-end load and Class B is the back-end load', why: 'Front-end load funds are Class A shares. Back-end load funds are Class B shares. The buyer of a front-end fund pays the public offering price.', correct: true },
+            { text: 'Neither class has a sales charge; both are priced only at NAV', why: 'A fund with a sales charge is a load fund. NAV alone is what the seller receives, less any redemption fee.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-breakpoints-and-other-sales-discount',
+      'Breakpoints and Other Sales Discounts',
+      'For a fund to charge the maximum 8.5% sales charge, under FINRA rules, the fund must offer three things:\n\n• Breakpoints e Rights of accumulation • Reinvestment of dividends at net asset value (NAV) Breakpoints\n• Breakpoints\n\nRights of accumulation\n\n• Reinvestment of dividends at net asset value (NAV)\n\nBreakpoints A breakpoint is a reduced sales charge for a large dollar purchase. FINRA requires that breakpoint schedules be "fair and reasonable." Below is a sample breakpoint schedule:\n\nTable of Breakpoint Schedule\n\nBreakpoint Schedule\n\nPurchase Amount Sales Charge % SO - $10,000 8.5% $10,001 - $25,000 7.75% $25,001 - over 6.5% If a customer purchases over $10,000, they reach the first breakpoint of 7.75%. Purchase Amount Sales Charge % $0 - $10,000 85% $10,001 - $25,000 7.75%\n\n$25,001 - over 6.5%\n\nIf a customer purchases over $10,000, they reach the first breakpoint of 7.75%. This is the sales charge applied to the entire purchase. For example, if customers buy $15,000 of the Bond Fund, they would pay 7.75% on the entire $15,000 purchase, instead of the normal 8.5% sales charge.\n\nInvestment clubs cannot obtain breakpoints: Groups of individuals cannot band together to take advantage of breakpoints-they are applied on a customer-by-customer basis. However, members of the same household, such as spouses, may combine purchases to earn a breakpoint. In addition, unrelated purchasers in an employersponsored retirement plan would qualify for breakpoints.\n\nLetter of Intent (LOI): An LO! allows a customer who plans to purchase funds over a maximum 13-month period to earn breakpoints.\n\nExample\n\nA customer buys $5,000 of the Bond Fund but plans to buy an additional $25,000 of the fund over the\n\ncoming year. If they sign a Letter of Intent, the sales charge would be based on the total amount the\n\ncustomer intends to buy. In this case, the sales charge would be 6.5%. However, if the customer doesn\'t make the intended purchase, the sales charge will be recalculated based on the actual breakpoint level achieved.\n\nHowever, if the customer doesn\'t\n\nmake the intended purchase, the sales charge will be recalculated based on the actual breakpoint level\n\nachieved.\n\nAn LOI may be applied to prior purchases for up to 90 days (3 months). A customer purchased $5,000 of Bond Fund shares two months ago and paid the maximum 8.5% sales charge. They then receive a workplace bonus and want to invest an additional $25,000.\n\nIf the LOI is backdated, the sales charge on the initial purchase would be recalculated at 6.5%, and all purchases over the next 11 months (for a total of 13 months\' worth of purchases) would pay the same reduced sales charge of 6.5%. Breakpoints are based on the initial amount purchased over a 13-month period. An increase in the value of shares purchased would not count toward earning a breakpoint.\n\nA customer signs an LOI to buy $25,000 of the Bond Fund over the next 13 months. The customer only deposits $9,000, but 13 months later, the value of the shares purchased has increased to $20,000. The customer would not qualify for the breakpoint.\n\nWhile breakpoints cover an initial purchase, rights of accumulation cover subsequent purchases. In addition, any increase in the value of the customer\'s account will be counted toward a reduced sales charge on any future purchases. A customer invests $5,000 in the Bond Fund, and pays an 8.5% sales charge.\n\nTwo years later, the account value has risen to $6,000. Using the previous breakpoint schedule, the customer would only need to invest another $4,001 into the fund to earn the reduced sales charge of 7.75% on the second purchase. The sales charge on the initial $5,000 purchase will not be recalculated.\n\nBut the future value of the account would be added to any future purchases to determine the sales charge for those purchases. So, if the account is now valued at $6,000, and the customer purchases an additional $5,000, the new combined total of $11,000 would be used to calculate the sales charge. In this case, the customer would pay a 7.75% sales charge on the subsequent $5,000 investment.\n\nDividend Reinvestment at Net Asset Value To charge the maximum 8.5% sales charge, mutual funds are required to offer dividend reinvestment at NAV. This means that dividends can be automatically reinvested without any sales charge.\n\nMutual funds are not required to offer any of these benefits, but most do. In addition, there are few if any funds that charge the maximum 8.5% sales charge. However, the test may ask for the three benefits that must be offered to charge the maximum sales charge.\n\nOnce again, these benefits are breakpoints, rights of accumulation, and reinvestment of dividends at NAV.\n\nSwitching between Funds in the Same Fund Family Another mutual fund feature that may be offered applies to families of funds. Switching between Funds in the Same Fund Family\n\nAnother mutual fund feature that may be offered applies to families of funds. If a customer decides to liquidate a sponsor\'s Bond Fund and use the proceeds to buy the sponsor\'s Growth Fund, the switch is made at NAV. No sales charge is imposed on the new purchase.\n\nThis is often called a conversion privilege.',
+      [
+        sourced(
+          'sie06q0044',
+          'sie-c6-breakpoints-and-other-sales-discount',
+          'A fund wants to charge the maximum 8.5 percent sales charge. Which three features must it offer?',
+          [
+            { text: 'A conversion privilege, a letter of intent, and Class B shares', why: 'A conversion privilege and a letter of intent are related sales features, but they are not the three items required to charge 8.5 percent.' },
+            { text: 'Rights of accumulation only, because breakpoints are optional add-ons', why: 'Breakpoints are one of the three required offers, together with rights of accumulation and dividend reinvestment at NAV.' },
+            { text: 'Reinvestment of dividends at the public offering price', why: 'The required dividend feature is reinvestment at net asset value, which means no sales charge on the reinvested dividends.' },
+            { text: 'Breakpoints, rights of accumulation, and dividend reinvestment at NAV', why: 'FINRA allows the 8.5 percent maximum only if the fund offers breakpoints, rights of accumulation, and reinvestment of dividends at net asset value. Funds are not required to offer them, and few actually charge the full 8.5 percent.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0045',
+          'sie-c6-breakpoints-and-other-sales-discount',
+          'Using the sample schedule, a customer buys $15,000 of the bond fund. The charge is 8.5 percent up to $10,000 and 7.75 percent from $10,001 to $25,000. What does the customer pay?',
+          [
+            { text: '8.5 percent on the first $10,000 and 7.75 percent on the rest', why: 'The reduced charge is not split. Once the purchase crosses the breakpoint, that lower rate applies to the whole purchase.' },
+            { text: '6.5 percent, the rate for purchases above $25,000', why: '6.5 percent is the schedule\'s rate once the amount is above $25,000. A $15,000 purchase is in the $10,001 to $25,000 band.' },
+            { text: 'No sales charge, because $15,000 qualifies for dividend reinvestment', why: 'Dividend reinvestment at NAV removes the sales charge on reinvested dividends. It does not wipe out the charge on a $15,000 purchase.' },
+            { text: '7.75 percent on the entire $15,000', why: 'A purchase over $10,000 reaches the first breakpoint. The 7.75 percent charge applies to the whole $15,000, not only to the amount above $10,000.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0046',
+          'sie-c6-breakpoints-and-other-sales-discount',
+          'On the sample breakpoint schedule, what sales charge applies once the purchase is above $25,000?',
+          [
+            { text: '6.5 percent', why: 'The sample schedule drops the sales charge to 6.5 percent when the purchase amount is $25,001 and over.', correct: true },
+            { text: '8.5 percent', why: '8.5 percent is the charge on purchases from $0 through $10,000, before any breakpoint.' },
+            { text: '7.75 percent', why: '7.75 percent is the first breakpoint, for purchases from $10,001 through $25,000.' },
+            { text: 'Zero, because every amount above $25,000 is a no-load trade', why: 'The schedule still charges 6.5 percent above $25,000. A no-load fund is a different share arrangement with no sales charge.' },
+          ],
+        ),
+        sourced(
+          'sie06q0047',
+          'sie-c6-breakpoints-and-other-sales-discount',
+          'Three friends form an investment club and want one breakpoint on a combined fund order. May they pool the order, and who else may combine purchases?',
+          [
+            { text: 'Yes. Any group that invests together qualifies, including an investment club', why: 'Investment clubs cannot band together for breakpoints. The discount is applied customer by customer.' },
+            { text: 'No for everyone, including spouses and retirement-plan participants', why: 'Household members such as spouses may combine, and unrelated buyers in an employer-sponsored retirement plan also qualify.' },
+            { text: 'No for the club. Spouses in the same household may combine purchases', why: 'Groups of individuals cannot join up to reach a breakpoint. Members of the same household, such as spouses, may combine their purchases.', correct: true },
+            { text: 'Yes, but only if the club signs a letter of intent in the fund\'s name', why: 'A letter of intent is a single customer\'s pledge to invest more over time. It does not let an investment club aggregate.' },
+          ],
+        ),
+        sourced(
+          'sie06q0048',
+          'sie-c6-breakpoints-and-other-sales-discount',
+          'Unrelated coworkers buy the same fund inside their employer-sponsored retirement plan. Do those purchases qualify for breakpoints?',
+          [
+            { text: 'No. Only spouses living in one household can combine purchases', why: 'Spouses may combine, and so can unrelated participants in an employer-sponsored retirement plan. An investment club still cannot.' },
+            { text: 'Yes, but only if each coworker is an accredited investor', why: 'The qualification here is the employer-sponsored retirement plan, not an accredited-investor test.' },
+            { text: 'No. Retirement-plan assets are excluded from every sales-charge discount', why: 'The text specifically says unrelated purchasers in an employer-sponsored retirement plan would qualify for breakpoints.' },
+            { text: 'Yes. Unrelated buyers in an employer-sponsored plan qualify', why: 'Breakpoints are normally customer by customer, but unrelated purchasers in an employer-sponsored retirement plan are allowed to qualify.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0049',
+          'sie-c6-breakpoints-and-other-sales-discount',
+          'A customer buys $5,000 of the bond fund today and signs a letter of intent to add $25,000 over the coming year. What sales charge applies while that letter is in effect?',
+          [
+            { text: '8.5 percent, because only $5,000 has been paid so far', why: 'Without the letter, $5,000 would pay the top 8.5 percent rate. The letter prices the sale on the amount the customer intends to buy.' },
+            { text: '7.75 percent, the rate for a purchase just over $10,000', why: '7.75 percent covers $10,001 to $25,000. The intended total here is $30,000, which is past $25,000.' },
+            { text: '6.5 percent, based on the full amount the customer intends to buy', why: 'A letter of intent covers purchases over a maximum of 13 months. The charge is based on the intended total, so this customer pays 6.5 percent.', correct: true },
+            { text: 'No charge, because a letter of intent converts the purchase into a no-load trade', why: 'The letter earns the breakpoint that matches the intended amount. It does not eliminate the sales charge.' },
+          ],
+        ),
+        sourced(
+          'sie06q0050',
+          'sie-c6-breakpoints-and-other-sales-discount',
+          'A customer signs a letter of intent but never invests the amount stated in it. What happens to the sales charge?',
+          [
+            { text: 'The reduced charge is locked in for 13 months anyway', why: 'The reduced rate depends on the intended amount only if the customer actually buys it. Otherwise the charge is recomputed.' },
+            { text: 'The fund keeps the reduced rate and adds a redemption fee equal to the shortfall', why: 'The adjustment is a recalculation of the sales charge to the breakpoint actually reached, not a new redemption fee.' },
+            { text: 'The sales charge is recomputed at the breakpoint the customer actually reached', why: 'If the intended purchases are not made, the sales charge is recalculated from the breakpoint level achieved.', correct: true },
+            { text: 'The letter converts into rights of accumulation and counts market appreciation', why: 'Rights of accumulation are a separate feature for later purchases. A missed letter of intent is settled by looking at the amount actually purchased.' },
+          ],
+        ),
+        sourced(
+          'sie06q0051',
+          'sie-c6-breakpoints-and-other-sales-discount',
+          'Two months ago a customer paid 8.5 percent on a $5,000 purchase. A bonus is now available to invest another $25,000, and the letter of intent is backdated. What charge applies?',
+          [
+            { text: 'The old 8.5 percent stays, and only new money over the next 13 months gets 6.5 percent', why: 'Backdating reaches the earlier purchase. That initial charge is recomputed, which is different from rights of accumulation.' },
+            { text: 'Nothing changes, because a letter of intent cannot look back at all', why: 'The letter may be applied to prior purchases for up to 90 days, and this purchase was two months ago.' },
+            { text: 'Both the old and the new purchases pay 7.75 percent', why: '7.75 percent is the $10,001 to $25,000 band. The backdated letter is based on the larger intended amount and uses 6.5 percent.' },
+            { text: 'The initial purchase is recomputed at 6.5 percent, and purchases over the next 11 months also pay 6.5 percent', why: 'A letter of intent can reach back 90 days. Backdating this purchase resets the earlier charge to 6.5 percent, and the next 11 months pay 6.5 percent as well, covering 13 months in total.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0052',
+          'sie-c6-breakpoints-and-other-sales-discount',
+          'An investor signs a letter of intent to buy $25,000, deposits only $9,000, and 13 months later that holding is worth $20,000. Has the breakpoint been earned?',
+          [
+            { text: 'Yes. The $20,000 market value is what the breakpoint schedule uses', why: 'Under a letter of intent, growth in value does not count. Breakpoints are based on the amount purchased.' },
+            { text: 'No. Only dollars actually invested count, and the deposit was $9,000', why: 'An increase in the value of shares purchased does not count toward a breakpoint. The customer would not qualify.', correct: true },
+            { text: 'Yes, because $9,000 plus appreciation clears the $10,000 breakpoint', why: 'Appreciation is ignored for the letter. The customer deposited $9,000 against a $25,000 intention and does not qualify.' },
+            { text: 'No, unless the customer is buying inside an investment club', why: 'An investment club cannot obtain breakpoints at all. The failure here is that market appreciation is not a purchase.' },
+          ],
+        ),
+        sourced(
+          'sie06q0053',
+          'sie-c6-breakpoints-and-other-sales-discount',
+          'An account bought for $5,000 is worth $6,000 two years later. The investor then adds $5,000. What sales charge applies to that new $5,000?',
+          [
+            { text: '7.75 percent on the new $5,000 only', why: 'Rights of accumulation add the $6,000 value to the new $5,000. The combined $11,000 earns 7.75 percent on the subsequent purchase. The original sales charge is not recomputed.', correct: true },
+            { text: '8.5 percent, because each new purchase starts over at the top rate', why: 'Rights of accumulation let later purchases use the account\'s current value. They do not ignore it.' },
+            { text: '7.75 percent, and the original $5,000 purchase is rebated down to the same rate', why: 'The initial sales charge stays as it was. Only the later purchase uses the reduced rate. That is the difference from a backdated letter of intent.' },
+            { text: '6.5 percent, because two years of growth counts as more than $25,000', why: 'The combined figure is $11,000, which is the 7.75 percent band, not the over-$25,000 band.' },
+          ],
+        ),
+        sourced(
+          'sie06q0054',
+          'sie-c6-breakpoints-and-other-sales-discount',
+          'What does dividend reinvestment at net asset value let a shareholder do?',
+          [
+            { text: 'Reinvest dividends at the public offering price, including the full load', why: 'Reinvestment at NAV is the opposite of paying the loaded offering price. The point is that no sales charge is taken.' },
+            { text: 'Skip breakpoints on the next purchase if dividends were reinvested', why: 'Dividend reinvestment is one of the three features required for the maximum sales charge. It does not cancel breakpoints.' },
+            { text: 'Move from the bond fund to the growth fund without a sales charge', why: 'Switching funds inside the same family at NAV is the conversion privilege, a separate feature.' },
+            { text: 'Reinvest dividends automatically and pay no sales charge on those dividends', why: 'To charge the maximum 8.5 percent, a fund must offer dividend reinvestment at NAV, so reinvested dividends carry no sales charge.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0055',
+          'sie-c6-breakpoints-and-other-sales-discount',
+          'A client liquidates the sponsor\'s bond fund and uses the cash to buy that same sponsor\'s growth fund. What charge is imposed on the new fund?',
+          [
+            { text: 'None. The exchange is done at net asset value', why: 'Inside a fund family, selling one fund and buying another can be done at NAV. No sales charge is imposed on the new purchase. This is a conversion privilege.', correct: true },
+            { text: 'The full 8.5 percent front-end charge', why: 'A new purchase inside the same family is not treated as a fresh loaded sale when the conversion privilege is used.' },
+            { text: '7.75 percent, because any switch is treated as a $15,000 breakpoint', why: 'The breakpoint schedule is about the size of a purchase. This switch is made at NAV with no sales charge.' },
+            { text: 'A contingent deferred sales charge that declines over six years', why: 'A declining back-end charge is a Class B share feature, not the charge on a same-family fund switch.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-mutual-fund-expenses-and-share-class',
+      'Mutual Fund Expenses and Share Classes',
+      'In addition to sales charges, mutual funds have a variety of fees that are deducted from the fund\'s total assets to determine the fund\'s net asset value (NAV). These fees are used to offset the fund\'s operating expenses and must be disclosed to potential investors.',
+      [
+        sourced(
+          'sie06q0056',
+          'sie-c6-mutual-fund-expenses-and-share-class',
+          'Aside from sales charges, what happens to the other fees a mutual fund pays?',
+          [
+            { text: 'They are added to the public offering price on top of the 8.5 percent sales charge', why: 'The sales charge is separate. These operating fees are taken from the fund\'s assets when NAV is computed.' },
+            { text: 'They are billed only to the selling group as a concession', why: 'A selling concession is a split of the sales charge. Operating fees come out of fund assets.' },
+            { text: 'They replace the prospectus, so no separate disclosure is required', why: 'The fees must be disclosed to potential investors. The prospectus is still the disclosure document for charges and fees.' },
+            { text: 'They offset operating expenses and must be disclosed to potential investors', why: 'Fees other than sales charges are deducted from total assets to arrive at NAV. They pay operating expenses and have to be disclosed.', correct: true },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-12b-1-fees-rule-12b-1',
+      '12b-1 Fees Rule 12b-1',
+      'Rule 12b-1 allows mutual funds to adopt a so-called 12b-1 distribution plan. This plan requires the approval of a majority of each of the following groups:\n\n• The shareholders\n• The fund\'s board of directors\n• The independent (non-interested) members of the board of directors\n\nOnce a 12b-1 distribution plan is adopted, the fund can charge a 12b-1 fee to existing customers to offset the cost of marketing to new customers. Mutual fund advertisements and costs of other marketing efforts are typically paid for using 12b-1 fees. The 12b-1 fees are not a sales charge based on customer purchases; they are an ongoing asset-based fee that is subtracted from the assets of the fund to determine the NAV. Under FINRA rules, the maximum sales charge for a 12b-1 fund is only 7.25% (instead of the 8.5% allowed for non12b-1 funds). The 12b-1 fee itself cannot exceed 1%* of average annual net assets. *The maximum 12b-1 fee is 1% (per FINRA). Of the 1% up to.75% (% of 1%) can be charged for marketing and distribution costs and up to.25% (% of 1%) can be charged for administrative expenses.',
+      [
+        sourced(
+          'sie06q0057',
+          'sie-c6-12b-1-fees-rule-12b-1',
+          'Before a mutual fund adopts a 12b-1 distribution plan, a majority of which groups must approve it?',
+          [
+            { text: 'The adviser, the custodian, and the selling group', why: 'Those firms manage, hold, or sell. The required votes are shareholder and board votes.' },
+            { text: 'Shareholders, the full board, and the independent directors', why: 'A 12b-1 plan needs a majority of the shareholders, a majority of the board, and a majority of the non-interested directors.', correct: true },
+            { text: 'Only the interested directors, because they work for the adviser', why: 'Interested persons cannot approve the plan by themselves. The independent directors must approve it too.' },
+            { text: 'Only new investors who will be reached by the advertising', why: 'The fee is charged to existing customers to pay for marketing to new ones, but the vote belongs to current shareholders and the board.' },
+          ],
+        ),
+        sourced(
+          'sie06q0058',
+          'sie-c6-12b-1-fees-rule-12b-1',
+          'How is a 12b-1 fee different from the sales charge a buyer pays at purchase?',
+          [
+            { text: 'It is a one-time load added to NAV to produce the public offering price', why: 'Adding a load to NAV produces the public offering price. A 12b-1 fee is not that purchase charge.' },
+            { text: 'It is paid only by the selling group out of its concession', why: 'Selling-group members may receive 12b-1 fees. The fee itself is deducted from fund assets, not funded by the concession.' },
+            { text: 'It is an ongoing fee taken from fund assets, used to pay for marketing to new customers', why: 'After the plan is adopted, existing shareholders bear a 12b-1 fee that offsets advertising and other marketing. It comes out of assets when NAV is calculated.', correct: true },
+            { text: 'It is a redemption fee capped together with the front-end load at 8.5 percent of NAV', why: 'The combined 8.5 percent test uses the public offering price and covers up-front charges plus redemption fees. A 12b-1 fee is an asset-based charge, and a 12b-1 fund\'s maximum sales charge is lower.' },
+          ],
+        ),
+        sourced(
+          'sie06q0059',
+          'sie-c6-12b-1-fees-rule-12b-1',
+          'What is the highest 12b-1 fee FINRA allows, and how can that percentage be split?',
+          [
+            { text: '7.25 percent of the public offering price, all of it for marketing', why: '7.25 percent is the maximum sales charge on a fund that has a 12b-1 fee, compared with 8.5 percent for a fund that does not. It is not the 12b-1 fee itself.' },
+            { text: '1 percent of average annual net assets, with up to 0.75 percent for marketing and up to 0.25 percent for administration', why: 'The 12b-1 fee cannot exceed 1 percent of average annual net assets. Up to 0.75 percent may pay marketing and distribution, and up to 0.25 percent may pay administrative expenses.', correct: true },
+            { text: '0.25 percent for marketing and 0.75 percent for administration', why: 'The larger slice, 0.75 percent, is the marketing and distribution portion. The 0.25 percent slice is administrative.' },
+            { text: '8.5 percent of average annual net assets', why: '8.5 percent of POP is the sales-charge ceiling for a fund that offers the three breakpoint-related benefits and does not use a 12b-1 fee.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-cost',
+      'Share Classes',
+      'Funds may offer a variety of share classes that impose sales charges and 12b-1 fees in varying ways. Share classes are commonly categorized as Class A, Class B, and Class C.\n\nClass A Shares\n\nClass A Shares Class A shares, also called front-end load funds, impose a higher up-front sales charge.\n\nClass A shares, also called front-end load funds, impose a higher up-front sales charge. Typically, A shares have no or very low annual 12b-1 fees. These shares are most suitable for long-term investment because the up-front sales charge is a one-time event that will be recovered over time through a better rate of return achieved by the lower annual 12b-1 fee.\n\nClass B Shares\n\nClass B Shares Class B shares, also called back-end load funds, impose a contingent deferred sales charge that is assessed when the shares are sold.\n\nClass B shares, also called back-end load funds, impose a contingent deferred sales charge that is assessed when the shares are sold. The sales charge percentage declines the longer the investor stays in the fund, eventually falling to zero. However, B shares impose a higher annual 12b-1 fee.\n\nExample. A fund may have no front-end sales charge, but might impose a declining back-end sales charge such as the following: e 5% charge if the customer redeems within two years e 4% charge if the customer redeems after two years e 3% charge if the customer redeems after three years e 2% charge if the customer redeems after four years e 1% charge if the customer redeems after five years\n\n• 5% charge if the customer redeems within two years\n• 4% charge if the customer redeems after two years\n• 3% charge if the customer redeems after three years\n• 2% charge if the customer redeems after four years\n• 1% charge if the customer redeems after five years\n• No charge if the customer redeems after six years\n\nClass B shares are most suitable for intermediate-term investment.\n\nClass C Shares\n\nClass C Shares Class C shares impose no up-front sales charge and usually no back-end load either.\n\nClass C shares impose no up-front sales charge and usually no back-end load either. However, these shares have the highest annual 12b-1 fees. These shares are only suitable for short-term investment because the higher 12b-1 fee will result in a major drag on returns over time.\n\nNo-Load Funds\n\nNo-load funds are sold directly by a mutual fund sponsor and have no sales charges at all. Customers buy and redeem at net asset value. The maximum 12b-1 fee for a no-load fund is.25% (25 basis points).',
+      [
+        sourced(
+          'sie06q0060',
+          'sie-c6-cost',
+          'Why are Class A shares described as the better fit for a long holding period?',
+          [
+            { text: 'They charge the highest annual 12b-1 fee and no up-front load', why: 'The highest annual 12b-1 fee, with no up-front charge, describes Class C shares, which suit a short stay.' },
+            { text: 'A back-end charge declines the longer the investor remains', why: 'A contingent deferred sales charge that falls over time is the Class B structure, suited to an intermediate period.' },
+            { text: 'The front-end charge is paid once, and the annual 12b-1 fee is very low or zero', why: 'Class A shares take a higher up-front sales charge and typically have no or very low 12b-1 fees, so the one-time cost can be recovered over a long stay.', correct: true },
+            { text: 'They are bought and redeemed at NAV with a 12b-1 cap of 0.25 percent', why: 'Buying and redeeming at NAV with a 0.25 percent 12b-1 cap describes a no-load fund, not Class A.' },
+          ],
+        ),
+        sourced(
+          'sie06q0061',
+          'sie-c6-cost',
+          'When does a Class B shareholder pay the contingent deferred sales charge?',
+          [
+            { text: 'At purchase, as a higher front-end load', why: 'A charge taken at purchase is the Class A front-end load. Class B shares do not use that up-front charge.' },
+            { text: 'Each year, as the only fee, with no 12b-1 charge at all', why: 'Class B shares do impose a higher annual 12b-1 fee in addition to the declining back-end charge.' },
+            { text: 'Only if the fund adopts a 12b-1 plan after year six', why: 'The back-end schedule itself can reach no charge after six years. That timing is not tied to adopting a 12b-1 plan.' },
+            { text: 'When the shares are sold, on a schedule that declines and can fall to zero', why: 'Class B shares assess a contingent deferred sales charge at sale. The percentage falls the longer the investor stays and can eventually reach zero, while the annual 12b-1 fee is higher.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0062',
+          'sie-c6-cost',
+          'A Class B schedule charges 5 percent for a redemption within two years, then 4, 3, 2, and 1 percent in the following years. When does that back-end charge hit zero?',
+          [
+            { text: 'After two years', why: 'A redemption after two years still pays 4 percent on the sample schedule.' },
+            { text: 'After four years', why: 'A redemption after four years pays 2 percent. The charge has not disappeared.' },
+            { text: 'After six years', why: 'The sample Class B schedule charges nothing if the customer redeems after six years.', correct: true },
+            { text: 'After five years', why: 'A redemption after five years still pays 1 percent.' },
+          ],
+        ),
+        sourced(
+          'sie06q0063',
+          'sie-c6-cost',
+          'Which share class fits an intermediate-term investor, rather than a short stay or a very long one?',
+          [
+            { text: 'Class B', why: 'Class B shares use a declining back-end charge and a higher annual 12b-1 fee, and they are most suitable for an intermediate holding period.', correct: true },
+            { text: 'Class A', why: 'Class A shares are the long-term choice because the up-front charge is paid once and the 12b-1 fee is low.' },
+            { text: 'Class C', why: 'Class C shares are suitable only for a short-term investment because their 12b-1 fee is the highest.' },
+            { text: 'A no-load fund, because it has no holding-period guidance', why: 'No-load funds have no sales charge and a 12b-1 cap of 0.25 percent. The intermediate-term class in the A-B-C lineup is Class B.' },
+          ],
+        ),
+        sourced(
+          'sie06q0064',
+          'sie-c6-cost',
+          'Why are Class C shares suitable only if the investor expects to stay a short time?',
+          [
+            { text: 'The up-front sales charge is the highest of the three classes', why: 'Class A, not Class C, imposes the higher up-front sales charge. Class C has no up-front charge.' },
+            { text: 'Their annual 12b-1 fee is the highest and will drag on returns if the shares are kept', why: 'Class C shares have no up-front sales charge and usually no back-end load, but the high 12b-1 fee hurts results over time, so they fit only a short stay.', correct: true },
+            { text: 'The back-end charge stays at 5 percent no matter how long the shares are held', why: 'A 5 percent charge within two years is a point on a Class B schedule, and that schedule declines. Class C usually has no back-end load.' },
+            { text: 'They can be bought only at the public offering price plus an 8.5 percent load', why: 'Paying POP, which includes a front-end load, is the Class A purchase. Class C does not impose that up-front charge.' },
+          ],
+        ),
+        sourced(
+          'sie06q0065',
+          'sie-c6-cost',
+          'A no-load fund is sold directly by the sponsor. At what prices do customers buy and redeem, and what 12b-1 cap applies?',
+          [
+            { text: 'Buy at the public offering price and redeem at NAV, with a 1 percent 12b-1 fee', why: 'A 1 percent ceiling is the maximum 12b-1 fee for funds generally. No-load shares are bought and redeemed at NAV, and their 12b-1 cap is 0.25 percent.' },
+            { text: 'Buy at NAV and redeem with a contingent deferred charge that ends after six years', why: 'A declining charge that reaches zero after six years is a Class B back-end schedule.' },
+            { text: 'Buy and redeem at NAV, with a 12b-1 fee of no more than 0.25 percent', why: 'No-load funds have no sales charge. Customers buy and redeem at net asset value, and the 12b-1 fee cannot exceed 0.25 percent, or 25 basis points.', correct: true },
+            { text: 'Buy and redeem at NAV, with the same 0.75 percent marketing fee allowed inside a full 1 percent 12b-1 plan', why: 'Up to 0.75 percent for marketing is the distribution slice of a regular 12b-1 fee. A no-load fund\'s entire 12b-1 fee is capped at 0.25 percent.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-fund-expenses-and-expense-ratios',
+      'Fund Expenses and Expense Ratios',
+      'Fund expenses are passed on to shareholders in the form of fees. Each day, a small percentage of these expenses are deducted from the fund\'s assets to get the fund\'s net asset value (NAV).\n\nManagement and Other Fees\n\nManagement and Other Fees The fee charged by the fund\'s investment adviser (the fund or portfolio manager) is typically the largest expense of operating a fund.\n\nThe fee charged by the fund\'s investment adviser (the fund or portfolio manager) is typically the largest expense of operating a fund. This fee will vary by the type of fund. Other fees include custodial fees, administrative fees, and 12b-1 distribution fees.\n\nRedemption Fee\n\nRedemption Fee In addition to sales charges, mutual funds can also charge redemption fees.\n\nIn addition to sales charges, mutual funds can also charge redemption fees. The fees offset the costs involved in redeeming client shares. Under FINRA rules, up-front sales charges plus redemption fees cannot exceed 8.5% of the public offering price (POP).\n\nIn-kind redemption: Although extremely rare, a fund may not have enough cash to meet an unusually large amount of redemptions. In that case, funds are allowed to do an in-kind redemption. In this situation, shareholders will receive underlying portfolio securities rather than cash.\n\nRedemption payments: Under the Investment Company Act of 1940, when a customer redeems shares, the fund is given up to seven calendar days to transmit the sales proceeds. Today, industry practice usually results in a much shorter time frame.\n\nExpense Ratio\n\nFunds are required to disclose to potential customers their expense ratio. The formula for the expense ratio is: tio - -tetal expenses expense ratio = ceragenet assels',
+      [
+        sourced(
+          'sie06q0066',
+          'sie-c6-fund-expenses-and-expense-ratios',
+          'Which cost is typically the largest expense of operating a mutual fund?',
+          [
+            { text: 'The custodian\'s fee for holding the securities', why: 'Custodial fees are one of the other operating costs. They are not described as the largest.' },
+            { text: 'The front-end sales charge on Class A shares', why: 'The sales charge is what the buyer pays to purchase load shares. The largest operating expense inside the fund is the adviser\'s fee.' },
+            { text: 'The adviser\'s management fee', why: 'The fee paid to the investment adviser, or portfolio manager, is typically the largest operating expense. Custodial, administrative, and 12b-1 fees are the other costs named.', correct: true },
+            { text: 'The redemption fee on shares cashed out within a year', why: 'A redemption fee offsets the cost of redeeming shares. It is not identified as the fund\'s largest operating expense.' },
+          ],
+        ),
+        sourced(
+          'sie06q0067',
+          'sie-c6-fund-expenses-and-expense-ratios',
+          'FINRA limits up-front sales charges together with redemption fees to what percentage of the public offering price?',
+          [
+            { text: '8.5 percent of NAV', why: 'The combined cap is 8.5 percent of the public offering price, not of NAV.' },
+            { text: '7.25 percent of the public offering price', why: '7.25 percent is the maximum sales charge for a fund that charges a 12b-1 fee, not this combined up-front-plus-redemption test.' },
+            { text: '1 percent of average annual net assets', why: 'One percent of average annual net assets is the ceiling on the 12b-1 fee itself.' },
+            { text: '8.5 percent of the public offering price', why: 'Up-front sales charges plus redemption fees cannot exceed 8.5 percent of POP.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0068',
+          'sie-c6-fund-expenses-and-expense-ratios',
+          'A fund does not have enough cash for an unusually large wave of redemptions. What may shareholders receive instead?',
+          [
+            { text: 'Newly issued preferred stock of the fund', why: 'Preferred stock is a way a closed-end fund can raise capital. It is not the substitute for cash in a redemption squeeze.' },
+            { text: 'The underlying portfolio securities', why: 'If cash is insufficient, the fund may make an in-kind redemption and distribute portfolio securities instead of cash. That outcome is extremely rare.', correct: true },
+            { text: 'A promissory note that pays the NAV seven years later', why: 'Seven calendar days is the outside limit for sending cash redemption proceeds, not a seven-year note.' },
+            { text: 'Only the dividends that were waiting to be reinvested', why: 'Dividend reinvestment is a sales feature. It is not how a fund settles a redemption it cannot pay in cash.' },
+          ],
+        ),
+        sourced(
+          'sie06q0069',
+          'sie-c6-fund-expenses-and-expense-ratios',
+          'Under the Investment Company Act of 1940, how long does a fund have to send a redeeming shareholder the sale proceeds?',
+          [
+            { text: 'Up to seven calendar days', why: 'The 1940 Act gives the fund up to seven calendar days to transmit redemption proceeds. Actual practice is usually much shorter.', correct: true },
+            { text: 'The same day the order is entered, at the prior close', why: 'The price is that day\'s closing NAV. The Act\'s deadline for sending the money is up to seven calendar days, though the industry is usually faster.' },
+            { text: 'Up to seven business weeks', why: 'The limit is seven calendar days, not seven weeks.' },
+            { text: 'Until the next semiannual report is mailed', why: 'Semiannual reports are a disclosure duty. They do not set the redemption payment deadline.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-mutual-fund-distributions-and-prohib',
+      'Mutual Fund Distributions and Prohibited Sales Practices',
+      'Mutual funds operate on a pass-through or conduit theory. That means that dividend and interest income received by the fund, and any gains on securities that have been bought and then sold, are passed on to the shareholders. The shareholders are then taxed on these distributions.\n\nIn addition, FINRA has identified several sales practices that would be considered violations of their rules.',
+      [
+        sourced(
+          'sie06q0070',
+          'sie-c6-mutual-fund-distributions-and-prohib',
+          'A mutual fund receives dividends, interest, and gains on securities it has sold. Under the conduit approach, who is taxed?',
+          [
+            { text: 'The fund pays the tax and shareholders receive the distributions tax-free', why: 'The conduit, or pass-through, theory sends the income and gains to shareholders, and the shareholders are taxed on those distributions.' },
+            { text: 'Only the investment adviser is taxed, because the adviser earned the management fee', why: 'The management fee is the adviser\'s compensation. The tax on distributed income and gains falls on the shareholders.' },
+            { text: 'Nobody is taxed if the fund trades actively', why: 'Active trading can create more taxable events. It does not make the distributions tax-free.' },
+            { text: 'The shareholders are taxed on the distributions passed through to them', why: 'Dividend and interest income, and gains on securities the fund bought and sold, are passed through. Shareholders then pay the tax.', correct: true },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-fund-distributions-under-subchapter',
+      'Fund Distributions under Subchapter M',
+      'Funds distribute most of their net income to shareholders for an important tax reason. If a fund distributes at least 90% of its net income to shareholders, then the fund is considered a regulated investment company (RIC) by the IRS, and the fund is not required to pay taxes on the income it distributes to shareholders. Instead, the income flows through to shareholders in the form of dividends, and the shareholders pay taxes on these distributions.\n\nMutual Fund Ex-Dividend Date\n\nThe decision to make a distribution from a mutual fund is made by the fund\'s board of directors. The board sets the record date for the distribution-this is the date that shareholders of record will qualify to receive the distribution. The day after the record date is called the ex-dividend date (or ex-date) because it is the first day that anyone who invests in the fund will not qualify for that dividend.\n\nThe shares are being offered without that dividend.\n\nFund transactions typically settle T+1 (one day after the trade date). Shareholders of record, those whose trades have settled on or before the record date, will receive the distribution. So, the ex-date for mutual funds is the day after the record date.\n\nThe record date and the ex-dividend date are set by the fund\'s board.\n\nOn the ex-date, the net asset value (NAV) will decrease by the amount of the distribution, less any distributions that were automatically reinvested by shareholders. Dividends can be paid daily (money market funds), monthly, quarterly, or annually.\n\nCapital Gains Distributed Once per Year\n\nCapital Gains Distributed Once per Year When the fund sells securities for more than the price that was initially paid, there is a capital gain.\n\nWhen the fund sells securities for more than the price that was initially paid, there is a capital gain. When the fund sells securities for less than the purchase price, there is a capital loss. The fund will subtract any capital losses from any capital gains, leaving what is called net capital gains.\n\nThe fund distributes net capital gains to shareholders once a year, and shareholders must report them on their tax return. Net capital losses are not distributed to shareholders.',
+      [
+        sourced(
+          'sie06q0071',
+          'sie-c6-fund-distributions-under-subchapter',
+          'A fund distributes at least 90 percent of its net income to shareholders. What tax status does that earn?',
+          [
+            { text: 'The fund must still pay tax on everything it distributes', why: 'The point of the 90 percent distribution is that the fund is not taxed on the income it passes through.' },
+            { text: 'The fund becomes a regulated investment company and is not taxed on the income it distributes', why: 'Distributing at least 90 percent of net income makes the fund a regulated investment company. The fund is not taxed on what it pays out; shareholders are taxed on the dividends they receive.', correct: true },
+            { text: 'Shareholders owe no tax because the fund already paid it', why: 'The income flows through as dividends, and the shareholders pay the tax on those distributions.' },
+            { text: 'The fund qualifies only if it also distributes net capital losses', why: 'Net capital losses are not distributed to shareholders. The 90 percent test is about net income.' },
+          ],
+        ),
+        sourced(
+          'sie06q0072',
+          'sie-c6-fund-distributions-under-subchapter',
+          'The board sets a mutual fund\'s record date for a dividend. Which day is the ex-dividend date, and who receives the dividend?',
+          [
+            { text: 'The day after the record date. A buyer on the ex-date does not get that dividend', why: 'The board sets both dates. Because fund trades settle T+1, the ex-date is the day after the record date, and a purchase that day does not qualify.', correct: true },
+            { text: 'The business day before the record date, so a buyer that day is already too late', why: 'Fund trades typically settle T+1, and the ex-date is the day after the record date, not the day before.' },
+            { text: 'The same day as the record date, and every buyer that day is included', why: 'Someone who buys on the ex-date does not qualify. The ex-date is the first day the shares are offered without that dividend.' },
+            { text: 'Any day the money market fund chooses to pay, including the record date itself', why: 'Money market funds may pay dividends daily, but the ex-date is still defined as the day after the record date.' },
+          ],
+        ),
+        sourced(
+          'sie06q0073',
+          'sie-c6-fund-distributions-under-subchapter',
+          'What happens to net asset value on the ex-dividend date?',
+          [
+            { text: 'It falls by the distribution, minus any amount shareholders automatically reinvested', why: 'On the ex-date, NAV decreases by the distribution, reduced by distributions that were automatically reinvested.', correct: true },
+            { text: 'It rises by the dividend so that new buyers are paid to come in', why: 'The NAV is adjusted downward for the distribution. Buying just before the dividend does not create a benefit.' },
+            { text: 'It stays the same because reinvestment is forbidden', why: 'Reinvestment is allowed, and the NAV drop is smaller by the amount that was reinvested. It does not stay flat for that reason.' },
+            { text: 'It is reset to $1.00 for every fund that pays a dividend', why: 'A stable $1.00 NAV is the money-market objective, not the ex-date adjustment for funds in general.' },
+          ],
+        ),
+        sourced(
+          'sie06q0074',
+          'sie-c6-fund-distributions-under-subchapter',
+          'How often may a mutual fund pay dividends?',
+          [
+            { text: 'Only once a year, on the same schedule as net capital gains', why: 'Net capital gains are distributed once a year. Dividends can be paid daily, monthly, quarterly, or annually.' },
+            { text: 'Only on the record date chosen by the selling group', why: 'The board, not the selling group, sets the record date and the ex-date.' },
+            { text: 'Daily for money market funds, and monthly, quarterly, or annually for others', why: 'Money market funds may pay dividends daily. Other funds may pay monthly, quarterly, or annually.', correct: true },
+            { text: 'Whenever the portfolio has a capital loss to pass through', why: 'Net capital losses are not distributed. Dividend timing is daily, monthly, quarterly, or annual.' },
+          ],
+        ),
+        sourced(
+          'sie06q0075',
+          'sie-c6-fund-distributions-under-subchapter',
+          'A fund sells some holdings above cost and others below cost. What do shareholders receive, and how often?',
+          [
+            { text: 'Net capital gains once a year, which shareholders report. Net losses are not distributed', why: 'The fund nets capital losses against capital gains. Net gains are distributed once a year and reported by shareholders. Net capital losses are not passed out.', correct: true },
+            { text: 'Both net gains and net losses, each time a security is sold', why: 'Losses are subtracted inside the fund. Only net capital gains are distributed, and only once a year.' },
+            { text: 'Net gains every quarter, so they match the usual dividend calendar', why: 'Dividends may be quarterly. Net capital gains go out once a year.' },
+            { text: 'Nothing, because capital gains stay inside a regulated investment company', why: 'The 90 percent net-income test is separate. Net capital gains are still distributed once a year, and shareholders report them.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-prohibited-mutual-fund-sales-practic',
+      'Prohibited Mutual Fund Sales Practices FINRA prohibits the following practices: * Breakpoint sales',
+      'e = Churning mutual fund shares\n\nInappropriate recommendation of Class B shares\n\n• Selling dividends\n\nBreakpoint Sales\n\nIt is a violation of FINRA rules to not inform customers that they are close to meeting a breakpoint. If a customer is investing an amount that is close to a breakpoint, the customer must be made aware that they would qualify for a sales charge discount if they increased their investment. They must also be told about letter of intent features that would enable them to combine investments over a 13-month period to earn a sales charge discount. It is also a violation for a representative to recommend that a customer invest just under a breakpoint level to generate a higher commission for themselves.\n\nChurning Mutual Fund Shares\n\nMutual fund shares are generally a buy-and-hold investment. Customers should not be advised to trade in and out of a mutual fund to generate commissions for the rep. This prohibited practice is known as churning. Similarly, reps should not recommend that customers switch to a different fund with the same objective because this will result in sales charges and possible tax consequences for the customer (for example, sell the XYZ growth fund and buy the QRS growth fund).\n\nA customer might believe that Class B shares are cheaper because they have no up-front sales charge. However, they do impose high annual 12b-1 fees. This can make B shares more expensive to customers with large dollar amounts to invest over the long term. In that case, Class A shares would usually be less costly.\n\nSelling dividends is when a rep encourages a customer to buy shares of a mutual fund right before the mutual fund pays a dividend. FINRA prohibits this practice because the net asset value (NAV) is adjusted downward to reflect the dividend, so the customer would not receive a benefit from buying shares right before the dividend. In fact, the customer will be taxed on the dividend, so they probably would have been better off if they had waited until after the dividend to buy.\n\nLate Trading of Fund Shares\n\nThis practice involves the acceptance and execution of buy or sell orders after the 4:00 p.m. cutoff. These orders must be processed the following business day.',
+      [
+        sourced(
+          'sie06q0076',
+          'sie-c6-prohibited-mutual-fund-sales-practic',
+          'A customer is about to invest an amount just below a breakpoint. What must the representative tell the customer?',
+          [
+            { text: 'That a slightly larger investment would qualify for a lower sales charge, and how a letter of intent works', why: 'The customer must be told that increasing the investment would earn a discount, and must be told that a letter of intent can combine purchases over 13 months. Recommending a purchase just under the breakpoint to boost the representative\'s commission is also a violation.', correct: true },
+            { text: 'Nothing, unless the customer asks about a letter of intent', why: 'Staying silent when the customer is close to a breakpoint violates FINRA rules. The customer must be told.' },
+            { text: 'That breakpoints are available only to investment clubs', why: 'Investment clubs cannot obtain breakpoints. The violation is failing to disclose a discount the customer is close to earning.' },
+            { text: 'That the lower charge applies only if the account later appreciates', why: 'Appreciation does not earn a letter-of-intent breakpoint. The required disclosure is about investing more, or using a letter of intent.' },
+          ],
+        ),
+        sourced(
+          'sie06q0077',
+          'sie-c6-prohibited-mutual-fund-sales-practic',
+          'A representative urges a client to sell the XYZ growth fund and buy the QRS growth fund. Why is that switch a problem?',
+          [
+            { text: 'Growth funds are not allowed to be sold once they have been purchased', why: 'Mutual fund shares can be redeemed. The problem is recommending a switch that does not change the objective.' },
+            { text: 'The switch is a conversion privilege, so it must be done at the public offering price', why: 'A conversion privilege moves the shareholder between funds of the same sponsor at NAV. Switching to a different sponsor\'s similar fund is the practice barred here.' },
+            { text: 'QRS shares cannot be bought after 4:00 p.m., so the order is late trading', why: 'Late trading is executing an order after the 4:00 p.m. cutoff. A same-objective switch is a different violation.' },
+            { text: 'The two funds share an objective, so the client pays sales charges and may owe tax for no real change', why: 'Mutual funds are generally buy-and-hold. Trading in and out to generate commissions is churning, and a switch between funds with the same objective creates sales charges and possible taxes.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0078',
+          'sie-c6-prohibited-mutual-fund-sales-practic',
+          'A wealthy investor will hold a large fund position for many years and picks Class B shares because there is no up-front charge. What is the usual cost result?',
+          [
+            { text: 'Class B is cheaper for a large long-term investment because the back-end charge eventually hits zero', why: 'The missing up-front charge is not the whole cost. High annual 12b-1 fees can make B shares more expensive over a long period.' },
+            { text: 'Class B can cost more because of high 12b-1 fees, so Class A is usually less expensive', why: 'B shares have no up-front sales charge but high annual 12b-1 fees. For a large amount held a long time, Class A is usually the lower-cost choice. Recommending B shares in that situation is inappropriate.', correct: true },
+            { text: 'Class C is required once the investment is large, because C shares have the lowest 12b-1 fee', why: 'Class C shares have the highest 12b-1 fees and fit a short stay, not a large long-term position.' },
+            { text: 'Either class costs the same, because FINRA sets one sales charge for every share class', why: 'Share classes impose sales charges and 12b-1 fees differently. A and B are not the same cost for a large, long holding period.' },
+          ],
+        ),
+        sourced(
+          'sie06q0079',
+          'sie-c6-prohibited-mutual-fund-sales-practic',
+          'Why does FINRA forbid urging a customer to buy a mutual fund just before it pays a dividend?',
+          [
+            { text: 'The buyer misses the dividend, because the ex-date is the day before the purchase', why: 'The harm is not a missed dividend. The buyer receives a taxable dividend while NAV falls by about the same amount.' },
+            { text: 'Dividends can be paid only once a year, so the timing never matters', why: 'Dividends may be paid daily, monthly, quarterly, or annually. The prohibition is about buying immediately before a distribution.' },
+            { text: 'The NAV drops by the dividend, the buyer gets no real benefit, and the dividend is taxable', why: 'Selling dividends is prohibited because NAV is adjusted down by the dividend. The buyer is also taxed on it and would usually have been better off waiting until after the distribution.', correct: true },
+            { text: 'The purchase would be filled at the prior day\'s NAV plus the dividend', why: 'Forward pricing uses that day\'s closing NAV. The ex-date adjustment reduces NAV by the distribution.' },
+          ],
+        ),
+        sourced(
+          'sie06q0080',
+          'sie-c6-prohibited-mutual-fund-sales-practic',
+          'A buy order for a mutual fund is accepted after the 4:00 p.m. cutoff. When must it be processed?',
+          [
+            { text: 'Immediately, using that same day\'s closing NAV', why: 'Accepting and executing an order after the 4:00 p.m. cutoff is late trading. It cannot be given that day\'s price.' },
+            { text: 'On the ex-dividend date, so the buyer receives the distribution', why: 'The ex-date determines who receives a dividend. It is not the deadline for a late order.' },
+            { text: 'The following business day', why: 'Orders taken after the 4:00 p.m. cutoff must be processed the next business day. Executing them after the cutoff is late trading.', correct: true },
+            { text: 'Within seven calendar days, the redemption payment limit', why: 'Seven calendar days is how long a fund has to send redemption proceeds, not the processing rule for an order entered after 4:00 p.m.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-more',
+      'Other Packaged Products',
+      'Investment companies are often referred to as packaged products. But not all collections of securities fall under the classification of an investment company. Exchange-traded funds (ETFs) often are registered as investment companies.\n\nBut while hedge funds, real estate investment trusts (REITs), and exchange-traded notes (ETNs) share common features with investment companies, these products are not defined as investment companies under the 1940 Investment Company Act.',
+      [
+        sourced(
+          'sie06q0081',
+          'sie-c6-more',
+          'Which products resemble investment companies but are not investment companies under the 1940 Act?',
+          [
+            { text: 'Hedge funds, REITs, and exchange-traded notes', why: 'Hedge funds, REITs, and ETNs share features with investment companies but are not defined as investment companies under the 1940 Act. ETFs often are registered as investment companies.', correct: true },
+            { text: 'Mutual funds and unit investment trusts', why: 'Mutual funds and UITs are investment companies. They are not the products excluded from the 1940 Act definition.' },
+            { text: 'Exchange-traded funds only', why: 'ETFs often are registered as investment companies. They are not in the group excluded from the Act.' },
+            { text: 'Every packaged product, including open-end funds', why: 'Open-end funds are investment companies. The exclusion covers hedge funds, REITs, and ETNs.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-exchange-traded-funds-etfs-etfs',
+      'Exchange-Traded Funds (ETFs) ETFs',
+      'ETFs represent shares of ownership in a portfolio of common stock that typically tracks the performance of a specific index. Unlike mutual funds, ETFs trade on an exchange like a closed-end fund. But unlike closed-end funds, they are structured in such a way that they tend to trade at their net asset value (NAV) rather than at a discount to NAV. bom Test-Taking Tip: Even though they trade like closed-end funds, ETFs are typically registered as open-end funds, not closed-end funds. Initially, most ETFs were index funds that were passively managed investments. Index funds track a benchmark index rather than selecting individual stocks they believe might outperform the index. Today, there are many actively managed ETFs. Compared to an index mutual fund, ETFs offer the following advantages:\n\n• ETFs are continuously priced on the exchange based on the changes in value of the underlying index and\n\ntrade like any other common stock. They can be traded throughout the day. In contrast, mutual fund orders are generally filled at that day\'s closing NAV.\n\nETFs are purchased without a sales charge. However, a regular stock trading commission is charged to buy or sell an ETF.\n\nETFs can be purchased on margin (using money borrowed from a broker) whereas mutual funds cannot be purchased on margin.\n\nETFs can be sold short (where shares are borrowed and sold in the hope that the share price will decline), whereas mutual funds cannot be sold short.\n\nThe expenses associated with running ETFs are comparable to, or lower than, those of similar mutual funds (mainly because they do not have 12b-1 fees).\n\n•ETFs are tax efficient because the fund is not obligated to distribute capital gains to shareholders annually, as is the case with a mutual fund. The investor will be taxed on any capital gains when the ETF shares are sold.\n\nNontraditional ETFs\n\nAs the market has grown, more sophisticated ETFs have been introduced:\n\n• Leveraged ETFs use derivative products to generate daily returns two to three times above the returns of the\n\nindex they are tracking. For example, a triple-leveraged ETF (3x ETF) is one that projects returns three times the tracked index. So, if the S&P 500 Index goes up 5%, this ETF should return 15%.\n\n• Inverse ETFs are designed to move in the opposite direction as the underlying index. For example, an S&P\n\n500 Inverse ETF is designed to move down 5% when the S&P 500 Index moves up 5%. Suitability Leveraged and inverse ETFs are highly speculative investments that will not be suitable for the average investor. These types of ETFs should not be held long term, because their riskiness is compounded the longer they are held. For this reason, they should not be recommended to long-term investors.\n\nIs a Prospectus Required?\n\nEven though ETFs trade like any other stock, the purchaser is required to be delivered either a prospectus like that for a mutual fund, or a Product Document summarizing key information about the ETF and the details of where a prospectus can be obtained.',
+      [
+        sourced(
+          'sie06q0082',
+          'sie-c6-exchange-traded-funds-etfs-etfs',
+          'ETFs trade on an exchange the way closed-end funds do. How are they typically registered?',
+          [
+            { text: 'As open-end funds', why: 'Even though ETFs trade like closed-end funds, they are typically registered as open-end funds, not closed-end funds.', correct: true },
+            { text: 'As closed-end funds, because that is how they trade', why: 'Trading like a closed-end fund does not make the registration closed-end. ETFs are typically registered as open-end funds.' },
+            { text: 'As face-amount certificate companies', why: 'Face-amount certificates are an obsolete investment-company type, not the ETF registration.' },
+            { text: 'They are not registered at all, like a hedge fund', why: 'Hedge funds are lightly regulated and need not register under the 1940 Act. ETFs are typically registered as open-end funds.' },
+          ],
+        ),
+        sourced(
+          'sie06q0083',
+          'sie-c6-exchange-traded-funds-etfs-etfs',
+          'Closed-end funds can trade away from portfolio value. Where do ETFs tend to trade relative to net asset value?',
+          [
+            { text: 'At a persistent discount to NAV', why: 'A discount to NAV is the closed-end pattern the text contrasts. ETFs are structured to trade at NAV.' },
+            { text: 'At a fixed one-dollar price', why: 'A stable one-dollar NAV is a money-market fund objective, not ETF pricing.' },
+            { text: 'At net asset value, rather than at a discount', why: 'Unlike closed-end funds, ETFs are structured so they tend to trade at NAV rather than at a discount to NAV.', correct: true },
+            { text: 'Only at the closing NAV, once per day', why: 'Once-a-day closing NAV is how mutual fund orders are filled. ETFs are priced continuously on the exchange.' },
+          ],
+        ),
+        sourced(
+          'sie06q0084',
+          'sie-c6-exchange-traded-funds-etfs-etfs',
+          'An investor wants a fund-like product that can be bought and sold while the market is open. How does an ETF fill that order compared with a mutual fund?',
+          [
+            { text: 'Both are filled at that day\'s closing net asset value', why: 'Closing-NAV pricing is the mutual fund side of the comparison. ETF prices move through the day.' },
+            { text: 'The ETF can be traded all day. The mutual fund order waits for the closing NAV', why: 'ETFs are priced continuously as the underlying index changes and trade like stock throughout the day. Mutual fund orders are generally filled at that day\'s closing NAV.', correct: true },
+            { text: 'The ETF can be traded all day, but only in a single opening auction', why: 'The ETF advantage is continuous trading during the day, not a once-a-day auction.' },
+            { text: 'Neither can be traded until the sponsor publishes a semiannual report', why: 'Semiannual reports are a mutual fund disclosure duty. They do not set the ETF trading window.' },
+          ],
+        ),
+        sourced(
+          'sie06q0085',
+          'sie-c6-exchange-traded-funds-etfs-etfs',
+          'What does an investor pay to buy or sell an ETF?',
+          [
+            { text: 'A front-end sales charge up to 8.5 percent, and a 12b-1 fee', why: 'Mutual fund load shares can carry a sales charge. ETFs are purchased without a sales charge.' },
+            { text: 'A contingent deferred sales charge that disappears after six years', why: 'A declining back-end charge over six years is a Class B mutual fund schedule, not the ETF cost.' },
+            { text: 'No mutual-fund sales charge, but a regular stock trading commission', why: 'ETFs are purchased without a sales charge. A regular stock commission is charged to buy or sell. Expenses are also comparable to or lower than similar mutual funds, mainly because ETFs do not have 12b-1 fees.', correct: true },
+            { text: 'Nothing at all, including no brokerage commission', why: 'The sales charge is absent, but a regular stock commission is still charged to buy or sell.' },
+          ],
+        ),
+        sourced(
+          'sie06q0086',
+          'sie-c6-exchange-traded-funds-etfs-etfs',
+          'Which pair of trades can an investor make in an ETF and cannot make in a mutual fund?',
+          [
+            { text: 'Redeem shares directly at the next closing NAV', why: 'Direct redemption at NAV is how mutual fund shares are cashed out. ETF shares trade on the exchange.' },
+            { text: 'Buy on margin, and sell short', why: 'ETFs may be purchased on margin and may be sold short. Mutual funds cannot be bought on margin or sold short.', correct: true },
+            { text: 'Reinvest dividends at NAV inside a breakpoint schedule', why: 'Dividend reinvestment at NAV and breakpoints are mutual fund sales-charge features.' },
+            { text: 'Buy only after the fund\'s board declares an ex-date', why: 'The ex-date is a mutual fund distribution concept. It is not the gate for an ETF purchase.' },
+          ],
+        ),
+        sourced(
+          'sie06q0087',
+          'sie-c6-exchange-traded-funds-etfs-etfs',
+          'Why can an ETF be more tax efficient than a mutual fund when the portfolio has capital gains?',
+          [
+            { text: 'The ETF must distribute net capital gains once a year, just as a mutual fund does', why: 'Annual distribution of net capital gains is the mutual fund rule. An ETF is not obligated to do that.' },
+            { text: 'The investor is taxed only when the ETF shares are sold, because the fund need not distribute capital gains every year', why: 'An ETF does not have to distribute capital gains to shareholders annually. The investor is taxed on gains when the ETF shares are sold.', correct: true },
+            { text: 'ETF gains are taxed as ordinary income each day the shares are held', why: 'The efficiency is the deferral until the shares are sold, not daily ordinary-income tax.' },
+            { text: 'Capital losses in the ETF are paid out in cash every December', why: 'Mutual funds do not distribute net capital losses either. The ETF point is that capital-gains distributions are not required each year.' },
+          ],
+        ),
+        sourced(
+          'sie06q0088',
+          'sie-c6-exchange-traded-funds-etfs-etfs',
+          'The S&P 500 rises 5 percent in a day. What daily result is a triple-leveraged ETF on that index designed to deliver?',
+          [
+            { text: 'A 5 percent gain, the same move as the index', why: 'Matching the index is what a plain index ETF seeks. A triple-leveraged ETF targets a multiple of the daily move.' },
+            { text: 'A 5 percent loss', why: 'A 5 percent decline when the index rises 5 percent is what an inverse ETF is designed to do, not a triple-leveraged ETF.' },
+            { text: 'A 15 percent gain', why: 'Leveraged ETFs use derivatives to target daily returns two to three times the index. A 3x ETF should return 15 percent if the S&P 500 rises 5 percent that day.', correct: true },
+            { text: 'A 15 percent gain that is suitable to hold until retirement', why: 'The 15 percent figure is the one-day target. Leveraged and inverse ETFs are highly speculative, unsuitable for the average investor, and should not be held long term because the risk compounds.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-exchange-traded-notes-etns',
+      'Exchange-Traded Notes (ETNs)',
+      'It is important not to confuse an ETF with an ETN. An exchange-traded note is a debt obligation that is created by an investment bank. But unlike a bond, the return is typically linked to an equity index.\n\nThe ETN has a fixed maturity and is listed on an exchange, so an investor can trade at any time at the current market price.\n\nETNs Are Tax Efficient\n\nETNs Are Tax Efficient Although an ETN is a debt instrument, it does not make periodic interest payments.\n\nAlthough an ETN is a debt instrument, it does not make periodic interest payments. The value of an ETN grows based on the performance of the underlying index. A major tax benefit of the ETN is that under current Internal Revenue Service (IRS) rules, the gain is treated as a capital gain, which is taxed at a lower rate than interest on a bond (taxed as ordinary income).\n\nCredit Risk\n\nCredit Risk A major risk associated with ETNs is credit risk-if the issuing bank fails, the purchaser could lose their investment.\n\nA mgjor risk associated with ETNs is credit risk-if the issuing bank fails, the purchaser could lose their investment. Once again, ETNs can be complex and are often not suitable for the typical investor.\n\nExchange-Traded Funds (ETFs)\n\nExchange-Traded Notes (ETNs)\n\nYes Yes\n\nComparison chart of ETFs vs. ETNs ETFs vs. ETNs by key features Feature Structure Maturity Trade in secondary market Portfolio return Ownership Tax efficient? Open-end fund No set maturity date Listed-trades like stock Linked to a specific index Shareholder owns a piece of the underlying portfolio Yes Bond-like Maturity date set by issuer Listed-trades like stock Linked to a specific index Loan that is backed by the credit rating of the bank Yes\n\nComparison chart of ETFs vs. ETNs eet sees Structure Open-end fund Bond-like Maturity No set maturity date Maturity date set by issuer Trade in secondary market Listed-trades like stock Listed-trades like stock Portfolio return Linked to a specific index Linked to a specific index Ownership Shareholder owns a piece of the Loan that is backed by the credit underlying portfolio rating of the bank Tax efficient?',
+      [
+        sourced(
+          'sie06q0089',
+          'sie-c6-exchange-traded-notes-etns',
+          'What is an exchange-traded note, and what is its return usually tied to?',
+          [
+            { text: 'A share of an open-end portfolio that the investor owns directly', why: 'Owning a piece of a portfolio describes an ETF shareholder. An ETN should not be confused with an ETF.' },
+            { text: 'A closed-end fund that issues preferred stock one time', why: 'A one-time issuance that can include preferred stock is a closed-end management company.' },
+            { text: 'A face-amount certificate with a fixed cash value', why: 'Face-amount certificates are an obsolete investment-company type. An ETN is a bank debt obligation.' },
+            { text: 'A debt obligation created by an investment bank, with a return typically linked to an equity index', why: 'An ETN is the bank\'s debt, not a share of a portfolio. Unlike a conventional bond, the return is typically linked to an equity index.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0090',
+          'sie-c6-exchange-traded-notes-etns',
+          'An ETN has a maturity date. Can the investor exit before that date, and at what price?',
+          [
+            { text: 'Yes. It is listed, so it can be sold at any time at the current market price', why: 'The ETN has a fixed maturity and is exchange-listed. The investor can trade at any time at the market price.', correct: true },
+            { text: 'No. The note must be held to the maturity the issuer set', why: 'Maturity is fixed, but the note is listed, so the holder can sell on the exchange before maturity.' },
+            { text: 'Yes, but only by redeeming at net asset value with the sponsor', why: 'Redemption at NAV with the sponsor is the mutual fund exit. An ETN trades at the market price.' },
+            { text: 'Yes, but only on the day the bank pays periodic interest', why: 'An ETN does not make periodic interest payments. Trading is not limited to a coupon date.' },
+          ],
+        ),
+        sourced(
+          'sie06q0091',
+          'sie-c6-exchange-traded-notes-etns',
+          'An ETN is debt. What cash flow does the holder get along the way, and how is the gain taxed?',
+          [
+            { text: 'No periodic interest. The gain is taxed as a capital gain, a lower rate than bond interest', why: 'The note pays no periodic interest. Its value follows the index, and under IRS rules the gain is a capital gain, taxed at a lower rate than ordinary interest.', correct: true },
+            { text: 'Semiannual interest, taxed as ordinary income', why: 'Bond interest is taxed as ordinary income. An ETN does not pay periodic interest, and its gain is taxed as a capital gain.' },
+            { text: 'Daily dividends that the fund must pass through', why: 'Daily dividends describe a money market mutual fund. An ETN does not pay periodic interest.' },
+            { text: 'A capital gain only if the issuing bank defaults', why: 'Default is the credit-risk outcome, in which the purchaser could lose the investment. It is not the tax benefit.' },
+          ],
+        ),
+        sourced(
+          'sie06q0092',
+          'sie-c6-exchange-traded-notes-etns',
+          'The bank that issued an ETN fails. What risk has shown up, and what can the holder lose?',
+          [
+            { text: 'Market risk only. Another bank must pay the index return', why: 'The loss on a bank failure is credit risk of the issuer, not a promise that some other bank will pay.' },
+            { text: 'Tracking risk, because the note holds the index stocks', why: 'In the product comparison, ETNs track an index but are not subject to tracking risk. The failure of the bank is credit risk.' },
+            { text: 'Reinvestment risk on the coupons the note pays every quarter', why: 'An ETN does not make periodic interest payments, so there is no coupon to reinvest.' },
+            { text: 'Credit risk. The purchaser could lose the investment', why: 'If the issuing bank fails, the ETN holder can lose the investment. That credit risk is a major risk of the product, which is often unsuitable for a typical investor.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0093',
+          'sie-c6-exchange-traded-notes-etns',
+          'In the ETF-versus-ETN comparison, what does the ETN holder have, and who sets the maturity?',
+          [
+            { text: 'A loan backed by the bank\'s credit, with a maturity date the issuer sets', why: 'An ETN is bond-like. The holder has a loan backed by the bank\'s credit rating, and the issuer sets the maturity. Both products are listed and linked to an index, and both are tax efficient.', correct: true },
+            { text: 'A share of the underlying portfolio, and the product has no set maturity', why: 'A shareholder who owns a piece of the portfolio, in an open-end fund with no set maturity, is the ETF side of the comparison.' },
+            { text: 'A unit of a fixed trust that liquidates when bonds mature', why: 'A self-liquidating bond portfolio is a fixed UIT, not the ETN column of the comparison.' },
+            { text: 'Preferred stock of a closed-end fund', why: 'Preferred stock is one way a closed-end fund can raise capital. An ETN is a bank credit obligation.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-real-estate-investment-trusts-reits',
+      'Real Estate Investment Trusts (REITs)',
+      'A real estate investment trust (REIT) is modeled on a mutual fund. Instead of investing in securities, a REIT either shareholders are given shares of beneficial interest in the trust. Instead of investing in securities, a REIT either invests directly in real estate (an equity REIT), or in mortgages (a mortgage REIT).\n\nUnlike investors in a corporation, shareholders are given shares of beneficial interest in the trust. REITs are not investment companies. REITs enable shareholders to benefit from real estate investments without having to buy or manage properties themselves.\n\nREIT shareholders receive dividends from investment income (primarily rent for equity REITs and interest for mortgage REITs). REIT shareholders may also receive capital gains distributions when properties are sold. Like mutual funds, REITs avoid double taxation.\n\nThe trust itself is not taxed on the income and gains earned by a REIT if it meets IRS requirements. Instead, the tax liability is passed on to the shareholders. To qualify for this tax treatment, a REIT must meet the following requirements: e lt must distribute at least 90% of its income to its shareholders.\n\ne Atleast 75% of the REIT\'s annual gross income must be real estate-related income (e.g., rents). To qualify for this tax treatment, a REIT must meet the following requirements:\n\n• It must distribute at least 90% of its income to its shareholders.\n• Atleast 75% of the REIT\'s annual gross income must be real estate-related income (e.g., rents).\n• Atleast 95% of the REIT\'s annual gross income must come from real estate-related income or dividends and\n\nincome from other sources (e.g., stock market investments).\n\ne Atleast 75% of total assets must be invested in real estate. e ltmust be managed by a board of directors or trustees. e lt must have a minimum of 100 shareholders.\n\n• Atleast 75% of total assets must be invested in real estate.\n• It must be managed by a board of directors or trustees.\n• It must have a minimum of 100 shareholders.\n\nREITs can be structured in various ways. The three types that are covered on the test are: Private REITS: Private REITs are exempt from registration with the Securities and Exchange Commission (SEC). The three types that are covered on the test are:\n\n•Private REITS: Private REITs are exempt from registration with the Securities and Exchange Commission (SEC). They are not listed on an exchange and are typically offered only to institutional investors. These REITs have limited or no liquidity.\n\nRegistered non-listed REITs: Registered non-listed REITs are registered with the SEC but do not trade on an exchange. Although they operate like listed REITs, they lack liquidity because they cannot be traded. They usually have a minimum holding period, and redemption features will vary by issuer.\n\n•Listed REITs: Listed REITs are the type that are most familiar to retail investors. They are registered with the SEC and trade on an exchange or over the counter. Therefore, they are highly liquid.\n\nThey can be purchased on margin and can also be sold short.\n\nTypes of packaged securities. Mutual funds, also called open-end funds, continuously issue shares. They may be actively or passively managed. Shares are redeemable to the issuer, and there is no secondary market. There are no brokerage commissions. They provide diversification against unsystematic risk, they are a liquid investment, and they are professionally managed.\n\nClosed-end funds issue a fixed number of shares in an initial public offering. They are actively managed. Shares trade on an exchange and are not redeemable to the issuer. They allow greater investment in illiquid securities. The fixed capital structure decreases the need for cash, allowing the funds to stay fully invested. Shares may trade below net asset value and can be bought at a discount. Expense ratios are often lower than those of most mutual funds. The portfolio manager can maintain long-term strategies. Shares can be purchased at any time during the trading day, and shares can be shorted.\n\nUnit investment trusts have a fixed number of shares of beneficial interest. They are not actively managed. Shares are redeemable to the issuer. There is no active secondary market, although sometimes a broker-dealer will buy back a UIT and sell it to another investor. There are no management fees. Assets are professionally selected, so unit holders know what they are investing in for the term of the investment.\n\nExchange-traded funds are a type of open-ended fund that contains stocks, bonds, and other securities. They track an index and are not actively managed. They are not redeemable, except for institutional investors as creation units. They have no management fees and low expense ratios. They imitate the performance of an index without the costs of an index fund. They are more liquid than mutual funds because they can be bought and sold at any time of the trading day. They can cost less than some mutual funds and have no front-end or back-end sales charge. They offer diversification and are more tax efficient than mutual funds.\n\nExchange-traded notes are a type of unsecured debt. They track an index, are not actively managed, and can be traded on an exchange. They track an index but are not subject to tracking risk, and they offer diversification.\n\nREITs are a pooled investment that owns or manages real estate, or owns mortgages, and offers shares of beneficial ownership interest. Investors receive benefits from the assets but do not actually own the assets. They pay dividends from investment income, such as rents and mortgages. A REIT may be closed end or open end, and it may trade on an exchange or over the counter. Investors can get income and investment appreciation from real estate without the burden of owning or managing property. When properties are sold, capital gains are passed through, but not capital losses. A REIT can offer high liquidity for an investment in something that is generally not very liquid. Dividends are usually not subject to double taxation.',
+      [
+        sourced(
+          'sie06q0094',
+          'sie-c6-real-estate-investment-trusts-reits',
+          'What does an equity REIT own, and what is the main source of the dividends it pays?',
+          [
+            { text: 'Real estate, with dividends coming primarily from rent', why: 'An equity REIT invests directly in property. Shareholders\' investment-income dividends come primarily from rent. A mortgage REIT invests in mortgages and pays interest.', correct: true },
+            { text: 'Mortgages, with dividends coming primarily from interest', why: 'Mortgages and interest describe a mortgage REIT. An equity REIT invests directly in real estate, and its dividends come primarily from rent.' },
+            { text: 'A portfolio of common stocks that tracks an index', why: 'An index portfolio is an ETF description. A REIT is modeled on a mutual fund but invests in property or mortgages.' },
+            { text: 'Oil and gas wells, with dividends from depletion allowances', why: 'Oil and gas programs are direct participation programs. They are not equity REITs.' },
+          ],
+        ),
+        sourced(
+          'sie06q0095',
+          'sie-c6-real-estate-investment-trusts-reits',
+          'How is a REIT investor\'s stake titled, and is the REIT an investment company?',
+          [
+            { text: 'Common stock of a corporation, and the REIT is an open-end investment company', why: 'Corporate common stock and open-end status describe management companies. REIT holders receive shares of beneficial interest, and REITs are not investment companies.' },
+            { text: 'Units of a fixed trust that must liquidate when bonds mature', why: 'A bond portfolio that liquidates itself is a fixed UIT. A REIT holds property or mortgages.' },
+            { text: 'Shares of beneficial interest, and the REIT is not an investment company', why: 'Unlike corporate shareholders, REIT investors hold shares of beneficial interest. REITs are not investment companies. They let investors benefit from real estate without buying or managing the properties.', correct: true },
+            { text: 'A partnership interest that passes through losses', why: 'Passing through losses is a feature of a real estate limited partnership, which the comparison distinguishes from a REIT.' },
+          ],
+        ),
+        sourced(
+          'sie06q0096',
+          'sie-c6-real-estate-investment-trusts-reits',
+          'What share of its income must a REIT distribute so the trust itself is not taxed on that income?',
+          [
+            { text: 'At least 75 percent', why: 'Seventy-five percent is the REIT asset test and the real-estate portion of the gross-income test, not the distribution requirement.' },
+            { text: 'At least 95 percent', why: 'Ninety-five percent is the broader gross-income test, which counts real-estate income plus dividends and other investment income.' },
+            { text: 'At least 90 percent', why: 'If the REIT meets the IRS tests, the trust is not taxed on its income and gains. One of those tests is distributing at least 90 percent of income to shareholders. Like mutual funds, REITs avoid double taxation.', correct: true },
+            { text: '100 percent of capital losses', why: 'Capital losses are not passed through when properties are sold. The distribution test is 90 percent of income.' },
+          ],
+        ),
+        sourced(
+          'sie06q0097',
+          'sie-c6-real-estate-investment-trusts-reits',
+          'At least how much of a REIT\'s annual gross income must be real-estate related, such as rents?',
+          [
+            { text: '90 percent', why: 'Ninety percent is the share of income that must be distributed to shareholders, not the real-estate income test.' },
+            { text: '75 percent', why: 'At least 75 percent of annual gross income must be real-estate related, for example rents.', correct: true },
+            { text: '95 percent', why: 'Ninety-five percent is the wider test that also counts dividends and income from other sources, such as stock market investments.' },
+            { text: '50 percent, with the rest in any operating business', why: 'The real-estate gross-income floor is 75 percent, not half.' },
+          ],
+        ),
+        sourced(
+          'sie06q0098',
+          'sie-c6-real-estate-investment-trusts-reits',
+          'A REIT\'s wider income test counts real-estate income plus dividends and other investment income. What percentage of annual gross income must those sources cover?',
+          [
+            { text: '95 percent', why: 'At least 95 percent of annual gross income must come from real-estate income or from dividends and income from other sources, such as stock market investments.', correct: true },
+            { text: '75 percent', why: 'Seventy-five percent is the stricter real-estate-only slice of gross income, and also the share of assets that must be in real estate.' },
+            { text: '90 percent', why: 'Ninety percent is the distribution requirement, not this gross-income test.' },
+            { text: '100 percent from rents alone', why: 'Rents are the example of real-estate income under the 75 percent test. The 95 percent test also allows dividends and other investment income.' },
+          ],
+        ),
+        sourced(
+          'sie06q0099',
+          'sie-c6-real-estate-investment-trusts-reits',
+          'What portion of a REIT\'s total assets must be invested in real estate?',
+          [
+            { text: 'At least 95 percent', why: 'Ninety-five percent is a gross-income test, not the asset test.' },
+            { text: 'At least 75 percent', why: 'At least 75 percent of total assets must be invested in real estate. The REIT must also be managed by a board of directors or trustees.', correct: true },
+            { text: 'At least 90 percent', why: 'Ninety percent is the income-distribution test.' },
+            { text: 'No asset test applies if the REIT is listed', why: 'Listing affects liquidity. The 75 percent asset test is a qualification requirement, not something listing removes.' },
+          ],
+        ),
+        sourced(
+          'sie06q0100',
+          'sie-c6-real-estate-investment-trusts-reits',
+          'Besides a board of directors or trustees, how many shareholders must a REIT have?',
+          [
+            { text: '100', why: 'A REIT must be managed by a board of directors or trustees and must have a minimum of 100 shareholders.', correct: true },
+            { text: '40, matching the independent-director floor for a mutual fund', why: 'Forty percent is the mutual fund rule for non-interested directors. A REIT\'s shareholder minimum is a head count, not that percentage.' },
+            { text: '75', why: 'Seventy-five percent is the asset test and part of the income test. It is not the shareholder minimum.' },
+            { text: 'One institutional investor is enough for a listed REIT', why: 'A single institution fits the private-REIT audience more than the shareholder test. The minimum is 100 shareholders.' },
+          ],
+        ),
+        sourced(
+          'sie06q0101',
+          'sie-c6-real-estate-investment-trusts-reits',
+          'A REIT is offered to institutions, is not listed, and is exempt from SEC registration. Which type is it, and how liquid is it?',
+          [
+            { text: 'Listed, so it trades on an exchange and can be sold short', why: 'Listed REITs are registered and trade on an exchange or over the counter. They are the liquid type.' },
+            { text: 'Registered non-listed, so it is registered but cannot be traded', why: 'A registered non-listed REIT is registered with the SEC and does not trade. Exemption from registration is the private REIT.' },
+            { text: 'An equity REIT, which is illiquid because it collects rent', why: 'Equity versus mortgage describes what the REIT owns, not whether it is private, registered non-listed, or listed.' },
+            { text: 'Private, with limited or no liquidity', why: 'Private REITs are exempt from SEC registration, are not listed, are typically offered only to institutions, and have limited or no liquidity.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0102',
+          'sie-c6-real-estate-investment-trusts-reits',
+          'A REIT is registered with the SEC but does not trade on an exchange. What drawback follows?',
+          [
+            { text: 'It lacks liquidity, usually has a minimum holding period, and redemption terms vary by issuer', why: 'Registered non-listed REITs do not trade, so they lack liquidity even though they operate like listed REITs. They usually have a minimum holding period, and redemption features vary.', correct: true },
+            { text: 'It is exempt from the 90 percent distribution test', why: 'The distribution test is a tax qualification. Registration status does not remove it.' },
+            { text: 'It can be purchased on margin and sold short like a listed REIT', why: 'Margin and short sales are available for listed REITs, which trade on an exchange or over the counter.' },
+            { text: 'It must be offered only to institutions', why: 'An institutional-only offering that is exempt from SEC registration describes a private REIT.' },
+          ],
+        ),
+        sourced(
+          'sie06q0103',
+          'sie-c6-real-estate-investment-trusts-reits',
+          'A retail investor wants a REIT that can be bought on margin or sold short. Which type allows that?',
+          [
+            { text: 'A listed REIT', why: 'Listed REITs are the ones retail investors know. They are registered, trade on an exchange or over the counter, are highly liquid, and can be bought on margin or sold short.', correct: true },
+            { text: 'A private REIT', why: 'Private REITs are not listed and have limited or no liquidity. They are typically offered to institutions.' },
+            { text: 'A registered non-listed REIT', why: 'Registered non-listed REITs cannot be traded, so they are not the margin and short-sale product.' },
+            { text: 'Only a mortgage REIT, because interest payments make it marginable', why: 'Equity versus mortgage is about the assets, not about margin. Margin and short sales belong to listed REITs.' },
+          ],
+        ),
+        sourced(
+          'sie06q0104',
+          'sie-c6-real-estate-investment-trusts-reits',
+          'A REIT sells a property at a profit and another at a loss. What is passed through to investors?',
+          [
+            { text: 'Both the gain and the loss', why: 'Losses pass through in a real estate limited partnership. A REIT passes through capital gains, not capital losses.' },
+            { text: 'Neither, because REIT dividends are always double taxed', why: 'REIT dividends are usually not subject to double taxation. The trust avoids tax when it qualifies, and gains still pass through.' },
+            { text: 'The capital gain, but not the capital loss', why: 'When properties are sold, capital gains are passed through and capital losses are not. Investors get the benefit of the assets without actually owning them.', correct: true },
+            { text: 'Only rental income. Sale profits stay in the trust', why: 'Rent is the main investment-income dividend of an equity REIT. Gains on sold properties are also passed through.' },
+          ],
+        ),
+        sourced(
+          'sie06q0105',
+          'sie-c6-real-estate-investment-trusts-reits',
+          'In the packaged-product comparison, who can redeem ETF shares, and in what form?',
+          [
+            { text: 'Any shareholder, daily, at that day\'s closing NAV', why: 'Daily redemption at NAV is the open-end mutual fund. In this comparison, ETF shares are not redeemable for ordinary holders.' },
+            { text: 'The general partner, after approving a transfer', why: 'General-partner approval is what makes many DPP transfers difficult. It is not the ETF redemption rule.' },
+            { text: 'Nobody. ETF shares are redeemed like closed-end shares, which the fund must buy back', why: 'Closed-end shares are not redeemable by the issuer. ETF redemption in this comparison is limited to institutional creation units.' },
+            { text: 'Institutional investors, and only in creation units', why: 'The comparison treats ETFs as not redeemable except by institutional investors dealing in creation units. Other investors buy and sell them on the exchange.', correct: true },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-hedge-funds-and-private-equity-funds',
+      'Hedge Funds and Private Equity Funds',
+      'Hedge funds are private investment funds that are typically open only to accredited (wealthy) investors. They are not required to register under the Investment Company Act of 1940 and are very lightly regulated. They also require high initial investments and have limited liquidity.\n\nHedge funds may use sophisticated high-risk investment strategies including short selling, using large amounts of leverage (borrowed money), and speculating in the futures, commodities, and foreign currency markets. Because of this, they are only suitable for sophisticated, wealthy investors who can bear considerable financial risk.\n\nUnlike regulated mutual funds, which can only compensate the adviser based on a percentage of assets under management, hedge fund managers typically take a percentage of assets under management plus a percentage of capital gains (often up to 20%).\n\nFund of Hedge Funds\n\nFund of Hedge Funds A fund of hedge funds is an investment company that invests in a diversified portfolio of hedge funds.\n\nA fund of hedge funds is an investment company that invests in a diversified portfolio of hedge funds. Although they typically require lower minimum investments than many hedge funds, they are generally illiquid, risky investments. One disadvantage of a fund of hedge funds is that they have two layers of fees: those charged by the fund of funds manager, and those charged by the hedge funds inside the fund.\n\nA fund of hedge funds is different from a fund of funds, which is an investment company that invests in a portfolio of mutual funds. Funds of funds are liquid securities but are also burdened by a double layer of fees.\n\nPrivate Equity Funds\n\nPrivate equity funds are illiquid investments primarily sold to wealthy investors (accredited investors). They also have high initial investment requirements. Private equity funds pool investor assets and use them to take a controlling interest in an existing company.\n\nThey will then seek to increase the value of those companies by taking an active role in reorganizing the company and eventually selling the company after increasing its value.\n\nMutual Fund Alternatives\n\nMutual Fund Alternatives Exchange-traded funds (ETFs) are often a better alternative to traditional mutual funds.\n\nExchange-traded funds (ETFs) are often a better alternative to traditional mutual funds. ETFs have greater liquidity, can be purchased on margin and sold short, offer greater tax efficiency, and generally have lower expense ratios. However, some nontraditional funds, such as leveraged or inverse ETFs, are complex and often risky securities that may not be suitable for many retail investors.\n\nExchange-traded notes (ETNs) should not be confused with ETFs. These bond-like notes are tied to an underlying index and are often complex investments. They also carry default risk related to the bank issuer of the notes.\n\nHedge funds, direct participation programs (DPPs), private equity funds, and real estate investment trusts (REITs) all offer an alternative to traditional mutual fund investing. They may share many features in common with mutual funds, such as professional management of pooled assets, and the pass-through of income and capital gains, but there are important differences.\n\nMany alternative investments are illiquid, meaning that they can be difficult to sell. They typically require a large initial investment, and are often sold only to sophisticated investors, making them unsuitable for many retail investors.',
+      [
+        sourced(
+          'sie06q0106',
+          'sie-c6-hedge-funds-and-private-equity-funds',
+          'Who is a hedge fund typically open to, and must it register under the Investment Company Act of 1940?',
+          [
+            { text: 'Any retail investor, and yes, it registers like a mutual fund', why: 'Mutual funds are the registered, widely available product. Hedge funds are not.' },
+            { text: 'Accredited investors. Registration under the 1940 Act is not required', why: 'Hedge funds are typically open only to accredited, wealthy investors. They are not required to register under the 1940 Act, are lightly regulated, require high initial investments, and have limited liquidity.', correct: true },
+            { text: 'Institutional buyers only, and the fund must register as a closed-end company', why: 'Closed-end funds are registered management companies. Hedge funds are private and lightly regulated.' },
+            { text: 'Employees of the adviser only, because they are interested persons', why: 'Interested persons are a mutual fund board concept. Hedge fund access is about accredited investors.' },
+          ],
+        ),
+        sourced(
+          'sie06q0107',
+          'sie-c6-hedge-funds-and-private-equity-funds',
+          'Which tactics may a hedge fund use, and what kind of client can bear them?',
+          [
+            { text: 'Only buy-and-hold positions in an index, for any retirement saver', why: 'Index tracking for a broad audience fits a plain ETF or index mutual fund. Hedge fund tactics are high risk.' },
+            { text: 'Issuing new shares continuously and redeeming them each day at NAV', why: 'Continuous issuance and daily redemption describe an open-end mutual fund, which also cannot sell short.' },
+            { text: 'Short sales, heavy borrowing, and speculation in futures, commodities, or currencies, for a wealthy investor who can take the loss', why: 'Those are the sophisticated, high-risk strategies named. Because of them, hedge funds suit only sophisticated, wealthy investors who can bear considerable financial risk.', correct: true },
+            { text: 'Drilling wildcat wells and passing through intangible drilling costs', why: 'Wildcat drilling and intangible drilling costs belong to exploratory oil and gas programs.' },
+          ],
+        ),
+        sourced(
+          'sie06q0108',
+          'sie-c6-hedge-funds-and-private-equity-funds',
+          'How can a hedge fund manager be paid, compared with a mutual fund adviser?',
+          [
+            { text: 'Only a percentage of assets under management, the same limit as a mutual fund', why: 'A percentage of assets is the mutual fund limit. Hedge fund pay typically adds a share of gains.' },
+            { text: 'A selling concession split from the 8.5 percent sales charge', why: 'A selling concession is mutual fund distribution pay. It is not the hedge fund manager\'s performance share.' },
+            { text: 'A custodial fee for safeguarding the portfolio', why: 'The custodial fee pays a fund\'s custodian bank, not a hedge fund manager.' },
+            { text: 'A percentage of assets plus a percentage of capital gains, often up to 20 percent', why: 'Mutual fund advisers are paid only as a percentage of assets. Hedge fund managers typically take that asset fee plus a percentage of capital gains, often up to 20 percent.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0109',
+          'sie-c6-hedge-funds-and-private-equity-funds',
+          'What is the distinctive cost disadvantage of a fund of hedge funds?',
+          [
+            { text: 'It must distribute capital gains every day', why: 'Daily dividends are a money-market mutual fund feature. The fund-of-hedge-funds drawback named here is fees.' },
+            { text: 'A single management fee capped at 0.25 percent', why: 'A 0.25 percent cap is the 12b-1 limit for a no-load mutual fund, not the fee structure of a fund of hedge funds.' },
+            { text: 'No fees, because the underlying funds waive their charges', why: 'The disadvantage is the opposite: fees are stacked, not waived.' },
+            { text: 'Two layers of fees, one to the outer manager and one to the hedge funds inside', why: 'A fund of hedge funds is an investment company holding a diversified mix of hedge funds. Minimums are often lower than a single hedge fund\'s, but the investment is still generally illiquid and risky, and fees are charged twice.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0110',
+          'sie-c6-hedge-funds-and-private-equity-funds',
+          'How does a fund of funds that buys mutual funds differ from a fund of hedge funds?',
+          [
+            { text: 'The mutual-fund version is illiquid, and only the hedge version charges one fee', why: 'Liquidity runs the other way, and both products are described as having two layers of fees.' },
+            { text: 'They are the same product under two names', why: 'The text draws a distinction: one holds hedge funds and is generally illiquid; the other holds mutual funds and is liquid.' },
+            { text: 'Only the mutual-fund version may charge the inner funds\' fees', why: 'Both are burdened by a double layer of fees. The mutual-fund version\'s advantage is liquidity.' },
+            { text: 'The mutual-fund version is liquid, and both structures stack two fee layers', why: 'A fund of funds holds mutual funds and is liquid. A fund of hedge funds is generally illiquid and risky. Both carry a double layer of fees.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0111',
+          'sie-c6-hedge-funds-and-private-equity-funds',
+          'What does a private equity fund do after it takes a controlling stake in a company?',
+          [
+            { text: 'It reorganizes the company and later sells it after raising its value', why: 'Private equity pools money, mainly from accredited investors, takes a controlling interest, actively reorganizes the company, and eventually sells it. Initial investments are high and the investment is illiquid.', correct: true },
+            { text: 'It holds a passive index position and redeems daily', why: 'Daily redemption of an index position is a mutual fund or ETF idea. Private equity takes control and is illiquid.' },
+            { text: 'It lends to the company and collects rent', why: 'Rent is the equity-REIT dividend source. Private equity buys control of an operating company.' },
+            { text: 'It drills step-out wells next to an existing field', why: 'Step-out wells are developmental oil and gas programs, not private equity.' },
+          ],
+        ),
+        sourced(
+          'sie06q0112',
+          'sie-c6-hedge-funds-and-private-equity-funds',
+          'Why might a traditional ETF be a better fit than a mutual fund for an ordinary investor?',
+          [
+            { text: 'A leveraged or inverse ETF held for decades in a retirement account', why: 'Leveraged and inverse ETFs are complex and often risky, and they may not be suitable for many retail investors.' },
+            { text: 'An exchange-traded note, because it has no issuer default risk', why: 'ETNs are bond-like notes tied to an index. They carry default risk related to the bank that issued them.' },
+            { text: 'A hedge fund, because anyone can sell it the next day', why: 'Hedge funds have limited liquidity and are aimed at accredited investors, not ordinary buyers.' },
+            { text: 'Greater liquidity, margin and short sales, better tax efficiency, and usually lower expense ratios', why: 'Traditional ETFs are often a better alternative to mutual funds for those reasons. Leveraged or inverse ETFs are a separate, complex group that may not suit many retail investors.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0113',
+          'sie-c6-hedge-funds-and-private-equity-funds',
+          'A retail saver with a small account wants a hedge fund, a DPP, private equity, or a similar alternative. What barrier does the text stress?',
+          [
+            { text: 'These alternatives usually require a large investment, are often limited to sophisticated buyers, and many are hard to sell', why: 'Hedge funds, DPPs, private equity, and REITs can offer professional management and pass through income and gains, but many are illiquid, demand a large initial investment, and are unsuitable for many retail investors.', correct: true },
+            { text: 'They are all registered open-end funds with low minimums', why: 'Low minimums and open-end registration describe mutual funds. These alternatives are the contrast.' },
+            { text: 'They trade all day with no minimum and no credit risk', why: 'All-day trading fits ETFs. Several alternatives are illiquid, and ETNs add bank default risk.' },
+            { text: 'Losses are never passed through, so the small account cannot be hurt', why: 'The unsuitability point is liquidity, size, and investor sophistication, not a promise that losses cannot occur.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-direct-participation-programs-dpps',
+      'Direct Participation Programs (DPPs)',
+      'A DPP is a type of limited partnership. A limited partnership is a business form where a general partner manages the business, while the limited partners are passive investors who do not take part in day-to-day operations. Like mutual funds and real estate investment trusts (REITs), the partnership itself is not taxed, but income and gains pass through to the individual partners.\n\nDPPs are not like mutual funds and REITs because they are illiquid and usually sold to wealthy investors.\n\nDPPs are set up primarily to fund capital-heavy businesses, such as real estate, oil and natural gas, and equipment leasing. DPPs vary considerably in risk. High-risk DPPs rarely make money in the beginning but may have a high payout later.\n\nLow-risk DPPs may pay income now but don\'t have much potential for higher returns in the future. A real estate limited partnership differs from real estate investment trusts (REITs) because they pass on losses as well as gains to their investors, while REITs only pass on gains in the form of a dividend. In addition, DPPs can pass on tax credits, especially for partnerships that invest in affordable housing.\n\nDPPs are rarely listed on an exchange, and it can be very difficult to find a buyer for them. In addition, most DPPs will require the approval of the general partner to transfer shares. For this reason, they are illiquid investments.',
+      [
+        sourced(
+          'sie06q0114',
+          'sie-c6-direct-participation-programs-dpps',
+          'In a direct participation program, who runs the business, and how is the partnership taxed?',
+          [
+            { text: 'The general partner manages, limited partners stay passive, and income and gains pass through untaxed at the partnership', why: 'A DPP is a limited partnership. The general partner runs the business. Limited partners do not take part in daily operations. The partnership is not taxed; income and gains pass through to the partners.', correct: true },
+            { text: 'Limited partners manage the wells, and the partnership pays tax before any distribution', why: 'Limited partners are passive. The general partner manages. The partnership itself is not taxed.' },
+            { text: 'A board elected by 100 shareholders manages it like a REIT', why: 'A 100-shareholder board test is a REIT qualification. A DPP is a limited partnership.' },
+            { text: 'An investment adviser manages a redeemable portfolio of mutual fund shares', why: 'A portfolio of mutual fund shares inside an insurance product is a non-fixed UIT, not a DPP.' },
+          ],
+        ),
+        sourced(
+          'sie06q0115',
+          'sie-c6-direct-participation-programs-dpps',
+          'How does a real estate limited partnership treat losses and tax credits differently from a REIT?',
+          [
+            { text: 'Both pass through losses, but only the REIT can pass through tax credits', why: 'REITs pass gains through as dividends. The limited partnership is the one that passes through losses as well as gains, and DPPs can pass through tax credits.' },
+            { text: 'Neither can pass through gains', why: 'Both can pass through gains. The difference is losses and tax credits.' },
+            { text: 'The REIT passes through losses, and the partnership passes through only rent', why: 'That reverses the comparison. Rent is a REIT income source. Losses flow through the partnership.' },
+            { text: 'The partnership passes through losses and gains, and it can pass through tax credits. The REIT passes gains through as dividends', why: 'A real estate DPP passes losses as well as gains. It can also pass through tax credits, especially for affordable housing. A REIT passes gains through only as a dividend.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0116',
+          'sie-c6-direct-participation-programs-dpps',
+          'Why is a DPP difficult to sell?',
+          [
+            { text: 'The sponsor must redeem it within seven calendar days', why: 'Seven calendar days is the mutual fund redemption-payment limit. DPPs are not redeemed that way.' },
+            { text: 'It is rarely listed, buyers are hard to find, and the general partner usually must approve a transfer', why: 'DPPs are illiquid. They are rarely exchange-listed, a buyer is hard to find, and most require the general partner\'s approval to transfer. They are usually sold to wealthy investors.', correct: true },
+            { text: 'It trades all day, so the only cost is a stock commission', why: 'All-day trading with a commission describes an ETF, which is liquid. A DPP is the opposite.' },
+            { text: 'Listed REITs and DPPs have the same secondary market', why: 'Listed REITs trade on an exchange or over the counter. DPPs are not like mutual funds and REITs precisely because they are illiquid.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-oil-and-gas-programs',
+      'Oil and Gas Programs',
+      'Oil and Gas Programs To understand the tax deductions from an oil and gas program, let\'s look at the drilling process.\n\nTo understand the tax deductions from an oil and gas program, let\'s look at the drilling process. There are three basic types of oil and gas DPPs:\n\n• Exploratory e Developmental • Income Exploratory: Wildcat Well\n• Exploratory\n• Developmental\n• Income\n\nExploratory: Wildcat Well\n\nIn an exploratory program, the partnership will drill where oil or gas has not previously been found. Intangible drilling costs are expenses related to drilling and preparing oil and gas wells. These expenses are usually very high and 100% tax-deductible.\n\nThe biggest risk is that no resources are found. These are the most speculative type of partnership.\n\nDevelopmental: Step-Out Well\n\nDevelopmental: Step-Out Well In a developmental program, wells are drilled near an existing oil field.\n\nIn a developmental program, wells are drilled near an existing oil field. The mineral rights cost is higher because of the greater probability of finding oil. Costs are generally less, and the likelihood of production is higher, giving these types of partnerships a more moderate risk and return potential.\n\nIncome In an income program, investors buy a producing oil well with proven reserves in the ground. These programs produce immediate income, with no intangible drilling costs. Income programs benefit from tax depletion deductions as the oil is sold.\n\nThese types of programs are the least risky, and as such, have the lowest potential return.',
+      [
+        sourced(
+          'sie06q0117',
+          'sie-c6-oil-and-gas-programs',
+          'Which oil and gas program drills where oil or gas has not been found before, and how risky is it?',
+          [
+            { text: 'An exploratory, or wildcat, program, the most speculative type', why: 'An exploratory program drills where oil or gas has not been found before. The biggest risk is that nothing is found, which makes it the most speculative partnership.', correct: true },
+            { text: 'An income program, the least risky type', why: 'An income program buys a producing well with proven reserves. It does not drill unproven ground.' },
+            { text: 'A developmental, or step-out, program, with moderate risk', why: 'A step-out well is drilled near an existing field. Risk and return are moderate, not the most speculative.' },
+            { text: 'A private REIT that holds mortgages', why: 'A mortgage REIT invests in mortgages. It is not an oil and gas drilling program.' },
+          ],
+        ),
+        sourced(
+          'sie06q0118',
+          'sie-c6-oil-and-gas-programs',
+          'How are intangible drilling costs in an exploratory program treated for taxes?',
+          [
+            { text: 'They are not deductible, because the well may be dry', why: 'The risk of finding nothing is the investment risk. It does not remove the 100 percent deduction for these costs.' },
+            { text: 'They are recovered only through a depletion allowance as oil is sold', why: 'Depletion deductions belong to income programs, which have no intangible drilling costs.' },
+            { text: 'They are 100 percent deductible', why: 'Intangible drilling costs are the expenses of drilling and preparing wells. In an exploratory program they are usually very high and fully tax-deductible.', correct: true },
+            { text: 'They are capitalized and can be deducted only up to 75 percent of income', why: 'Seventy-five percent is a REIT asset or income test. Exploratory intangible drilling costs are described as 100 percent deductible.' },
+          ],
+        ),
+        sourced(
+          'sie06q0119',
+          'sie-c6-oil-and-gas-programs',
+          'A partnership drills next to an existing oil field. Why are mineral rights more expensive, and where does the risk sit?',
+          [
+            { text: 'Rights are cheap because production is unlikely, and the program is the most speculative', why: 'Low odds and the highest speculation describe a wildcat well on unproven ground, not a well beside a known field.' },
+            { text: 'Rights cost more because oil is more likely, and risk and return are moderate', why: 'A developmental, or step-out, program drills near an existing field. Mineral rights cost more because a find is more probable. Overall costs are generally lower, production is more likely, and risk and return are moderate.', correct: true },
+            { text: 'There are no drilling costs, and income starts immediately', why: 'Immediate income and no intangible drilling costs describe an income program that buys a producing well.' },
+            { text: 'The well is an income program, so the only tax benefit is a 100 percent drilling deduction', why: 'The 100 percent intangible-drilling deduction is the exploratory program\'s tax point. An income program uses depletion instead.' },
+          ],
+        ),
+        sourced(
+          'sie06q0120',
+          'sie-c6-oil-and-gas-programs',
+          'Investors buy a producing well with proven reserves. What do they receive now, which tax benefit applies, and how does the risk rank?',
+          [
+            { text: 'No income until a wildcat discovery, with a 100 percent drilling deduction', why: 'Waiting on a discovery, with fully deductible intangible drilling costs, is the exploratory program.' },
+            { text: 'Immediate income, depletion deductions as the oil is sold, and the lowest risk and return', why: 'An income program buys oil already in the ground. There are no intangible drilling costs, income starts now, and the tax benefit is depletion. These programs are the least risky and have the lowest potential return.', correct: true },
+            { text: 'Moderate risk, because the well is a step-out next to a known field', why: 'Moderate risk is the developmental program. An income program is the least risky.' },
+            { text: 'Capital losses passed through like a real estate DPP, and no depletion', why: 'Passing through losses is a DPP-versus-REIT contrast. The income program\'s tax benefit is depletion, and it is the least risky oil and gas type.' },
+          ],
+        ),
+      ],
+    ),
+    section(
+      'sie-c6-types-of-oil-and-gas-programs',
+      'Types of Oil and Gas Programs',
+      'Locate properties e near producing oil and gas wells Costs of land and mineral rights high, cost of exploration low Terminates prior to production phase Benefits from tax deductions and sale of property rights Low production from e step-out wells Changing environmental and e other regulatory rules Purchase existing producing wells Costs of land and mineral rights very high, exploration costs negligible No specific termination date Generates immediate income Wells drying up sooner than projected Falling oil and gas prices Tax Benefits e 100% deduction for e Share of sold assets e Oil depletion intangible and e Deduction for allowance tangible drilling costs intangible and (if any) tangible drilling costs\n\nCharacteristics * Locate properties * Locate properties * Purchase existing (usually remote) near producing oil producing wells likely to hold oil and and gas wells Costs of land and gas • Costs of land and mineral rights very\n\n• Locate properties (usually remote) likely to hold oil and\n• Costs of land and mineral rights are low, high exploration\n• Terminate prior to drilling • Benefits from tax deductions and sale\n• Changing environmental and other regulatory\n\n• Costs of land and mineral rights high, high, exploration\n\nmineral rights are cost of exploration costs negligible low, high exploration low •No specific costs * Terminates prior to termination date Terminate prior to production phase * Generates drilling * Benefits from tax immediate income\n\n• Benefits from tax deductions and sale\n\ndeductions and sale of property rights of property rights Risks * Finding only "dry Low production from * Wells drying up holes" step-out wells sooner than\n\n• Changing * Changing prolected\n\nenvironmental and environmental and Falling oil and gas other regulatory other regulatory prices rules rules\n\nTax Benefits * 100% deduction for ° Share of sold assets • Oildepletion intangible and •Deduction for allowance tangible drilling costs intangible and (if any) tangible drilling costs',
+      [
+        sourced(
+          'sie06q0121',
+          'sie-c6-types-of-oil-and-gas-programs',
+          'A program buys existing producing wells. Which cost and payout pattern is listed with that purchase?',
+          [
+            { text: 'Mineral rights are low and exploration costs are high, on remote property', why: 'Low mineral-rights cost and high exploration cost are listed with usually remote properties thought likely to hold oil.' },
+            { text: 'Exploration cost is low, but the program ends before the production phase', why: 'Ending prior to the production phase is a different line in the comparison. Existing producing wells are described as having no specific termination date and as generating immediate income.' },
+            { text: 'Land is cheap because the wells are still wildcats', why: 'A wildcat looks where oil has not been found. Existing producing wells are the opposite case, with very high mineral-rights costs.' },
+            { text: 'Mineral rights are very high, exploration costs are negligible, and income starts immediately', why: 'Buying existing producing wells is paired with very high land and mineral-rights costs, negligible exploration costs, no specific termination date, and immediate income.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0122',
+          'sie-c6-types-of-oil-and-gas-programs',
+          'A program generates immediate income from wells already producing. Which risks are listed with that income?',
+          [
+            { text: 'Finding only a new field where none was expected', why: 'Drilling where resources have not been found is the exploratory risk of coming up empty, not the risk list next to immediate income.' },
+            { text: 'A higher sales charge because the purchase missed a breakpoint', why: 'Breakpoint schedules are a mutual fund sales-charge topic. They are not the risks named beside immediate oil income.' },
+            { text: 'Tracking error against a stock index', why: 'Tracking an index is an ETF or ETN feature. The risks here are wells drying up and falling commodity prices.' },
+            { text: 'Wells drying up sooner than projected, and falling oil and gas prices', why: 'Immediate income is listed together with the risks that wells dry up sooner than projected and that oil and gas prices fall.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0123',
+          'sie-c6-types-of-oil-and-gas-programs',
+          'Properties located near producing oil and gas wells are paired with which cost mix?',
+          [
+            { text: 'Low cost for land and mineral rights, and high exploration cost', why: 'Low mineral-rights cost and high exploration cost are listed with usually remote properties, not with wells next to existing production.' },
+            { text: 'High cost for land and mineral rights, and low exploration cost', why: 'Locations near producing oil and gas wells are described with high land and mineral-rights costs and a low cost of exploration.', correct: true },
+            { text: 'Negligible exploration cost and very high mineral rights on wells that are already producing', why: 'Very high mineral rights and negligible exploration costs are the line for purchasing existing producing wells, which also generate immediate income.' },
+            { text: 'No land cost, because the program only buys mutual fund shares', why: 'Buying mutual fund shares is what a non-fixed unit investment trust does. It is not an oil and gas cost line.' },
+          ],
+        ),
+        sourced(
+          'sie06q0124',
+          'sie-c6-types-of-oil-and-gas-programs',
+          'The comparison lists usually remote properties that are likely to hold oil. Which cost line is written with that search?',
+          [
+            { text: 'Land and mineral rights are high, and exploration costs are low', why: 'High mineral-rights cost and low exploration cost are paired with properties near producing wells.' },
+            { text: 'Exploration costs are negligible and income is immediate', why: 'Negligible exploration cost and immediate income describe the purchase of existing producing wells.' },
+            { text: 'The only cost is a management fee of 20 percent of gains', why: 'A share of gains, often up to 20 percent, is hedge fund compensation, not an oil-program cost line.' },
+            { text: 'Land and mineral rights are low, and exploration costs are high', why: 'Remote properties thought likely to hold oil are listed with low land and mineral-rights costs and high exploration costs.', correct: true },
+          ],
+        ),
+        sourced(
+          'sie06q0125',
+          'sie-c6-types-of-oil-and-gas-programs',
+          'Which tax items are named together for these oil and gas programs?',
+          [
+            { text: 'A 90 percent distribution requirement and a 75 percent asset test', why: 'Those percentages are REIT tax-qualification tests, not the oil and gas tax lines.' },
+            { text: 'A 100 percent deduction, a share of sold assets, and an oil depletion allowance', why: 'The tax-benefit lines name a 100 percent deduction, a share of sold assets, and oil depletion, along with deductions for intangible and tangible drilling costs.', correct: true },
+            { text: 'Deferral of all tax until an ETF share is sold', why: 'Tax when the shares are sold is an ETF efficiency point. The oil lines name drilling deductions, sold assets, and depletion.' },
+            { text: 'A tax credit only for affordable-housing partnerships', why: 'Tax credits, especially for affordable housing, are a DPP benefit. The items named here are the drilling deduction, sold assets, and oil depletion.' },
+          ],
+        ),
+      ],
+    ),
+  ],
+}

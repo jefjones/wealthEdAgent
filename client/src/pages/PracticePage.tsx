@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { createAttempt, errorText, getSeen, onStudyFeatureReady, type AttemptMode } from '../api/client.ts'
+import { createAttempt, errorText, getSeen, listAttempts, onStudyFeatureReady, type AttemptMode } from '../api/client.ts'
 import { useAuth } from '../auth/AuthContext.tsx'
 import { ContentsButton } from '../components/ContentsButton.tsx'
 import { SlideOver } from '../components/SlideOver.tsx'
@@ -8,16 +8,19 @@ import { Button } from '../components/ui/button.tsx'
 import { Card } from '../components/ui/card.tsx'
 import { Input } from '../components/ui/input.tsx'
 import { Label } from '../components/ui/label.tsx'
-import { studyPack } from '../content/pack.ts'
+import { courseQuestions } from '../content/catalog.ts'
+import { attemptPath } from '../study/paths.ts'
+import { useTest } from '../study/TestContext.tsx'
 import { subjectTitle } from '../content/rewrite.ts'
 import { drawQuestions } from '../study/draw.ts'
 import { reservedQuestionIds, saveDraw } from '../study/draws.ts'
 import { chapterSelectionError, questionsInChapters } from '../study/testSession.ts'
 
 export function PracticePage() {
+  const test = useTest()
   const { person } = useAuth()
   const navigate = useNavigate()
-  const chapters = studyPack.chapters
+  const chapters = test.pack.chapters
   const bank = chapters.flatMap((chapter) =>
     chapter.sections.flatMap((section) =>
       section.questions.map((question) => ({
@@ -30,6 +33,9 @@ export function PracticePage() {
   const [mode, setMode] = useState<AttemptMode>('unseen')
   const [count, setCount] = useState(10)
   const [selected, setSelected] = useState<string[]>(() => chapters.map((chapter) => chapter.id))
+  useEffect(() => {
+    setSelected(chapters.map((chapter) => chapter.id))
+  }, [test.id])
   const [seenCount, setSeenCount] = useState(0)
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
@@ -40,7 +46,8 @@ export function PracticePage() {
     let cancel = false
     getSeen()
       .then((result) => {
-        if (!cancel) setSeenCount(result.questionIds.length)
+        const ids = new Set(courseQuestions(test.id).map((question) => question.id))
+        if (!cancel) setSeenCount(result.questionIds.filter((id) => ids.has(id)).length)
       })
       .catch((cause: unknown) => {
         if (!cancel) setError(errorText(cause, 'Could not load which questions you have seen.'))
@@ -51,19 +58,22 @@ export function PracticePage() {
     return () => {
       cancel = true
     }
-  }, [])
+  }, [test.id])
 
   useEffect(
     () =>
       onStudyFeatureReady((feature) => {
         if (feature !== 'seen') return
         void getSeen()
-          .then((result) => setSeenCount(result.questionIds.length))
+          .then((result) => {
+            const ids = new Set(courseQuestions(test.id).map((question) => question.id))
+            setSeenCount(result.questionIds.filter((id) => ids.has(id)).length)
+          })
           .catch(() => {
             /* The count stays at the last value. */
           })
       }),
-    [],
+    [test.id],
   )
 
   async function onSubmit(event: FormEvent) {
@@ -80,16 +90,19 @@ export function PracticePage() {
       const seen = await getSeen()
       const seenIds = new Set(seen.questionIds)
       if (mode === 'unseen') {
+        // Server attempts carry their draw; listing them copies those draws here so another device's tests are not repeated.
+        await listAttempts().catch(() => undefined)
         reservedQuestionIds(person.personId).forEach((id) => seenIds.add(id))
       }
       const pool = questionsInChapters(bank, selected)
       const drawn = drawQuestions(pool, seenIds, count, mode)
-      const created = await createAttempt({ mode, questionCount: count })
-      saveDraw(person.personId, created.attempt.attemptId, {
+      const draw = {
         questionIds: drawn.map((row) => row.questionId),
         optionOrder: Object.fromEntries(drawn.map((row) => [row.questionId, row.optionOrder])),
-      })
-      navigate(`/test/${created.attempt.attemptId}`)
+      }
+      const created = await createAttempt({ mode, questionCount: count, testId: test.id, draw })
+      saveDraw(person.personId, created.attempt.attemptId, draw)
+      navigate(attemptPath(test.id, created.attempt.attemptId))
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : errorText(cause, 'Could not start the test.'))
     } finally {
@@ -158,7 +171,8 @@ export function PracticePage() {
               {error}
             </p>
           ) : null}
-          <Button type="submit" disabled={busy || loading || selected.length === 0}>
+          {bank.length === 0 ? <p className="text-sm text-[#3d5166]">This test does not have practice questions yet.</p> : null}
+          <Button type="submit" disabled={busy || loading || selected.length === 0 || bank.length === 0}>
             {busy ? 'Starting…' : 'Start test'}
           </Button>
         </form>

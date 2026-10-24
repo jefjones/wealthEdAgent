@@ -1,9 +1,10 @@
 import { Check, ChevronRight } from 'lucide-react'
 import type { MouseEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { studyPack } from '../content/pack.ts'
 import { subjectTitle } from '../content/rewrite.ts'
 import { percent } from '../lib/utils.ts'
+import { studyPath } from '../study/paths.ts'
+import { useTest } from '../study/TestContext.tsx'
 
 export function StudyOutline({
   idPrefix,
@@ -22,11 +23,11 @@ export function StudyOutline({
   currentSectionId?: string
   onPick?: (sectionId: string, event: MouseEvent<HTMLAnchorElement>) => void
 }) {
-  const sections = studyPack.chapters.flatMap((chapter) => chapter.sections)
+  const test = useTest()
+  const chapters = test.pack.chapters
+  const sections = chapters.flatMap((chapter) => chapter.sections)
   const completedCount = sections.filter((section) => done.has(section.id)).length
-  const currentChapterId = studyPack.chapters.find((chapter) =>
-    chapter.sections.some((section) => section.id === currentSectionId),
-  )?.id
+  const currentChapterId = chapters.find((chapter) => chapter.sections.some((section) => section.id === currentSectionId))?.id
 
   return (
     <>
@@ -37,7 +38,7 @@ export function StudyOutline({
         <div className="h-full rounded-full bg-[#2a6cb5]" style={{ width: `${percent(completedCount, sections.length)}%` }} />
       </div>
       <div className="mt-4 space-y-1">
-        {studyPack.chapters.map((chapter) => {
+        {chapters.map((chapter) => {
           const chapterDone = chapter.sections.filter((section) => done.has(section.id)).length
           const open = Boolean(navOpen[chapter.id])
           const here = chapter.id === currentChapterId
@@ -72,7 +73,7 @@ export function StudyOutline({
                     return (
                       <li key={section.id}>
                         <Link
-                          to={`/study/${section.id}`}
+                          to={studyPath(test.id, section.id)}
                           aria-current={active ? 'page' : undefined}
                           onClick={(event) => onPick?.(section.id, event)}
                           className={`flex min-h-11 items-center gap-2 rounded-lg px-2 py-2 text-sm ${active ? 'bg-white font-semibold text-[#1f5a9a]' : 'text-[#24364a] hover:bg-[#f4f8fc]'}`}
