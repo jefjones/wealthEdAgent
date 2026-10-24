@@ -1,7 +1,9 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { createAttempt, errorText, getSeen, type AttemptMode } from '../api/client.ts'
+import { createAttempt, errorText, getSeen, onStudyFeatureReady, type AttemptMode } from '../api/client.ts'
 import { useAuth } from '../auth/AuthContext.tsx'
+import { ContentsButton } from '../components/ContentsButton.tsx'
+import { SlideOver } from '../components/SlideOver.tsx'
 import { Button } from '../components/ui/button.tsx'
 import { Card } from '../components/ui/card.tsx'
 import { Input } from '../components/ui/input.tsx'
@@ -31,6 +33,7 @@ export function PracticePage() {
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [contentsOpen, setContentsOpen] = useState(false)
 
   useEffect(() => {
     let cancel = false
@@ -48,6 +51,19 @@ export function PracticePage() {
       cancel = true
     }
   }, [])
+
+  useEffect(
+    () =>
+      onStudyFeatureReady((feature) => {
+        if (feature !== 'seen') return
+        void getSeen()
+          .then((result) => setSeenCount(result.questionIds.length))
+          .catch(() => {
+            /* The count stays at the last value. */
+          })
+      }),
+    [],
+  )
 
   async function onSubmit(event: FormEvent) {
     event.preventDefault()
@@ -82,9 +98,21 @@ export function PracticePage() {
 
   return (
     <div className="mx-auto max-w-xl">
+      <ContentsButton pressed={contentsOpen} onClick={() => setContentsOpen(true)} />
+      <SlideOver open={contentsOpen} title="Chapters" onClose={() => setContentsOpen(false)}>
+        <ChapterChoices chapters={chapters} selected={selected} onChange={setSelected} />
+        <Button type="button" className="mt-4 w-full" onClick={() => setContentsOpen(false)}>
+          Done
+        </Button>
+      </SlideOver>
       <h1 className="font-['Fraunces',Georgia,serif] text-3xl font-semibold text-[#14375f]">Practice test</h1>
       <p className="mt-2 text-[#3d5166]">
         Choose the chapters to include. The test draws only from the chapters you check, and the answer order is shuffled.
+      </p>
+      <p className="mt-2 text-sm text-[#3d5166] lg:hidden">
+        {selected.length === chapters.length
+          ? `All ${chapters.length} chapters are included. Open Contents to change them.`
+          : `${selected.length} of ${chapters.length} chapters are included. Open Contents to change them.`}
       </p>
       <Card className="mt-6 p-6">
         <p className="text-sm text-[#3d5166]">
@@ -106,43 +134,11 @@ export function PracticePage() {
               </label>
             </div>
           </fieldset>
-          <fieldset>
+          <fieldset className="hidden lg:block">
             <legend className="text-sm font-semibold text-[#24364a]">Chapters</legend>
-            <div className="mt-2 flex flex-wrap gap-2">
-              <Button type="button" variant="outline" size="sm" onClick={() => setSelected(chapters.map((chapter) => chapter.id))}>
-                Select all
-              </Button>
-              <Button type="button" variant="outline" size="sm" onClick={() => setSelected([])}>
-                Select none
-              </Button>
+            <div className="mt-2">
+              <ChapterChoices chapters={chapters} selected={selected} onChange={setSelected} />
             </div>
-            <div className="mt-3 space-y-2">
-              {chapters.map((chapter) => {
-                const checked = selected.includes(chapter.id)
-                return (
-                  <label key={chapter.id} className="flex items-start gap-3 rounded-xl border border-[#d5e2f0] px-3 py-2 text-sm">
-                    <input
-                      className="mt-0.5 h-4 w-4 shrink-0"
-                      type="checkbox"
-                      checked={checked}
-                      onChange={() =>
-                        setSelected((current) =>
-                          current.includes(chapter.id) ? current.filter((id) => id !== chapter.id) : [...current, chapter.id],
-                        )
-                      }
-                    />
-                    <span>
-                      Chapter {chapter.number}. {chapter.title}
-                    </span>
-                  </label>
-                )
-              })}
-            </div>
-            {selected.length === 0 ? (
-              <p className="mt-3 rounded-xl bg-[#fdecec] px-3 py-2 text-sm text-[#8d1d1d]" role="alert">
-                Choose at least one chapter.
-              </p>
-            ) : null}
           </fieldset>
           <div className="space-y-1.5">
             <Label htmlFor="count">Number of questions</Label>
@@ -167,5 +163,53 @@ export function PracticePage() {
         </form>
       </Card>
     </div>
+  )
+}
+
+function ChapterChoices({
+  chapters,
+  selected,
+  onChange,
+}: {
+  chapters: Array<{ id: string; number: number; title: string }>
+  selected: string[]
+  onChange: (next: string[]) => void
+}) {
+  return (
+    <>
+      <div className="flex flex-wrap gap-2">
+        <Button type="button" variant="outline" onClick={() => onChange(chapters.map((chapter) => chapter.id))}>
+          Select all
+        </Button>
+        <Button type="button" variant="outline" onClick={() => onChange([])}>
+          Select none
+        </Button>
+      </div>
+      <div className="mt-3 space-y-2">
+        {chapters.map((chapter) => {
+          const checked = selected.includes(chapter.id)
+          return (
+            <label key={chapter.id} className="flex min-h-11 items-center gap-3 rounded-xl border border-[#d5e2f0] px-3 py-2 text-sm">
+              <input
+                className="h-4 w-4 shrink-0"
+                type="checkbox"
+                checked={checked}
+                onChange={() =>
+                  onChange(selected.includes(chapter.id) ? selected.filter((id) => id !== chapter.id) : [...selected, chapter.id])
+                }
+              />
+              <span>
+                Chapter {chapter.number}. {chapter.title}
+              </span>
+            </label>
+          )
+        })}
+      </div>
+      {selected.length === 0 ? (
+        <p className="mt-3 rounded-xl bg-[#fdecec] px-3 py-2 text-sm text-[#8d1d1d]" role="alert">
+          Choose at least one chapter.
+        </p>
+      ) : null}
+    </>
   )
 }

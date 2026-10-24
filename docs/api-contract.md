@@ -14,7 +14,7 @@ A signed-out `401` on a study route has an **empty body**. The client reads the 
 
 `percent` may be `50` or `50.0`. The client formats it. A whole number stays a whole number. Any other value is shown to one decimal place.
 
-A study `404` whose message is exactly `Study progress is not available yet.` means those routes are not deployed. The UI says so and keeps progress in this browser.
+Each study feature is checked on its own. A `404` on highlights, including an empty body, keeps highlights in this browser and does not stop progress, seen questions, or attempts from using the server. A `404` whose message is exactly `Study progress is not available yet.` means that one route is not deployed. The banner names only the feature that failed, for example `Highlights are saved in this browser only for now.` The client asks again on the next page load, when the window regains focus, and about once a minute. When a route responds, that feature's browser copy is uploaded once for the signed-in person and marked so it is not repeated: newer progress wins, and highlights and attempts are a union by id. Older local rows do not replace newer server rows.
 
 `400`, `409`, and `429` bodies are `{ "message": "..." }`. The UI shows `message` verbatim. Problem details (`errors`, `title`, `detail`) are also accepted.
 
@@ -124,7 +124,7 @@ Offsets are JavaScript string indexes into that section’s stored plain text (`
 
 `200` `{ "deleted": true }`. `404` when the highlight is not on this account.
 
-A `404` on `GET` or `POST highlights` before those routes are deployed, or the study-wide `404` `Study progress is not available yet.`, keeps highlights in this browser the same way other study data does. The page says reading progress, test scores, and highlights are being kept in this browser. `DELETE` still returns `404` when the row is not theirs.
+A `404` on `GET` or `POST highlights`, including an empty body, before those routes are deployed keeps highlights in this browser. The banner says highlights are saved in this browser only for now. Progress, seen questions, and attempts keep using the server. `DELETE` still returns `404` when the row is not theirs, and that `404` does not switch highlights into the browser backup. A highlight deleted while the server was unavailable is deleted on the server once, when it is back, and is not posted again.
 
 ### `POST activity`
 
@@ -140,6 +140,6 @@ Unsent events wait in `localStorage` under `wealthEdAgent.activity.v1` and are t
 
 ## Network failures
 
-If the host cannot be reached, the UI says: `Can't reach the server right now. Try again in a moment.`
+If the host cannot be reached, auth screens say: `Can't reach the server right now. Try again in a moment.` A failed study request (the browser blocked the call, or the server returned `5xx`) keeps that feature's backup in this browser. The banner names only that feature. A certificate failure or a CORS failure is this case: `fetch` throws, and the client marks the error as a network failure for the feature that was called.
 
 If the session token is expired, the UI says: `Your session timed out. Please sign in again.`

@@ -1,7 +1,11 @@
 import { X } from 'lucide-react'
+import { useRef, type PointerEvent as ReactPointerEvent } from 'react'
 import { highlightArrowLabel, paintRun, sourceBlocks, type HighlightRange, type SourceRun } from '../study/highlights.ts'
+import { isSentenceTap, sentencePieces } from '../study/narrator.ts'
 
 type JumpTarget = { href: string; label: string }
+
+type SentenceRange = { start: number; end: number }
 
 type Props = {
   text: string
@@ -9,19 +13,91 @@ type Props = {
   jumps?: Record<string, { previous: JumpTarget | null; next: JumpTarget | null }>
   onDelete?: (highlightId: string) => void
   onJump?: (href: string) => void
+  /** Body ranges for read-aloud. Wrappers do not add characters, so highlight offsets stay put. */
+  sentences?: readonly SentenceRange[]
+  selectedSentence?: number | null
+  activeSentence?: number | null
+  onSentenceTap?: (index: number) => void
 }
 
-export function Prose({ text, highlights = [], jumps, onDelete, onJump }: Props) {
+export function Prose({
+  text,
+  highlights = [],
+  jumps,
+  onDelete,
+  onJump,
+  sentences,
+  selectedSentence = null,
+  activeSentence = null,
+  onSentenceTap,
+}: Props) {
   const blocks = sourceBlocks(text)
+  const press = useRef<{ id: number; x: number; y: number; t: number; sentence: string | null; chrome: boolean } | null>(null)
+
+  function onPointerDown(event: ReactPointerEvent<HTMLDivElement>) {
+    if (!onSentenceTap || event.button !== 0) return
+    const target = event.target
+    if (!(target instanceof Element)) return
+    const sentence = target.closest('[data-sentence]')
+    press.current = sentence
+      ? {
+          id: event.pointerId,
+          x: event.clientX,
+          y: event.clientY,
+          t: event.timeStamp,
+          sentence: sentence.getAttribute('data-sentence'),
+          chrome: Boolean(target.closest('[data-chrome], button, a')),
+        }
+      : null
+  }
+
+  function onPointerUp(event: ReactPointerEvent<HTMLDivElement>) {
+    const start = press.current
+    press.current = null
+    if (!onSentenceTap || !start || start.id !== event.pointerId || start.sentence == null) return
+    const target = event.target
+    if (!(target instanceof Element)) return
+    const sentence = target.closest('[data-sentence]')
+    if (!sentence || sentence.getAttribute('data-sentence') !== start.sentence) return
+    const selection = window.getSelection()
+    const collapsed = !selection || selection.rangeCount === 0 || selection.isCollapsed
+    if (
+      !isSentenceTap({
+        targetChrome: start.chrome || Boolean(target.closest('[data-chrome], button, a')),
+        movedPx: Math.hypot(event.clientX - start.x, event.clientY - start.y),
+        durationMs: event.timeStamp - start.t,
+        selectionCollapsed: collapsed,
+      })
+    ) {
+      return
+    }
+    const index = Number(start.sentence)
+    if (!Number.isInteger(index)) return
+    onSentenceTap(index)
+  }
+
   return (
-    <div className="space-y-4 text-[17px] leading-7 text-[#24364a] select-text">
+    <div
+      className="space-y-4 text-[17px] leading-7 text-[#24364a] select-text"
+      onPointerDown={onSentenceTap ? onPointerDown : undefined}
+      onPointerUp={onSentenceTap ? onPointerUp : undefined}
+    >
       {blocks.map((block) => {
         if (block.kind === 'list') {
           return (
             <ul key={block.runs[0]?.start ?? 0} className="list-disc space-y-2 pl-5">
               {block.runs.map((run) => (
                 <li key={run.start}>
-                  <MarkedRun run={run} highlights={highlights} jumps={jumps} onDelete={onDelete} onJump={onJump} />
+                  <MarkedRun
+                    run={run}
+                    highlights={highlights}
+                    jumps={jumps}
+                    sentences={sentences}
+                    selectedSentence={selectedSentence}
+                    activeSentence={activeSentence}
+                    onDelete={onDelete}
+                    onJump={onJump}
+                  />
                 </li>
               ))}
             </ul>
@@ -29,7 +105,16 @@ export function Prose({ text, highlights = [], jumps, onDelete, onJump }: Props)
         }
         return (
           <p key={block.run.start}>
-            <MarkedRun run={block.run} highlights={highlights} jumps={jumps} onDelete={onDelete} onJump={onJump} />
+            <MarkedRun
+              run={block.run}
+              highlights={highlights}
+              jumps={jumps}
+              sentences={sentences}
+              selectedSentence={selectedSentence}
+              activeSentence={activeSentence}
+              onDelete={onDelete}
+              onJump={onJump}
+            />
           </p>
         )
       })}
@@ -37,16 +122,30 @@ export function Prose({ text, highlights = [], jumps, onDelete, onJump }: Props)
   )
 }
 
+function sentenceClass(index: number | null, selected: number | null, active: number | null) {
+  if (index == null) return undefined
+  const scroll = 'scroll-mb-32 lg:scroll-mb-4'
+  if (index === active) return `rounded-sm bg-[#c9dff6] ${scroll}`
+  if (index === selected) return `rounded-sm bg-[#e7f0fa] shadow-[inset_0_-2px_0_#8fb4d9] ${scroll}`
+  return scroll
+}
+
 function MarkedRun({
   run,
   highlights,
   jumps,
+  sentences,
+  selectedSentence,
+  activeSentence,
   onDelete,
   onJump,
 }: {
   run: SourceRun
   highlights: HighlightRange[]
   jumps?: Props['jumps']
+  sentences?: readonly SentenceRange[]
+  selectedSentence: number | null
+  activeSentence: number | null
   onDelete?: (highlightId: string) => void
   onJump?: (href: string) => void
 }) {
@@ -57,23 +156,34 @@ function MarkedRun({
         const startsHere = slice.highlightId != null && slice.start === rangeStart(highlights, slice.highlightId)
         const endsHere = slice.highlightId != null && slice.end === rangeEnd(highlights, slice.highlightId)
         const jump = slice.highlightId ? jumps?.[slice.highlightId] : undefined
+        const pieces =
+          sentences && sentences.length > 0
+            ? sentencePieces(slice.start, slice.text, sentences)
+            : [{ start: slice.start, text: slice.text, sentence: null as number | null }]
         return (
           <span key={`${slice.start}-${slice.highlightId ?? 'plain'}`}>
             {startsHere && slice.highlightId ? (
               <HighlightArrow side="previous" glyph="←" target={jump?.previous ?? null} onJump={onJump} />
             ) : null}
-            <span data-start={slice.start}>
-              {slice.highlightId ? (
-                <mark
-                  id={startsHere ? `h-${slice.highlightId}` : undefined}
-                  className="rounded-sm bg-[#ffe08a] px-0.5 text-[#3a2a00]"
-                >
-                  {slice.text}
-                </mark>
-              ) : (
-                slice.text
-              )}
-            </span>
+            {pieces.map((piece) => (
+              <span
+                key={`${piece.start}-${piece.sentence ?? 'gap'}`}
+                data-start={piece.start}
+                data-sentence={piece.sentence ?? undefined}
+                className={sentenceClass(piece.sentence, selectedSentence, activeSentence)}
+              >
+                {slice.highlightId ? (
+                  <mark
+                    id={piece.start === slice.start && startsHere ? `h-${slice.highlightId}` : undefined}
+                    className="rounded-sm bg-[#ffe08a] px-0.5 text-[#3a2a00]"
+                  >
+                    {piece.text}
+                  </mark>
+                ) : (
+                  piece.text
+                )}
+              </span>
+            ))}
             {endsHere && slice.highlightId ? (
               <HighlightArrow side="next" glyph="→" target={jump?.next ?? null} onJump={onJump} />
             ) : null}

@@ -5,6 +5,7 @@ import { act } from 'react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { Prose } from './Prose.tsx'
 import { bodyOffsetFromDom, highlightPreview } from '../study/highlights.ts'
+import { splitSentences } from '../study/narrator.ts'
 
 const text = 'Alpha line. Keep this sentence.'
 
@@ -117,6 +118,28 @@ describe('inline highlight arrows', () => {
     expect(after.textContent).toBe(' line')
     expect(bodyOffsetFromDom(prose, after, 0)).toBe(15)
     expect(bodyOffsetFromDom(prose, after, 1)).toBe(16)
+    view.unmount()
+  })
+
+  it('keeps body offsets when sentence wrappers split a highlight', async () => {
+    const sentences = splitSentences(text)
+    const view = await renderProse({
+      text,
+      sentences,
+      highlights: [{ highlightId: 'h1', startOffset: 0, endOffset: 16 }],
+      onDelete: () => {},
+    })
+    const prose = view.host.querySelector('div') as HTMLElement
+    const hosts = [...view.host.querySelectorAll('[data-start]')]
+    expect(hosts.map((node) => node.textContent ?? '').join('')).toBe(text)
+    const first = hosts[0]?.querySelector('mark')?.firstChild as Text
+    expect(first.nodeType).toBe(Node.TEXT_NODE)
+    expect(bodyOffsetFromDom(prose, first, 0)).toBe(0)
+    expect(bodyOffsetFromDom(prose, first, first.textContent?.length ?? 0)).toBe(first.textContent?.length ?? 0)
+    const keep = hosts.find((node) => node.textContent?.startsWith('Keep'))
+    const keepText = keep?.querySelector('mark')?.firstChild as Text
+    expect(bodyOffsetFromDom(prose, keepText, 0)).toBe(text.indexOf('Keep'))
+    expect(highlightPreview(hosts.map((node) => node.textContent ?? '').join('')).includes('←')).toBe(false)
     view.unmount()
   })
 })

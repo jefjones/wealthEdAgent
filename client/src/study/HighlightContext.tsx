@@ -4,6 +4,7 @@ import {
   deleteHighlight,
   errorText,
   listHighlights,
+  onStudyFeatureReady,
   type Highlight,
   type HighlightInput,
 } from '../api/client.ts'
@@ -36,6 +37,14 @@ export function HighlightProvider({ children }: { children: ReactNode }) {
     setHighlights(result.highlights)
     setError('')
   }, [person])
+
+  useEffect(() => onStudyFeatureReady((feature) => {
+    if (feature === 'highlights') {
+      void reload().catch(() => {
+        /* The banner already says highlights are still in this browser. */
+      })
+    }
+  }), [reload])
 
   useEffect(() => {
     let cancel = false

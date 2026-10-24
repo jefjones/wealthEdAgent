@@ -1,16 +1,22 @@
-import { Check, ChevronLeft, ChevronRight } from 'lucide-react'
-import { useEffect, useRef, useState, type MouseEvent, type PointerEvent } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useEffect, useMemo, useRef, useState, type MouseEvent, type PointerEvent } from 'react'
 import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom'
-import { errorText, getProgress, saveProgress, type SectionProgress } from '../api/client.ts'
+import { errorText, getProgress, onStudyFeatureReady, saveProgress, type SectionProgress } from '../api/client.ts'
 import { useAuth } from '../auth/AuthContext.tsx'
+import { ContentsButton } from '../components/ContentsButton.tsx'
 import { DeleteHighlightDialog } from '../components/DeleteHighlightDialog.tsx'
 import { HighlightOffer, HighlightSavedNotice } from '../components/HighlightOffer.tsx'
 import { Prose } from '../components/Prose.tsx'
+import { SlideOver } from '../components/SlideOver.tsx'
+import { StudyOutline } from '../components/StudyOutline.tsx'
+import { NarrationBar } from '../components/NarrationBar.tsx'
 import { Button } from '../components/ui/button.tsx'
-import { flatSections, studyPack } from '../content/pack.ts'
-import { percent } from '../lib/utils.ts'
+import { flatSections } from '../content/pack.ts'
 import { loadResume, saveResume } from '../study/draws.ts'
+import { useStudyNav } from '../study/studyNav.ts'
 import { useHighlights } from '../study/HighlightContext.tsx'
+import { groupOrder, listNarrationStatus, sentenceParts, splitSentences } from '../study/narrator.ts'
+import { scrollNarrationTarget, useNarration } from '../study/useNarration.ts'
 import {
   HIGHLIGHT_NOTICE_MS,
   HIGHLIGHT_TEXT_MAX,
@@ -23,25 +29,7 @@ import {
   type ViewportRect,
 } from '../study/highlights.ts'
 
-const NAV_EXPANDED_KEY = 'wealthEdAgent.nav.expanded.v1'
-
 type Offer = { start: number; end: number; text: string; rect: ViewportRect }
-
-function readNavExpanded(): Record<string, boolean> {
-  try {
-    const raw = sessionStorage.getItem(NAV_EXPANDED_KEY)
-    if (!raw) return {}
-    const parsed = JSON.parse(raw) as unknown
-    if (!parsed || typeof parsed !== 'object') return {}
-    return parsed as Record<string, boolean>
-  } catch {
-    return {}
-  }
-}
-
-function writeNavExpanded(value: Record<string, boolean>) {
-  sessionStorage.setItem(NAV_EXPANDED_KEY, JSON.stringify(value))
-}
 
 export function StudyIndex() {
   const { person } = useAuth()
@@ -78,33 +66,34 @@ export function StudyPage() {
   const pinned = useRef<Offer | null>(null)
   const holdingOffer = useRef(false)
   const addingRef = useRef(false)
-  const seenChapter = useRef<string | null>(null)
   draftRef.current = draft
-  const [navOpen, setNavOpen] = useState<Record<string, boolean>>(readNavExpanded)
   const { highlights, addHighlight, removeHighlight } = useHighlights()
   const chapterId = current?.chapter.id ?? ''
+  const { navOpen, toggleChapter } = useStudyNav(chapterId)
+  const [contentsOpen, setContentsOpen] = useState(false)
+  const sectionBody = current?.body ?? ''
+  const sentences = useMemo(() => splitSentences(sectionBody), [sectionBody])
+  const speechParts = useMemo(() => sentenceParts(sentences), [sentences])
+  const narration = useNarration(sectionId, speechParts)
+  const speechGroups = useMemo(() => groupOrder(speechParts), [speechParts])
+  const narrationStatus = listNarrationStatus({
+    supported: narration.supported,
+    phase: narration.phase,
+    anchor: narration.anchor,
+    activeGroup: narration.activeGroup,
+    groups: speechGroups,
+    noun: 'sentence',
+    empty: 'This section has nothing to read.',
+    fromStart: 'Starts at the top of this section.',
+  })
+  const activeSentence =
+    narration.activeGroup != null && Number.isInteger(Number(narration.activeGroup)) ? Number(narration.activeGroup) : null
+  const selectedSentence = narration.anchor != null && Number.isInteger(Number(narration.anchor)) ? Number(narration.anchor) : null
 
   useEffect(() => {
-    if (!chapterId) return
-    const previous = seenChapter.current
-    seenChapter.current = chapterId
-    const arrivedFromAnother = previous !== null && previous !== chapterId
-    setNavOpen((existing) => {
-      if (!arrivedFromAnother && Object.prototype.hasOwnProperty.call(existing, chapterId)) return existing
-      if (existing[chapterId]) return existing
-      const next = { ...existing, [chapterId]: true }
-      writeNavExpanded(next)
-      return next
-    })
-  }, [chapterId])
-
-  function toggleChapter(id: string) {
-    setNavOpen((existing) => {
-      const next = { ...existing, [id]: !existing[id] }
-      writeNavExpanded(next)
-      return next
-    })
-  }
+    if (narration.phase !== 'speaking' || narration.activeGroup == null) return
+    scrollNarrationTarget(proseRef.current?.querySelector(`[data-sentence="${narration.activeGroup}"]`) ?? null)
+  }, [narration.phase, narration.activeGroup])
 
   useEffect(() => {
     let cancel = false
@@ -124,6 +113,19 @@ export function StudyPage() {
       cancel = true
     }
   }, [])
+
+  useEffect(
+    () =>
+      onStudyFeatureReady((feature) => {
+        if (feature !== 'progress') return
+        void getProgress()
+          .then((result) => setRows(result.sections))
+          .catch(() => {
+            /* The next visit loads progress again. */
+          })
+      }),
+    [],
+  )
 
   useEffect(() => {
     if (person && current) saveResume(person.personId, current.id)
@@ -276,7 +278,6 @@ export function StudyPage() {
   }
 
   const done = new Set(rows.filter((row) => row.completed).map((row) => row.sectionId))
-  const completedCount = sections.filter((section) => done.has(section.id)).length
   const previous = index > 0 ? sections[index - 1] : null
   const next = index < sections.length - 1 ? sections[index + 1] : null
   const marked = done.has(current.id)
@@ -385,74 +386,28 @@ export function StudyPage() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
-      <aside className="lg:sticky lg:top-4 lg:self-start">
+      <ContentsButton pressed={contentsOpen} onClick={() => setContentsOpen(true)} />
+      <SlideOver open={contentsOpen} title="Contents" onClose={() => setContentsOpen(false)}>
+        <StudyOutline
+          idPrefix="mobile"
+          navOpen={navOpen}
+          onToggle={toggleChapter}
+          done={done}
+          loading={loading}
+          currentSectionId={current.id}
+          onPick={() => setContentsOpen(false)}
+        />
+      </SlideOver>
+      <aside className="hidden lg:sticky lg:top-4 lg:block lg:self-start">
         <div className="rounded-2xl border border-[#d5e2f0] bg-white p-4">
-          <p className="text-sm font-semibold text-[#1c3f66]">
-            Reading progress {loading ? '…' : `${percent(completedCount, sections.length)}%`}
-          </p>
-          <div className="mt-2 h-2 overflow-hidden rounded-full bg-[#e4eef7]">
-            <div
-              className="h-full rounded-full bg-[#2a6cb5]"
-              style={{ width: `${percent(completedCount, sections.length)}%` }}
-            />
-          </div>
-          <div className="mt-4 space-y-1">
-            {studyPack.chapters.map((chapter) => {
-              const chapterDone = chapter.sections.filter((section) => done.has(section.id)).length
-              const open = Boolean(navOpen[chapter.id])
-              const here = chapter.id === current.chapter.id
-              const panelId = `nav-${chapter.id}`
-              return (
-                <div key={chapter.id} className={here ? 'rounded-xl bg-[#e7f1fb]' : undefined}>
-                  <button
-                    type="button"
-                    className={`flex min-h-11 w-full items-center gap-2 rounded-xl px-2 py-2 text-left focus-visible:ring-2 focus-visible:ring-[#2a6cb5] focus-visible:ring-offset-2 focus-visible:outline-none ${here ? '' : 'hover:bg-[#f4f8fc]'}`}
-                    aria-expanded={open}
-                    aria-controls={panelId}
-                    onClick={() => toggleChapter(chapter.id)}
-                  >
-                    <ChevronRight
-                      size={16}
-                      aria-hidden
-                      className={`shrink-0 text-[#2a6cb5] transition-transform ${open ? 'rotate-90' : ''}`}
-                    />
-                    <span className="min-w-0">
-                      <span className="flex items-start text-xs leading-none font-semibold tracking-wide text-[#5c7288] uppercase">
-                        <span className="whitespace-pre">Chapter </span>
-                        <span className="overflow-visible text-[calc(1em+4px)] leading-none font-[700] text-[#000]">{chapter.number}</span>
-                        <span>{` · ${chapterDone}/${chapter.sections.length}`}</span>
-                      </span>
-                      <span className="block text-sm font-semibold text-[#14375f]">{chapter.title}</span>
-                    </span>
-                  </button>
-                  {open ? (
-                    <ul id={panelId} className="space-y-0.5 px-1 pb-2">
-                      {chapter.sections.map((section) => {
-                        const active = section.id === current.id
-                        return (
-                          <li key={section.id}>
-                            <Link
-                              to={`/study/${section.id}`}
-                              className={`flex min-h-11 items-center gap-2 rounded-lg px-2 py-2 text-sm ${active ? 'bg-white font-semibold text-[#1f5a9a]' : 'text-[#24364a] hover:bg-[#f4f8fc]'}`}
-                            >
-                              <span className="flex h-4 w-4 shrink-0 items-center justify-center">
-                                {done.has(section.id) ? (
-                                  <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#dcfce7]">
-                                    <Check size={12} className="text-[#15803d]" aria-hidden />
-                                  </span>
-                                ) : null}
-                              </span>
-                              <span>{section.title}</span>
-                            </Link>
-                          </li>
-                        )
-                      })}
-                    </ul>
-                  ) : null}
-                </div>
-              )
-            })}
-          </div>
+          <StudyOutline
+            idPrefix="desktop"
+            navOpen={navOpen}
+            onToggle={toggleChapter}
+            done={done}
+            loading={loading}
+            currentSectionId={current.id}
+          />
         </div>
       </aside>
       <article className="min-w-0 rounded-2xl border border-[#d5e2f0] bg-white p-5 sm:p-8">
@@ -460,14 +415,32 @@ export function StudyPage() {
           Chapter {current.chapter.number} · {current.chapter.title}
         </p>
         <h1 className="mt-1 font-['Fraunces',Georgia,serif] text-3xl font-semibold text-[#14375f]">{current.title}</h1>
-        <p className="mt-2 text-sm text-[#5c7288]">
-          Section {index + 1} of {sections.length}
-          {marked ? ' · Marked complete' : ''}
-        </p>
+        {marked ? <p className="mt-2 text-sm text-[#5c7288]">Marked complete</p> : null}
         {error ? <p className="mt-4 rounded-xl bg-[#fdecec] px-3 py-2 text-sm text-[#8d1d1d]">{error}</p> : null}
+        <div className="mt-4">
+          <NarrationBar
+            supported={narration.supported}
+            phase={narration.phase}
+            rate={narration.rate}
+            status={narrationStatus}
+            stepName="sentence"
+            startTitle="Start reading aloud from the sentence you chose, or from the top of the section"
+            canPrevious={narration.canPrevious}
+            canNext={narration.canNext}
+            onStart={() => narration.start()}
+            onStop={narration.stop}
+            onPrevious={narration.previous}
+            onNext={narration.next}
+            onCycleRate={narration.cycleRate}
+          />
+        </div>
         <div ref={proseRef} className="mt-6 select-text" style={{ WebkitUserSelect: 'text', userSelect: 'text' }}>
           <Prose
             text={current.body}
+            sentences={sentences}
+            selectedSentence={selectedSentence}
+            activeSentence={narration.phase === 'speaking' ? activeSentence : null}
+            onSentenceTap={narration.supported ? (index) => narration.select(String(index)) : undefined}
             highlights={highlights.flatMap((row) => {
               if (row.sectionId !== current.id) return []
               const anchored = anchorHighlight(current.body, row)

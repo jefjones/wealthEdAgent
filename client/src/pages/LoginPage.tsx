@@ -49,9 +49,12 @@ export function LoginPage() {
         <h1 className="mt-2 font-['Fraunces',Georgia,serif] text-4xl leading-tight font-semibold text-[#14375f] sm:text-5xl">
           Read the course. Then prove it on a practice test.
         </h1>
+        <p className="mt-4 inline-block rounded-full bg-[#e6f4ea] px-4 py-1 text-xl font-bold text-[#14375f]">Free - Always!</p>
         <p className="mt-4 max-w-xl text-lg text-[#3d5166]">
-          The Utah life and health course, from Insurance Basics through Utah Insurance Rules.
-          Your reading progress and scores stay with your account.
+          Practice tests are a great way to keep learning. Take as many as you can to fine-tune your understanding. Pass the test the first time by being ready for anything! You need to pass with 70%. We do not have the actual test answers. We can only create our own to help you refine your understanding. Don't get lazy. If you can pass these tests at 80%, you should be good to go. But don't be lazy. Know everything you can.
+        </p>
+        <p className="mt-4 max-w-xl text-lg text-[#3d5166]">
+          The Utah life and health course, from Insurance Basics through Utah Insurance Rules. Your reading progress and scores stay with your account.
         </p>
       </div>
       <Card className="p-6 sm:p-8">

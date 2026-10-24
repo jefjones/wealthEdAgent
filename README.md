@@ -53,7 +53,7 @@ VITE_API_BASE_URL=https://ecdmy.com/
 
 If a signed-out study call returns an empty 401, the app does not parse that body as JSON. It sends the person to sign in. Percentages such as `50` and `50.0` are formatted in the browser.
 
-If study routes return 404 with the message `Study progress is not available yet.`, progress stays in this browser.
+Highlights are stored in this browser when that route returns 404. Progress, seen questions, and test scores still use the server. A certificate or CORS failure affects only the feature that was called.
 
 The question bank is local. The server stores the attempt and the answers, not the draw. The browser that started the test keeps the question ids and the shuffled order so a refresh can resume.
 

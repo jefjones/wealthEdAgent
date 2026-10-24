@@ -5,10 +5,28 @@
  * Study data uses api/wealthEdAgent/study/.
  * VITE_USE_MOCK=true never calls the network.
  * A study 404 "Study progress is not available yet." keeps that data in this browser.
+ * A later successful load merges that browser copy onto the server once.
  */
 
 import type { ActivityEvent } from '../study/activity.ts'
+import { copyDraw } from '../study/draws.ts'
 import { highlightInputError } from '../study/highlights.ts'
+import {
+  classifyFeatureFailure,
+  featuresDueForReprobe,
+  highlightContentKey,
+  mergeAttempts,
+  mergeHighlights,
+  mergeProgress,
+  mergeSeen,
+  noticeFeatures,
+  REPROBE_MS,
+  unionAttempts,
+  type StudyFeature,
+} from '../study/studySync.ts'
+
+export type { StudyFeature }
+export { studyNoticeMessage } from '../study/studySync.ts'
 
 export const STORAGE = {
   person: 'wealthEd.person',
@@ -20,6 +38,7 @@ const MOCK_DIRECTORY = 'wealthEdAgent.mockDirectory.v1'
 const MOCK_RESETS = 'wealthEdAgent.mockResets.v1'
 const MOCK_STUDY = 'wealthEdAgent.mockStudy.v1'
 const LOCAL_STUDY = 'wealthEdAgent.localStudy.v1'
+const MIGRATED_KEY = 'wealthEdAgent.studyMigrated.v1'
 
 export const SESSION_EXPIRED_MESSAGE = 'Your session timed out. Please sign in again.'
 export const NETWORK_MESSAGE = "Can't reach the server right now. Try again in a moment."
@@ -108,35 +127,65 @@ export class ApiError extends Error {
 
 type Account = { password: string; person: Person }
 type AttemptRecord = Attempt & { answers: Answer[] }
+type AttemptUploadState = {
+  serverAttemptId: string
+  sent: string[]
+  completed: boolean
+}
+
 type StudyDb = {
   sections: SectionProgress[]
   seen: SeenRow[]
   attempts: AttemptRecord[]
   highlights?: Highlight[]
+  deletedHighlightIds?: string[]
+  attemptUploads?: Record<string, AttemptUploadState>
 }
 
+type MigratableFeature = Exclude<StudyFeature, 'activity'>
+
 let onSessionExpired: (() => void) | null = null
-let onStudyUnavailable: (() => void) | null = null
-let localStudy = false
+let onStudyNotice: ((features: StudyFeature[]) => void) | null = null
 let mockOverride: boolean | null = null
+let downFor: string | null = null
+const downAt = new Map<StudyFeature, number>()
+const migrateFlights = new Map<MigratableFeature, Promise<void>>()
+const readyListeners = new Set<(feature: StudyFeature) => void>()
+let reprobeTimer: ReturnType<typeof setInterval> | null = null
+let reprobeListening = false
 
 export function setSessionExpiredHandler(handler: (() => void) | null) {
   onSessionExpired = handler
 }
 
-export function setStudyUnavailableHandler(handler: (() => void) | null) {
-  onStudyUnavailable = handler
+export function setStudyNoticeHandler(handler: ((features: StudyFeature[]) => void) | null) {
+  onStudyNotice = handler
+}
+
+export function studyNoticeSnapshot(): StudyFeature[] {
+  return noticeFeatures(downAt.keys())
+}
+
+export function onStudyFeatureReady(listener: (feature: StudyFeature) => void) {
+  readyListeners.add(listener)
+  return () => {
+    readyListeners.delete(listener)
+  }
 }
 
 export function studyUsingLocalFallback() {
-  return localStudy
+  return studyNoticeSnapshot().length > 0
 }
 
 export function resetApiForTests() {
-  localStudy = false
   mockOverride = null
   onSessionExpired = null
-  onStudyUnavailable = null
+  onStudyNotice = null
+  downFor = null
+  downAt.clear()
+  migrateFlights.clear()
+  readyListeners.clear()
+  stopStudyReprobe()
 }
 
 export function setMockOverride(value: boolean | null) {
@@ -651,38 +700,471 @@ function localDeleteHighlight(highlightId: string) {
   })
 }
 
-async function highlightsCall<T>(
-  path: string,
-  options: RequestInit | undefined,
-  local: () => T,
-  missingRouteFallsBack: boolean,
-): Promise<T> {
-  if (mockApiEnabled() || localStudy) return local()
+function publishNotice() {
+  onStudyNotice?.(noticeFeatures(downAt.keys()))
+}
+
+function rememberPerson(personId: string) {
+  if (downFor === personId) return
+  downFor = personId
+  downAt.clear()
+  publishNotice()
+}
+
+function isFeatureDown(feature: StudyFeature) {
+  const since = downAt.get(feature)
+  if (since === undefined) return false
+  return !featuresDueForReprobe([{ feature, downSince: since }], Date.now()).includes(feature)
+}
+
+function markFeatureDown(feature: StudyFeature) {
+  downAt.set(feature, Date.now())
+  publishNotice()
+}
+
+function markFeatureUp(feature: StudyFeature) {
+  const wasDown = downAt.delete(feature)
+  publishNotice()
+  if (wasDown) readyListeners.forEach((listener) => listener(feature))
+}
+
+function failureOf(error: unknown, feature: StudyFeature, missingRouteFallsBack?: boolean) {
+  if (!(error instanceof ApiError)) return null
+  return classifyFeatureFailure(
+    feature,
+    {
+      network: error.network,
+      status: error.status,
+      studyUnavailable: error.studyUnavailable,
+    },
+    missingRouteFallsBack,
+  )
+}
+
+function backupMap() {
+  return readJson<Record<string, StudyDb>>(LOCAL_STUDY, {})
+}
+
+function peekDb(): StudyDb {
+  const person = requirePerson()
+  return backupMap()[person.personId] ?? emptyDb()
+}
+
+function updateDb(update: (db: StudyDb) => void) {
+  const person = requirePerson()
+  const all = backupMap()
+  const db = all[person.personId] ?? emptyDb()
+  update(db)
+  all[person.personId] = db
+  localStorage.setItem(LOCAL_STUDY, JSON.stringify(all))
+}
+
+function migrationMap() {
+  return readJson<Record<string, Partial<Record<MigratableFeature, true>>>>(MIGRATED_KEY, {})
+}
+
+function isMigrated(personId: string, feature: MigratableFeature) {
+  return migrationMap()[personId]?.[feature] === true
+}
+
+function setMigrated(personId: string, feature: MigratableFeature, migrated: boolean) {
+  const all = migrationMap()
+  const row = { ...(all[personId] ?? {}) }
+  if (migrated) row[feature] = true
+  else delete row[feature]
+  all[personId] = row
+  localStorage.setItem(MIGRATED_KEY, JSON.stringify(all))
+}
+
+function mirrorSection(section: SectionProgress) {
+  updateDb((db) => {
+    const index = db.sections.findIndex((row) => row.chapterId === section.chapterId && row.sectionId === section.sectionId)
+    if (index >= 0) db.sections[index] = { ...section }
+    else db.sections.push({ ...section })
+  })
+}
+
+function mirrorHighlight(row: Highlight) {
+  updateDb((db) => {
+    const key = highlightContentKey(row)
+    const highlights = (db.highlights ?? []).filter(
+      (item) => item.highlightId !== row.highlightId && highlightContentKey(item) !== key,
+    )
+    db.highlights = [{ ...row }, ...highlights]
+  })
+}
+
+function mirrorAttempt(attempt: Attempt, answers?: Answer[]) {
+  updateDb((db) => {
+    const existing = db.attempts.find((row) => row.attemptId === attempt.attemptId)
+    if (existing) {
+      Object.assign(existing, attempt)
+      if (answers) existing.answers = answers.map((answer) => ({ ...answer }))
+      return
+    }
+    db.attempts.unshift({ ...attempt, answers: answers ? answers.map((answer) => ({ ...answer })) : [] })
+  })
+}
+
+function resolveAttemptId(attemptId: string) {
+  if (mockApiEnabled()) return attemptId
+  const mapped = peekDb().attemptUploads?.[attemptId]?.serverAttemptId
+  return mapped || attemptId
+}
+
+function finishedUploadIds(db: StudyDb) {
+  const ids: string[] = []
+  Object.entries(db.attemptUploads ?? {}).forEach(([localId, state]) => {
+    const attempt = db.attempts.find((row) => row.attemptId === localId)
+    if (!attempt) {
+      ids.push(localId)
+      return
+    }
+    const answersDone = attempt.answers.every((answer) => state.sent.includes(answer.questionId))
+    const completeDone = !attempt.completedAt || state.completed
+    if (answersDone && completeDone) ids.push(localId)
+  })
+  return ids
+}
+
+function noteFeatureFailure(feature: StudyFeature, error: unknown) {
+  const kind = failureOf(error, feature)
+  if (!kind) return false
+  markFeatureDown(feature)
+  return true
+}
+
+async function migrateProgress() {
+  const personId = requirePerson().personId
+  if (isMigrated(personId, 'progress')) return
+  let body: { sections: SectionProgress[] }
   try {
-    return await realApi<T>(path, options)
+    body = await realApi<{ sections: SectionProgress[] }>('api/wealthEdAgent/study/progress')
   } catch (error) {
-    const missing =
-      error instanceof ApiError && (error.studyUnavailable || (missingRouteFallsBack && error.status === 404))
-    if (missing) {
-      localStudy = true
-      onStudyUnavailable?.()
+    if (noteFeatureFailure('progress', error)) return
+    throw error
+  }
+  const plan = mergeProgress(body.sections, peekDb().sections)
+  const applied = new Map(body.sections.map((row) => [`${row.chapterId}\u0000${row.sectionId}`, row]))
+  for (const row of plan.upload) {
+    try {
+      const saved = await realApi<{ section: SectionProgress }>(
+        `api/wealthEdAgent/study/progress/${encodeURIComponent(row.chapterId)}/${encodeURIComponent(row.sectionId)}`,
+        { method: 'PUT', body: JSON.stringify({ completed: row.completed }) },
+      )
+      applied.set(`${saved.section.chapterId}\u0000${saved.section.sectionId}`, saved.section)
+    } catch (error) {
+      if (noteFeatureFailure('progress', error)) return
+      if (error instanceof ApiError && error.status === 400) continue
+      throw error
+    }
+  }
+  updateDb((db) => {
+    db.sections = [...applied.values()]
+  })
+  setMigrated(personId, 'progress', true)
+  markFeatureUp('progress')
+}
+
+async function pushLocalAttempt(local: AttemptRecord) {
+  let state = peekDb().attemptUploads?.[local.attemptId]
+  if (!state) {
+    let created: { attempt: Attempt }
+    try {
+      created = await realApi<{ attempt: Attempt }>('api/wealthEdAgent/study/attempts', {
+        method: 'POST',
+        body: JSON.stringify({ mode: local.mode, questionCount: local.questionCount }),
+      })
+    } catch (error) {
+      if (noteFeatureFailure('attempts', error)) return
+      if (error instanceof ApiError && error.status === 400) return
+      throw error
+    }
+    state = { serverAttemptId: created.attempt.attemptId, sent: [], completed: false }
+    const createdState = state
+    updateDb((db) => {
+      db.attemptUploads = { ...(db.attemptUploads ?? {}), [local.attemptId]: createdState }
+    })
+    copyDraw(requirePerson().personId, local.attemptId, createdState.serverAttemptId)
+  }
+  const serverAttemptId = state.serverAttemptId
+  for (const answer of local.answers) {
+    if ((peekDb().attemptUploads?.[local.attemptId]?.sent ?? []).includes(answer.questionId)) continue
+    try {
+      await realApi(
+        `api/wealthEdAgent/study/attempts/${encodeURIComponent(serverAttemptId)}/answers/${encodeURIComponent(answer.questionId)}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify({
+            chosenOptionId: answer.chosenOptionId,
+            correctOptionId: answer.correctOptionId,
+            ...(answer.seconds !== undefined ? { seconds: answer.seconds } : {}),
+          }),
+        },
+      )
+    } catch (error) {
+      if (error instanceof ApiError && error.status === 409) {
+        updateDb((db) => {
+          const row = db.attemptUploads?.[local.attemptId]
+          if (row && !row.sent.includes(answer.questionId)) row.sent.push(answer.questionId)
+        })
+        continue
+      }
+      if (noteFeatureFailure('attempts', error)) return
+      throw error
+    }
+    updateDb((db) => {
+      const row = db.attemptUploads?.[local.attemptId]
+      if (row && !row.sent.includes(answer.questionId)) row.sent.push(answer.questionId)
+      touchSeen(db, answer.questionId)
+    })
+  }
+  if (local.completedAt && !peekDb().attemptUploads?.[local.attemptId]?.completed) {
+    try {
+      await realApi(`api/wealthEdAgent/study/attempts/${encodeURIComponent(serverAttemptId)}/complete`, {
+        method: 'POST',
+        body: JSON.stringify({}),
+      })
+    } catch (error) {
+      if (noteFeatureFailure('attempts', error)) return
+      if (!(error instanceof ApiError && error.status === 400)) throw error
+    }
+    updateDb((db) => {
+      const row = db.attemptUploads?.[local.attemptId]
+      if (row) row.completed = true
+    })
+  }
+  updateDb((db) => {
+    const adopted: AttemptRecord = {
+      attemptId: serverAttemptId,
+      mode: local.mode,
+      startedAt: local.startedAt,
+      completedAt: local.completedAt,
+      questionCount: local.questionCount,
+      answeredCount: local.answeredCount,
+      correctCount: local.correctCount,
+      percent: local.percent,
+      answers: local.answers.map((answer) => ({ ...answer })),
+    }
+    db.attempts = db.attempts.filter((row) => row.attemptId !== local.attemptId && row.attemptId !== serverAttemptId)
+    db.attempts.unshift(adopted)
+  })
+}
+
+async function migrateAttempts() {
+  const personId = requirePerson().personId
+  if (isMigrated(personId, 'attempts')) return
+  let body: { attempts: Attempt[] }
+  try {
+    body = await realApi<{ attempts: Attempt[] }>('api/wealthEdAgent/study/attempts')
+  } catch (error) {
+    if (noteFeatureFailure('attempts', error)) return
+    throw error
+  }
+  const pending = mergeAttempts(body.attempts, peekDb().attempts, finishedUploadIds(peekDb())).upload
+  for (const local of pending) {
+    await pushLocalAttempt(local)
+    if (isFeatureDown('attempts')) return
+  }
+  updateDb((db) => {
+    body.attempts.forEach((summary) => {
+      const existing = db.attempts.find((row) => row.attemptId === summary.attemptId)
+      if (existing) Object.assign(existing, summary)
+      else db.attempts.push({ ...summary, answers: [] })
+    })
+  })
+  setMigrated(personId, 'attempts', true)
+  markFeatureUp('attempts')
+}
+
+async function migrateSeen() {
+  const personId = requirePerson().personId
+  if (isMigrated(personId, 'seen')) return
+  try {
+    const body = await realApi<{ seen: SeenRow[] }>('api/wealthEdAgent/study/questions/seen')
+    const plan = mergeSeen(body.seen, peekDb().seen)
+    updateDb((db) => {
+      db.seen = plan.merged.map((row) => ({ ...row }))
+    })
+  } catch (error) {
+    if (noteFeatureFailure('seen', error)) return
+    throw error
+  }
+  setMigrated(personId, 'seen', true)
+  markFeatureUp('seen')
+}
+
+async function migrateHighlights() {
+  const personId = requirePerson().personId
+  if (isMigrated(personId, 'highlights')) return
+  let body: { highlights: Highlight[] }
+  try {
+    body = await realApi<{ highlights: Highlight[] }>('api/wealthEdAgent/study/highlights')
+  } catch (error) {
+    if (noteFeatureFailure('highlights', error)) return
+    throw error
+  }
+  const plan = mergeHighlights(body.highlights, peekDb().highlights ?? [], peekDb().deletedHighlightIds ?? [])
+  for (const highlightId of plan.deleteIds) {
+    try {
+      await realApi(`api/wealthEdAgent/study/highlights/${encodeURIComponent(highlightId)}`, { method: 'DELETE' })
+    } catch (error) {
+      if (error instanceof ApiError && error.status === 404) {
+        /* The row is already gone. A missing highlight is not a missing route. */
+      } else if (noteFeatureFailure('highlights', error)) {
+        return
+      } else {
+        throw error
+      }
+    }
+    updateDb((db) => {
+      db.deletedHighlightIds = (db.deletedHighlightIds ?? []).filter((id) => id !== highlightId)
+      db.highlights = (db.highlights ?? []).filter((row) => row.highlightId !== highlightId)
+    })
+  }
+  for (const row of plan.upload) {
+    let saved: { highlight: Highlight }
+    try {
+      saved = await realApi<{ highlight: Highlight }>('api/wealthEdAgent/study/highlights', {
+        method: 'POST',
+        body: JSON.stringify({
+          chapterId: row.chapterId,
+          sectionId: row.sectionId,
+          startOffset: row.startOffset,
+          endOffset: row.endOffset,
+          text: row.text,
+        }),
+      })
+    } catch (error) {
+      if (noteFeatureFailure('highlights', error)) return
+      if (error instanceof ApiError && error.status === 400) continue
+      throw error
+    }
+    const created = saved.highlight
+    updateDb((db) => {
+      const key = highlightContentKey(row)
+      db.highlights = (db.highlights ?? []).filter(
+        (item) => item.highlightId !== row.highlightId && item.highlightId !== created.highlightId && highlightContentKey(item) !== key,
+      )
+      db.highlights.unshift(created)
+    })
+  }
+  const serverRows = body.highlights.filter((row) => !plan.deleteIds.includes(row.highlightId))
+  updateDb((db) => {
+    const deleted = new Set(db.deletedHighlightIds ?? [])
+    const have = new Set(serverRows.map((row) => row.highlightId))
+    const haveContent = new Set(serverRows.map((row) => highlightContentKey(row)))
+    const localLeft = (db.highlights ?? []).filter(
+      (row) => !deleted.has(row.highlightId) && !have.has(row.highlightId) && !haveContent.has(highlightContentKey(row)),
+    )
+    db.highlights = [...serverRows, ...localLeft]
+  })
+  setMigrated(personId, 'highlights', true)
+  markFeatureUp('highlights')
+}
+
+async function ensureMigrated(feature: MigratableFeature) {
+  const personId = requirePerson().personId
+  if (isMigrated(personId, feature)) return
+  const existing = migrateFlights.get(feature)
+  if (existing) return existing
+  const run = (
+    feature === 'progress'
+      ? migrateProgress()
+      : feature === 'seen'
+        ? migrateSeen()
+        : feature === 'attempts'
+          ? migrateAttempts()
+          : migrateHighlights()
+  ).finally(() => {
+    migrateFlights.delete(feature)
+  })
+  migrateFlights.set(feature, run)
+  await run
+}
+
+async function withFeature<T>(
+  feature: MigratableFeature,
+  local: () => T,
+  online: () => Promise<T>,
+  options: { write?: boolean; missingRoute?: boolean } = {},
+): Promise<T> {
+  if (mockApiEnabled()) return local()
+  const personId = requirePerson().personId
+  rememberPerson(personId)
+  if (isFeatureDown(feature)) {
+    if (options.write) setMigrated(personId, feature, false)
+    return local()
+  }
+  try {
+    await ensureMigrated(feature)
+    if (isFeatureDown(feature)) {
+      if (options.write) setMigrated(personId, feature, false)
+      return local()
+    }
+    const result = await online()
+    markFeatureUp(feature)
+    return result
+  } catch (error) {
+    const kind = failureOf(error, feature, options.missingRoute)
+    if (kind) {
+      markFeatureDown(feature)
+      if (options.write) setMigrated(personId, feature, false)
       return local()
     }
     throw error
   }
 }
 
-async function studyCall<T>(path: string, options: RequestInit | undefined, local: () => T): Promise<T> {
-  if (mockApiEnabled() || localStudy) return local()
-  try {
-    return await realApi<T>(path, options)
-  } catch (error) {
-    if (error instanceof ApiError && error.studyUnavailable) {
-      localStudy = true
-      onStudyUnavailable?.()
-      return local()
+async function reprobeStudyFeatures(focus: boolean) {
+  if (mockApiEnabled()) return
+  const due = featuresDueForReprobe(
+    [...downAt.entries()].map(([feature, downSince]) => ({ feature, downSince })),
+    Date.now(),
+    { focus, intervalMs: REPROBE_MS },
+  )
+  for (const feature of due) {
+    if (feature === 'activity') continue
+    downAt.delete(feature)
+    try {
+      if (feature === 'progress') await getProgress()
+      else if (feature === 'seen') await getSeen()
+      else if (feature === 'attempts') await listAttempts()
+      else await listHighlights()
+    } catch {
+      /* The call records its own failure. */
     }
-    throw error
+  }
+  publishNotice()
+}
+
+export async function reprobeStudyFeaturesNow() {
+  await reprobeStudyFeatures(true)
+}
+
+export function startStudyReprobe() {
+  if (reprobeListening || typeof window === 'undefined') return () => {}
+  reprobeListening = true
+  const onFocus = () => {
+    void reprobeStudyFeatures(true)
+  }
+  const onVisible = () => {
+    if (typeof document !== 'undefined' && document.visibilityState === 'hidden') return
+    void reprobeStudyFeatures(true)
+  }
+  window.addEventListener('focus', onFocus)
+  if (typeof document !== 'undefined') document.addEventListener('visibilitychange', onVisible)
+  reprobeTimer = setInterval(() => {
+    void reprobeStudyFeatures(false)
+  }, REPROBE_MS)
+  return () => stopStudyReprobe()
+}
+
+function stopStudyReprobe() {
+  reprobeListening = false
+  if (reprobeTimer !== null) {
+    clearInterval(reprobeTimer)
+    reprobeTimer = null
   }
 }
 
@@ -776,26 +1258,53 @@ export async function resetPassword(input: { token: string; newPassword: string;
 }
 
 export function getProgress() {
-  return studyCall('api/wealthEdAgent/study/progress', undefined, localProgress)
+  return withFeature('progress', localProgress, async () => {
+    const body = await realApi<{ sections: SectionProgress[] }>('api/wealthEdAgent/study/progress')
+    const plan = mergeProgress(body.sections, peekDb().sections)
+    return { sections: plan.merged }
+  })
 }
 
 export function saveProgress(chapterId: string, sectionId: string, completed: boolean) {
-  return studyCall(
-    `api/wealthEdAgent/study/progress/${encodeURIComponent(chapterId)}/${encodeURIComponent(sectionId)}`,
-    { method: 'PUT', body: JSON.stringify({ completed }) },
+  return withFeature(
+    'progress',
     () => localSaveProgress(chapterId, sectionId, completed),
+    async () => {
+      const result = await realApi<{ section: SectionProgress }>(
+        `api/wealthEdAgent/study/progress/${encodeURIComponent(chapterId)}/${encodeURIComponent(sectionId)}`,
+        { method: 'PUT', body: JSON.stringify({ completed }) },
+      )
+      mirrorSection(result.section)
+      return result
+    },
+    { write: true },
   )
 }
 
 export function getSeen() {
-  return studyCall('api/wealthEdAgent/study/questions/seen', undefined, localSeen)
+  return withFeature('seen', localSeen, async () => {
+    const body = await realApi<{ questionIds: string[]; seen: SeenRow[] }>('api/wealthEdAgent/study/questions/seen')
+    const plan = mergeSeen(body.seen, peekDb().seen)
+    updateDb((db) => {
+      db.seen = plan.merged.map((row) => ({ ...row }))
+    })
+    return { questionIds: plan.merged.map((row) => row.questionId), seen: plan.merged }
+  })
 }
 
 export function createAttempt(input: { mode: AttemptMode; questionCount: number }) {
-  return studyCall(
-    'api/wealthEdAgent/study/attempts',
-    { method: 'POST', body: JSON.stringify({ mode: input.mode, questionCount: input.questionCount }) },
+  return withFeature(
+    'attempts',
     () => localCreateAttempt(input.mode, input.questionCount),
+    async () => {
+      const result = await realApi<{ attempt: Attempt }>('api/wealthEdAgent/study/attempts', {
+        method: 'POST',
+        body: JSON.stringify({ mode: input.mode, questionCount: input.questionCount }),
+      })
+      mirrorAttempt(result.attempt, [])
+      return result
+    },
+    { write: true },
   )
 }
 
@@ -805,59 +1314,137 @@ export function submitAnswer(
   input: { chosenOptionId: string; correctOptionId: string; seconds?: number },
 ) {
   const seconds = storedSeconds(input.seconds)
-  return studyCall(
-    `api/wealthEdAgent/study/attempts/${encodeURIComponent(attemptId)}/answers/${encodeURIComponent(questionId)}`,
-    {
-      method: 'PUT',
-      body: JSON.stringify({
-        chosenOptionId: input.chosenOptionId,
-        correctOptionId: input.correctOptionId,
-        ...(seconds !== undefined ? { seconds } : {}),
-      }),
+  const id = () => resolveAttemptId(attemptId)
+  return withFeature(
+    'attempts',
+    () => localAnswer(id(), questionId, input.chosenOptionId, input.correctOptionId, seconds),
+    async () => {
+      const result = await realApi<{ answer: Answer; attempt: Attempt }>(
+        `api/wealthEdAgent/study/attempts/${encodeURIComponent(id())}/answers/${encodeURIComponent(questionId)}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify({
+            chosenOptionId: input.chosenOptionId,
+            correctOptionId: input.correctOptionId,
+            ...(seconds !== undefined ? { seconds } : {}),
+          }),
+        },
+      )
+      updateDb((db) => {
+        touchSeen(db, questionId)
+        const attempt = db.attempts.find((row) => row.attemptId === result.attempt.attemptId)
+        if (!attempt) {
+          db.attempts.unshift({ ...result.attempt, answers: [{ ...result.answer }] })
+          return
+        }
+        Object.assign(attempt, result.attempt)
+        const existing = attempt.answers.find((answer) => answer.questionId === result.answer.questionId)
+        if (existing) Object.assign(existing, result.answer)
+        else attempt.answers.push({ ...result.answer })
+      })
+      return result
     },
-    () => localAnswer(attemptId, questionId, input.chosenOptionId, input.correctOptionId, seconds),
+    { write: true },
   )
 }
 
 export function completeAttempt(attemptId: string) {
-  return studyCall(
-    `api/wealthEdAgent/study/attempts/${encodeURIComponent(attemptId)}/complete`,
-    { method: 'POST', body: JSON.stringify({}) },
-    () => localComplete(attemptId),
+  const id = () => resolveAttemptId(attemptId)
+  return withFeature(
+    'attempts',
+    () => localComplete(id()),
+    async () => {
+      const result = await realApi<{ attempt: Attempt }>(
+        `api/wealthEdAgent/study/attempts/${encodeURIComponent(id())}/complete`,
+        { method: 'POST', body: JSON.stringify({}) },
+      )
+      mirrorAttempt(result.attempt)
+      return result
+    },
+    { write: true },
   )
 }
 
 export function listAttempts() {
-  return studyCall('api/wealthEdAgent/study/attempts', undefined, localList)
+  return withFeature('attempts', localList, async () => {
+    const body = await realApi<{ attempts: Attempt[] }>('api/wealthEdAgent/study/attempts')
+    body.attempts.forEach((summary) => mirrorAttempt(summary))
+    const db = peekDb()
+    const extras = mergeAttempts(body.attempts, db.attempts, finishedUploadIds(db)).upload.map(publicAttempt)
+    return { attempts: unionAttempts(body.attempts, extras) }
+  })
 }
 
 export function getAttempt(attemptId: string) {
-  return studyCall(`api/wealthEdAgent/study/attempts/${encodeURIComponent(attemptId)}`, undefined, () =>
-    localGet(attemptId),
+  const id = () => resolveAttemptId(attemptId)
+  return withFeature(
+    'attempts',
+    () => localGet(id()),
+    async () => {
+      const result = await realApi<{ attempt: Attempt; answers: Answer[] }>(
+        `api/wealthEdAgent/study/attempts/${encodeURIComponent(id())}`,
+      )
+      mirrorAttempt(result.attempt, result.answers)
+      return result
+    },
   )
 }
 
 export function listHighlights() {
-  return highlightsCall('api/wealthEdAgent/study/highlights', undefined, localListHighlights, true)
+  return withFeature(
+    'highlights',
+    localListHighlights,
+    async () => {
+      const body = await realApi<{ highlights: Highlight[] }>('api/wealthEdAgent/study/highlights')
+      const db = peekDb()
+      return { highlights: mergeHighlights(body.highlights, db.highlights ?? [], db.deletedHighlightIds ?? []).merged }
+    },
+    { missingRoute: true },
+  )
 }
 
 export function createHighlight(input: HighlightInput) {
   const message = highlightInputError(input)
   if (message) fail(400, message)
-  return highlightsCall(
-    'api/wealthEdAgent/study/highlights',
-    { method: 'POST', body: JSON.stringify(input) },
+  return withFeature(
+    'highlights',
     () => localCreateHighlight(input),
-    true,
+    async () => {
+      const result = await realApi<{ highlight: Highlight }>('api/wealthEdAgent/study/highlights', {
+        method: 'POST',
+        body: JSON.stringify(input),
+      })
+      mirrorHighlight(result.highlight)
+      return result
+    },
+    { write: true, missingRoute: true },
   )
 }
 
 export function deleteHighlight(highlightId: string) {
-  return highlightsCall(
-    `api/wealthEdAgent/study/highlights/${encodeURIComponent(highlightId)}`,
-    { method: 'DELETE' },
-    () => localDeleteHighlight(highlightId),
-    false,
+  return withFeature(
+    'highlights',
+    () => {
+      const result = localDeleteHighlight(highlightId)
+      updateDb((db) => {
+        const ids = new Set(db.deletedHighlightIds ?? [])
+        ids.add(highlightId)
+        db.deletedHighlightIds = [...ids]
+      })
+      return result
+    },
+    async () => {
+      const result = await realApi<{ deleted: true }>(
+        `api/wealthEdAgent/study/highlights/${encodeURIComponent(highlightId)}`,
+        { method: 'DELETE' },
+      )
+      updateDb((db) => {
+        db.highlights = (db.highlights ?? []).filter((row) => row.highlightId !== highlightId)
+        db.deletedHighlightIds = (db.deletedHighlightIds ?? []).filter((id) => id !== highlightId)
+      })
+      return result
+    },
+    { write: true, missingRoute: false },
   )
 }
 
@@ -884,10 +1471,19 @@ export async function postActivity(
       },
       body: JSON.stringify({ events }),
     })
-    if (response.ok) return 'ok'
+    if (response.ok) {
+      markFeatureUp('activity')
+      return 'ok'
+    }
+    if (response.status === 404) {
+      markFeatureDown('activity')
+      return 'drop'
+    }
     if (response.status >= 400 && response.status < 500) return 'drop'
+    markFeatureDown('activity')
     return 'retry'
   } catch {
+    markFeatureDown('activity')
     return 'retry'
   }
 }

@@ -1,16 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { errorText, getSeen, listAttempts, type Attempt } from '../api/client.ts'
+import { errorText, getProgress, getSeen, listAttempts, onStudyFeatureReady, type Attempt, type SectionProgress } from '../api/client.ts'
+import { ContentsButton } from '../components/ContentsButton.tsx'
+import { SlideOver } from '../components/SlideOver.tsx'
+import { StudyOutline } from '../components/StudyOutline.tsx'
 import { Button } from '../components/ui/button.tsx'
+import { useStudyNav } from '../study/studyNav.ts'
 import { allQuestions } from '../content/pack.ts'
 import { formatLocal, formatPercent } from '../lib/utils.ts'
 
 export function ProgressPage() {
   const [attempts, setAttempts] = useState<Attempt[]>([])
   const [seen, setSeen] = useState(0)
+  const [sections, setSections] = useState<SectionProgress[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [contentsOpen, setContentsOpen] = useState(false)
+  const { navOpen, toggleChapter } = useStudyNav()
   const bank = allQuestions().length
+  const done = useMemo(() => new Set(sections.filter((row) => row.completed).map((row) => row.sectionId)), [sections])
 
   function load() {
     setLoading(true)
@@ -26,7 +34,33 @@ export function ProgressPage() {
 
   useEffect(() => {
     load()
+    let cancel = false
+    getProgress()
+      .then((result) => {
+        if (!cancel) setSections(result.sections)
+      })
+      .catch(() => {
+        /* Scores still render when the reading list cannot load. */
+      })
+    return () => {
+      cancel = true
+    }
   }, [])
+
+  useEffect(
+    () =>
+      onStudyFeatureReady((feature) => {
+        if (feature === 'attempts' || feature === 'seen') load()
+        if (feature === 'progress') {
+          void getProgress()
+            .then((result) => setSections(result.sections))
+            .catch(() => {
+              /* Scores stay on the page. */
+            })
+        }
+      }),
+    [],
+  )
 
   const finished = attempts.filter((attempt) => attempt.completedAt)
   const average =
@@ -35,6 +69,16 @@ export function ProgressPage() {
 
   return (
     <div>
+      <ContentsButton pressed={contentsOpen} onClick={() => setContentsOpen(true)} />
+      <SlideOver open={contentsOpen} title="Contents" onClose={() => setContentsOpen(false)}>
+        <StudyOutline
+          idPrefix="progress"
+          navOpen={navOpen}
+          onToggle={toggleChapter}
+          done={done}
+          onPick={() => setContentsOpen(false)}
+        />
+      </SlideOver>
       <h1 className="font-['Fraunces',Georgia,serif] text-3xl font-semibold text-[#14375f]">Progress</h1>
       <p className="mt-2 text-[#3d5166]">Every practice test, with the score and the local date and time.</p>
       {loading ? <p className="mt-6 text-[#3d5166]">Loading your attempts…</p> : null}

@@ -32,6 +32,17 @@ export function loadDraw(personId: string, attemptId: string): Draw | null {
   return read()[personId]?.[attemptId] ?? null
 }
 
+/** Keep the original draw and mirror it under the server attempt id after an upload. */
+export function copyDraw(personId: string, fromAttemptId: string, toAttemptId: string) {
+  if (!personId || !fromAttemptId || !toAttemptId || fromAttemptId === toAttemptId) return
+  const store = read()
+  const draws = store[personId]
+  const from = draws?.[fromAttemptId]
+  if (!from || draws[toAttemptId]) return
+  draws[toAttemptId] = from
+  write(store)
+}
+
 /** Question ids already handed out in this browser, so a second unseen test does not repeat them. */
 export function reservedQuestionIds(personId: string) {
   const draws = read()[personId] ?? {}

@@ -3,6 +3,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
   type ReactNode,
@@ -17,18 +18,20 @@ import {
   register as apiRegister,
   setSession,
   setSessionExpiredHandler,
-  setStudyUnavailableHandler,
-  studyUsingLocalFallback,
+  setStudyNoticeHandler,
+  startStudyReprobe,
+  studyNoticeSnapshot,
   tokenExpMs,
   type Person,
   type RegisterInput,
+  type StudyFeature,
 } from '../api/client.ts'
 import { logoutActivity, recordLogin } from '../study/activityTracker.ts'
 
 type AuthValue = {
   ready: boolean
   person: Person | null
-  localStudy: boolean
+  studyNotice: StudyFeature[]
   login: (username: string, password: string) => Promise<void>
   register: (input: RegisterInput) => Promise<void>
   logout: () => void
@@ -40,7 +43,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const navigate = useNavigate()
   const [person, setPerson] = useState<Person | null>(() => loadSession().person)
   const [token, setToken] = useState(() => loadSession().token)
-  const [localStudy, setLocalStudy] = useState(studyUsingLocalFallback())
+  const [studyNotice, setStudyNotice] = useState<StudyFeature[]>(studyNoticeSnapshot)
 
   const apply = useCallback((nextPerson: Person | null, nextToken: string) => {
     setSession(nextPerson, nextToken)
@@ -54,12 +57,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setToken('')
       navigate('/login', { replace: true })
     })
-    setStudyUnavailableHandler(() => setLocalStudy(true))
     return () => {
       setSessionExpiredHandler(null)
-      setStudyUnavailableHandler(null)
     }
   }, [navigate])
+
+  useLayoutEffect(() => {
+    setStudyNoticeHandler((features) => setStudyNotice(features))
+    setStudyNotice(studyNoticeSnapshot())
+    return () => setStudyNoticeHandler(null)
+  }, [])
+
+  useEffect(() => startStudyReprobe(), [])
 
   useEffect(() => {
     if (!token || !person) return
@@ -107,8 +116,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [navigate])
 
   const value = useMemo(
-    () => ({ ready: true, person, localStudy, login, register, logout }),
-    [person, localStudy, login, register, logout],
+    () => ({ ready: true, person, studyNotice, login, register, logout }),
+    [person, studyNotice, login, register, logout],
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

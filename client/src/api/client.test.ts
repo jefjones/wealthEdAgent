@@ -5,6 +5,7 @@ import {
   completeAttempt,
   createAttempt,
   getProgress,
+  getSeen,
   listAttempts,
   forgotPassword,
   login,
@@ -12,13 +13,17 @@ import {
   parseResponseBody,
   register,
   resetPassword,
+  listHighlights,
   resetApiForTests,
   resolveApiHost,
   saveProgress,
   setMockOverride,
   setSession,
   setSessionExpiredHandler,
+  reprobeStudyFeaturesNow,
+  setStudyNoticeHandler,
   submitAnswer,
+  type StudyFeature,
 } from './client.ts'
 import { formatPercent } from '../lib/utils.ts'
 
@@ -226,6 +231,228 @@ describe('register failures are visible', () => {
     const cause = await register(input).catch((error: unknown) => error)
     expect(errorText(cause, 'Could not create the account.')).toBe('Set VITE_API_BASE_URL.')
     expect(fetchMock).not.toHaveBeenCalled()
+    vi.unstubAllGlobals()
+    vi.unstubAllEnvs()
+  })
+})
+
+
+function signedIn() {
+  const header = btoa(JSON.stringify({ alg: 'HS256', typ: 'JWT' }))
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=+$/, '')
+  const payload = btoa(JSON.stringify({ exp: Math.floor(Date.now() / 1000) + 3600, personId: 'p1' }))
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=+$/, '')
+  setSession(
+    {
+      personId: 'p1',
+      username: 'ada',
+      fname: 'Ada',
+      lname: 'Learner',
+      emailAddress: 'ada@example.com',
+      phone: null,
+      agentId: null,
+      agentSlug: null,
+    },
+    `${header}.${payload}.sig`,
+  )
+}
+
+function jsonResponse(body: unknown, status = 200) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'Content-Type': 'application/json' },
+  })
+}
+
+describe('server study sync', () => {
+  beforeEach(() => {
+    setMockOverride(false)
+    vi.stubEnv('VITE_API_BASE_URL', 'https://ecdmy.com/')
+    signedIn()
+  })
+
+  it('uploads local-only progress and highlights once', async () => {
+    localStorage.setItem(
+      'wealthEdAgent.localStudy.v1',
+      JSON.stringify({
+        p1: {
+          sections: [
+            {
+              chapterId: 'ch-general',
+              sectionId: 's1',
+              completed: true,
+              completedAt: '2026-10-04T00:00:00.000Z',
+            },
+          ],
+          seen: [{ questionId: 'q-local', firstSeenUtc: '2026-10-04T00:00:00.000Z' }],
+          attempts: [
+            {
+              attemptId: 'local-attempt',
+              mode: 'unseen',
+              startedAt: '2026-10-04T00:00:00.000Z',
+              completedAt: '2026-10-04T00:10:00.000Z',
+              questionCount: 1,
+              answeredCount: 1,
+              correctCount: 1,
+              percent: 100,
+              answers: [
+                {
+                  questionId: 'q1',
+                  chosenOptionId: 'a',
+                  correctOptionId: 'a',
+                  isCorrect: true,
+                  answeredAt: '2026-10-04T00:05:00.000Z',
+                },
+              ],
+            },
+          ],
+          highlights: [
+            {
+              highlightId: 'h-local',
+              chapterId: 'ch-general',
+              sectionId: 's1',
+              startOffset: 0,
+              endOffset: 4,
+              text: 'Term',
+              createdAt: '2026-10-04T00:00:00.000Z',
+            },
+          ],
+        },
+      }),
+    )
+    const calls: string[] = []
+    vi.stubGlobal('fetch', async (url: string, init?: RequestInit) => {
+      const method = init?.method ?? 'GET'
+      const path = String(url).replace('https://ecdmy.com/', '')
+      calls.push(`${method} ${path}`)
+      if (method === 'GET' && path === 'api/wealthEdAgent/study/progress') {
+        return jsonResponse({
+          sections: [{ chapterId: 'ch-general', sectionId: 's1', completed: false, completedAt: '2026-10-01T00:00:00.000Z' }],
+        })
+      }
+      if (method === 'PUT' && path.startsWith('api/wealthEdAgent/study/progress/')) {
+        return jsonResponse({
+          section: { chapterId: 'ch-general', sectionId: 's1', completed: true, completedAt: '2026-10-04T00:00:00.000Z' },
+        })
+      }
+      if (method === 'GET' && path === 'api/wealthEdAgent/study/attempts') return jsonResponse({ attempts: [] })
+      if (method === 'POST' && path === 'api/wealthEdAgent/study/attempts') {
+        return jsonResponse({
+          attempt: {
+            attemptId: 'server-attempt',
+            mode: 'unseen',
+            startedAt: '2026-10-04T00:00:00.000Z',
+            completedAt: null,
+            questionCount: 1,
+            answeredCount: 0,
+            correctCount: 0,
+            percent: 0,
+          },
+        })
+      }
+      if (method === 'PUT' && path.includes('/answers/')) {
+        return jsonResponse({
+          answer: {
+            questionId: 'q1',
+            chosenOptionId: 'a',
+            correctOptionId: 'a',
+            isCorrect: true,
+            answeredAt: '2026-10-04T00:05:00.000Z',
+          },
+          attempt: { attemptId: 'server-attempt', percent: 100 },
+        })
+      }
+      if (method === 'POST' && path.endsWith('/complete')) {
+        return jsonResponse({
+          attempt: {
+            attemptId: 'server-attempt',
+            mode: 'unseen',
+            startedAt: '2026-10-04T00:00:00.000Z',
+            completedAt: '2026-10-04T00:10:00.000Z',
+            questionCount: 1,
+            answeredCount: 1,
+            correctCount: 1,
+            percent: 100,
+          },
+        })
+      }
+      if (method === 'GET' && path === 'api/wealthEdAgent/study/highlights') return jsonResponse({ highlights: [] })
+      if (method === 'POST' && path === 'api/wealthEdAgent/study/highlights') {
+        return jsonResponse({
+          highlight: {
+            highlightId: 'h-server',
+            chapterId: 'ch-general',
+            sectionId: 's1',
+            startOffset: 0,
+            endOffset: 4,
+            text: 'Term',
+            createdAt: '2026-10-04T00:00:00.000Z',
+          },
+        })
+      }
+      if (path === 'api/wealthEdAgent/study/questions/seen') {
+        return jsonResponse({ questionIds: ['q-server'], seen: [{ questionId: 'q-server', firstSeenUtc: '2026-10-01T00:00:00.000Z' }] })
+      }
+      return jsonResponse({})
+    })
+
+    const progress = await getProgress()
+    expect(progress.sections.find((row) => row.sectionId === 's1')?.completed).toBe(true)
+    const highlights = await listHighlights()
+    expect(highlights.highlights.map((row) => row.highlightId)).toEqual(['h-server'])
+    await listAttempts()
+    const seen = await getSeen()
+    expect(seen.questionIds).toEqual(['q-server', 'q-local', 'q1'])
+
+    const writes = () => calls.filter((call) => call.startsWith('POST ') || call.startsWith('PUT '))
+    const posted = writes()
+    expect(posted.filter((call) => call.includes('/progress/'))).toHaveLength(1)
+    expect(posted.filter((call) => call === 'POST api/wealthEdAgent/study/highlights')).toHaveLength(1)
+    expect(posted.filter((call) => call === 'POST api/wealthEdAgent/study/attempts')).toHaveLength(1)
+
+    await getProgress()
+    await listHighlights()
+    expect(writes()).toEqual(posted)
+    vi.unstubAllGlobals()
+    vi.unstubAllEnvs()
+  })
+
+  it('keeps progress on the server when highlights return an empty 404', async () => {
+    const notices: StudyFeature[][] = []
+    setStudyNoticeHandler((features) => notices.push(features))
+    const calls: string[] = []
+    vi.stubGlobal('fetch', async (url: string, init?: RequestInit) => {
+      const method = init?.method ?? 'GET'
+      const path = String(url).replace('https://ecdmy.com/', '')
+      calls.push(`${method} ${path}`)
+      if (path.endsWith('/highlights')) return new Response('', { status: 404 })
+      if (path.endsWith('/progress')) {
+        return jsonResponse({
+          sections: [{ chapterId: 'ch-general', sectionId: 's1', completed: true, completedAt: '2026-10-04T00:00:00.000Z' }],
+        })
+      }
+      return jsonResponse({ attempts: [], questionIds: [], seen: [], highlights: [] })
+    })
+
+    const highlights = await listHighlights()
+    expect(highlights.highlights).toEqual([])
+    expect(notices.at(-1)).toEqual(['highlights'])
+    const progress = await getProgress()
+    expect(progress.sections[0]?.completed).toBe(true)
+    const highlightCalls = () => calls.filter((call) => call.includes('highlights'))
+    const progressCalls = () => calls.filter((call) => call.includes('/progress'))
+    expect(highlightCalls()).toHaveLength(1)
+    expect(progressCalls().length).toBeGreaterThan(0)
+    await listHighlights()
+    expect(highlightCalls()).toHaveLength(1)
+    const progressBefore = progressCalls().length
+    await reprobeStudyFeaturesNow()
+    expect(highlightCalls().length).toBeGreaterThan(1)
+    expect(progressCalls()).toHaveLength(progressBefore)
     vi.unstubAllGlobals()
     vi.unstubAllEnvs()
   })

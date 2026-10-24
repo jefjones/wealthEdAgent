@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext.tsx'
 import { HIGHLIGHTS_NAV_LABEL } from '../study/highlights.ts'
+import { studyNoticeMessage } from '../study/studySync.ts'
 import { ActivityBridge } from './ActivityBridge.tsx'
 
 const links = [
@@ -13,7 +14,8 @@ const links = [
 ]
 
 export function Shell() {
-  const { person, logout, localStudy } = useAuth()
+  const { person, logout, studyNotice } = useAuth()
+  const studyMessage = studyNoticeMessage(studyNotice)
   const [open, setOpen] = useState(false)
   const first = person?.fname?.trim()
 
@@ -26,10 +28,11 @@ export function Shell() {
               Utah Life and Health Insurance Study Contents
             </span>
           </NavLink>
+          {person ? <div id="mobile-contents-slot" className="lg:hidden" /> : null}
           {person ? (
             <button
               type="button"
-              className="rounded-full p-2 hover:bg-white/10 md:hidden"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full hover:bg-white/10 md:hidden"
               aria-label={open ? 'Close menu' : 'Open menu'}
               onClick={() => setOpen((value) => !value)}
             >
@@ -97,12 +100,9 @@ export function Shell() {
           </nav>
         ) : null}
       </header>
-      {localStudy ? (
-        <div className="bg-[#fff6e8] text-[#6a4b16]">
-          <p className="mx-auto max-w-6xl px-4 py-2 text-sm">
-            Study progress is not available on the server yet. Your reading progress, test scores, and highlights are being kept
-            in this browser.
-          </p>
+      {studyMessage ? (
+        <div className="bg-[#fff6e8] text-[#6a4b16]" role="status">
+          <p className="mx-auto max-w-6xl px-4 py-2 text-sm">{studyMessage}</p>
         </div>
       ) : null}
       {person ? <ActivityBridge /> : null}
