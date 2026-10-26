@@ -15,6 +15,7 @@ import { Card } from '../components/ui/card.tsx'
 import { courseSections, tests, type TestCourse } from '../content/catalog.ts'
 import { formatLocal, formatPercent, percent } from '../lib/utils.ts'
 import { studyPath } from '../study/paths.ts'
+import { useStudyState } from '../study/stateSync.ts'
 import { summarizeTest } from '../study/testSummary.ts'
 
 export function TestsPage() {
@@ -65,9 +66,15 @@ export function TestsPage() {
         </div>
       ) : null}
       {!loading && !error ? (
-        <div className="mt-6 grid gap-4 lg:grid-cols-2">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {tests.map((test) => (
-            <TestCard key={test.id} test={test} progress={progress} seen={seen} attempts={attempts} />
+            <TestCard
+              key={test.id}
+              test={test}
+              progress={progress}
+              seen={seen}
+              attempts={attempts}
+            />
           ))}
         </div>
       ) : null}
@@ -87,20 +94,22 @@ function TestCard({
   attempts: Attempt[]
 }) {
   const sections = courseSections(test.id)
+  const { state: studyState } = useStudyState(test.id)
   const summary = summarizeTest({
     testId: test.id,
     sectionIds: sections.map((section) => section.id),
     progress,
     seen,
     attempts,
+    lastStudiedAt: studyState.lastPosition?.savedAt ?? null,
   })
   const readPercent = percent(summary.sectionsRead, summary.sectionsTotal)
   return (
     <Card className="flex h-full flex-col p-5 sm:p-6">
       <p className="text-sm font-semibold text-[#2a6cb5]">{test.pack.chapters.length} chapters</p>
-      <div className="lg:min-h-[5.5rem]">
+      <div className="md:min-h-[6rem]">
         <h2 className="mt-1 font-['Fraunces',Georgia,serif] text-2xl font-semibold text-[#14375f]">{test.title}</h2>
-        <p className="mt-1 text-[#3d5166] lg:line-clamp-2" title={test.blurb}>{test.blurb}</p>
+        <p className="mt-1 text-[#3d5166] md:line-clamp-2" title={test.blurb}>{test.blurb}</p>
       </div>
       <div className="mt-4">
         <div className="flex items-baseline justify-between gap-3 text-sm">
@@ -124,16 +133,16 @@ function TestCard({
           <dt className="text-xs font-semibold tracking-wide text-[#5c7288] uppercase">Questions answered</dt>
           <dd className="mt-1 text-lg font-semibold text-[#14375f]">{summary.questionsAnswered}</dd>
         </div>
-        <div className="col-span-2">
-          <dt className="text-xs font-semibold tracking-wide text-[#5c7288] uppercase">Last effort</dt>
-          <dd className="mt-1 font-semibold text-[#14375f]">{summary.lastEffortAt ? formatLocal(summary.lastEffortAt) : 'No work yet'}</dd>
-        </div>
       </dl>
-      <Link className="mt-auto pt-5" to={studyPath(test.id)}>
-        <Button type="button" className="w-full sm:w-auto">
-          Study this test
-        </Button>
-      </Link>
+      <div className="mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-2 pt-4">
+        <Link to={studyPath(test.id)}>
+          <Button type="button">Study this test</Button>
+        </Link>
+        <div className="min-w-0 text-right text-sm">
+          <p className="text-[0.65rem] font-semibold tracking-wide text-[#5c7288] uppercase sm:text-xs">Last effort</p>
+          <p className="font-semibold text-[#14375f]">{summary.lastEffortAt ? formatLocal(summary.lastEffortAt) : 'No work yet'}</p>
+        </div>
+      </div>
     </Card>
   )
 }

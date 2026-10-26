@@ -49,6 +49,8 @@ export function summarizeTest(input: {
   progress: readonly SummaryProgress[]
   seen: readonly SummarySeen[]
   attempts: readonly SummaryAttempt[]
+  /** When a chapter or section was last opened in Study (synced study state). */
+  lastStudiedAt?: string | null
 }): TestSummary {
   const sections = new Set(input.sectionIds)
   const read = input.progress.filter((row) => row.completed && sections.has(row.sectionId))
@@ -60,6 +62,7 @@ export function summarizeTest(input: {
     ...read.map((row) => row.completedAt),
     ...attempts.flatMap((attempt) => [attempt.startedAt, attempt.completedAt]),
     ...input.seen.map((row) => row.firstSeenUtc),
+    input.lastStudiedAt,
   ]
   let lastMs = 0
   let lastEffortAt: string | null = null

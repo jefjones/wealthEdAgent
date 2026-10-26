@@ -1,13 +1,19 @@
 import { studyPack } from './pack.ts'
 import { siePack } from './sie/pack.ts'
+import { series6Pack } from './series6/pack.ts'
+import { series63Pack } from './series63/pack.ts'
+import { series65Pack } from './series65/pack.ts'
 import type { Chapter, Question, Section, StudyPack } from './types.ts'
 
 export const SITE_TITLE = 'Life/Health and Securities Licenses Test Content Study'
 
 export const LIFE_HEALTH_ID = 'life-health'
 export const SIE_ID = 'sie'
+export const SERIES6_ID = 'series-6'
+export const SERIES63_ID = 'series-63'
+export const SERIES65_ID = 'series-65'
 
-export type TestId = typeof LIFE_HEALTH_ID | typeof SIE_ID
+export type TestId = typeof LIFE_HEALTH_ID | typeof SIE_ID | typeof SERIES6_ID | typeof SERIES63_ID | typeof SERIES65_ID
 
 export type TestCourse = {
   id: TestId
@@ -28,6 +34,24 @@ export const tests: readonly TestCourse[] = [
     title: 'SIE — Securities Industry Essentials',
     blurb: 'Stocks, bonds, funds, accounts, and the rules for the securities industry.',
     pack: siePack,
+  },
+  {
+    id: SERIES6_ID,
+    title: 'Series 6 — Investment Company and Variable Products',
+    blurb: 'Mutual funds, variable annuities, taxes, suitability, and the rules for selling them.',
+    pack: series6Pack,
+  },
+  {
+    id: SERIES63_ID,
+    title: 'Series 63 — Uniform Securities Agent State Law',
+    blurb: 'State rules for advisers, broker-dealers, and agents, plus ethics and what the Administrator can do.',
+    pack: series63Pack,
+  },
+  {
+    id: SERIES65_ID,
+    title: 'Series 65 — Uniform Investment Adviser Law',
+    blurb: 'Investments, the economy, portfolios, clients and taxes, plus the laws and ethics for investment advisers.',
+    pack: series65Pack,
   },
 ]
 

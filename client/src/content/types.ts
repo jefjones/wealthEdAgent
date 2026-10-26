@@ -16,6 +16,8 @@ export type Section = {
   title: string
   body: string
   questions: Question[]
+  /** Figure ids drawn below the study text. They are not part of the body, so text offsets stay the same. */
+  figures?: string[]
 }
 
 export type Chapter = {

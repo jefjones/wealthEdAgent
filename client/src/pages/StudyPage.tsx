@@ -9,6 +9,7 @@ import { SideTabs } from '../components/SideTabs.tsx'
 import { DeleteHighlightDialog } from '../components/DeleteHighlightDialog.tsx'
 import { HighlightOffer, HighlightSavedNotice } from '../components/HighlightOffer.tsx'
 import { Prose } from '../components/Prose.tsx'
+import { SectionFigures } from '../components/figures/SectionFigures.tsx'
 import { SlideOver } from '../components/SlideOver.tsx'
 import { StudyOutline } from '../components/StudyOutline.tsx'
 import { NarrationBar } from '../components/NarrationBar.tsx'
@@ -18,6 +19,7 @@ import { subjectTitle } from '../content/rewrite.ts'
 import { COLUMN_SCROLL, isColumnScroller, scrollChildIntoView, scrollNarrationTarget } from '../study/columnScroll.ts'
 import { loadResume, saveResume } from '../study/draws.ts'
 import { peekStudyState, updateStudyState, useStudyState } from '../study/stateSync.ts'
+import { studyOpenPosition } from '../study/studyState.ts'
 import { studyPath } from '../study/paths.ts'
 import { useTest } from '../study/TestContext.tsx'
 import { useStudyNav } from '../study/studyNav.ts'
@@ -225,10 +227,8 @@ export function StudyPage() {
   useEffect(() => {
     if (!person || !current) return
     saveResume(person.personId, current.id, test.id)
-    if (peekStudyState(test.id).lastPosition?.sectionId === current.id) return
-    updateStudyState(test.id, {
-      lastPosition: { chapterId: current.chapter.id, sectionId: current.id, savedAt: new Date().toISOString() },
-    })
+    const position = studyOpenPosition(peekStudyState(test.id).lastPosition, current.chapter.id, current.id, new Date().toISOString())
+    if (position) updateStudyState(test.id, { lastPosition: position })
   }, [current, person, test.id])
 
   useEffect(() => {
@@ -411,6 +411,7 @@ export function StudyPage() {
 
   function studyProse() {
     return (
+      <>
       <Prose
         text={sectionBody}
         sentences={sentences}
@@ -433,6 +434,8 @@ export function StudyPage() {
           setPendingDelete({ id: highlightId, text: row?.text ?? '' })
         }}
       />
+      <SectionFigures ids={current?.figures} />
+      </>
     )
   }
 

@@ -150,6 +150,25 @@ export function stateSize(state: TestState) {
   return new TextEncoder().encode(JSON.stringify(state)).length
 }
 
+/* ---------- Study effort ---------- */
+
+/** Reopening the same section counts again only after this long, so reloads do not spam saves. */
+export const STUDY_EFFORT_THROTTLE_MS = 60_000
+
+/**
+ * Opening a chapter or section is an effort. Returns the lastPosition to save,
+ * or null when it is the same section saved less than a minute ago.
+ */
+export function studyOpenPosition(
+  previous: LastPosition | null | undefined,
+  chapterId: string,
+  sectionId: string,
+  nowIso: string,
+): LastPosition | null {
+  if (previous?.sectionId === sectionId && ms(nowIso) - ms(previous.savedAt) < STUDY_EFFORT_THROTTLE_MS) return null
+  return { chapterId, sectionId, savedAt: nowIso }
+}
+
 /* ---------- Voice matching ---------- */
 
 const FEMALE = ['samantha', 'zira', 'aria', 'jenny', 'karen', 'moira', 'tessa', 'victoria', 'allison', 'ava', 'susan', 'serena', 'libby', 'sonia']

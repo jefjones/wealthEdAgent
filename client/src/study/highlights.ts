@@ -75,35 +75,41 @@ export function sourceBlocks(body: string): SourceBlock[] {
 
 function pushBlock(blocks: SourceBlock[], body: string, start: number, end: number) {
   if (start >= end) return
-  blocks.push(parseBlock(body.slice(start, end), start))
+  blocks.push(...parseBlocks(body.slice(start, end), start))
 }
 
-function parseBlock(text: string, start: number): SourceBlock {
-  const lines = splitLines(text, start).filter((line) => line.text.length > 0)
-  if (lines.length > 0 && lines.every((line) => line.text.startsWith('• '))) {
-    return {
-      kind: 'list',
-      runs: lines.map((line) => ({
-        start: line.start + '• '.length,
-        end: line.end,
-        text: line.text.slice('• '.length),
-      })),
-    }
-  }
-  return { kind: 'paragraph', run: { start, end: start + text.length, text } }
+/** A bullet that starts a list item: at the start of a block or after whitespace (inline or on its own line). */
+export function isListBullet(text: string, index: number) {
+  return text[index] === '•' && (index === 0 || /\s/u.test(text[index - 1] ?? ''))
 }
 
-function splitLines(text: string, start: number) {
-  const lines: SourceRun[] = []
-  let cursor = 0
-  const breaks = /\n/g
-  let match: RegExpExecArray | null
-  while ((match = breaks.exec(text))) {
-    lines.push({ start: start + cursor, end: start + match.index, text: text.slice(cursor, match.index) })
-    cursor = match.index + 1
-  }
-  lines.push({ start: start + cursor, end: start + text.length, text: text.slice(cursor) })
-  return lines
+/** Trim a slice of the block without changing which body offsets it points to. */
+function trimmedRun(text: string, start: number, from: number, to: number): SourceRun | null {
+  while (from < to && /\s/u.test(text[from] ?? '')) from += 1
+  while (to > from && /\s/u.test(text[to - 1] ?? '')) to -= 1
+  if (from >= to) return null
+  return { start: start + from, end: start + to, text: text.slice(from, to) }
+}
+
+/**
+ * Bullets become a real list, whether each is on its own line or they run inline
+ * ("rights: • Inspect ... • Transfer ..."). Text before the first bullet stays a paragraph.
+ * Text after the last bullet stays with that item. Offsets always point into the body.
+ */
+export function parseBlocks(text: string, start: number): SourceBlock[] {
+  const marks: number[] = []
+  for (let index = 0; index < text.length; index += 1) if (isListBullet(text, index)) marks.push(index)
+  if (marks.length === 0) return [{ kind: 'paragraph', run: { start, end: start + text.length, text } }]
+  const out: SourceBlock[] = []
+  const lead = trimmedRun(text, start, 0, marks[0]!)
+  if (lead) out.push({ kind: 'paragraph', run: lead })
+  const runs: SourceRun[] = []
+  marks.forEach((mark, i) => {
+    const run = trimmedRun(text, start, mark + 1, marks[i + 1] ?? text.length)
+    if (run) runs.push(run)
+  })
+  if (runs.length > 0) out.push({ kind: 'list', runs })
+  return out
 }
 
 /**

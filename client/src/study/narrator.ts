@@ -1,5 +1,5 @@
 import { subjectTitle } from '../content/rewrite.ts'
-import { anchorHighlight, orderHighlights } from './highlights.ts'
+import { anchorHighlight, isListBullet, orderHighlights } from './highlights.ts'
 
 /**
  * Read-aloud queues for the study page and the highlights page.
@@ -175,6 +175,12 @@ export function splitSentences(body: string): Sentence[] {
       index += 1
       while (index < length && body[index] === '\n') index += 1
       start = index
+      continue
+    }
+    if (ch === '•' && index > start && isListBullet(body, index)) {
+      pushSentence(body, sentences, start, index)
+      start = index
+      index += 1
       continue
     }
     if (ch === '\n' && body.startsWith('• ', index + 1)) {

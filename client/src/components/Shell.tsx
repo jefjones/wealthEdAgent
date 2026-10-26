@@ -31,7 +31,8 @@ export function Shell() {
   const testId = testMatch?.[1] ?? null
   const links = navLinks(testId)
   const split = testId != null && (/\/study(\/|$)/.test(path) || /\/search(\/|$)/.test(path))
-  const frame = 'max-w-6xl'
+  /** The tests home page uses the full screen width (up to 1600px) so cards fit three across. */
+  const frame = path === testsHomePath() ? 'max-w-[1600px]' : 'max-w-6xl'
   const [open, setOpen] = useState(false)
   const first = person?.fname?.trim()
 
