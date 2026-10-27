@@ -10,7 +10,7 @@ import { courseQuestions, courseSections } from '../content/catalog.ts'
 import { attemptPath, practicePath } from '../study/paths.ts'
 import { useTest } from '../study/TestContext.tsx'
 import { attemptBelongsToTest } from '../study/testSummary.ts'
-import { formatLocal, formatPercent } from '../lib/utils.ts'
+import { formatDenver, formatPercent } from '../lib/utils.ts'
 
 export function ProgressPage() {
   const test = useTest()
@@ -133,7 +133,7 @@ export function ProgressPage() {
                     <tr key={attempt.attemptId} className="border-t border-[#e4eef7]">
                       <td className="px-4 py-3">
                         <Link className="font-semibold text-[#2a6cb5] hover:underline" to={attemptPath(test.id, attempt.attemptId)}>
-                          {formatLocal(attempt.completedAt ?? attempt.startedAt)}
+                          {formatDenver(attempt.completedAt ?? attempt.startedAt)}
                         </Link>
                         <p className="text-xs text-[#5c7288]">
                           {attempt.completedAt ? (attempt.mode === 'unseen' ? 'Unseen' : 'Any questions') : 'In progress'}

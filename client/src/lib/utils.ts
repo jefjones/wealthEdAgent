@@ -15,6 +15,22 @@ export function formatLocal(iso: string | null | undefined) {
   }).format(date)
 }
 
+/** Date and time in Mountain time (America/Denver), e.g. "Oct 26, 2026, 10:34 PM MDT". */
+export function formatDenver(iso: string | null | undefined) {
+  if (!iso) return '—'
+  const date = new Date(iso)
+  if (Number.isNaN(date.getTime())) return '—'
+  return new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Denver',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZoneName: 'short',
+  }).format(date)
+}
+
 export function percent(done: number, total: number) {
   if (total <= 0) return 0
   return Math.round((done / total) * 100)

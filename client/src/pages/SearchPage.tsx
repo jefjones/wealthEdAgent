@@ -3,11 +3,12 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { SearchPanel } from '../components/SearchPanel.tsx'
 import { COLUMN_SCROLL } from '../study/columnScroll.ts'
 import { isFreshSearchSignal, useSearch } from '../study/SearchContext.tsx'
+import { isCarrySearchState } from '../study/testSwitch.ts'
 
 export function SearchPage() {
   const location = useLocation()
   const navigate = useNavigate()
-  const { startFresh } = useSearch()
+  const { startFresh, runSearch } = useSearch()
   const [freshToken, setFreshToken] = useState(0)
 
   // The Search nav item sends router state { freshSearch: true }. Use it once, then drop it from history,
@@ -19,6 +20,13 @@ export function SearchPage() {
     setFreshToken((token) => token + 1)
     navigate(`${location.pathname}${location.search}${location.hash}`, { replace: true, state: null })
   }, [location.key, location.state, location.pathname, location.search, location.hash, navigate, startFresh])
+
+  // Switching tests from the header carries the words over once, then drops the state so refresh keeps the result.
+  useEffect(() => {
+    if (!isCarrySearchState(location.state)) return
+    runSearch(location.state.carrySearch)
+    navigate(`${location.pathname}${location.search}${location.hash}`, { replace: true, state: null })
+  }, [location.key, location.state, location.pathname, location.search, location.hash, navigate, runSearch])
 
   return (
     <div className="grid gap-6 lg:h-full lg:min-h-0 lg:flex-1 lg:grid-cols-[320px_minmax(0,1fr)] lg:grid-rows-1 lg:gap-4 lg:overflow-hidden">

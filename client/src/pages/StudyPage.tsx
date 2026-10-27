@@ -143,7 +143,7 @@ export function StudyPage() {
     groups: speechGroups,
     noun: 'sentence',
     empty: 'This section has nothing to read.',
-    fromStart: 'Starts at the top of this section.',
+    fromStart: '',
   })
   const activeSentence =
     narration.activeGroup != null && Number.isInteger(Number(narration.activeGroup)) ? Number(narration.activeGroup) : null

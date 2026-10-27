@@ -7,6 +7,8 @@ import { HIGHLIGHTS_NAV_LABEL } from '../study/highlights.ts'
 import { highlightsPath, practicePath, progressPath, searchPath, studyPath, testsHomePath } from '../study/paths.ts'
 import { studyNoticeMessage } from '../study/studySync.ts'
 import { ActivityBridge } from './ActivityBridge.tsx'
+import { TestSwitcher } from './TestSwitcher.tsx'
+import { getTest } from '../content/catalog.ts'
 import { StateBridge } from './StateBridge.tsx'
 
 type NavItem = { to: string; label: string; icon: typeof LayoutGrid; state?: { freshSearch: true } }
@@ -54,11 +56,14 @@ export function Shell() {
     >
       <header className="shrink-0 bg-[#2a6cb5] text-white">
         <div className={`mx-auto flex ${frame} items-center gap-3 px-4 py-3`}>
-          <NavLink to={person ? testsHomePath() : '/login'} className="min-w-0 flex-1" onClick={() => setOpen(false)}>
-            <span className="block font-['Fraunces',Georgia,serif] text-base leading-tight font-semibold tracking-tight sm:text-lg">
-              {SITE_TITLE}
-            </span>
-          </NavLink>
+          <div className="min-w-0 flex-1">
+            <NavLink to={person ? testsHomePath() : '/login'} className="block" onClick={() => setOpen(false)}>
+              <span className="block font-['Fraunces',Georgia,serif] text-base leading-tight font-semibold tracking-tight sm:text-lg">
+                {SITE_TITLE}
+              </span>
+            </NavLink>
+            {person && testId && getTest(testId) ? <TestSwitcher testId={testId} /> : null}
+          </div>
           {person ? <div id="mobile-contents-slot" className="lg:hidden" /> : null}
           {person ? (
             <button

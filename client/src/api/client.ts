@@ -10,6 +10,7 @@
 
 import { LIFE_HEALTH_ID } from '../content/catalog.ts'
 import type { ActivityEvent } from '../study/activity.ts'
+import { attemptTestIdBody, resolveAttemptTestId } from '../study/attemptTest.ts'
 import { copyDraw, loadDraw, saveDraw } from '../study/draws.ts'
 import { highlightInputError } from '../study/highlights.ts'
 import {
@@ -921,6 +922,14 @@ function mirrorHighlight(row: Highlight) {
   })
 }
 
+/** The server has no test id on attempts. Fill it from this browser or from the drawn questions. */
+function withTestId(attempt: Attempt): Attempt {
+  const local = peekDb().attempts.find((row) => row.attemptId === attempt.attemptId)
+  const drawIds = attempt.draw?.questionIds ?? loadDraw(requirePerson().personId, attempt.attemptId)?.questionIds
+  const testId = resolveAttemptTestId(attempt.testId, local?.testId, drawIds)
+  return testId ? { ...attempt, testId } : attempt
+}
+
 function mirrorAttempt(attempt: Attempt, answers?: Answer[]) {
   updateDb((db) => {
     const existing = db.attempts.find((row) => row.attemptId === attempt.attemptId)
@@ -1003,6 +1012,7 @@ async function pushLocalAttempt(local: AttemptRecord) {
         body: JSON.stringify({
           mode: local.mode,
           questionCount: local.questionCount,
+          ...attemptTestIdBody(local.testId),
           ...drawBody(loadDraw(requirePerson().personId, local.attemptId)),
         }),
       })
@@ -1490,7 +1500,7 @@ export function createAttempt(input: { mode: AttemptMode; questionCount: number;
     async () => {
       const result = await realApi<{ attempt: Attempt }>('api/wealthEdAgent/study/attempts', {
         method: 'POST',
-        body: JSON.stringify({ mode: input.mode, questionCount: input.questionCount, ...drawBody(input.draw) }),
+        body: JSON.stringify({ mode: input.mode, questionCount: input.questionCount, ...attemptTestIdBody(testId), ...drawBody(input.draw) }),
       })
       mirrorAttempt({ ...result.attempt, testId }, [])
       return { attempt: { ...result.attempt, testId } }
@@ -1560,6 +1570,7 @@ export function completeAttempt(attemptId: string) {
 export function listAttempts() {
   return withFeature('attempts', localList, async () => {
     const body = await realApi<{ attempts: Attempt[] }>('api/wealthEdAgent/study/attempts')
+    body.attempts = body.attempts.map(withTestId)
     body.attempts.forEach((summary) => {
       mirrorAttempt(summary)
       mirrorServerDraw(summary)
@@ -1579,7 +1590,7 @@ export function getAttempt(attemptId: string) {
       const raw = await realApi<{ attempt: Attempt; answers: Answer[] }>(
         `api/wealthEdAgent/study/attempts/${encodeURIComponent(id())}`,
       )
-      const result = { ...raw, answers: raw.answers.map(normalizeAnswer) }
+      const result = { ...raw, attempt: withTestId(raw.attempt), answers: raw.answers.map(normalizeAnswer) }
       mirrorAttempt(result.attempt, result.answers)
       mirrorServerDraw(result.attempt, result.answers)
       return result

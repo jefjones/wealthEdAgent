@@ -1,4 +1,5 @@
-import { useEffect, useId, useRef, useState } from 'react'
+import { MoreHorizontal } from 'lucide-react'
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { IOS_CHROME_VOICE_NOTE, IOS_VOICE_HINT } from '../study/narrator.ts'
 import type { NarrationRate, PlayerPhase } from '../study/narrator.ts'
 import { Button } from './ui/button.tsx'
@@ -89,14 +90,12 @@ function NarrationControls({
   stepName,
   startTitle,
   canPrevious,
-  canNext,
   voiceId,
   voices,
   showIosVoiceHint,
   onStart,
   onStop,
   onPrevious,
-  onNext,
   onCycleRate,
   onVoiceChange,
   onPreviewVoice,
@@ -108,7 +107,7 @@ function NarrationControls({
   const rateText = rateLabel(rate)
   return (
     <div className="flex flex-col gap-1 lg:flex-row lg:flex-wrap lg:items-center lg:gap-x-3 lg:gap-y-1">
-      <div role="group" aria-label="Read aloud" className="flex flex-wrap items-center gap-2">
+      <div role="group" aria-label="Read aloud" className="flex flex-nowrap items-center gap-2">
         <Button
           type="button"
           variant="outline"
@@ -134,54 +133,120 @@ function NarrationControls({
         >
           Stop
         </Button>
-        <Button
-          type="button"
-          variant="outline"
-          className="min-w-11 px-3"
-          disabled={!canNext}
-          aria-label={`Next ${stepName}`}
-          title={`Next ${stepName}`}
-          onClick={onNext}
-        >
-          Next
-        </Button>
-        <Button
-          type="button"
-          variant="outline"
-          className="min-w-11 px-3"
-          aria-label={`Reading speed ${rateText}. Change speed.`}
-          title="Change reading speed between 0.8×, 1×, and 1.25×"
-          onClick={onCycleRate}
-        >
-          {rateText}
-        </Button>
-        <VoicePicker
-          placement={placement}
-          mobileBarHeight={mobileBarHeight}
-          voiceId={voiceId}
-          voices={voices}
-          showIosVoiceHint={showIosVoiceHint}
-          onVoiceChange={onVoiceChange}
-          onPreviewVoice={onPreviewVoice}
-        />
-        {onAutoContinueChange ? (
-          <label
-            className="flex min-h-11 cursor-pointer items-center gap-2 px-1 text-sm font-semibold text-[#1c3f66]"
-            title="When a section ends, read the next one"
-          >
-            <input
-              type="checkbox"
-              className="size-4 accent-[#2a6cb5]"
-              checked={autoContinue}
-              onChange={(event) => onAutoContinueChange(event.target.checked)}
+        <MoreMenu placement={placement} mobileBarHeight={mobileBarHeight}>
+          <div className="flex flex-col gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              className="min-w-11 justify-start px-3"
+              aria-label={`Reading speed ${rateText}. Change speed.`}
+              title="Change reading speed between 0.8×, 1×, and 1.25×"
+              onClick={onCycleRate}
+            >
+              Speed {rateText}
+            </Button>
+            <VoicePicker
+              placement={placement}
+              mobileBarHeight={mobileBarHeight}
+              voiceId={voiceId}
+              voices={voices}
+              showIosVoiceHint={showIosVoiceHint}
+              onVoiceChange={onVoiceChange}
+              onPreviewVoice={onPreviewVoice}
             />
-            Auto-continue
-          </label>
-        ) : null}
-      </div>
-      <p aria-live="polite" className="min-h-5 text-sm text-[#5c7288]">
+            {onAutoContinueChange ? (
+              <label
+                className="flex min-h-11 cursor-pointer items-center gap-2 px-1 text-sm font-semibold text-[#1c3f66]"
+                title="When a section ends, read the next one"
+              >
+                <input
+                  type="checkbox"
+                  className="size-4 accent-[#2a6cb5]"
+                  checked={autoContinue}
+                  onChange={(event) => onAutoContinueChange(event.target.checked)}
+                />
+                Auto-continue
+              </label>
+            ) : null}
+          </div>
+        </MoreMenu>      </div>
+      <p aria-live="polite" className="text-sm text-[#5c7288] empty:hidden">
         {status}
       </p>
+    </div>
+  )
+}
+
+/** "…" button that holds the speed, voice and auto-continue settings. Opens upward in the mobile bar. */
+export function MoreMenu({
+  placement,
+  mobileBarHeight,
+  children,
+}: {
+  placement: 'up' | 'down'
+  mobileBarHeight: number
+  children: ReactNode
+}) {
+  const [open, setOpen] = useState(false)
+  const rootRef = useRef<HTMLDivElement>(null)
+  const panelId = useId()
+
+  useEffect(() => {
+    if (!open) return
+    const onPointer = (event: PointerEvent) => {
+      const target = event.target as Node
+      if (rootRef.current?.contains(target)) return
+      // The voice list opens as its own panel inside this menu; taps there keep the menu open.
+      if (target instanceof Element && target.closest('[data-narration-panel]')) return
+      setOpen(false)
+    }
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      setOpen(false)
+      rootRef.current?.querySelector<HTMLButtonElement>('[data-more-button]')?.focus()
+    }
+    document.addEventListener('pointerdown', onPointer)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('pointerdown', onPointer)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [open])
+
+  const panelClass =
+    placement === 'up'
+      ? 'fixed right-3 z-40 w-[min(18rem,calc(100vw-1.5rem))] max-h-[70vh]'
+      : 'absolute right-0 top-full z-40 mt-2 w-64'
+  const panelStyle = placement === 'up' ? { bottom: `${mobileBarHeight + 8}px` } : undefined
+
+  return (
+    <div ref={rootRef} className="relative">
+      <Button
+        type="button"
+        variant="outline"
+        className="min-w-11 px-3"
+        aria-haspopup="dialog"
+        aria-expanded={open}
+        aria-controls={open ? panelId : undefined}
+        data-more-button=""
+        aria-label="More read-aloud settings"
+        title="More read-aloud settings"
+        onClick={() => setOpen((value) => !value)}
+      >
+        <MoreHorizontal size={18} aria-hidden />
+      </Button>
+      {open ? (
+        <div
+          id={panelId}
+          role="dialog"
+          aria-label="Read-aloud settings"
+          data-narration-panel=""
+          className={`${panelClass} overflow-y-auto rounded-2xl border border-[#d5e2f0] bg-white p-3 shadow-lg`}
+          style={panelStyle}
+        >
+          {children}
+        </div>
+      ) : null}
     </div>
   )
 }
@@ -234,7 +299,7 @@ function VoicePicker({
       <Button
         type="button"
         variant="outline"
-        className="min-w-11 px-3"
+        className="min-w-11 w-full justify-start px-3"
         aria-expanded={open}
         aria-haspopup="dialog"
         aria-label="Choose a voice"
@@ -247,6 +312,7 @@ function VoicePicker({
         <div
           role="dialog"
           aria-label="Choose a voice"
+          data-narration-panel=""
           className={`${panelClass} overflow-y-auto rounded-2xl border border-[#d5e2f0] bg-white p-3 shadow-lg`}
           style={panelStyle}
         >

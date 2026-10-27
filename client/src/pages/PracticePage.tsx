@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { createAttempt, errorText, getSeen, listAttempts, onStudyFeatureReady, type AttemptMode } from '../api/client.ts'
 import { useAuth } from '../auth/AuthContext.tsx'
 import { ContentsButton } from '../components/ContentsButton.tsx'
+import { PastAttempts } from '../components/PastAttempts.tsx'
 import { SlideOver } from '../components/SlideOver.tsx'
 import { Button } from '../components/ui/button.tsx'
 import { Card } from '../components/ui/card.tsx'
@@ -177,6 +178,7 @@ export function PracticePage() {
           </Button>
         </form>
       </Card>
+      <PastAttempts testId={test.id} />
     </div>
   )
 }

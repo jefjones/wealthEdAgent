@@ -60,7 +60,7 @@ export function StudyOutline({
                 <span className="min-w-0">
                   <span className="flex items-start text-xs leading-none font-semibold tracking-wide text-[#5c7288] uppercase">
                     <span className="whitespace-pre">Chapter </span>
-                    <span className="overflow-visible text-[calc(1em+4px)] leading-none font-[700] text-[#000]">{chapter.number}</span>
+                    <span className="relative -top-[3px] overflow-visible text-[calc(1em+6px)] leading-none font-[700] text-[#000]">{chapter.number}</span>
                     <span>{` · ${chapterDone}/${chapter.sections.length}`}</span>
                   </span>
                   <span className="block text-sm font-semibold text-[#14375f]">{subjectTitle(chapter.title)}</span>

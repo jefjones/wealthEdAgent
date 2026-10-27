@@ -1,0 +1,59 @@
+import { describe, expect, it } from 'vitest'
+import { courseQuestions, LIFE_HEALTH_ID, SERIES6_ID, SERIES63_ID, SIE_ID } from '../content/catalog.ts'
+import { formatDenver } from '../lib/utils.ts'
+import { attemptBelongsToTest } from './testSummary.ts'
+import { attemptTestIdBody, resolveAttemptTestId, testIdForQuestions } from './attemptTest.ts'
+
+const ids = (testId: string, n = 3) => courseQuestions(testId).slice(0, n).map((q) => q.id)
+
+describe('attempt test id', () => {
+  it('finds the test from the drawn question ids', () => {
+    for (const testId of [LIFE_HEALTH_ID, SIE_ID, SERIES6_ID, SERIES63_ID]) expect(testIdForQuestions(ids(testId))).toBe(testId)
+    expect(testIdForQuestions([])).toBeNull()
+    expect(testIdForQuestions(['nope'])).toBeNull()
+  })
+
+  it('prefers the server value, then the browser value, then the draw', () => {
+    expect(resolveAttemptTestId('sie', 'series-6', ids(SERIES63_ID))).toBe('sie')
+    expect(resolveAttemptTestId(undefined, 'series-6', ids(SERIES63_ID))).toBe('series-6')
+    expect(resolveAttemptTestId(undefined, undefined, ids(SERIES63_ID))).toBe(SERIES63_ID)
+    expect(resolveAttemptTestId(undefined, undefined, null)).toBeUndefined()
+  })
+
+  it('a non-default server test id wins outright', () => {
+    expect(resolveAttemptTestId(SERIES6_ID, SIE_ID, ids(SERIES63_ID))).toBe(SERIES6_ID)
+  })
+
+  it('treats a server life-health as the DB default and falls back', () => {
+    expect(resolveAttemptTestId(LIFE_HEALTH_ID, undefined, ids(SERIES63_ID))).toBe(SERIES63_ID)
+    expect(resolveAttemptTestId(LIFE_HEALTH_ID, SIE_ID, ids(SERIES63_ID))).toBe(SIE_ID)
+    expect(resolveAttemptTestId(LIFE_HEALTH_ID, undefined, ids(LIFE_HEALTH_ID))).toBe(LIFE_HEALTH_ID)
+    expect(resolveAttemptTestId(LIFE_HEALTH_ID, undefined, null)).toBe(LIFE_HEALTH_ID)
+  })
+
+  it('a missing server test id falls back to the draw', () => {
+    expect(resolveAttemptTestId(undefined, undefined, ids(SIE_ID))).toBe(SIE_ID)
+    expect(resolveAttemptTestId('', undefined, ids(SIE_ID))).toBe(SIE_ID)
+  })
+
+  it('the create payload carries a valid testId only', () => {
+    expect(attemptTestIdBody(SERIES63_ID)).toEqual({ testId: SERIES63_ID })
+    expect(attemptTestIdBody(undefined)).toEqual({})
+    expect(attemptTestIdBody('a/b')).toEqual({})
+    expect(attemptTestIdBody('x'.repeat(65))).toEqual({})
+  })
+
+  it('a server attempt without a test id but with an SIE draw lists under SIE, not Life and Health', () => {
+    const attempt = { testId: resolveAttemptTestId(undefined, undefined, ids(SIE_ID)) }
+    expect(attemptBelongsToTest(attempt, SIE_ID)).toBe(true)
+    expect(attemptBelongsToTest(attempt, LIFE_HEALTH_ID)).toBe(false)
+  })
+})
+
+describe('formatDenver', () => {
+  it('shows Mountain time', () => {
+    expect(formatDenver('2026-10-27T04:34:00Z')).toMatch(/Oct 26, 2026.*10:34.*PM.*MDT/)
+    expect(formatDenver('2026-01-15T19:00:00Z')).toMatch(/12:00.*PM.*MST/)
+    expect(formatDenver(null)).toBe('—')
+  })
+})
