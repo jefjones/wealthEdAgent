@@ -1,5 +1,4 @@
 import { courseSections } from '../content/catalog.ts'
-import { flatSections } from '../content/pack.ts'
 import { subjectTitle } from '../content/rewrite.ts'
 
 export type SearchSection = {
@@ -236,7 +235,7 @@ export function bodyMatches(body: string, query: string): { start: number; end: 
 }
 
 export function searchCourse(query: string, testId = 'life-health'): SearchGroup[] {
-  const sections = testId === 'life-health' ? flatSections() : courseSections(testId)
+  const sections = courseSections(testId)
   return searchSections(
     sections.map((section) => ({
       id: section.id,

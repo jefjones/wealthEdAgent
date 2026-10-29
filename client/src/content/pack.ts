@@ -51,8 +51,4 @@ export function sectionNeighbors(sectionId: string) {
   }
 }
 
-export function correctOptionId(question: Question) {
-  const correct = question.options.find((option) => option.correct)
-  if (!correct) throw new Error(`Question ${question.id} has no correct option.`)
-  return correct.id
-}
+export { correctOptionId } from './answers.ts'

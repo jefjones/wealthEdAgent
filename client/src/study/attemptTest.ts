@@ -1,9 +1,12 @@
-import { courseQuestions, tests } from '../content/catalog.ts'
+import { allPacksLoaded, courseQuestions, packVersion, tests } from '../content/catalog.ts'
 
 let owners: Map<string, string> | null = null
+let ownersVersion = -1
 
+/** Built from the packs loaded so far, and rebuilt when another pack loads. */
 function questionOwners() {
-  if (owners) return owners
+  if (owners && ownersVersion === packVersion()) return owners
+  ownersVersion = packVersion()
   const map = new Map<string, string>()
   for (const test of tests) {
     for (const question of courseQuestions(test.id)) if (!map.has(question.id)) map.set(question.id, test.id)
@@ -32,6 +35,12 @@ export function testIdForQuestions(questionIds: readonly string[] | null | undef
   return best
 }
 
+/**
+ * An older attempt whose questions belong to a test whose content is not loaded (offline).
+ * It matches no test, so it is hidden instead of being filed under Life and Health.
+ */
+export const UNKNOWN_TEST_ID = 'unknown'
+
 /** The DB default for attempts saved before the server stored a test id, so it is ambiguous. */
 export const DEFAULT_SERVER_TEST_ID = 'life-health'
 
@@ -54,6 +63,11 @@ export function resolveAttemptTestId(
   localTestId: string | undefined,
   questionIds: readonly string[] | null | undefined,
 ): string | undefined {
-  if (isValidTestId(serverTestId) && serverTestId !== DEFAULT_SERVER_TEST_ID) return serverTestId
-  return localTestId || testIdForQuestions(questionIds) || (isValidTestId(serverTestId) ? serverTestId : undefined)
+  if (isValidTestId(serverTestId) && serverTestId !== DEFAULT_SERVER_TEST_ID && serverTestId !== UNKNOWN_TEST_ID) return serverTestId
+  if (localTestId && localTestId !== UNKNOWN_TEST_ID) return localTestId
+  const inferred = testIdForQuestions(questionIds)
+  if (inferred) return inferred
+  // Questions that no loaded test owns: with some content missing, the owner is not known yet.
+  if (questionIds?.length && !allPacksLoaded()) return UNKNOWN_TEST_ID
+  return isValidTestId(serverTestId) && serverTestId !== UNKNOWN_TEST_ID ? serverTestId : undefined
 }

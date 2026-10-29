@@ -8,7 +8,8 @@ import { highlightsPath, practicePath, progressPath, searchPath, studyPath, test
 import { studyNoticeMessage } from '../study/studySync.ts'
 import { ActivityBridge } from './ActivityBridge.tsx'
 import { TestSwitcher } from './TestSwitcher.tsx'
-import { getTest } from '../content/catalog.ts'
+import { getTestInfo } from '../content/catalog.ts'
+import { SyncPill } from './SyncPill.tsx'
 import { StateBridge } from './StateBridge.tsx'
 
 type NavItem = { to: string; label: string; icon: typeof LayoutGrid; state?: { freshSearch: true } }
@@ -62,8 +63,9 @@ export function Shell() {
                 {SITE_TITLE}
               </span>
             </NavLink>
-            {person && testId && getTest(testId) ? <TestSwitcher testId={testId} /> : null}
+            {person && testId && getTestInfo(testId) ? <TestSwitcher testId={testId} /> : null}
           </div>
+          {person ? <SyncPill /> : null}
           {person ? <div id="mobile-contents-slot" className="lg:hidden" /> : null}
           {person ? (
             <button
@@ -150,11 +152,13 @@ export function Shell() {
       <main className={`mx-auto w-full ${frame} px-4 py-6 sm:py-8 ${split ? 'lg:flex lg:min-h-0 lg:flex-1 lg:flex-col lg:overflow-hidden lg:py-4' : ''}`}>
         <Outlet />
       </main>
-      <footer className={`shrink-0 border-t border-[#d5e2f0] bg-white ${split ? 'lg:hidden' : ''}`}>
-        <div className={`mx-auto flex ${frame} flex-col gap-2 px-4 py-4 text-sm text-[#4d6278] sm:flex-row sm:items-center sm:justify-between`}>
-          <p>{first ? `Signed in as ${first}.` : 'Study for a life and health license or the Securities Industry Essentials exam.'}</p>
-        </div>
-      </footer>
+      {first && (
+        <footer className={`shrink-0 border-t border-[#d5e2f0] bg-white ${split ? 'lg:hidden' : ''}`}>
+          <div className={`mx-auto flex ${frame} flex-col gap-2 px-4 py-4 text-sm text-[#4d6278] sm:flex-row sm:items-center sm:justify-between`}>
+            <p>Signed in as {first}.</p>
+          </div>
+        </footer>
+      )}
     </div>
   )
 }

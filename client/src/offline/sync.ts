@@ -1,0 +1,269 @@
+/**
+ * Sync engine: queues writes made while offline and replays them once, in order, when the server
+ * is reachable. Triggers: the online event, window focus, tab shown, every 60 s, after sign-in,
+ * and the backoff timer. A Web Lock keeps two tabs from replaying at once.
+ */
+import { useSyncExternalStore } from 'react'
+import {
+  adoptSyncedAttempt,
+  adoptSyncedHighlight,
+  adoptSyncedSearch,
+  forgetDeletedHighlight,
+  outboxMessage,
+  outboxPersonId,
+  outboxRequest,
+  reprobeStudyFeaturesNow,
+  sessionNeedsSignIn,
+  setOutboxSink,
+  setSignInNeededHandler,
+  settleSearchSync,
+  type Attempt,
+  type Highlight,
+} from '../api/client.ts'
+import type { SearchHistoryEntry } from '../study/searchHistory.ts'
+import { flushStudyState } from '../study/stateSync.ts'
+import { idbOutboxStore } from './idb.ts'
+import {
+  classify,
+  coalesce,
+  memoryOutboxStore,
+  OUTBOX_COUNT_KEY,
+  replay,
+  requestFor,
+  type IdMap,
+  type OutboxItem,
+  type OutboxOp,
+  type OutboxStore,
+  type Outcome,
+} from './outbox.ts'
+
+export type SyncState = 'idle' | 'offline' | 'syncing' | 'synced' | 'signIn'
+
+export type SyncStatus = {
+  state: SyncState
+  /** Items still to send. */
+  pending: number
+  /** Items the server refused. Shown to the reader; never dropped without their say. */
+  setAside: OutboxItem[]
+  lastSyncAt: string | null
+}
+
+const PERIODIC_MS = 60_000
+const LOCK_NAME = 'wea-outbox-sync'
+
+let store: OutboxStore = typeof indexedDB === 'undefined' ? memoryOutboxStore() : idbOutboxStore()
+let status: SyncStatus = { state: 'idle', pending: 0, setAside: [], lastSyncAt: null }
+const listeners = new Set<() => void>()
+let running: Promise<void> | null = null
+let retryTimer: ReturnType<typeof setTimeout> | null = null
+
+function setStatus(patch: Partial<SyncStatus>) {
+  status = { ...status, ...patch }
+  listeners.forEach((listener) => listener())
+}
+
+export function getSyncStatus() {
+  return status
+}
+
+export function subscribeSync(listener: () => void) {
+  listeners.add(listener)
+  return () => {
+    listeners.delete(listener)
+  }
+}
+
+export function useSyncStatus() {
+  return useSyncExternalStore(subscribeSync, getSyncStatus, getSyncStatus)
+}
+
+function isOffline() {
+  return typeof navigator !== 'undefined' && navigator.onLine === false
+}
+
+async function refreshCounts(personId: string | null) {
+  const all = personId ? (await store.list()).filter((item) => item.personId === personId) : []
+  const setAside = all.filter((item) => item.setAside)
+  try {
+    localStorage.setItem(OUTBOX_COUNT_KEY, String(all.length))
+  } catch {
+    /* storage full or blocked: the count is only a hint */
+  }
+  setStatus({ pending: all.length - setAside.length, setAside })
+  return all.length
+}
+
+/** Unsynced items for the signed-in person, set-aside ones included. */
+export async function unsyncedCount() {
+  return refreshCounts(outboxPersonId())
+}
+
+/** Add one write to the outbox, applying the conflict rules in coalesce(). */
+export async function enqueue(op: OutboxOp) {
+  const personId = outboxPersonId()
+  if (!personId) throw new Error('Not signed in.')
+  const mine = (await store.list()).filter((item) => item.personId === personId)
+  const plan = coalesce(mine, op)
+  for (const seq of plan.removeSeqs) await store.remove(seq)
+  if (plan.add) {
+    await store.add({ opId: crypto.randomUUID(), personId, createdAt: new Date().toISOString(), op, tries: 0, nextAt: 0 })
+  }
+  await refreshCounts(personId)
+  if (isOffline()) setStatus({ state: 'offline' })
+  else if (sessionNeedsSignIn()) setStatus({ state: 'signIn' })
+  else schedule(1_000)
+}
+
+async function send(item: OutboxItem, ids: IdMap): Promise<Outcome> {
+  const req = requestFor(item.op, ids)
+  const res = await outboxRequest(req.method, req.path, req.body)
+  if (res.kind === 'network') return { kind: 'retry' }
+  if (res.kind === 'signIn') return { kind: 'signIn' }
+  const outcome = classify(item.op, res.status, outboxMessage(res.body, res.status))
+  return outcome.kind === 'done' ? { kind: 'done', body: res.body } : outcome
+}
+
+function onDone(item: OutboxItem, body: unknown, ids: IdMap): string | null {
+  const op = item.op
+  switch (op.kind) {
+    case 'attempt.create': {
+      const attempt = (body as { attempt?: Attempt } | null)?.attempt
+      if (!attempt?.attemptId) return null
+      adoptSyncedAttempt(op.localAttemptId, attempt)
+      return attempt.attemptId
+    }
+    case 'highlight.create': {
+      const highlight = (body as { highlight?: Highlight } | null)?.highlight
+      if (!highlight?.highlightId) return null
+      adoptSyncedHighlight(op.localHighlightId, highlight)
+      return highlight.highlightId
+    }
+    case 'highlight.delete':
+      forgetDeletedHighlight(op.highlightId)
+      if (ids[op.highlightId]) forgetDeletedHighlight(ids[op.highlightId]!)
+      return null
+    case 'search.add': {
+      const entry = (body as { entry?: SearchHistoryEntry } | null)?.entry
+      if (!entry?.entryId || !op.localEntryId) return null
+      adoptSyncedSearch(op.testId, op.localEntryId, entry)
+      return entry.entryId
+    }
+    case 'search.delete':
+    case 'search.clear':
+      settleSearchSync(op, op.testId)
+      return null
+    default:
+      return null
+  }
+}
+
+function schedule(delayMs: number) {
+  if (retryTimer !== null) clearTimeout(retryTimer)
+  retryTimer = setTimeout(() => {
+    retryTimer = null
+    void syncNow()
+  }, Math.max(0, delayMs))
+}
+
+async function runOnce(personId: string) {
+  setStatus({ state: 'syncing' })
+  const result = await replay(store, personId, send, onDone)
+  await refreshCounts(personId)
+  if (result.sent > 0) void reprobeStudyFeaturesNow()
+  if (result.status === 'signIn') {
+    setStatus({ state: 'signIn' })
+  } else if (result.status === 'waiting') {
+    setStatus({ state: isOffline() ? 'offline' : 'syncing' })
+    schedule(result.nextAt - Date.now())
+  } else {
+    setStatus({ state: 'synced', lastSyncAt: new Date().toISOString() })
+  }
+}
+
+async function run() {
+  const personId = outboxPersonId()
+  if (!personId) {
+    setStatus({ state: 'idle', pending: 0, setAside: [] })
+    return
+  }
+  await refreshCounts(personId)
+  if (isOffline()) {
+    setStatus({ state: 'offline' })
+    return
+  }
+  if (sessionNeedsSignIn()) {
+    setStatus({ state: 'signIn' })
+    return
+  }
+  flushStudyState()
+  if (status.pending === 0) {
+    if (status.state !== 'synced') setStatus({ state: status.lastSyncAt ? 'synced' : 'idle' })
+    return
+  }
+  const locks = typeof navigator !== 'undefined' ? navigator.locks : undefined
+  if (locks?.request) {
+    await locks.request(LOCK_NAME, { ifAvailable: true }, async (lock) => {
+      if (lock) await runOnce(personId)
+    })
+  } else {
+    await runOnce(personId)
+  }
+}
+
+/** Replay now (one run at a time in this tab). */
+export function syncNow(): Promise<void> {
+  if (running) return running
+  running = run()
+    .catch(() => {
+      schedule(PERIODIC_MS)
+    })
+    .finally(() => {
+      running = null
+    })
+  return running
+}
+
+/** Discard one refused item after the reader has seen it. */
+export async function discardSetAside(seq: number) {
+  await store.remove(seq)
+  await refreshCounts(outboxPersonId())
+}
+
+/** Route offline writes into the outbox. Call once at start-up. */
+export function installOutbox() {
+  setOutboxSink(enqueue)
+  setSignInNeededHandler(() => setStatus({ state: 'signIn' }))
+}
+
+/** Start the triggers while someone is signed in. Returns a stop function. */
+export function startSync() {
+  if (typeof window === 'undefined') return () => {}
+  installOutbox()
+  const kick = () => {
+    void syncNow()
+  }
+  const onOffline = () => setStatus({ state: 'offline' })
+  const onVisible = () => {
+    if (document.visibilityState === 'visible') kick()
+  }
+  window.addEventListener('online', kick)
+  window.addEventListener('offline', onOffline)
+  window.addEventListener('focus', kick)
+  document.addEventListener('visibilitychange', onVisible)
+  const timer = setInterval(kick, PERIODIC_MS)
+  kick()
+  return () => {
+    window.removeEventListener('online', kick)
+    window.removeEventListener('offline', onOffline)
+    window.removeEventListener('focus', kick)
+    document.removeEventListener('visibilitychange', onVisible)
+    clearInterval(timer)
+    if (retryTimer !== null) clearTimeout(retryTimer)
+    retryTimer = null
+  }
+}
+
+export function setSyncStoreForTests(next: OutboxStore) {
+  store = next
+  status = { state: 'idle', pending: 0, setAside: [], lastSyncAt: null }
+}

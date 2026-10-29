@@ -8,9 +8,11 @@
  * A later successful load merges that browser copy onto the server once.
  */
 
-import { LIFE_HEALTH_ID } from '../content/catalog.ts'
+import { LIFE_HEALTH_ID, loadAvailablePacks } from '../content/catalog.ts'
+import { OFFLINE_TESTS_KEY, OUTBOX_COUNT_KEY, type OutboxOp } from '../offline/outbox.ts'
 import type { ActivityEvent } from '../study/activity.ts'
-import { attemptTestIdBody, resolveAttemptTestId } from '../study/attemptTest.ts'
+import { dedupeAttempts } from '../study/attemptDedupe.ts'
+import { attemptTestIdBody, resolveAttemptTestId, UNKNOWN_TEST_ID } from '../study/attemptTest.ts'
 import { copyDraw, loadDraw, saveDraw } from '../study/draws.ts'
 import { highlightInputError } from '../study/highlights.ts'
 import {
@@ -100,6 +102,8 @@ export type Attempt = {
   testId?: string
   /** Questions and answer order, stored on the server so another device can show the results. */
   draw?: AttemptDraw | null
+  /** Id made in the browser at create, so a re-sent create returns the same attempt. */
+  clientId?: string | null
 }
 
 export type AttemptDraw = { questionIds: string[]; optionOrder?: Record<string, string[]> }
@@ -140,6 +144,8 @@ export class ApiError extends Error {
   network?: boolean
   sessionExpired?: boolean
   studyUnavailable?: boolean
+  /** The token ran out while there is offline work. Work stays local until the reader signs in. */
+  signInNeeded?: boolean
 }
 
 type Account = { password: string; person: Person }
@@ -175,6 +181,63 @@ const migrateFlights = new Map<MigratableFeature, Promise<void>>()
 const readyListeners = new Set<(feature: StudyFeature) => void>()
 let reprobeTimer: ReturnType<typeof setInterval> | null = null
 let reprobeListening = false
+/** Features that fell back because the network was unreachable (not because a route is missing). */
+const networkDown = new Set<StudyFeature>()
+let outboxSink: ((op: OutboxOp) => Promise<void>) | null = null
+let onSignInNeeded: (() => void) | null = null
+const PENDING_ATTEMPTS = 'wealthEdAgent.outboxAttempts.v1'
+/** Browser search id to server search id, once a queued add has synced. */
+const SEARCH_ID_MAP = 'wealthEdAgent.searchIdMap.v1'
+
+function serverSearchId(entryId: string) {
+  return readJson<Record<string, string>>(SEARCH_ID_MAP, {})[entryId] ?? entryId
+}
+
+/** The offline sync engine registers here. Writes made while unreachable go to its outbox. */
+export function setOutboxSink(sink: ((op: OutboxOp) => Promise<void>) | null) {
+  outboxSink = sink
+}
+
+export function setSignInNeededHandler(handler: (() => void) | null) {
+  onSignInNeeded = handler
+}
+
+/**
+ * Offline work exists (a test saved for offline use, unsynced changes, or no connection).
+ * Then an expired token does not sign the reader out: work stays local and sync waits for sign-in.
+ */
+export function offlineHold() {
+  try {
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) return true
+    if (Number(localStorage.getItem(OUTBOX_COUNT_KEY) || '0') > 0) return true
+    const saved = JSON.parse(localStorage.getItem(OFFLINE_TESTS_KEY) || '{}') as Record<string, unknown>
+    return Object.keys(saved).length > 0
+  } catch {
+    return false
+  }
+}
+
+/** A token is stored but has run out. */
+export function sessionNeedsSignIn() {
+  const token = localStorage.getItem(STORAGE.token) || ''
+  return Boolean(token) && tokenExpired(token)
+}
+
+function pendingAttempts(): string[] {
+  return readJson<string[]>(PENDING_ATTEMPTS, [])
+}
+
+/** An attempt made offline whose create has not reached the server yet. */
+export function isPendingAttempt(attemptId: string) {
+  return pendingAttempts().includes(attemptId)
+}
+
+function markPendingAttempt(attemptId: string, pending: boolean) {
+  const ids = new Set(pendingAttempts())
+  if (pending) ids.add(attemptId)
+  else ids.delete(attemptId)
+  localStorage.setItem(PENDING_ATTEMPTS, JSON.stringify([...ids]))
+}
 
 export function setSessionExpiredHandler(handler: (() => void) | null) {
   onSessionExpired = handler
@@ -207,6 +270,9 @@ export function resetApiForTests() {
   downAt.clear()
   migrateFlights.clear()
   readyListeners.clear()
+  networkDown.clear()
+  outboxSink = null
+  onSignInNeeded = null
   stopStudyReprobe()
 }
 
@@ -256,7 +322,7 @@ function readJson<T>(key: string, fallback: T): T {
 
 export function loadSession(): { person: Person | null; token: string } {
   const token = localStorage.getItem(STORAGE.token) || ''
-  if (!token || tokenExpired(token)) {
+  if (!token || (tokenExpired(token) && !offlineHold())) {
     if (token) {
       localStorage.removeItem(STORAGE.token)
       localStorage.removeItem(STORAGE.person)
@@ -407,7 +473,16 @@ async function realApi<T>(path: string, options: RequestInit = {}): Promise<T> {
   const token = localStorage.getItem(STORAGE.token) || ''
   if (token && !headers.Authorization) headers.Authorization = `Bearer ${token}`
   const usedSession = Boolean(token) && headers.Authorization === `Bearer ${token}`
-  if (usedSession && tokenExpired(token)) expireFromCall()
+  if (usedSession && tokenExpired(token)) {
+    if (offlineHold()) {
+      onSignInNeeded?.()
+      const error = new ApiError('Sign in to sync.')
+      error.network = true
+      error.signInNeeded = true
+      throw error
+    }
+    expireFromCall()
+  }
 
   const clean = path.replace(/^\//, '')
   const url = `${resolveApiHost()}${clean}`
@@ -566,16 +641,23 @@ function localSeen() {
   }))
 }
 
-function localCreateAttempt(mode: AttemptMode, questionCount: number, testId = LIFE_HEALTH_ID) {
+function localCreateAttempt(
+  mode: AttemptMode,
+  questionCount: number,
+  testId = LIFE_HEALTH_ID,
+  attemptId: string = crypto.randomUUID(),
+  startedAt: string = nowIso(),
+) {
   if (!Number.isInteger(questionCount) || questionCount < 1 || questionCount > 500) {
     fail(400, 'questionCount must be from 1 to 500.')
   }
   const attemptMode: AttemptMode = mode === 'any' ? 'any' : 'unseen'
   return withDb((db) => {
     const attempt: AttemptRecord = {
-      attemptId: crypto.randomUUID(),
+      attemptId,
+      clientId: attemptId,
       mode: attemptMode,
-      startedAt: nowIso(),
+      startedAt,
       completedAt: null,
       questionCount,
       answeredCount: 0,
@@ -697,7 +779,15 @@ function localList() {
   return withDb((db) => ({
     attempts: [...db.attempts]
       .sort((a, b) => (a.startedAt < b.startedAt ? 1 : -1))
-      .map(publicAttempt),
+      .map(publicAttempt)
+      .map((attempt) => {
+        if (attempt.testId || mockApiEnabled()) return attempt
+        // An older record with no test: match it by its questions, or hide it when that is not possible yet.
+        const person = readJson<Person | null>(STORAGE.person, null)
+        const drawIds = person ? loadDraw(person.personId, attempt.attemptId)?.questionIds : undefined
+        const testId = resolveAttemptTestId(undefined, undefined, drawIds)
+        return testId ? { ...attempt, testId } : attempt
+      }),
   }))
 }
 
@@ -851,6 +941,7 @@ function markFeatureDown(feature: StudyFeature) {
 }
 
 function markFeatureUp(feature: StudyFeature) {
+  networkDown.delete(feature)
   const wasDown = downAt.delete(feature)
   publishNotice()
   if (wasDown) readyListeners.forEach((listener) => listener(feature))
@@ -930,7 +1021,9 @@ function withTestId(attempt: Attempt): Attempt {
   return testId ? { ...attempt, testId } : attempt
 }
 
-function mirrorAttempt(attempt: Attempt, answers?: Answer[]) {
+function mirrorAttempt(input: Attempt, answers?: Answer[]) {
+  // "unknown" is a view-only answer; keep the record open to a real match later.
+  const attempt = input.testId === UNKNOWN_TEST_ID ? { ...input, testId: undefined } : input
   updateDb((db) => {
     const existing = db.attempts.find((row) => row.attemptId === attempt.attemptId)
     if (existing) {
@@ -1014,6 +1107,8 @@ async function pushLocalAttempt(local: AttemptRecord) {
           questionCount: local.questionCount,
           ...attemptTestIdBody(local.testId),
           ...drawBody(loadDraw(requirePerson().personId, local.attemptId)),
+          clientId: local.clientId || local.attemptId,
+          startedAt: local.startedAt,
         }),
       })
     } catch (error) {
@@ -1064,7 +1159,7 @@ async function pushLocalAttempt(local: AttemptRecord) {
     try {
       await realApi(`api/wealthEdAgent/study/attempts/${encodeURIComponent(serverAttemptId)}/complete`, {
         method: 'POST',
-        body: JSON.stringify({}),
+        body: JSON.stringify({ completedAt: local.completedAt }),
       })
     } catch (error) {
       if (noteFeatureFailure('attempts', error)) return
@@ -1282,16 +1377,43 @@ async function ensureMigrated(feature: MigratableFeature) {
   await run
 }
 
+type FeatureOptions<T> = {
+  write?: boolean
+  missingRoute?: boolean
+  /** The outbox item for a write saved locally while the server is unreachable. */
+  queue?: (result: T) => OutboxOp | null
+  /** Always save locally and queue (an attempt that only exists in this browser so far). */
+  forceLocal?: () => boolean
+}
+
 async function withFeature<T>(
   feature: MigratableFeature,
   local: () => T,
   online: () => Promise<T>,
-  options: { write?: boolean; missingRoute?: boolean } = {},
+  options: FeatureOptions<T> = {},
 ): Promise<T> {
   if (mockApiEnabled()) return local()
   const personId = requirePerson().personId
   rememberPerson(personId)
+  /** Save locally. A queued write is replayed by the outbox, so the one-time merge is not re-armed for it. */
+  const localQueued = async () => {
+    const result = local()
+    let queued = false
+    const op = options.queue && outboxSink ? options.queue(result) : null
+    if (op && outboxSink) {
+      try {
+        await outboxSink(op)
+        queued = true
+      } catch {
+        queued = false
+      }
+    }
+    if (!queued && options.write) setMigrated(personId, feature, false)
+    return result
+  }
+  if (options.forceLocal?.()) return localQueued()
   if (isFeatureDown(feature)) {
+    if (networkDown.has(feature) || offlineHold()) return localQueued()
     if (options.write) setMigrated(personId, feature, false)
     return local()
   }
@@ -1308,6 +1430,10 @@ async function withFeature<T>(
     const kind = failureOf(error, feature, options.missingRoute)
     if (kind) {
       markFeatureDown(feature)
+      if (error instanceof ApiError && error.network) {
+        networkDown.add(feature)
+        return localQueued()
+      }
       if (options.write) setMigrated(personId, feature, false)
       return local()
     }
@@ -1477,7 +1603,7 @@ export function saveProgress(chapterId: string, sectionId: string, completed: bo
       mirrorSection(result.section)
       return result
     },
-    { write: true },
+    { write: true, queue: () => ({ kind: 'progress', chapterId, sectionId, completed }) },
   )
 }
 
@@ -1494,18 +1620,35 @@ export function getSeen() {
 
 export function createAttempt(input: { mode: AttemptMode; questionCount: number; testId?: string; draw?: AttemptDraw | null }) {
   const testId = input.testId || LIFE_HEALTH_ID
+  // One id for both paths: sent as clientId online, and used as the local attempt id if the server is unreachable.
+  const clientId = crypto.randomUUID()
+  const startedAt = nowIso()
+  const body = {
+    mode: input.mode,
+    questionCount: input.questionCount,
+    ...attemptTestIdBody(testId),
+    ...drawBody(input.draw),
+    clientId,
+    startedAt,
+  }
   return withFeature(
     'attempts',
-    () => localCreateAttempt(input.mode, input.questionCount, testId),
+    () => localCreateAttempt(input.mode, input.questionCount, testId, clientId, startedAt),
     async () => {
       const result = await realApi<{ attempt: Attempt }>('api/wealthEdAgent/study/attempts', {
         method: 'POST',
-        body: JSON.stringify({ mode: input.mode, questionCount: input.questionCount, ...attemptTestIdBody(testId), ...drawBody(input.draw) }),
+        body: JSON.stringify(body),
       })
       mirrorAttempt({ ...result.attempt, testId }, [])
       return { attempt: { ...result.attempt, testId } }
     },
-    { write: true },
+    {
+      write: true,
+      queue: (result) => {
+        markPendingAttempt(result.attempt.attemptId, true)
+        return { kind: 'attempt.create', localAttemptId: result.attempt.attemptId, clientId, body }
+      },
+    },
   )
 }
 
@@ -1546,7 +1689,16 @@ export function submitAnswer(
       })
       return result
     },
-    { write: true },
+    {
+      write: true,
+      forceLocal: () => isPendingAttempt(attemptId) || isPendingAttempt(id()),
+      queue: () => ({
+        kind: 'attempt.answer',
+        localAttemptId: id(),
+        questionId,
+        body: { chosenOptionId: input.chosenOptionId, correctOptionId: input.correctOptionId, ...secondsBody(seconds) },
+      }),
+    },
   )
 }
 
@@ -1558,17 +1710,23 @@ export function completeAttempt(attemptId: string) {
     async () => {
       const result = await realApi<{ attempt: Attempt }>(
         `api/wealthEdAgent/study/attempts/${encodeURIComponent(id())}/complete`,
-        { method: 'POST', body: JSON.stringify({}) },
+        { method: 'POST', body: JSON.stringify({ completedAt: nowIso() }) },
       )
       mirrorAttempt(result.attempt)
       return result
     },
-    { write: true },
+    {
+      write: true,
+      forceLocal: () => isPendingAttempt(attemptId) || isPendingAttempt(id()),
+      queue: (result) => ({ kind: 'attempt.complete', localAttemptId: id(), completedAt: result.attempt.completedAt ?? nowIso() }),
+    },
   )
 }
 
 export function listAttempts() {
   return withFeature('attempts', localList, async () => {
+    // Older attempts are matched to a test by their questions, so load the packs that can load first.
+    await loadAvailablePacks()
     const body = await realApi<{ attempts: Attempt[] }>('api/wealthEdAgent/study/attempts')
     body.attempts = body.attempts.map(withTestId)
     body.attempts.forEach((summary) => {
@@ -1577,7 +1735,8 @@ export function listAttempts() {
     })
     const db = peekDb()
     const extras = mergeAttempts(body.attempts, db.attempts, finishedUploadIds(db)).upload.map(publicAttempt)
-    return { attempts: unionAttempts(body.attempts, extras) }
+    const aliases = Object.fromEntries(Object.entries(db.attemptUploads ?? {}).map(([localId, state]) => [localId, state.serverAttemptId]))
+    return { attempts: dedupeAttempts(unionAttempts(body.attempts, []), extras, aliases) }
   })
 }
 
@@ -1663,11 +1822,34 @@ export function recordSearchHistory(text: string, testId = LIFE_HEALTH_ID) {
       })
       return { entries: copySearchEntries(peekDb().searchHistory ?? []) }
     },
-    { write: true, missingRoute: true },
+    {
+      write: true,
+      missingRoute: true,
+      queue: (result) => {
+        const key = searchHistoryKey(cleaned)
+        const entry = result.entries.find((row) => searchHistoryKey(row.text) === key)
+        return { kind: 'search.add', testId, text: cleaned, ...(entry ? { localEntryId: entry.entryId } : {}) }
+      },
+    },
   )
 }
 
-export function deleteSearchHistory(entryId: string, testId = LIFE_HEALTH_ID) {
+export function deleteSearchHistory(localOrServerId: string, testId = LIFE_HEALTH_ID) {
+  // A search typed offline keeps its browser id in lists until they reload; the server knows it by its server id.
+  const entryId = serverSearchId(localOrServerId)
+  if (entryId !== localOrServerId && !mockApiEnabled()) {
+    try {
+      updateDb((db) => {
+        writeSearchEntries(
+          db,
+          testId,
+          readSearchEntries(db, testId).map((row) => (row.entryId === localOrServerId ? { ...row, entryId } : row)),
+        )
+      })
+    } catch {
+      /* the local copy is only a mirror */
+    }
+  }
   return withFeature(
     'searchHistory',
     () => localDeleteSearchHistory(entryId, testId),
@@ -1682,7 +1864,7 @@ export function deleteSearchHistory(entryId: string, testId = LIFE_HEALTH_ID) {
       })
       return result
     },
-    { write: true, missingRoute: false },
+    { write: true, missingRoute: false, queue: () => ({ kind: 'search.delete', testId, entryId }) },
   )
 }
 
@@ -1703,7 +1885,7 @@ export function clearSearchHistory(testId = LIFE_HEALTH_ID) {
       })
       return result
     },
-    { write: true, missingRoute: true },
+    { write: true, missingRoute: true, queue: () => ({ kind: 'search.clear', testId }) },
   )
 }
 
@@ -1788,7 +1970,11 @@ export function createHighlight(input: HighlightInput) {
       mirrorHighlight(result.highlight)
       return result
     },
-    { write: true, missingRoute: true },
+    {
+      write: true,
+      missingRoute: true,
+      queue: (result) => ({ kind: 'highlight.create', localHighlightId: result.highlight.highlightId, input: { ...input } }),
+    },
   )
 }
 
@@ -1815,7 +2001,7 @@ export function deleteHighlight(highlightId: string) {
       })
       return result
     },
-    { write: true, missingRoute: false },
+    { write: true, missingRoute: false, queue: () => ({ kind: 'highlight.delete', highlightId }) },
   )
 }
 
@@ -1863,4 +2049,104 @@ export function errorText(error: unknown, fallback: string) {
   if (error instanceof ApiError && error.sessionExpired) return ''
   if (error instanceof Error && error.message.trim()) return error.message.trim()
   return fallback
+}
+
+/* ---------- Offline outbox support (used by src/offline/sync.ts) ---------- */
+
+export type OutboxResponse = { kind: 'http'; status: number; body: unknown } | { kind: 'network' } | { kind: 'signIn' }
+
+/**
+ * One outbox request. Never signs the reader out and never switches features into the fallback:
+ * the sync engine decides what each status means.
+ */
+export async function outboxRequest(method: string, path: string, body?: unknown): Promise<OutboxResponse> {
+  const token = localStorage.getItem(STORAGE.token) || ''
+  if (!token || tokenExpired(token)) return { kind: 'signIn' }
+  let response: Response
+  try {
+    response = await fetch(`${resolveApiHost()}${path.replace(/^\//, '')}`, {
+      method,
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+      ...(body === undefined ? {} : { body: JSON.stringify(body) }),
+    })
+  } catch {
+    return { kind: 'network' }
+  }
+  const text = await response.text().catch(() => '')
+  return { kind: 'http', status: response.status, body: parseResponseBody(text) }
+}
+
+/** The person whose outbox is replayed, or null when signed out. */
+export function outboxPersonId() {
+  return readJson<Person | null>(STORAGE.person, null)?.personId ?? null
+}
+
+/** Reader-facing text from a server error body. */
+export function outboxMessage(body: unknown, status: number) {
+  return messageFrom(body, status)
+}
+
+/** After an offline attempt's create reached the server: use the server id from now on. */
+export function adoptSyncedAttempt(localAttemptId: string, server: Attempt) {
+  const serverAttemptId = server.attemptId
+  updateDb((db) => {
+    const local = db.attempts.find((row) => row.attemptId === localAttemptId)
+    const answers = local?.answers.map((answer) => ({ ...answer })) ?? []
+    db.attemptUploads = {
+      ...(db.attemptUploads ?? {}),
+      // Marked as fully sent: the outbox sends the rest, so the one-time merge must not send them again.
+      [localAttemptId]: { serverAttemptId, sent: answers.map((answer) => answer.questionId), completed: true },
+    }
+    if (local && serverAttemptId !== localAttemptId) {
+      db.attempts = db.attempts.filter((row) => row.attemptId !== serverAttemptId)
+      local.attemptId = serverAttemptId
+      local.clientId = server.clientId ?? local.clientId ?? localAttemptId
+    }
+  })
+  if (serverAttemptId !== localAttemptId) copyDraw(requirePerson().personId, localAttemptId, serverAttemptId)
+  markPendingAttempt(localAttemptId, false)
+}
+
+/** After an offline highlight reached the server: swap the browser id for the server row. */
+export function adoptSyncedHighlight(localHighlightId: string, server: Highlight) {
+  updateDb((db) => {
+    db.highlights = [
+      { ...server },
+      ...(db.highlights ?? []).filter((row) => row.highlightId !== localHighlightId && row.highlightId !== server.highlightId),
+    ]
+  })
+}
+
+export function forgetDeletedHighlight(highlightId: string) {
+  updateDb((db) => {
+    db.highlights = (db.highlights ?? []).filter((row) => row.highlightId !== highlightId)
+    db.deletedHighlightIds = (db.deletedHighlightIds ?? []).filter((id) => id !== highlightId)
+  })
+}
+
+export function settleSearchSync(op: { kind: 'search.delete'; entryId: string } | { kind: 'search.clear' }, testId: string) {
+  if (testId !== LIFE_HEALTH_ID) return
+  updateDb((db) => {
+    if (op.kind === 'search.clear') db.searchHistoryCleared = false
+    else db.deletedSearchIds = (db.deletedSearchIds ?? []).filter((id) => id !== op.entryId)
+  })
+}
+
+/** An offline attempt the server refused: it stays in this browser and is no longer waiting. */
+export function releasePendingAttempt(localAttemptId: string) {
+  markPendingAttempt(localAttemptId, false)
+}
+
+/** After a queued search reached the server: use its server id from now on, in lists and for deletes. */
+export function adoptSyncedSearch(testId: string, localEntryId: string, server: SearchHistoryEntry) {
+  const map = readJson<Record<string, string>>(SEARCH_ID_MAP, {})
+  map[localEntryId] = server.entryId
+  localStorage.setItem(SEARCH_ID_MAP, JSON.stringify(map))
+  updateDb((db) => {
+    writeSearchEntries(
+      db,
+      testId,
+      readSearchEntries(db, testId).map((row) => (row.entryId === localEntryId ? { ...row, entryId: server.entryId } : row)),
+    )
+  })
 }

@@ -18,6 +18,8 @@ import {
   register as apiRegister,
   setSession,
   setSessionExpiredHandler,
+  ApiError,
+  offlineHold,
   setStudyNoticeHandler,
   startStudyReprobe,
   studyNoticeSnapshot,
@@ -26,6 +28,7 @@ import {
   type RegisterInput,
   type StudyFeature,
 } from '../api/client.ts'
+import { startSync, syncNow } from '../offline/sync.ts'
 import { logoutActivity, recordLogin } from '../study/activityTracker.ts'
 
 type AuthValue = {
@@ -70,30 +73,53 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => startStudyReprobe(), [])
 
+  const personId = person?.personId ?? null
+  useEffect(() => (personId ? startSync() : undefined), [personId])
+
+  // Bumped to try the refresh again after a network failure.
+  const [refreshTry, setRefreshTry] = useState(0)
+
   useEffect(() => {
     if (!token || !person) return
     const exp = tokenExpMs(token)
     if (!exp) return
+    // The token lasts 12 hours and refresh needs it unexpired: refresh 2 minutes early, and again on reconnect.
+    if (exp <= Date.now()) return
     const delay = Math.max(5_000, exp - Date.now() - 2 * 60 * 1000)
-    const timer = window.setTimeout(() => {
+    const run = () => {
       void refreshSession()
         .then((next) => apply(next.person, next.token))
-        .catch(() => {
+        .catch((error: unknown) => {
+          const network = (error instanceof ApiError && error.network) || navigator.onLine === false
+          // A network failure never signs the reader out or clears data; try again later.
+          if (network || offlineHold()) {
+            window.setTimeout(() => setRefreshTry((n) => n + 1), 60_000)
+            return
+          }
           clearSession()
           markSessionExpired()
           setPerson(null)
           setToken('')
           navigate('/login', { replace: true })
         })
-    }, delay)
-    return () => window.clearTimeout(timer)
-  }, [apply, navigate, person, token])
+    }
+    const timer = window.setTimeout(run, delay)
+    const onOnline = () => {
+      if (tokenExpMs(token) !== null && (tokenExpMs(token) ?? 0) - Date.now() < 60 * 60 * 1000) run()
+    }
+    window.addEventListener('online', onOnline)
+    return () => {
+      window.clearTimeout(timer)
+      window.removeEventListener('online', onOnline)
+    }
+  }, [apply, navigate, person, token, refreshTry])
 
   const login = useCallback(
     async (username: string, password: string) => {
       const session = await apiLogin(username, password)
       apply(session.person, session.token)
       recordLogin()
+      void syncNow()
     },
     [apply],
   )

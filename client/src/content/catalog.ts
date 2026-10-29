@@ -1,8 +1,3 @@
-import { studyPack } from './pack.ts'
-import { siePack } from './sie/pack.ts'
-import { series6Pack } from './series6/pack.ts'
-import { series63Pack } from './series63/pack.ts'
-import { series65Pack } from './series65/pack.ts'
 import type { Chapter, Question, Section, StudyPack } from './types.ts'
 
 export const SITE_TITLE = 'Life/Health and Securities Licenses Test Content Study'
@@ -15,52 +10,125 @@ export const SERIES65_ID = 'series-65'
 
 export type TestId = typeof LIFE_HEALTH_ID | typeof SIE_ID | typeof SERIES6_ID | typeof SERIES63_ID | typeof SERIES65_ID
 
-export type TestCourse = {
+/** A test without its content. The content (pack) is a separate lazy chunk. */
+export type TestInfo = {
   id: TestId
   title: string
   blurb: string
-  pack: StudyPack
+  chapterCount: number
 }
 
-export const tests: readonly TestCourse[] = [
+/** A test with its content loaded. */
+export type TestCourse = TestInfo & { pack: StudyPack }
+
+export const tests: readonly TestInfo[] = [
   {
     id: LIFE_HEALTH_ID,
     title: 'Utah Life and Health',
     blurb: 'Insurance basics through Utah insurance rules. Read the chapters, then practice.',
-    pack: studyPack,
+    chapterCount: 15,
   },
   {
     id: SIE_ID,
     title: 'SIE — Securities Industry Essentials',
     blurb: 'Stocks, bonds, funds, accounts, and the rules for the securities industry.',
-    pack: siePack,
+    chapterCount: 16,
   },
   {
     id: SERIES6_ID,
     title: 'Series 6 — Investment Company and Variable Products',
     blurb: 'Mutual funds, variable annuities, taxes, suitability, and the rules for selling them.',
-    pack: series6Pack,
+    chapterCount: 10,
   },
   {
     id: SERIES63_ID,
     title: 'Series 63 — Uniform Securities Agent State Law',
     blurb: 'State rules for advisers, broker-dealers, and agents, plus ethics and what the Administrator can do.',
-    pack: series63Pack,
+    chapterCount: 6,
   },
   {
     id: SERIES65_ID,
     title: 'Series 65 — Uniform Investment Adviser Law',
     blurb: 'Investments, the economy, portfolios, clients and taxes, plus the laws and ethics for investment advisers.',
-    pack: series65Pack,
+    chapterCount: 9,
   },
 ]
+
+/**
+ * Each pack is its own chunk so one test can be saved for offline use without the others.
+ * The paths here must match PACK_SOURCES in vite.config.ts (the pack manifest).
+ */
+const loaders: Record<TestId, () => Promise<StudyPack>> = {
+  [LIFE_HEALTH_ID]: () => import('./pack.ts').then((m) => m.studyPack),
+  [SIE_ID]: () => import('./sie/pack.ts').then((m) => m.siePack),
+  [SERIES6_ID]: () => import('./series6/pack.ts').then((m) => m.series6Pack),
+  [SERIES63_ID]: () => import('./series63/pack.ts').then((m) => m.series63Pack),
+  [SERIES65_ID]: () => import('./series65/pack.ts').then((m) => m.series65Pack),
+}
+
+const loaded = new Map<TestId, StudyPack>()
+const inflight = new Map<TestId, Promise<StudyPack>>()
+const packListeners = new Set<() => void>()
+let packCounter = 0
+
+/** Changes each time a pack finishes loading. */
+export function packVersion() {
+  return packCounter
+}
+
+export function subscribePacks(listener: () => void) {
+  packListeners.add(listener)
+  return () => {
+    packListeners.delete(listener)
+  }
+}
+
+export function loadedPack(testId: string): StudyPack | null {
+  return isTestId(testId) ? (loaded.get(testId) ?? null) : null
+}
+
+/** Load one test's content. A failed load can be tried again. */
+export function loadPack(testId: TestId): Promise<StudyPack> {
+  const have = loaded.get(testId)
+  if (have) return Promise.resolve(have)
+  const running = inflight.get(testId)
+  if (running) return running
+  const run = loaders[testId]()
+    .then((pack) => {
+      loaded.set(testId, pack)
+      packCounter += 1
+      packListeners.forEach((listener) => listener())
+      return pack
+    })
+    .finally(() => {
+      inflight.delete(testId)
+    })
+  inflight.set(testId, run)
+  return run
+}
+
+/** Every test's content is in memory, so question-based matching can be trusted. */
+export function allPacksLoaded() {
+  return tests.every((test) => loaded.has(test.id))
+}
+
+export function loadAllPacks() {
+  return Promise.all(tests.map((test) => loadPack(test.id)))
+}
 
 export function isTestId(value: string): value is TestId {
   return tests.some((test) => test.id === value)
 }
 
-export function getTest(testId: string): TestCourse | null {
+export function getTestInfo(testId: string): TestInfo | null {
   return tests.find((test) => test.id === testId) ?? null
+}
+
+/** The test with its content, or null when its pack is not loaded yet (see loadPack). */
+export function getTest(testId: string): TestCourse | null {
+  const info = getTestInfo(testId)
+  const pack = info ? loaded.get(info.id) : undefined
+  return info && pack ? { ...info, pack } : null
 }
 
 export type CourseSection = Section & { chapter: Chapter; testId: TestId }
@@ -89,11 +157,16 @@ export function findCourseQuestion(testId: string, questionId: string) {
   return courseQuestions(testId).find((question) => question.id === questionId) ?? null
 }
 
-/** Any test. Used when a path has a section id but the caller only needs the chapter. */
+/** Any loaded test. Used when a path has a section id but the caller only needs the chapter. */
 export function findSectionAnywhere(sectionId: string) {
   for (const test of tests) {
     const section = findCourseSection(test.id, sectionId)
     if (section) return section
   }
   return null
+}
+
+/** Load every pack that can load now (all of them online; the saved ones offline). Never rejects. */
+export async function loadAvailablePacks() {
+  await Promise.allSettled(tests.map((test) => loadPack(test.id)))
 }

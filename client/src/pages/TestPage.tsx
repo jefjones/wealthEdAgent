@@ -11,7 +11,7 @@ import {
 } from '../api/client.ts'
 import { useAuth } from '../auth/AuthContext.tsx'
 import { Button } from '../components/ui/button.tsx'
-import { correctOptionId } from '../content/pack.ts'
+import { correctOptionId } from '../content/answers.ts'
 import { findCourseQuestion } from '../content/catalog.ts'
 import { progressPath } from '../study/paths.ts'
 import { useTest } from '../study/TestContext.tsx'

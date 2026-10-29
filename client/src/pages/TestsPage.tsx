@@ -12,7 +12,9 @@ import {
 } from '../api/client.ts'
 import { Button } from '../components/ui/button.tsx'
 import { Card } from '../components/ui/card.tsx'
-import { courseSections, tests, type TestCourse } from '../content/catalog.ts'
+import { OfflineButton } from '../components/OfflineButton.tsx'
+import { courseSections, tests, type TestInfo } from '../content/catalog.ts'
+import { usePack } from '../offline/usePack.ts'
 import { formatLocal, formatPercent, percent } from '../lib/utils.ts'
 import { studyPath } from '../study/paths.ts'
 import { useStudyState } from '../study/stateSync.ts'
@@ -88,12 +90,13 @@ function TestCard({
   seen,
   attempts,
 }: {
-  test: TestCourse
+  test: TestInfo
   progress: SectionProgress[]
   seen: SeenRow[]
   attempts: Attempt[]
 }) {
-  const sections = courseSections(test.id)
+  const pack = usePack(test.id)
+  const sections = pack.kind === 'ready' ? courseSections(test.id) : []
   const { state: studyState } = useStudyState(test.id)
   const summary = summarizeTest({
     testId: test.id,
@@ -106,7 +109,7 @@ function TestCard({
   const readPercent = percent(summary.sectionsRead, summary.sectionsTotal)
   return (
     <Card className="flex h-full flex-col p-5 sm:p-6">
-      <p className="text-sm font-semibold text-[#2a6cb5]">{test.pack.chapters.length} chapters</p>
+      <p className="text-sm font-semibold text-[#2a6cb5]">{test.chapterCount} chapters</p>
       <div className="md:min-h-[6rem]">
         <h2 className="mt-1 font-['Fraunces',Georgia,serif] text-2xl font-semibold text-[#14375f]">{test.title}</h2>
         <p className="mt-1 text-[#3d5166] md:line-clamp-2" title={test.blurb}>{test.blurb}</p>
@@ -134,10 +137,16 @@ function TestCard({
           <dd className="mt-1 text-lg font-semibold text-[#14375f]">{summary.questionsAnswered}</dd>
         </div>
       </dl>
+      {pack.kind === 'online-only' ? (
+        <p className="mt-3 rounded-lg bg-[#eef4fb] px-3 py-2 text-sm font-semibold text-[#1c3f66]">Available online only</p>
+      ) : null}
       <div className="mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-2 pt-4">
-        <Link to={studyPath(test.id)}>
-          <Button type="button">Study this test</Button>
-        </Link>
+        <div className="flex flex-wrap items-center gap-2">
+          <Link to={studyPath(test.id)}>
+            <Button type="button">Study this test</Button>
+          </Link>
+          <OfflineButton testId={test.id} />
+        </div>
         <div className="min-w-0 text-right text-sm">
           <p className="text-[0.65rem] font-semibold tracking-wide text-[#5c7288] uppercase sm:text-xs">Last effort</p>
           <p className="font-semibold text-[#14375f]">{summary.lastEffortAt ? formatLocal(summary.lastEffortAt) : 'No work yet'}</p>
