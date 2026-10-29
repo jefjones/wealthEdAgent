@@ -11,7 +11,11 @@ installOutbox()
 // The service worker caches the app shell so a test saved for offline use opens with no connection.
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    void navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`, { scope: import.meta.env.BASE_URL })
+    void navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`, {
+      scope: import.meta.env.BASE_URL,
+      // The host sends max-age=7 days on every file; always re-check sw.js and pack-sw.js on update.
+      updateViaCache: 'none',
+    })
   })
 }
 

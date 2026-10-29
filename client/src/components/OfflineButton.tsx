@@ -1,26 +1,45 @@
 import { CloudDownload, CloudOff, Loader2 } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useSyncExternalStore } from 'react'
 import type { TestId } from '../content/catalog.ts'
 import { formatLocal } from '../lib/utils.ts'
-import { goOffline, offlineBusy, removeOffline, useOfflineIndex } from '../offline/offlineTests.ts'
+import {
+  goOffline,
+  offlineBusy,
+  offlineProgress,
+  removeOffline,
+  subscribeOffline,
+  useOfflineIndex,
+  type OfflineProgress,
+} from '../offline/offlineTests.ts'
 import { useOnline } from '../offline/usePack.ts'
 import { Button } from './ui/button.tsx'
 
-/** Go offline / Downloading / Available offline (date) with a way to turn it off. One per test. */
+export function progressLabel(progress: OfflineProgress | null) {
+  if (!progress || progress.step === 'starting') return 'Saving for offline…'
+  if (progress.step === 'content') return `Saving for offline… test content ${progress.done} of ${progress.total}`
+  return 'Saving for offline… your answers and progress'
+}
+
+/** Go offline / Saving / Available offline (date) with a way to turn it off. One per test. */
 export function OfflineButton({ testId }: { testId: TestId }) {
   const index = useOfflineIndex()
   const online = useOnline()
+  const busy = useSyncExternalStore(subscribeOffline, () => offlineBusy(testId), () => null)
+  const progress = useSyncExternalStore(subscribeOffline, () => offlineProgress(testId), () => null)
   const entry = index[testId]
-  const busy = offlineBusy(testId)
   const [error, setError] = useState('')
   const [confirming, setConfirming] = useState(false)
+  const [clicked, setClicked] = useState(false)
 
   async function save() {
     setError('')
+    setClicked(true)
     try {
       await goOffline(testId)
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'Could not save this test for offline use.')
+    } finally {
+      setClicked(false)
     }
   }
 
@@ -34,12 +53,13 @@ export function OfflineButton({ testId }: { testId: TestId }) {
     }
   }
 
+  const saving = busy === 'downloading' || (clicked && !entry)
   return (
     <div className="min-w-0">
-      {busy === 'downloading' ? (
-        <Button type="button" variant="outline" disabled>
-          <Loader2 size={16} className="animate-spin" aria-hidden />
-          Downloading…
+      {saving ? (
+        <Button type="button" variant="outline" disabled aria-live="polite" className="h-auto min-h-11 whitespace-normal text-left">
+          <Loader2 size={16} className="shrink-0 animate-spin" aria-hidden />
+          {progressLabel(progress)}
         </Button>
       ) : entry ? (
         <div className="flex flex-wrap items-center gap-2">

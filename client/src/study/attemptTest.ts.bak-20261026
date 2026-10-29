@@ -1,0 +1,45 @@
+import { courseQuestions, tests } from '../content/catalog.ts'
+
+let owners: Map<string, string> | null = null
+
+function questionOwners() {
+  if (owners) return owners
+  const map = new Map<string, string>()
+  for (const test of tests) {
+    for (const question of courseQuestions(test.id)) if (!map.has(question.id)) map.set(question.id, test.id)
+  }
+  owners = map
+  return map
+}
+
+/** The test whose question bank holds most of these question ids, or null when none match. */
+export function testIdForQuestions(questionIds: readonly string[] | null | undefined): string | null {
+  if (!questionIds?.length) return null
+  const map = questionOwners()
+  const counts = new Map<string, number>()
+  for (const id of questionIds) {
+    const owner = map.get(id)
+    if (owner) counts.set(owner, (counts.get(owner) ?? 0) + 1)
+  }
+  let best: string | null = null
+  let bestCount = 0
+  for (const [testId, count] of counts) {
+    if (count > bestCount) {
+      best = testId
+      bestCount = count
+    }
+  }
+  return best
+}
+
+/**
+ * The server does not store which test an attempt is for. Use, in order: the server value,
+ * the value saved in this browser, then the test that owns the drawn questions.
+ */
+export function resolveAttemptTestId(
+  serverTestId: string | undefined,
+  localTestId: string | undefined,
+  questionIds: readonly string[] | null | undefined,
+): string | undefined {
+  return serverTestId || localTestId || testIdForQuestions(questionIds) || undefined
+}

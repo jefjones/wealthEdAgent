@@ -52,6 +52,8 @@ export default defineConfig({
       injectRegister: null,
       registerType: 'autoUpdate',
       includeAssets: [],
+      // IIS on wealthedagent.com has no MIME type for .webmanifest (404), which made the SW precache fail. .json is served.
+      manifestFilename: 'manifest.json',
       manifest: {
         name: 'Life/Health and Securities Licenses Test Content Study',
         short_name: 'License Study',
